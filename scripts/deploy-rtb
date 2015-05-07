@@ -1,0 +1,63 @@
+#!/bin/bash
+. ~/bin/common.sh
+
+#
+# Copyright (c) 2014 Datacratic Inc.  All rights reserved.
+#
+
+if [ -z "$1" ]; then
+    echo 'specify color to deploy' >&2
+    exit 1
+fi
+
+case "$1" in
+    "other")
+        new_color=$(rtbInactiveColor)
+        ;;
+    *)
+        new_color="$1"
+        ;;
+esac
+
+NEW_DEPLOY=rtb-$new_color
+
+if [ ! -d "$RTB_ROOT/$NEW_DEPLOY" ]; then
+    echo "Invalid color: $1" >&2
+    exit 1;
+fi
+
+function GetOpts() {
+    if [ -z "$2" ]
+    then
+        BRANCH="prod"
+    else
+        opt=$2
+        shift
+        case ${opt} in
+            -b|--branch)
+                BRANCH="$2"
+                ;;
+        esac
+
+    fi
+}
+
+GetOpts  $*
+
+echo "Active color: $(rtbActiveColor)"
+echo "Deploying in: $new_color"
+
+( set -e
+  cd $RTB_ROOT/$NEW_DEPLOY
+  git fetch
+  git checkout $BRANCH
+  git reset --hard origin/$BRANCH
+  git rebase origin/$BRANCH
+  nice make -kj $(numParallelJobs) rtbkit
+)
+
+if [ $? -ne 0 ]; then
+    echo Deployment aborted.
+    exit 1
+fi
+

@@ -1,0 +1,45 @@
+#! /bin/bash
+. ~/bin/common.sh
+
+#
+# Copyright (c) 2014 Datacratic Inc.  All rights reserved.
+#
+
+cd $RTB_ROOT
+
+activeColor="$(rtbActiveColor)"
+if [ -z "$activeColor" ] && [ $# -eq 0 ]; then
+    echo "No active color found. Specify which color to launch"
+    exit 1
+fi
+
+if [ $# -eq 0 ]; then
+    newColor="$activeColor"
+    echo "No color specified, launching active color: $activeColor"
+else
+    newColor="$1"
+    if [ "$newColor" == "other" ]; then
+        newColor="$(rtbInactiveColor)"
+    fi
+
+    if [ ! -e "rtb-$newColor" ]; then
+        echo "Specified color does not exist: rtb-$newColor. Aborting"
+        exit 1
+    fi
+
+    echo "Switching from color $activeColor to $newColor"
+fi
+
+kill-rtb
+
+echo "Updating symlink to activate color: $newColor"
+rm rtb
+ln -sf "rtb-$newColor" rtb
+
+NODE=`hostname -f | awk -F. '{print NF == 1 ? $1 : $2 "." $1}'`
+echo "Launching RTB stack on $NODE"
+
+cd rtb
+./bin/launcher --node $NODE --bin ./bin --script ./launch.sh configs/launch-sequence.json
+./launch.sh --quiet
+cd ..

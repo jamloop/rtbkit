@@ -1,0 +1,14 @@
+#! /bin/bash
+. ~/bin/common.sh
+
+#
+# Copyright (c) 2014 Datacratic Inc.  All rights reserved.
+#
+
+echo "Killing RTB stack on `hostname`"
+tmux kill-session -t rtb
+
+if [ $? -eq 0 ]; then
+    echo "Stack killed, waiting 45 seconds allow ZooKeeper reset."
+    sleep 45
+fi
