@@ -13,13 +13,14 @@ To be able to update to a new version or publish to RTBkit, you'll need a fork o
 This repository contains a subtree of RTBkit i.e. all commits. Updating it to a new version means importing commits from the updated fork of RTBkit or from RTBkit directly. This can be done with subtree pull:
 
 ```
-git subtree pull --prefix rtbkit https://github.com/your-fork/rtbkit.git master --squash
+git remote add upstream https://github.com/your-fork/rtbkit.git
+git subtree pull --prefix rtbkit upstream master --squash
 ```
 
-Sometimes, it's useful to be able to upstream changes to RTBkit. The first step is to extract and upstream commits (with their history limited to rtbkit) to your fork. This can be done with subtree pull:
+Sometimes, it's useful to be able to upstream changes to RTBkit so that they get integrated in the official repository. The first step is to extract and upstream commits (with their history limited to rtbkit) to your fork. This can be done with subtree pull:
 
 ```
-git subtree push --prefix rtbkit https://github.com/your-fork/rtbkit.git master
+git subtree push --prefix rtbkit upstream master
 ```
 
 Then, create a pull request and submit it for review.
@@ -35,9 +36,14 @@ make rtbkit-tests
 
 ### Operations
 
-There are a few scripts supplied with this installation to ease deployments. The user `rtbkit` has a `prod` folder in its `home` directory. That folder contains 2 complete versions of the codebase called `rtb-black` and `rtb-white`. There is also a symbolic link `rtb` that points to the version currently in production i.e. either `rtb-black` or `rtb-white`.
+There are a few scripts supplied with this installation to ease deployments. They assume that the user has a `~/prod` directory. That directory must contains 2 complete versions of the codebase called:
 
-Under normal operations, deployment happens in the color that's not in production. The script uses the `prod` branch unless one is specified. The branch is fetched, checkout and the code is built. Beware that any pending modifications will be lost.
+```
+rtb-black
+rtb-white
+```
+
+There is also a symbolic link named `rtb` that links to the version currently in production i.e. it either points to `rtb-black` or `rtb-white`. Under normal operations, deployment happens in the color that's not in production. The script uses the `prod` branch unless one is specified. The branch is fetched, checkout and the code is built. Beware that any pending modifications will be lost.
 
 ```
 deploy-rtb COLOR [--branch NAME]
