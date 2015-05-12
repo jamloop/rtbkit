@@ -84,6 +84,12 @@
 * txAMQP==0.4
 * uWSGI==2.0.10
 
+## Limits
+
+* *    hard    nofile    1048576
+* *    soft    nofile    65536
+* *    soft    core      0
+* *    soft    as        48000000
 
 ## Datacratic User
 
