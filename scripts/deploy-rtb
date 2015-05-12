@@ -53,7 +53,7 @@ echo "Deploying in: $new_color"
   git checkout $BRANCH
   git reset --hard origin/$BRANCH
   git rebase origin/$BRANCH
-  nice make -kj $(numParallelJobs) rtbkit
+  nice make all
 )
 
 if [ $? -ne 0 ]; then
