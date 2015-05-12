@@ -1,7 +1,7 @@
 {
   "nodes": [
   {
-    "name": "rtb1.uswest2a",
+    "name": "uswest2a.rtb1",
     "root": "/home/rtbkit/prod/rtb/",
     "tasks": [
     {
