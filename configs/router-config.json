@@ -1,0 +1,12 @@
+[
+  {
+    "exchangeType": "openrtb",
+    "listenPort": 18142,
+    "numThreads": 1,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/auctions",
+    "performNameLookup": false
+  }
+]

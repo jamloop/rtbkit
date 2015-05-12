@@ -1,0 +1,24 @@
+{
+  "account": [
+    "datacratic_01", "test"
+  ],
+  "bidProbability": 0.01,
+  "creatives": [
+    {
+      "id": 1,
+      "width": 300,
+      "height": 250
+    }
+  ],
+  "externalId": 1,
+  "roundRobin": {
+    "group": "datacratic_01:test",
+    "weight": 1
+  },
+  "ext": {
+    "budget": "100000000USD/1M",
+    "pace": "1000USD/1M",
+    "price": "100USD/1M",
+    "priority": 1
+  }
+}
