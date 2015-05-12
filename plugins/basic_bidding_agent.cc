@@ -42,6 +42,9 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
     priority = 1.0;
     readConfig(filename);
 
+    // get rid of warnings for missing callbacks
+    strictMode(false);
+
     // setup bidding
     onBidRequest = bind(&BasicBiddingAgent::bid, this, _1, _2, _3, _4, _5, _6, _7);
 

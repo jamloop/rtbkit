@@ -4,7 +4,7 @@
       "threads": 8,
       "bids": {
         "url": "localhost:18142",
-        "type": "openrtb",
+        "type": "openrtb"
       },
       "wins": {
         "url": "localhost:18143",

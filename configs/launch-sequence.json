@@ -10,7 +10,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.banker",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--redis-uri", "127.0.0.1:6379"
+        "--redis-uri", "127.0.0.1:6380"
       ],
       "log": true
     },
