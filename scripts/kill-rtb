@@ -1,5 +1,5 @@
 #! /bin/bash
-. ~/bin/common.sh
+. common.sh
 
 #
 # Copyright (c) 2014 Datacratic Inc.  All rights reserved.
