@@ -1,5 +1,10 @@
 # ec2-52-24-129-29.us-west-2.compute.amazonaws.com
 
+## Hostname
+
+rtb1.uswest2a.jamloop in /etc/hostname
+127.0.0.1 rtb1.uswest2a.jamloop localhost in /etc/hosts
+
 ## System Packages (apt)
 
 * sysstat
