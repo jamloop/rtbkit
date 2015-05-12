@@ -30,3 +30,12 @@
 # Binaries
 bin/
 launch.sh
+
+# Logs
+logs/
+
+# CMake
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+Makefile

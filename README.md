@@ -60,3 +60,27 @@ If deployment failed for whatever reason, you can quickly revert to the previous
 ```
 launch-rtb other
 ```
+
+### Basic Bidding Agent
+
+We included a `BasicBiddingAgent` that uses RTBkit to perform the following tasks:
+
+- reads its configuration from a JSON file
+- sends its configuration to the agent configuration service
+- sets the budget of the campaign account
+- transfers a small amount of money every minute (pacing)
+
+Include (at least) one bidding agent per campaign for it to start spending. The agent configuration file is specified on the command line (see `configs/launch-sequence.json`) and contains an `AgentConfig` object that RTBkit understands. It contains an `ext` field that this agent will use to configure the following:
+
+- budget
+- pace (how much money is transfers every minute)
+- price
+- priority (to choose who will have the priority)
+
+The code is included in the `plugins` directory and uses `cmake`. To build, make sure rtbkit is already build and do the following:
+
+```
+cd plugins
+cmake -G "Unix Makefiles"
+make
+```
