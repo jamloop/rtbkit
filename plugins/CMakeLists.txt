@@ -20,3 +20,6 @@ include_directories(../rtbkit $ENV{HOME}/local/include)
 link_directories(../bin $ENV{HOME}/local/lib)
 add_executable(basic_bidding_agent basic_bidding_agent.cc)
 target_link_libraries(basic_bidding_agent rtb bidding_agent agent_configuration bid_request banker services arch utils jsoncpp types value_description boost_system boost_program_options)
+
+add_library(tremor_exchange_connector tremor_exchange_connector.cc)
+target_link_libraries(tremor_exchange_connector rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
