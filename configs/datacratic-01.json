@@ -2,12 +2,19 @@
   "account": [
     "datacratic_01", "test"
   ],
-  "bidProbability": 0.1,
+  "bidProbability": 1,
   "creatives": [
     {
       "id": 1,
-      "width": 300,
-      "height": 250
+      "type": "video",
+      "width": 720,
+      "height": 480,
+      "duration": 10,
+      "providerConfig": {
+          "tremor": {
+              "adomain": [ "jamloop.com" ]
+          }
+      }
     }
   ],
   "externalId": 1,

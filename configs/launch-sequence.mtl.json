@@ -10,7 +10,7 @@
       "arg": [
         "--service-name", "mtl.rtb1.banker",
         "--bootstrap", "configs/bootstrap.mtl.json",
-        "--redis-uri", "127.0.0.1:6380"
+        "--redis-uri", "nopersistence"
       ],
       "log": true
     },
