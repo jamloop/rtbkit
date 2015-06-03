@@ -1,0 +1,6 @@
+include_directories(..)
+
+add_executable(tremor_exchange_connector_test tremor_exchange_connector_test.cc)
+target_link_libraries(tremor_exchange_connector_test tremor_exchange bid_test_utils bidding_agent rtb_router agents_bidder agent_configuration monitor gc banker boost_unit_test_framework)
+
+add_test(tremor_exchange_connector_test ${EXECUTABLE_OUTPUT_PATH}/tremor_exchange_connector_test)
