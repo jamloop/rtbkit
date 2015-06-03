@@ -1,0 +1,21 @@
+{
+  "installation": "jamloop",
+  "location": "mtl",
+  "zookeeper-uri": "127.0.0.1:2181",
+  "carbon-uri": "127.0.0.1:2003",
+  "portRanges": {
+    "logs":                   [26000, 27000],
+    "router":                 [27000, 28000],
+    "augmentors":             [28000, 29000],
+    "configuration":          [29000, 30000],
+    "postAuctionLoop":        [30000, 21000],
+    "postAuctionLoopAgents":  [31000, 22000],
+    "banker.zmq":             [32000, 23000],
+    "banker.http":              7785,
+    "agentConfiguration.zmq": [33000, 34000],
+    "agentConfiguration.http":  7786,
+    "monitor.zmq":            [34000, 35000],
+    "monitor.http":             7787,
+    "adServer.logger":        [35000, 36000]
+  }
+}

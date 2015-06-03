@@ -1,0 +1,90 @@
+{
+  "nodes": [
+  {
+    "name": "mtl.rtb1",
+    "root": "/home/jamloop/prod/rtb/",
+    "tasks": [
+    {
+      "name": "banker",
+      "root": ".", "path": "./bin/banker_service_runner",
+      "arg": [
+        "--service-name", "mtl.rtb1.banker",
+        "--bootstrap", "configs/bootstrap.mtl.json",
+        "--redis-uri", "127.0.0.1:6380"
+      ],
+      "log": true
+    },
+    {
+      "name": "configs",
+      "root": ".", "path": "./bin/agent_configuration_service_runner",
+      "arg": [
+        "--service-name", "mtl.rtb1.acs",
+        "--bootstrap", "configs/bootstrap.mtl.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "events",
+      "root": ".", "path": "./bin/adserver_runner",
+      "arg": [
+        "--service-name", "mtl.rtb1.events",
+        "--bootstrap", "configs/bootstrap.mtl.json",
+        "--adserver-configuration", "configs/events-config.mtl.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "logger",
+      "root": ".", "path": "./bin/data_logger_ex",
+      "arg": [
+        "--service-name", "mtl.rtb1.logger",
+        "--bootstrap", "configs/bootstrap.mtl.json",
+        "--log-dir", "./logs/data/"
+      ],
+      "log": true
+    },
+    {
+      "name": "monitor",
+      "root": ".", "path": "./bin/monitor_service_runner",
+      "arg": [
+        "--service-name", "mtl.rtb1.monitor",
+        "--bootstrap", "configs/bootstrap.mtl.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "pal",
+      "root": ".", "path": "./bin/post_auction_runner",
+      "arg": [
+        "--service-name", "mtl.rtb1.pal",
+        "--bootstrap", "configs/bootstrap.mtl.json",
+        "--bidder", "configs/bidder-config.json",
+        "--win-seconds", "3600.0",
+        "--auction-seconds", "900.0"
+      ],
+      "log": true
+    },
+    {
+      "name": "router",
+      "root": ".", "path": "./bin/router_runner",
+      "arg": [
+        "--service-name", "mtl.rtb1.router",
+        "--bootstrap", "configs/bootstrap.mtl.json",
+        "--exchange-configuration", "configs/router-config.mtl.json",
+        "--bidder", "configs/bidder-config.json",
+        "--spend-rate", "1000000USD/1M"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "mtl.rtb1.agent",
+        "--bootstrap", "configs/bootstrap.mtl.json",
+        "--agent-configuration", "configs/datacratic-01.json"
+      ],
+      "log": true
+    }]
+  }]
+}
