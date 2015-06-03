@@ -26,7 +26,7 @@ int main(int argc, char ** argv)
     std::string filename;
     std::string node;
     std::string script;
-    std::string bin;
+    std::string binPath;
     bool launch = false;
     bool master = false;
 
@@ -36,7 +36,7 @@ int main(int argc, char ** argv)
         ("master,M", value(&master)->zero_tokens(), "specify that this will be the master node?")
         ("node,N", value(&node), "name of the current node")
         ("script,S", value(&script), "filename of the launch script sequence to generate and use")
-        ("bin,P", value(&bin), "location of the binaries");
+        ("binPath,P", value(&binPath), "location of the binaries");
 
     options_description all_opt;
     all_opt.add(configuration_options);
@@ -78,14 +78,10 @@ int main(int argc, char ** argv)
         exit(1);
     }
 
-    if(bin.empty()) {
-        bin = getenv("BIN");
-        if(bin.empty()) {
-            bin = "./build/x86_64/bin";
-        }
-    }
-
-    Datacratic::Launcher::Service::get().run(root, node, filename, script, launch, master, bin);
+    if(binPath.empty())
+        Datacratic::Launcher::Service::get().run(root, node, filename, script, launch, master);
+    else
+        Datacratic::Launcher::Service::get().run(root, node, filename, script, launch, master, binPath);
 
     if(launch) {
         int res = system(script.c_str());

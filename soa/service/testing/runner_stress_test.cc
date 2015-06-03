@@ -154,13 +154,7 @@ BOOST_AUTO_TEST_CASE( test_stress_runner )
         auto stdErrSink = make_shared<CallbackInputSink>(onStdErr);
 
         auto & stdInSink = runner.getStdInSink();
-        char const * bin = getenv("BIN");
-        if(!bin) {
-            bin = "build/x86_64/bin";
-        }
-
-        std::string path = std::string(bin) + "/runner_test_helper";
-        runner.run({path},
+        runner.run({"build/x86_64/bin/runner_test_helper"},
                    nullptr, stdOutSink, stdErrSink);
 
         for (const string & command: commands) {
@@ -187,7 +181,9 @@ BOOST_AUTO_TEST_CASE( test_stress_runner )
             while (sinkPtr.bytesSent() != stdInBytes) {
                 ML::sleep(0.2);
             }
-            stdInSink.requestClose();
+            if (sinkPtr.queueEnabled()) {
+                stdInSink.requestClose();
+            }
         }
 
         // cerr << "waiting termination...\n";

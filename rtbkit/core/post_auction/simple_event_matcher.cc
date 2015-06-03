@@ -296,21 +296,10 @@ doWinLoss(std::shared_ptr<PostAuctionEvent> event, bool isReplay)
         else recordHit("bidResult.%s.auctionAlreadyFinished", typeStr);
 
         if (event->type == PAE_WIN) {
-            info.bid.wcm.data["win"] = meta.toJson();
-            Amount price = info.bid.wcm.evaluate(
-                    info.bid.bidData.bidForSpot(info.spotIndex), winPrice);
-
-            recordOutcome(winPrice.value, "accounts.%s.winPrice.%s",
-                    info.bid.account.toString('.'), winPrice.getCurrencyStr());
-
-            recordOutcome(price.value, "accounts.%s.winCostPrice.%s",
-                    info.bid.account.toString('.'), price.getCurrencyStr());
-
-
             // Late win with auction still around
-            banker->forceWinBid(info.bid.account, price, LineItems());
+            banker->forceWinBid(info.bid.account, winPrice, LineItems());
 
-            info.forceWin(timestamp, price, winPrice, meta.toString());
+            info.forceWin(timestamp, winPrice, winPrice, meta.toString());
 
             finished.get(key) = info;
 
@@ -321,9 +310,9 @@ doWinLoss(std::shared_ptr<PostAuctionEvent> event, bool isReplay)
 
 
             recordHit("bidResult.%s.winAfterLossAssumed", typeStr);
-            recordOutcome(price.value,
+            recordOutcome(winPrice.value,
                           "bidResult.%s.winAfterLossAssumedAmount.%s",
-                          typeStr, price.getCurrencyStr());
+                          typeStr, winPrice.getCurrencyStr());
 
             auto winLatency = Date::now().secondsSince(info.auctionTime);
             recordOutcome(winLatency * 1000.0, "winLatencyMs");
@@ -559,7 +548,12 @@ doBidResult(
         WinCostModel wcm = response.wcm;
         wcm.data["win"] = winLossMeta;
         Bids bids = response.bidData;
-        price = wcm.evaluate(bids.bidForSpot(adspot_num), winPrice);
+        Bid bid = bids.bidForSpot(adspot_num);
+        price = wcm.evaluate(bid, winPrice);
+
+        recordOutcome(bid.price.value, "accounts.%s.bidPrice.%s",
+                account.toString('.'),
+                bid.price.getCurrencyStr());
 
         recordOutcome(winPrice.value, "accounts.%s.winPrice.%s",
                       account.toString('.'),
