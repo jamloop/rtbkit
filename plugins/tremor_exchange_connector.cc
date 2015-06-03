@@ -23,6 +23,8 @@ namespace Jamloop {
         : OpenRTBExchangeConnector(owner, std::move(name))
         , creativeConfig(exchangeName())
     {
+        this->auctionResource = "/auctions";
+        this->auctionVerb = "POST";
         initCreativeConfiguration();
     }
 
@@ -32,6 +34,8 @@ namespace Jamloop {
         : OpenRTBExchangeConnector(std::move(name), std::move(proxies))
         , creativeConfig(exchangeName())
     {
+        this->auctionResource = "/auctions";
+        this->auctionVerb = "POST";
         initCreativeConfiguration();
     }
 
@@ -45,7 +49,7 @@ namespace Jamloop {
                 Datacratic::jsonDecode(value, info.adm);
 
                 return true;
-        }).snippet();
+        }).snippet().optional();
 
         creativeConfig.addField(
             "nurl",
@@ -53,7 +57,7 @@ namespace Jamloop {
                 Datacratic::jsonDecode(value, info.nurl);
 
                 return true;
-        }).snippet();
+        }).snippet().optional();
 
         creativeConfig.addField(
             "iurl",
@@ -61,7 +65,7 @@ namespace Jamloop {
                 Datacratic::jsonDecode(value, info.iurl);
 
                 return true;
-        });
+        }).optional();
 
         creativeConfig.addField(
             "adomain",
@@ -81,7 +85,7 @@ namespace Jamloop {
                 Datacratic::jsonDecode(value, info.attr);
 
                 return true;
-        });
+        }).optional();
 
     }
 
