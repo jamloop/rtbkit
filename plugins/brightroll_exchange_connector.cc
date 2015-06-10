@@ -10,6 +10,7 @@
 #include "brightroll-openrtb.pb.h"
 #include "rtbkit/plugins/exchange/http_auction_handler.h"
 #include "rtbkit/openrtb/openrtb.h"
+#include "soa/service/logs.h"
 
 using namespace Datacratic;
 using namespace RTBKIT;
@@ -28,10 +29,14 @@ namespace JamLoop {
 
         template<typename T, size_t N>
         constexpr size_t array_size(T (&arr)[N]) { return N; }
+
     }
 
     namespace BrightRoll {
         typedef ::BidRequest BidRequest;
+
+        static Logging::Category trace("BrightRoll Bid Request");
+        static Logging::Category error("BrightRoll Bid Request Error", trace);
 
         /* BrightRoll specific enum */
 #define MIME_TYPES \
@@ -52,7 +57,8 @@ namespace JamLoop {
             return ext.is_ping();
         }
 
-        OpenRTB::MimeType toMimeType(Mimes mimes) {
+        OpenRTB::MimeType
+        toMimeType(Mimes mimes) {
             static constexpr const char* mimesStrings[] = {
                  #define MIME(_, str) \
                             str
@@ -66,7 +72,8 @@ namespace JamLoop {
             return OpenRTB::MimeType(mimesStrings[val]);
         }
 
-        OpenRTB::ContentCategory toContentCategory(ContentCategory category) {
+        OpenRTB::ContentCategory
+        toContentCategory(ContentCategory category) {
             static constexpr const char* categoriesStrings[] = {
                  #define ITEM(_, str) \
                                      str
@@ -79,27 +86,6 @@ namespace JamLoop {
             ExcAssert(val < categoriesSize);
 
             return OpenRTB::ContentCategory(categoriesStrings[val]);
-        }
-
-        OpenRTB::VideoPlaybackMethod toPlaybackMethod(Playbackmethod method) {
-            using OpenRTB::VideoPlaybackMethod;
-
-            VideoPlaybackMethod result;
-            if (method == PLAYBACK_METHOD_UNKNOWN) {
-                result.val = VideoPlaybackMethod::UNSPECIFIED;
-            } else {
-                result.val = static_cast<VideoPlaybackMethod::Vals>(static_cast<int>(method));
-            }
-
-            return result;
-        }
-
-        OpenRTB::AdPosition toAdPosition(Pos pos) {
-            using OpenRTB::AdPosition;
-
-            AdPosition result;
-            result.val = static_cast<AdPosition::Vals>(static_cast<int>(pos));
-            return result;
         }
 
         namespace detail {
@@ -132,7 +118,8 @@ namespace JamLoop {
             return result;
         }
 
-        OpenRTB::Banner toBanner(const BidRequest::Banner& banner) {
+        OpenRTB::Banner
+        toBanner(const BidRequest::Banner& banner) {
             OpenRTB::Banner result;
 
             result.id = Id(banner.id());
@@ -152,7 +139,15 @@ namespace JamLoop {
             }
 
             for (int i = 0; i < banner.api_size(); ++i) {
-                /* TODO: BrightRoll specific value */
+                auto val = banner.api(i);
+                if (val == BR_HTML5_1_0 || val == BR_HTML5_2_0) {
+                    OpenRTB::ApiFramework api;
+                    api.val = static_cast<int>(val);
+                    result.api.push_back(api);
+                }
+                else {
+                    result.api.push_back(openrtb_cast<OpenRTB::ApiFramework>(val));
+                }
             }
 
             if (banner.has_ext()) {
@@ -169,7 +164,8 @@ namespace JamLoop {
 
         }
 
-        AdSpot toAdSpot(const BidRequest::Imp& imp) {
+        AdSpot
+        toAdSpot(const BidRequest::Imp& imp) {
             AdSpot spot;
             spot.id = Id(imp.id());
 
@@ -198,7 +194,15 @@ namespace JamLoop {
             }
 
             for (int i = 0; i < video.api_size(); ++i) {
-                /* TODO: BrightRoll specific value */
+                auto val = video.api(i);
+                if (val == BR_HTML5_1_0 || val == BR_HTML5_2_0) {
+                    OpenRTB::ApiFramework api;
+                    api.val = static_cast<int>(val);
+                    v->api.push_back(api);
+                }
+                else {
+                    v->api.push_back(openrtb_cast<OpenRTB::ApiFramework>(val));
+                }
             }
 
             if (video.has_w()) {
@@ -208,8 +212,8 @@ namespace JamLoop {
                 v->h = video.h();
             }
 
-            /* TODO */
             if (video.has_startdelay()) {
+                v->startdelay.val = video.startdelay();
             }
 
             if (video.has_maxbitrate()) {
@@ -217,7 +221,11 @@ namespace JamLoop {
             }
 
             for (int i = 0; i < video.playbackmethod_size(); ++i) {
-                v->playbackmethod.push_back(toPlaybackMethod(video.playbackmethod(i)));
+                auto val = video.playbackmethod(i);
+                if (val != PLAYBACK_METHOD_UNKNOWN) {
+                    v->playbackmethod.push_back(
+                            openrtb_cast<OpenRTB::VideoPlaybackMethod>(val));
+                }
             }
 
             for (int i = 0; i < video.delivery_size(); ++i) {
@@ -235,13 +243,13 @@ namespace JamLoop {
             }
 
             spot.formats.push_back(Format(v->w.value(), v->h.value()));
-            // spot.video = std::move(v)
             spot.video.reset(v.release());
 
             return spot;
         }
 
-        Datacratic::TaggedBool toBool(State state) {
+        Datacratic::TaggedBool
+        toBool(State state) {
             Datacratic::TaggedBool result;
 
             if (state != STATE_UNKNOWN) {
@@ -251,7 +259,8 @@ namespace JamLoop {
             return result;
         }
 
-        Datacratic::UnicodeString toContext(Context context) {
+        Datacratic::UnicodeString
+        toContext(Context context) {
             static constexpr const char* contextStrings[] = {
                 "Video",
                 "Game",
@@ -288,7 +297,7 @@ namespace JamLoop {
                 result->cat.push_back(toContentCategory(content.cat(i)));
             }
             if (content.has_keywords()) {
-                // TODO: CSList
+                result->keywords = Datacratic::UnicodeString(content.keywords());
             }
             if (content.has_context()) {
                 result->context = toContext(content.context());
@@ -356,7 +365,7 @@ namespace JamLoop {
             }
 
             if (obj.has_keywords()) {
-                // TODO: CSList
+                result->keywords = Datacratic::UnicodeString(obj.keywords());
             }
             if (obj.has_name()) {
                 result->name = Datacratic::UnicodeString(obj.name());
@@ -379,6 +388,9 @@ namespace JamLoop {
             result->id = Id(app.id());
             parseCommon(app, result.get());
 
+            if (app.has_ver()) {
+                result->ver = app.ver();
+            }
             if (app.has_bundle()) {
                 result->bundle = Datacratic::UnicodeString(app.bundle());
             }
@@ -412,6 +424,220 @@ namespace JamLoop {
             return result.release();
         }
 
+        OpenRTB::Geo *
+        toGeo(const BidRequest::Geo& geo) {
+            auto result = make_unique<OpenRTB::Geo>();
+
+            if (geo.has_lat()) {
+                result->lat = geo.lat();
+            }
+            if (geo.has_lon()) {
+                result->lon = geo.lon();
+            }
+            if (geo.has_country()) {
+                result->country = geo.country();
+            }
+            if (geo.has_region()) {
+                result->region = geo.region();
+            }
+            if (geo.has_regionfips104()) {
+                result->regionfips104 = geo.regionfips104();
+            }
+            if (geo.has_metro()) {
+                result->metro = geo.metro();
+            }
+            if (geo.has_city()) {
+                result->city = Datacratic::UnicodeString(geo.city());
+            }
+            if (geo.has_zip()) {
+                result->zip = Datacratic::UnicodeString(geo.zip());
+            }
+            if (geo.has_type()) {
+                auto val = geo.type();
+                if (val != GEOTYPE_UNKNOWN) {
+                    result->type
+                        = openrtb_cast<OpenRTB::LocationType>(geo.type());
+                }
+            }
+
+            return result.release();
+        }
+
+        OpenRTB::Device *
+        toDevice(const BidRequest::Device& device) {
+            auto result = make_unique<OpenRTB::Device>();
+
+            if (device.has_dnt()) {
+                result->dnt = toBool(device.dnt());
+            }
+            if (device.has_ip()) {
+                result->ip = device.ip();
+            }
+            if (device.has_carrier()) {
+                result->carrier = device.carrier();
+            }
+            if (device.has_ua()) {
+                result->ua = Datacratic::UnicodeString(device.ua());
+            }
+            if (device.has_language()) {
+                result->language = Datacratic::UnicodeString(device.language());
+            }
+            if (device.has_make()) {
+                result->make = Datacratic::UnicodeString(device.make());
+            }
+            if (device.has_model()) {
+                result->model = Datacratic::UnicodeString(device.model());
+            }
+            if (device.has_os()) {
+                result->os = Datacratic::UnicodeString(device.os());
+            }
+            if (device.has_osv()) {
+                result->osv = Datacratic::UnicodeString(device.osv());
+            }
+            if (device.has_connectiontype()) {
+                result->connectiontype
+                    = openrtb_cast<OpenRTB::ConnectionType>(device.connectiontype());
+            }
+            if (device.has_devicetype()) {
+                result->devicetype
+                    = openrtb_cast<OpenRTB::DeviceType>(device.devicetype());
+            }
+            if (device.has_geo()) {
+                result->geo.reset(toGeo(device.geo()));
+            }
+            if (device.has_ipv6()) {
+                result->ipv6 = device.ipv6();
+            }
+            if (device.has_didsha1()) {
+                result->didsha1 = device.didsha1();
+            }
+            if (device.has_didmd5()) {
+                result->didmd5 = device.didmd5();
+            }
+            if (device.has_dpidsha1()) {
+                result->dpidsha1 = device.dpidsha1();
+            }
+            if (device.has_dpidmd5()) {
+                result->dpidmd5 = device.dpidmd5();
+            }
+
+            return result.release();
+
+        }
+
+        OpenRTB::User *
+        toUser(const BidRequest::User& user) {
+            auto result = make_unique<OpenRTB::User>();
+
+            result->id = Datacratic::Id(user.id());
+            if (user.has_buyeruid()) {
+                result->buyeruid = Datacratic::Id(user.buyeruid());
+            }
+            if (user.has_yob()) {
+                // BrightRoll sends the Year of Birth as a string
+                auto yob = user.yob();
+                try {
+                    result->yob = std::stoi(yob);
+                } catch (const std::invalid_argument&) {
+                    THROW(error) << "Invalid year of birth '" << yob << "'" << std::endl;
+                }
+            }
+            if (user.has_gender()) {
+                result->gender = user.gender();
+            }
+            if (user.has_geo()) {
+                result->geo.reset(toGeo(user.geo()));
+            }
+
+            return result.release();
+        }
+
+        Json::Value
+        toExt(const BidRequest::Ext& ext) {
+            Json::Value ret;
+
+            auto stateBool = [](State state) {
+                if (state == STATE_UNKNOWN || state == NO)
+                    return false;
+
+                return true;
+            };
+
+            if (ext.has_is_test()) {
+                ret["is_test"] = ext.is_test();
+            }
+            if (ext.has_is_ping()) {
+                ret["is_ping"] = ext.is_ping();
+            }
+            if (ext.has_is_skippable()) {
+                ret["is_skippable"] = stateBool(ext.is_skippable());
+            }
+            if (ext.has_skip_offset()) {
+                ret["skip_offset"] = ext.skip_offset();
+            }
+            if (ext.has_is_fullscreenexpandable()) {
+                ret["is_fullscreenexpandable"] = ext.is_fullscreenexpandable();
+            }
+            if (ext.has_is_facebook()) {
+                ret["is_facebook"] = ext.is_facebook();
+            }
+            if (ext.has_is_incentivized()) {
+                ret["is_incentivized"] = stateBool(ext.is_incentivized());
+            }
+            if (ext.has_is_syndicated()) {
+                ret["is_syndicated"] = stateBool(ext.is_syndicated());
+            }
+            if (ext.has_is_ugc()) {
+                ret["is_ugc"] = stateBool(ext.is_ugc());
+            }
+            if (ext.has_max_wrapper_redirects()) {
+                ret["max_wrapper_redirects"] = ext.max_wrapper_redirects();
+            }
+            if (ext.has_inventory_class()) {
+                auto inventory_class = [&ext]() -> const char * const {
+                    switch (ext.inventory_class()) {
+                        case INVENTORYCLASS_UNKNOWN:
+                            return "unknown";
+                        case REACH:
+                            return "reach";
+                        case PREMIUM:
+                            return "premium";
+                        case SUPERPREMIUM:
+                            return "superpremium";
+                    }
+                    return nullptr;
+                }();
+
+                ret["inventory_class"] = inventory_class;
+
+            }
+            if (ext.has_ifa()) {
+                ret["ifa"] = ext.ifa();
+            }
+            if (ext.has_viewability()) {
+                ret["viewability"] = ext.viewability();
+            }
+            if (ext.has_xdid()) {
+                ret["xdid"] = ext.xdid();
+            }
+            if (ext.has_secure()) {
+                ret["secure"] = ext.secure();
+            }
+
+            return ret;
+
+        }
+
+        void generateProviderId(std::shared_ptr<RTBKIT::BidRequest>& req) {
+            if (req->device && !req->device->ip.empty() && !req->device->ua.empty()) {
+                auto toHash = req->device->ip + req->device->ua.rawString();
+                req->userAgentIPHash = Id(CityHash64(toHash.c_str(), toHash.length()));
+                req->userIds.add(req->userAgentIPHash, ID_PROVIDER);
+            }
+            else
+                req->userIds.add(Id(0), ID_PROVIDER);
+        }
+
         std::shared_ptr<RTBKIT::BidRequest>
         toInternalBidRequest(BidRequest&& request) {
             auto result = std::make_shared<RTBKIT::BidRequest>();
@@ -431,15 +657,141 @@ namespace JamLoop {
                 result->isTest = request.ext().is_test();
             }
 
+            if (request.wseat_size() > 0) {
+                std::vector<std::string> wseat;
+                wseat.reserve(request.wseat_size());
+                for (int i = 0; i < request.wseat_size(); ++i) {
+                    wseat.push_back(request.wseat(i));
+                }
+                result->segments.addStrings("openrtb-wseat", std::move(wseat));
+            }
+            if (request.bcat_size() > 0) {
+                result->blockedCategories.reserve(request.bcat_size());
+                for (int i = 0; i < request.bcat_size(); ++i) {
+                    result->blockedCategories.push_back(toContentCategory(request.bcat(i)));
+                }
+            }
+            if (request.badv_size() > 0) {
+                std::vector<std::string> badv;
+                badv.reserve(request.badv_size());
+                for (int i = 0; i < request.badv_size(); ++i) {
+                    auto val = request.badv(i);
+                    badv.push_back(val);
+                    result->badv.push_back(Datacratic::UnicodeString(val));
+                }
+                result->restrictions.addStrings("badv", badv);
+            }
+
             /* BrightRoll only supports one impression */
             result->imp.push_back(toAdSpot(request.imp()));
 
             if (request.has_site()) {
                 result->site.reset(toSite(request.site()));
+
+                if (!result->site->page.empty()) {
+                    result->url = result->site->page;
+                }
+                else if (result->site->id) {
+                    result->url = Url("http://" + result->site->id.toString() + ".siteid/");
+                }
+
+                // Adding IAB categories to segments
+                for(const auto& v : result->site->cat) {
+                    result->segments.add("iab-categories", v.val);
+                }
             }
             if (request.has_app()) {
                 result->app.reset(toApp(request.app()));
+
+                if (!result->app->bundle.empty()) {
+                    result->url = Url(result->app->bundle);
+                }
+                else if (result->app->id) {
+                    result->url = Url("http://" + result->app->id.toString() + ".appid/");
+                }
+
+                // Adding IAB categories to segments
+                for(const auto& v : result->app->cat) {
+                    result->segments.add("iab-categories", v.val);
+                }
             }
+            if (request.has_device()) {
+                result->device.reset(toDevice(request.device()));
+                auto device = result->device;
+
+                result->language = device->language;
+                result->userAgent = device->ua;
+                if (!device->ip.empty()) {
+                    result->ipAddress = device->ip;
+                }
+                else if (!device->ipv6.empty()) {
+                    result->ipAddress = device->ipv6;
+                }
+
+                if (device->geo) {
+                    auto geo = device->geo;
+                    auto& loc = result->location;
+                    loc.countryCode = geo->country;
+                    if (!geo->region.empty()) {
+                        loc.regionCode = geo->region;
+                    }
+                    else {
+                        loc.regionCode = geo->regionfips104;
+                    }
+                    loc.cityName = geo->city;
+                    loc.postalCode = geo->zip;
+                }
+            }
+            if (request.has_user()) {
+                result->user.reset(toUser(request.user()));
+
+                if (result->user->tz.val != -1) {
+                    result->location.timezoneOffsetMinutes = result->user->tz.val;
+                }
+                if (result->user->id) {
+                    result->userIds.add(result->user->id, ID_EXCHANGE);
+                }
+
+                if (result->user->buyeruid) {
+                    result->userIds.add(result->user->buyeruid, ID_PROVIDER);
+                }
+                else if (result->user->id) {
+                    result->userIds.add(result->user->id, ID_PROVIDER);
+                }
+                else {
+                    generateProviderId(result);
+                }
+
+                if (result->user->geo) {
+                    auto geo = result->user->geo;
+                    auto& loc = result->location;
+                    if (loc.countryCode.empty() && !geo->country.empty()) {
+                        loc.countryCode = geo->country;
+                    }
+                    if (loc.regionCode.empty() && !geo->region.empty()) {
+                        loc.regionCode = geo->region;
+                    }
+                    if (loc.cityName.empty() && !geo->city.empty()) {
+                        loc.cityName = geo->city;
+                    }
+                    if (loc.postalCode.empty() && !geo->zip.empty()) {
+                        loc.postalCode = geo->zip;
+                    }
+                }
+            }
+            else {
+                // No User so we generate a PROVIDER_ID to be able to identify the user
+                generateProviderId(result);
+            }
+
+            // BrightRoll only supports USD
+            result->bidCurrency.push_back(CurrencyCode::CC_USD);
+
+            if (request.has_ext()) {
+                result->ext = toExt(request.ext());
+            }
+
+
             return result;
 
         }
