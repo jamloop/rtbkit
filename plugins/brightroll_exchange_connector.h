@@ -130,6 +130,8 @@ private:
     BrightRollCreativeConfiguration creativeConfig;
 
     void initCreativeConfiguration();
+    void setSeatBid(const RTBKIT::Auction& auction, size_t spotNum, BidResponse& response) const;
+    void setBidExtension(BidResponse::BidExt* ext, const CreativeInfo* info) const;
 
 };
 

@@ -22,10 +22,19 @@ namespace JamLoop {
     }
 
     namespace {
-        template<typename T, typename... Args>
-        std::unique_ptr<T> make_unique(Args&& ...args) {
-            return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-        }
+        #define GCC_VERSION (__GNUC__ * 10000 \
+                               + __GNUC_MINOR__ * 100 \
+                               + __GNUC_PATCHLEVEL__)
+
+        /* gcc implements make_unique in 4.9 */
+        #if GCC_VERSION < 40900
+            template<typename T, typename... Args>
+            std::unique_ptr<T> make_unique(Args&& ...args) {
+                return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+            }
+        #else
+            using std::make_unique;
+        #endif
 
         template<typename T, size_t N>
         constexpr size_t array_size(T (&arr)[N]) { return N; }
@@ -42,6 +51,9 @@ namespace JamLoop {
 
     namespace BrightRoll {
         typedef ::BidRequest BidRequest;
+        typedef ::BidResponse BidResponse;
+        typedef BidResponse::Bid Bid;
+
 
         static Logging::Category trace("BrightRoll Bid Request");
         static Logging::Category error("BrightRoll Bid Request Error", trace);
@@ -69,7 +81,7 @@ namespace JamLoop {
         toMimeType(Mimes mimes) {
             static constexpr const char* mimesStrings[] = {
                  #define MIME(_, str) \
-                            str
+                            str,
                          MIME_TYPES
                   #undef MIME
             };
@@ -80,11 +92,48 @@ namespace JamLoop {
             return OpenRTB::MimeType(mimesStrings[val]);
         }
 
+        Mimes
+        toMimes(OpenRTB::MimeType mimeType) {
+            struct MimeInfo {
+                const char *str;
+                Mimes type;
+            };
+
+            static constexpr MimeInfo mimes[] = {
+               #define MIME(m, str) \
+                         { str, m },
+                       MIME_TYPES
+                #undef MIME
+            };
+
+            static constexpr size_t size = sizeof (mimes) / sizeof (*mimes);
+
+            for (size_t i = 0; i < size; ++i) {
+                const auto *m = mimes + i;
+                if (mimeType.type == m->str) {
+                    return m->type;
+                }
+            }
+
+            throw ML::Exception("Unknown Mime '%s'", mimeType.type.c_str());
+        }
+
+
         OpenRTB::ContentCategory
         toContentCategory(ContentCategory category) {
+
+            /* Note:
+                Currently, the function uses the full category string as the
+                ContentCategory, for example "Movies"
+
+                To use the IAB Identifier, just replace the macro underneath
+                by #define ITEM(id, _) #id, which will use a stringified version
+                of the category identifiers, for example "IAB1_5"
+            */
+
             static constexpr const char* categoriesStrings[] = {
                  #define ITEM(_, str) \
-                                     str
+                                     str,
                  #include "content_category.itm"
                  #undef ITEM
             };
@@ -124,6 +173,13 @@ namespace JamLoop {
             result.val = static_cast<typename To::Vals>(static_cast<int>(from));
 
             return result;
+        }
+
+        template<typename To, typename From>
+        To brightroll_cast(From from) {
+            static_assert(detail::is_tagged_enum<From>::value, "Invalid cast");
+
+            return static_cast<To>(static_cast<int>(from.val));
         }
 
         OpenRTB::Banner
@@ -1079,6 +1135,7 @@ namespace JamLoop {
             const HttpHeader& header,
             const std::string& payload)
     {
+        // @Todo: to be fully compliant, we chould check if the BidRequest has a tmax
         return Default::MaximumResponseTime;
     }
 
@@ -1088,7 +1145,116 @@ namespace JamLoop {
             const HttpHeader& header,
             const Auction& auction) const
     {
-        return HttpResponse(204, "none", "");
+        const Auction::Data* current = auction.getCurrentData();
+        if (current->hasError()) {
+            return getErrorResponse(connection, current->error + ": " + current->details);
+        }
+
+        BrightRoll::BidResponse response;
+        response.set_id(auction.id.toString());
+        // BrightRoll only supports USD -- return a value of "USD".
+        response.set_cur("USD");
+
+        for (size_t spotNum = 0; spotNum < current->responses.size(); ++spotNum) {
+            if (!current->hasValidResponse(spotNum))
+                continue;
+
+            setSeatBid(auction, spotNum, response);
+        }
+
+        if (response.seatbid_size() == 0) {
+            return HttpResponse(204, "none", "");
+        }
+
+        std::string payload;
+        response.SerializeToString(&payload);
+
+        return HttpResponse(200, "application/octet-stream", payload);
+    }
+
+    void
+    BrightRollExchangeConnector::setSeatBid(
+            const Auction& auction,
+            size_t spotNum,
+            BrightRoll::BidResponse& response) const
+    {
+        const Auction::Data *current = auction.getCurrentData();
+
+        auto& resp = current->winningResponse(spotNum);
+
+        const AgentConfig* config
+            = std::static_pointer_cast<const AgentConfig>(resp.agentConfig).get();
+        std::string name = exchangeName();
+
+        auto campaignInfo = config->getProviderData<CampaignInfo>(name);
+        int creativeIndex = resp.agentCreativeIndex;
+
+        auto& creative = config->creatives[creativeIndex];
+        auto creativeInfo = creative.getProviderData<CreativeInfo>(name);
+
+        BrightRoll::BidResponse::SeatBid* seatBid;
+        bool foundSeat = false;
+        for (int i = 0; i < response.seatbid_size(); ++i) {
+            if (response.seatbid(i).seat() == campaignInfo->seat) {
+                foundSeat = true;
+                seatBid = response.mutable_seatbid(i);
+                break;
+            }
+        }
+
+        // Create seatBid if it does not exist
+        if (!foundSeat) {
+            auto sbid = response.add_seatbid();
+            sbid->set_seat(campaignInfo->seat);
+
+            seatBid = sbid;
+        }
+
+        BrightRollCreativeConfiguration::Context context {
+            creative,
+            resp,
+            *auction.request,
+            static_cast<int>(spotNum)
+        };
+
+        auto bid = seatBid->add_bid();
+        bid->set_id(Id(auction.id, auction.request->imp[spotNum].id).toString());
+
+        double price = USD_CPM(resp.price.maxPrice);
+        bid->set_price(price);
+        bid->set_nurl(creativeConfig.expand(creativeInfo->nurl, context));
+        bid->add_adomain(creativeInfo->adomain);
+        bid->set_cid(resp.agent);
+        bid->set_crid(std::to_string(resp.creativeId));
+
+        setBidExtension(bid->mutable_ext(), creativeInfo);
+
+    }
+
+    void
+    BrightRollExchangeConnector::setBidExtension(
+            BrightRoll::BidResponse::BidExt *ext,
+            const CreativeInfo* info) const
+    {
+        ExcAssert(ext);
+
+        ext->set_campaign_name(info->campaign_name);
+        ext->set_line_item_name(info->line_item_name);
+        ext->set_creative_name(info->creative_name);
+        ext->set_creative_duration(info->creative_duration);
+
+        auto mediaDesc = ext->add_media_desc();
+        mediaDesc->set_media_mime(BrightRoll::toMimes(info->media_desc.media_mime));
+        mediaDesc->set_media_bitrate(info->media_desc.media_bitrate);
+
+        ext->set_api(BrightRoll::brightroll_cast<Api>(info->api));
+        ext->set_lid(info->lid);
+        ext->set_landingpage_url(info->landingpage_url);
+        ext->set_advertiser_name(info->advertiser_name);
+        ext->add_companiontype(
+                BrightRoll::brightroll_cast<Companiontype>(info->companiontype));
+        ext->set_adtype(info->adtype);
+        ext->set_adserver_processing_time(0);
     }
 
 
