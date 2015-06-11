@@ -147,6 +147,7 @@ namespace JamLoop {
 
         namespace detail {
 
+            /* SFINAE helper to check if a type is a TaggedEnum */
             template<typename Enum>
             struct is_tagged_enum {
 
@@ -166,6 +167,12 @@ namespace JamLoop {
         }
 
 
+        /* Casts from an enum of BrightRoll to its OpenRTB equivalent.
+           For example, this function can be used to cast from
+           BrightRoll Playbackmethod enum to OpenRTB::VideoPlaybackMethod
+
+           Note: the destination type must be a TaggedEnum
+        */
         template<typename To, typename From>
         To openrtb_cast(From from) {
             static_assert(detail::is_tagged_enum<To>::value, "Invalid cast");
@@ -175,6 +182,7 @@ namespace JamLoop {
             return result;
         }
 
+        /* The exact opposit of openrtb_cast */
         template<typename To, typename From>
         To brightroll_cast(From from) {
             static_assert(detail::is_tagged_enum<From>::value, "Invalid cast");
