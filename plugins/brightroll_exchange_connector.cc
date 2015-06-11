@@ -30,6 +30,14 @@ namespace JamLoop {
         template<typename T, size_t N>
         constexpr size_t array_size(T (&arr)[N]) { return N; }
 
+        constexpr size_t str_size_tail_rec(const char* str, size_t acc) {
+            return *str == 0 ? acc : str_size_tail_rec(str + 1, acc + 1);
+        }
+
+        constexpr size_t str_size(const char* str) {
+            return str_size_tail_rec(str, 0);
+        }
+
     }
 
     namespace BrightRoll {
@@ -801,13 +809,192 @@ namespace JamLoop {
     BrightRollExchangeConnector::BrightRollExchangeConnector(
             ServiceBase &owner, std::string name)
         : HttpExchangeConnector(std::move(name), owner)
+        , creativeConfig(exchangeName())
     {
+        initCreativeConfiguration();
     }
 
     BrightRollExchangeConnector::BrightRollExchangeConnector(
             std::string name, std::shared_ptr<ServiceProxies> proxies)
         : HttpExchangeConnector(std::move(name), std::move(proxies))
+        , creativeConfig(exchangeName())
     {
+        initCreativeConfiguration();
+    }
+
+    void
+    BrightRollExchangeConnector::initCreativeConfiguration()
+    {
+        creativeConfig.addField(
+            "nurl",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.nurl);
+
+                if (info.nurl.empty()) {
+                    throw std::invalid_argument("nurl is required");
+                }
+
+                return true;
+        }).snippet().required();
+
+        creativeConfig.addField(
+            "adomain",
+            [](const Json::Value& value, CreativeInfo& info) {
+                std::string adomain;
+                Datacratic::jsonDecode(value, adomain);
+
+                if (adomain.empty()) {
+                    throw std::invalid_argument("adomain is required");
+                }
+
+                static constexpr const char* Http = "http://";
+                static constexpr size_t HttpSize = str_size(Http);
+
+                // Remove http:// from the string
+                if (!adomain.compare(0, HttpSize, Http)) {
+                    info.adomain = adomain.substr(HttpSize);
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "campaign_name",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.campaign_name);
+
+                if (info.campaign_name.empty()) {
+                    throw std::invalid_argument("campaign_name is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "line_item_name",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.line_item_name);
+
+                if (info.line_item_name.empty()) {
+                    throw std::invalid_argument("line_item_name is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "creative_name",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.creative_name);
+
+                if (info.creative_name.empty()) {
+                    throw std::invalid_argument("creative_name is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "creative_duration",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.creative_duration);
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "media_desc.media_mime",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.media_desc.media_mime);
+
+                if (info.media_desc.media_mime.empty()) {
+                    throw std::invalid_argument("media_mime is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "media_desc.media_bitrate",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.media_desc.media_bitrate);
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "api",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.api);
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "lid",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.lid);
+
+                if (info.lid.empty()) {
+                    throw std::invalid_argument("lid is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "landingpage_url",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.landingpage_url);
+
+                if (info.landingpage_url.empty()) {
+                    throw std::invalid_argument("landingpage_url is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "advertiser_name",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.advertiser_name);
+
+                if (info.advertiser_name.empty()) {
+                    throw std::invalid_argument("advertiser_name is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
+            "companiontype",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.companiontype);
+
+                return true;
+        }).optional();
+
+        creativeConfig.addField(
+            "adtype",
+            [](const Json::Value& value, CreativeInfo& info) {
+                std::string adtype;
+                Datacratic::jsonDecode(value, adtype);
+
+                if (adtype == "video") {
+                    info.adtype = ADTYPE_VIDEO;
+                }
+                else if (adtype == "banner") {
+                    info.adtype = ADTYPE_BANNER;
+                }
+                else {
+                    throw std::invalid_argument(ML::format("Invalid adtype '%s', must be either video or banner",
+                                                adtype.c_str()));
+                }
+
+                return true;
+        }).defaultTo("video");
+
+
     }
 
     ExchangeConnector::ExchangeCompatibility
@@ -815,10 +1002,42 @@ namespace JamLoop {
             const AgentConfig& config,
             bool includeReasons) const
     {
-        ExchangeCompatibility compatibility;
-        compatibility.setCompatible();
+        using std::begin;
+        using std::end;
 
-        return compatibility;
+        ExchangeCompatibility result;
+        result.setCompatible();
+
+        std::string exchange = exchangeName();
+        const char* name = exchange.c_str();
+
+        if (!config.providerConfig.isMember(name)) {
+            result.setIncompatible(
+                    ML::format("providerConfig.%s is null", name), includeReasons);
+            return result;
+        }
+
+        auto provConf = config.providerConfig[name];
+        if (!provConf.isMember("seat")) {
+            result.setIncompatible(
+                    ML::format("providerConfig.%s.seat does not exist", name), includeReasons);
+            return result;
+        }
+
+        auto seat = provConf["seat"].asString();
+        if (!std::all_of(begin(seat), end(seat),
+                  [](char c) { return std::isalpha(c) || std::isdigit(c); })) {
+            result.setIncompatible(
+                    ML::format("providerConfig.%s.seat must be either numeric "
+                               "or alphanumeric", name), includeReasons);
+            return result;
+        }
+
+        auto info = std::make_shared<CampaignInfo>();
+        info->seat = std::move(seat);
+        result.info = std::move(info);
+
+        return result;
     }
 
     ExchangeConnector::ExchangeCompatibility
@@ -826,10 +1045,7 @@ namespace JamLoop {
             const Creative& creative,
             bool includeReasons) const
     {
-        ExchangeCompatibility compatibility;
-        compatibility.setCompatible();
-
-        return compatibility;
+        return creativeConfig.handleCreativeCompatibility(creative, includeReasons);
     }
 
     std::shared_ptr<RTBKIT::BidRequest>
