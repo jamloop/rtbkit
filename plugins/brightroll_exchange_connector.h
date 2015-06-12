@@ -59,12 +59,14 @@ public:
                              const Datacratic::HttpHeader& header,
                              const RTBKIT::Auction& auction) const;
 
+    std::string getBidSourceConfiguration() const;
+
     struct CreativeInfo {
 
         struct MediaDesc {
             //< Mime type of the media file associated with the
             //  returned creative.
-            std::string media_mime;
+            Mimes media_mime;
 
             //< If the media file is a video, provide the associated
             //  bitrate.
