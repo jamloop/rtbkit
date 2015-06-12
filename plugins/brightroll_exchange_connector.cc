@@ -11,6 +11,7 @@
 #include "rtbkit/plugins/exchange/http_auction_handler.h"
 #include "rtbkit/openrtb/openrtb.h"
 #include "soa/service/logs.h"
+#include "jml/arch/info.h"
 
 using namespace Datacratic;
 using namespace RTBKIT;
@@ -305,7 +306,7 @@ namespace JamLoop {
                         openrtb_cast<OpenRTB::ContentDeliveryMethod>(video.delivery(i)));
             }
 
-            for (int i = 0; video.companiontype_size(); ++i) {
+            for (int i = 0; i < video.companiontype_size(); ++i) {
                 v->companiontype.push_back(
                         openrtb_cast<OpenRTB::VastCompanionType>(video.companiontype(i)));
             }
@@ -875,6 +876,8 @@ namespace JamLoop {
         : HttpExchangeConnector(std::move(name), owner)
         , creativeConfig(exchangeName())
     {
+        this->auctionVerb = "POST";
+        this->auctionResource = "/auctions";
         initCreativeConfiguration();
     }
 
@@ -883,6 +886,8 @@ namespace JamLoop {
         : HttpExchangeConnector(std::move(name), std::move(proxies))
         , creativeConfig(exchangeName())
     {
+        this->auctionVerb = "POST";
+        this->auctionResource = "/auctions";
         initCreativeConfiguration();
     }
 
@@ -969,11 +974,14 @@ namespace JamLoop {
         creativeConfig.addField(
             "media_desc.media_mime",
             [](const Json::Value& value, CreativeInfo& info) {
-                Datacratic::jsonDecode(value, info.media_desc.media_mime);
+                std::string media_mime;
+                Datacratic::jsonDecode(value, media_mime);
 
-                if (info.media_desc.media_mime.empty()) {
+                if (media_mime.empty()) {
                     throw std::invalid_argument("media_mime is required");
                 }
+
+                info.media_desc.media_mime = BrightRoll::toMimes(OpenRTB::MimeType(media_mime));
 
                 return true;
         }).required();
@@ -1252,18 +1260,38 @@ namespace JamLoop {
         ext->set_creative_duration(info->creative_duration);
 
         auto mediaDesc = ext->add_media_desc();
-        mediaDesc->set_media_mime(BrightRoll::toMimes(info->media_desc.media_mime));
+        mediaDesc->set_media_mime(info->media_desc.media_mime);
         mediaDesc->set_media_bitrate(info->media_desc.media_bitrate);
 
         ext->set_api(BrightRoll::brightroll_cast<Api>(info->api));
         ext->set_lid(info->lid);
         ext->set_landingpage_url(info->landingpage_url);
         ext->set_advertiser_name(info->advertiser_name);
-        ext->add_companiontype(
-                BrightRoll::brightroll_cast<Companiontype>(info->companiontype));
+        if (info->companiontype.val != OpenRTB::VastCompanionType::UNSPECIFIED) {
+            ext->add_companiontype(
+                    BrightRoll::brightroll_cast<Companiontype>(info->companiontype));
+        }
         ext->set_adtype(info->adtype);
         ext->set_adserver_processing_time(0);
     }
 
+    std::string
+    BrightRollExchangeConnector::getBidSourceConfiguration() const
+    {
+        auto suffix = std::to_string(port());
+        return ML::format("{\"type\":\"none\",\"url\":\"%s\"}",
+                          ML::fqdn_hostname(suffix) + ":" + suffix);
+    }
+
 
 } // namespace JamLoop
+
+namespace {
+
+struct Init {
+    Init() {
+        RTBKIT::ExchangeConnector::registerFactory<JamLoop::BrightRollExchangeConnector>();
+    }
+} init;
+
+}
