@@ -15,12 +15,42 @@
               "adomain": [ "jamloop.com" ]
           }
       }
+    },
+    {
+      "id": 2,
+      "type": "video",
+      "width": 640,
+      "height": 480,
+      "duration": 10,
+      "providerConfig": {
+          "brightroll": {
+              "nurl": "http://adserver.com/vast?brid=%{bidrequest.id}&impid=%{imp.id}&clearing_price_macro=##BRX_CLEARING_PRICE##",
+              "adomain": "jamloop.com",
+              "campaign_name": "Integration campaign",
+              "line_item_name": "Integration line item",
+              "creative_name":  "Integration creative",
+              "creative_duration": 10,
+              "media_desc": {
+                "media_mime": "video/x-flv",
+                "media_bitrate": 600
+              },
+              "api": 1,
+              "lid": "428885",
+              "landingpage_url": "http://jamloop.com",
+              "advertiser_name": "jamloop"
+          }
+      }
     }
   ],
   "externalId": 1,
   "roundRobin": {
     "group": "datacratic_01:test",
     "weight": 1
+  },
+  "providerConfig": {
+      "brightroll": {
+          "seat": "12341"
+      }
   },
   "ext": {
     "budget": "100000000USD/1M",
