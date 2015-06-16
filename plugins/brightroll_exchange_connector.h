@@ -133,7 +133,7 @@ private:
 
     void initCreativeConfiguration();
     void setSeatBid(const RTBKIT::Auction& auction, size_t spotNum, BidResponse& response) const;
-    void setBidExtension(BidResponse::BidExt* ext, const CreativeInfo* info) const;
+    void setBidExtension(BidResponse::BidExt* ext, const RTBKIT::Auction& auction, const CreativeInfo* info) const;
 
 };
 

@@ -921,8 +921,10 @@ namespace JamLoop {
 
                 // Remove http:// from the string
                 if (!adomain.compare(0, HttpSize, Http)) {
-                    info.adomain = adomain.substr(HttpSize);
+                    adomain = adomain.substr(HttpSize);
                 }
+
+                info.adomain = std::move(adomain);
 
                 return true;
         }).required();
@@ -1235,6 +1237,7 @@ namespace JamLoop {
 
         auto bid = seatBid->add_bid();
         bid->set_id(Id(auction.id, auction.request->imp[spotNum].id).toString());
+        bid->set_impid(auction.request->imp[spotNum].id.toString());
 
         double price = USD_CPM(resp.price.maxPrice);
         bid->set_price(price);
@@ -1243,13 +1246,14 @@ namespace JamLoop {
         bid->set_cid(resp.agent);
         bid->set_crid(std::to_string(resp.creativeId));
 
-        setBidExtension(bid->mutable_ext(), creativeInfo);
+        setBidExtension(bid->mutable_ext(), auction, creativeInfo);
 
     }
 
     void
     BrightRollExchangeConnector::setBidExtension(
             BrightRoll::BidResponse::BidExt *ext,
+            const Auction& auction,
             const CreativeInfo* info) const
     {
         ExcAssert(ext);
@@ -1272,7 +1276,8 @@ namespace JamLoop {
                     BrightRoll::brightroll_cast<Companiontype>(info->companiontype));
         }
         ext->set_adtype(info->adtype);
-        ext->set_adserver_processing_time(0);
+        double processingTimeMs = Date::now().secondsSince(auction.request->timestamp) * 1000;
+        ext->set_adserver_processing_time(static_cast<int>(processingTimeMs));
     }
 
     std::string
