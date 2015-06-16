@@ -1243,13 +1243,14 @@ namespace JamLoop {
         bid->set_cid(resp.agent);
         bid->set_crid(std::to_string(resp.creativeId));
 
-        setBidExtension(bid->mutable_ext(), creativeInfo);
+        setBidExtension(bid->mutable_ext(), auction, creativeInfo);
 
     }
 
     void
     BrightRollExchangeConnector::setBidExtension(
             BrightRoll::BidResponse::BidExt *ext,
+            const Auction& auction,
             const CreativeInfo* info) const
     {
         ExcAssert(ext);
@@ -1272,7 +1273,8 @@ namespace JamLoop {
                     BrightRoll::brightroll_cast<Companiontype>(info->companiontype));
         }
         ext->set_adtype(info->adtype);
-        ext->set_adserver_processing_time(0);
+        double processingTimeMs = Date::now().secondsSince(auction.request->timestamp) * 1000;
+        ext->set_adserver_processing_time(static_cast<int>(processingTimeMs));
     }
 
     std::string
