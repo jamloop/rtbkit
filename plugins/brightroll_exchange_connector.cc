@@ -921,8 +921,10 @@ namespace JamLoop {
 
                 // Remove http:// from the string
                 if (!adomain.compare(0, HttpSize, Http)) {
-                    info.adomain = adomain.substr(HttpSize);
+                    adomain = adomain.substr(HttpSize);
                 }
+
+                info.adomain = std::move(adomain);
 
                 return true;
         }).required();
@@ -1235,6 +1237,7 @@ namespace JamLoop {
 
         auto bid = seatBid->add_bid();
         bid->set_id(Id(auction.id, auction.request->imp[spotNum].id).toString());
+        bid->set_impid(auction.request->imp[spotNum].id.toString());
 
         double price = USD_CPM(resp.price.maxPrice);
         bid->set_price(price);
