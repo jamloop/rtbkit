@@ -72,7 +72,8 @@
         "--bootstrap", "configs/bootstrap.mtl.json",
         "--exchange-configuration", "configs/router-config.mtl.json",
         "--bidder", "configs/bidder-config.json",
-        "--spend-rate", "1000000USD/1M"
+        "--spend-rate", "1000000USD/1M",
+        "--slowModeTolerance", "172800"
       ],
       "log": true
     },
