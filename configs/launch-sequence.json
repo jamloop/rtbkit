@@ -2,7 +2,7 @@
   "nodes": [
   {
     "name": "uswest2a.rtb1",
-    "root": "/home/rtbkit/prod/rtb/",
+    "root": "/home/jamloop/prod/rtb/",
     "tasks": [
     {
       "name": "banker",
@@ -72,7 +72,8 @@
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--exchange-configuration", "configs/router-config.json",
         "--bidder", "configs/bidder-config.json",
-        "--spend-rate", "1000000USD/1M"
+        "--spend-rate", "1000000USD/1M",
+        "--slowModeTolerance", "172800"
       ],
       "log": true
     },
