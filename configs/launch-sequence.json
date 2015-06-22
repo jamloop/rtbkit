@@ -2,7 +2,7 @@
   "nodes": [
   {
     "name": "uswest2a.rtb1",
-    "root": "/home/jamloop/prod/rtb/",
+    "root": "/home/rtbkit/prod/rtb/",
     "tasks": [
     {
       "name": "banker",
