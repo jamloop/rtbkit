@@ -12,7 +12,8 @@
       "duration": 10,
       "providerConfig": {
           "tremor": {
-              "adomain": [ "jamloop.com" ]
+              "adomain": [ "jamloop.com" ],
+              "nurl": "http://ad4.liverail.com/?LR_PUBLISHER_ID=125369&LR_SCHEMA=vast2&LR_DESCRIPTION=Test%20Description&LR_VIDEO_ID=1&LR_TAGS=Test%20tags&LR_TITLE=Test%20Title&LR_AUTOPLAY=1&LR_MUTED=0&LR_ADTYPE=3&rand=21232312&price=${AUCTION_PRICE}"
           }
       }
     },
