@@ -16,6 +16,7 @@
 #include "rtbkit/common/auction.h"
 #include "rtbkit/common/expand_variable.h"
 #include "rtbkit/common/creative_field.h"
+#include "rtbkit/common/currency.h"
 
 namespace RTBKIT {
 
@@ -131,6 +132,12 @@ public:
             "imp.id",
             [](const Context& context)
             { return context.bidrequest.imp[context.spotNum].id.toString(); }
+        },
+        {
+            "bid.price",
+            [](const Context& context) {
+                return to_string(static_cast<double>(USD_CPM(context.response.price.maxPrice)));
+            }
         }
         };
 
