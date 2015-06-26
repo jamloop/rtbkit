@@ -78,14 +78,25 @@
       "log": true
     },
     {
-      "name": "agent",
+      "name": "agent-brightroll",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent",
+        "--service-name", "uswest2a.rtb1.agent_brightroll",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/datacratic-01.json"
       ],
       "log": true
-    }]
+    },
+    {
+      "name": "agent-tremor",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_tremor",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/datacratic-02.json"
+      ],
+      "log": true
+    }
+    ]
   }]
 }

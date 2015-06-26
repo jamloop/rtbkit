@@ -1,24 +1,11 @@
 {
   "account": [
-    "datacratic_01", "test"
+    "datacratic_01", "brightroll"
   ],
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 1,
-      "type": "video",
-      "width": 720,
-      "height": 480,
-      "duration": 10,
-      "providerConfig": {
-          "tremor": {
-              "adomain": [ "jamloop.com" ],
-              "nurl": "http://ad4.liverail.com/?LR_PUBLISHER_ID=125369&LR_SCHEMA=vast2&LR_DESCRIPTION=Test%20Description&LR_VIDEO_ID=1&LR_TAGS=Test%20tags&LR_TITLE=Test%20Title&LR_AUTOPLAY=1&LR_MUTED=0&LR_ADTYPE=3&rand=21232312&price=${AUCTION_PRICE}"
-          }
-      }
-    },
-    {
-      "id": 2,
+      "id": 3,
       "type": "video",
       "width": 0,
       "height": 0,
@@ -43,7 +30,7 @@
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "type": "video",
       "width": 0,
       "height": 0,
@@ -70,7 +57,7 @@
   ],
   "externalId": 1,
   "roundRobin": {
-    "group": "datacratic_01:test",
+    "group": "datacratic_01:brightroll",
     "weight": 1
   },
   "providerConfig": {

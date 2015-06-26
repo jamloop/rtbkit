@@ -1,0 +1,45 @@
+{
+  "account": [
+    "datacratic_02", "tremor"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 1,
+      "type": "video",
+      "width": 720,
+      "height": 480,
+      "duration": 10,
+      "providerConfig": {
+          "tremor": {
+              "adomain": [ "jamloop.com" ],
+              "nurl": "http://ad4.liverail.com/?LR_PUBLISHER_ID=125369&LR_SCHEMA=vast2&LR_DESCRIPTION=Test%20Description&LR_VIDEO_ID=1&LR_TAGS=Test%20tags&LR_TITLE=Test%20Title&LR_AUTOPLAY=1&LR_MUTED=0&LR_ADTYPE=3&rand=21232312&price=${AUCTION_PRICE}"
+          }
+      }
+    },
+    {
+      "id": 2,
+      "type": "video",
+      "width": 720,
+      "height": 480,
+      "duration": 10,
+      "providerConfig": {
+          "tremor": {
+              "adomain": [ "jamloop.com" ],
+              "nurl": "http://ad4.liverail.com/?LR_PUBLISHER_ID=125373&LR_SCHEMA=vast2-vpaid&LR_DESCRIPTION=Test%20Description]&LR_VIDEO_ID=2&LR_TAGS=Tag1%20Tag2&LR_AUTOPLAY=1&LR_MUTED=0&LR_ADTYPE=3&rand=4323423&price=${AUCTION_PRICE}"
+          }
+      }
+    }
+   ],
+    "externalId": 2,
+    "roundRobin": {
+      "group": "datacratic_01:tremor",
+      "weight": 1
+    },
+    "ext": {
+      "budget": "500000000USD/1M",
+      "pace": "1000000USD/1M",
+      "price": "7500USD/1M",
+      "priority": 1
+    }
+}
