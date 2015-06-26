@@ -13,6 +13,7 @@
 #include "jml/arch/exception.h"
 #include "jml/arch/futex.h"
 #include "jml/arch/timers.h"
+#include "jml/arch/threads.h"
 #include "jml/utils/exc_assert.h"
 #include "jml/utils/string_functions.h"
 #include "jml/utils/vector_utils.h"
@@ -160,7 +161,13 @@ BOOST_AUTO_TEST_CASE( test_runner_callbacks )
     loop.start();
 
     auto & stdInSink = runner.getStdInSink();
-    runner.run({"build/x86_64/bin/runner_test_helper"},
+    char const * bin = getenv("BIN");
+    if(!bin) {
+        bin = "build/x86_64/bin";
+    }
+
+    std::string path = std::string(bin) + "/runner_test_helper";
+    runner.run({path},
                onTerminate, stdOutSink, stdErrSink);
     for (const string & command: commands) {
         while (!stdInSink.write(string(command))) {
@@ -206,7 +213,13 @@ BOOST_AUTO_TEST_CASE( test_runner_normal_exit )
         loop.start();
 
         auto & stdInSink = runner.getStdInSink();
-        runner.run({"build/x86_64/bin/runner_test_helper"},
+        char const * bin = getenv("BIN");
+        if(!bin) {
+            bin = "build/x86_64/bin";
+        }
+
+        std::string path = std::string(bin) + "/runner_test_helper";
+        runner.run({path},
                    onTerminate, nullSink, nullSink);
         for (const string & command: commands) {
             stdInSink.write(string(command));
@@ -236,7 +249,13 @@ BOOST_AUTO_TEST_CASE( test_runner_normal_exit )
         loop.start();
 
         auto & stdInSink = runner.getStdInSink();
-        runner.run({"build/x86_64/bin/runner_test_helper"},
+        char const * bin = getenv("BIN");
+        if(!bin) {
+            bin = "build/x86_64/bin";
+        }
+
+        std::string path = std::string(bin) + "/runner_test_helper";
+        runner.run({path},
                    onTerminate, nullSink, nullSink);
         for (const string & command: commands) {
             stdInSink.write(string(command));
@@ -377,7 +396,13 @@ BOOST_AUTO_TEST_CASE( test_runner_cleanup )
         auto stdOutSink = make_shared<CallbackInputSink>(onStdOut);
 
         auto & stdInSink = runner.getStdInSink();
-        runner.run({"build/x86_64/bin/runner_test_helper"},
+        char const * bin = getenv("BIN");
+        if(!bin) {
+            bin = "build/x86_64/bin";
+        }
+
+        std::string path = std::string(bin) + "/runner_test_helper";
+        runner.run({path},
                    nullptr, stdOutSink, nullSink);
         for (const string & command: commands) {
             stdInSink.write(string(command));
@@ -454,8 +479,14 @@ test_runner_no_output_delay_helper(bool stdout)
     loop.start();
 
     auto & stdInSink = runner.getStdInSink();
+    char const * bin = getenv("BIN");
+    if(!bin) {
+        bin = "build/x86_64/bin";
+    }
+
+    std::string path = std::string(bin) + "/runner_test_helper";
     runner.run({"/usr/bin/stdbuf", "-o0",
-                "build/x86_64/bin/runner_test_helper"},
+                path},
                nullptr, stdOutSink, stdErrSink);
     for (const string & command: commands) {
         while (!stdInSink.write(string(command))) {
@@ -569,4 +600,49 @@ BOOST_AUTO_TEST_CASE( test_timeval_value_description )
         BOOST_CHECK_EQUAL(tv.tv_sec, 12);
         BOOST_CHECK_EQUAL(tv.tv_usec, 3456);
     }
+}
+
+/* This test ensures that running a program from a thread does not cause the
+ * program to be killed when the thread exits, due to prctl PR_SET_PDEATHSIG
+ * (http://man7.org/linux/man-pages/man2/prctl.2.html) being active when
+ * pthread_exit is called. */
+BOOST_AUTO_TEST_CASE( test_set_prctl_from_thread )
+{
+    MessageLoop loop;
+    loop.start();
+
+    auto runner = make_shared<Runner>();
+    loop.addSource("runner", runner);
+    runner->waitConnectionState(AsyncEventSource::CONNECTED);
+
+    std::mutex lock;
+
+    RunResult runResult;
+    auto onTerminate = [&] (const RunResult & result) {
+        cerr << to_string(gettid()) + ": process terminated\n";
+        runResult = result;
+        lock.unlock();
+    };
+
+    auto threadProc = [=] () {
+        runner->run({"/bin/sleep", "3"}, onTerminate);
+        cerr << to_string(gettid()) + ": process launched\n";
+    };
+
+    lock.lock();
+
+    cerr << to_string(gettid()) + ": launching thread\n";
+    thread launcherThread(threadProc);
+    launcherThread.join();
+    cerr << to_string(gettid()) + ": thread joined\n";
+
+    lock.lock();
+
+    cerr << to_string(gettid()) + ": runner done\n";
+    loop.shutdown();
+    lock.unlock();
+
+    BOOST_CHECK_EQUAL(runResult.state, RunResult::RETURNED);
+    BOOST_CHECK_EQUAL(runResult.returnCode, 0);
+    BOOST_CHECK_EQUAL(runResult.signum, -1);
 }
