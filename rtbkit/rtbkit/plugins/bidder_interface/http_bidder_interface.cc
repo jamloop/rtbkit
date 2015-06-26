@@ -166,7 +166,27 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
                 [&](const pair<string, BidInfo> &bidder)
         {
             std::string agent = bidder.first;
-            const auto &info = router->agents[agent];
+            /* Since it is possible to delete a configuration from the REST interface of
+             * the agent configuration service, the user might delete the configuration
+             * while some requests for this configuration are already in flight. When
+             * that happens, since we're capturing our context by copy in the closure,
+             * we hold a "private" copy of the current agents and their configurations,
+             * which means that we might still hold configurations that have been deleted
+             * and erased in the router.
+             *
+             * This is why we are checking if the agent still exists. If not, we're skipping
+             * it. This is not ideal and introduces an extra check but this is the simplest way
+             * Note that this will be trigger the "couldn't fint configuration for
+             * externalId" error below. In other words, all requests that are "in flight"
+             * for a configuration that has been deleted will trigger a logging message.
+             * We will return a 204 for these requests
+             */
+            auto agentIt = router->agents.find(agent);
+            if (agentIt == std::end(router->agents)) {
+                return false;
+            }
+            const auto &info = agentIt->second;
+            ExcAssert(info.config);
             return info.config->externalId == externalId;
         });
 
@@ -334,6 +354,7 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
                              }
 
                              auto &bidInfo = bidsToSubmit[agent];
+                             theBid.spotIndex = spotIndex;
                              bidInfo.bids.bidForSpot(spotIndex) = theBid;
                          }
                      }
@@ -391,7 +412,12 @@ void HttpBidderInterface::sendWinLossMessage(
         content["userIds"] = event.uids.toJsonArray();
         // ratio cannot be casted to json::value ...
         content["price"] = (double) getAmountIn<CPM>(event.winPrice);
+        content["account"] = event.response.account.toJson();
+        content["creative-id"] = event.response.creativeId;
 
+        auto& ext = content["ext"];
+        ext["external-id"] = agentConfig->externalId;
+        ext["creative-index"] = event.response.agentCreativeIndex;
         //requestStr["passback"];
     }
     else if (adserverWinFormat == FMT_DATACRATIC) {
@@ -456,6 +482,12 @@ void HttpBidderInterface::sendCampaignEventMessage(
         content["bidRequestId"] = event.auctionId.toString();
         content["impid"] = event.impId.toString();
         content["type"] = event.label;
+        content["account"] = event.response.account.toJson();
+        content["creative-id"] = event.response.creativeId;
+
+        auto& ext = content["ext"];
+        ext["external-id"] = agentConfig->externalId;
+        ext["creative-index"] = event.response.agentCreativeIndex;
     }
     else if (adserverEventFormat == FMT_DATACRATIC) {
         content["id"] = event.auctionId.toString();
