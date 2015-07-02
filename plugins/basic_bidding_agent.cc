@@ -49,9 +49,11 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
     onBidRequest = bind(&BasicBiddingAgent::bid, this, _1, _2, _3, _4, _5, _6, _7);
 
     // setup pacing
-    addPeriodic("BasicBiddingAgent::pace", 60.0, [&](uint64_t) {
-        pacing();
-    });
+    if (!pace.isZero()) {
+        addPeriodic("BasicBiddingAgent::pace", 60.0, [&](uint64_t) {
+            pacing();
+        });
+    }
 
     BiddingAgent::init();
 }
