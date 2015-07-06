@@ -72,19 +72,120 @@
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--exchange-configuration", "configs/router-config.json",
         "--bidder", "configs/bidder-config.json",
-        "--spend-rate", "1000000USD/1M"
+        "--banker-choice", "null"
       ],
       "log": true
     },
     {
-      "name": "agent",
+      "name": "agent-brightroll-01",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent",
+        "--service-name", "uswest2a.rtb1.agent_brightroll_01",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/datacratic-01.json"
+        "--agent-configuration", "configs/brightroll-01.json"
       ],
       "log": true
-    }]
+    },
+    {
+      "name": "agent-brightroll-02",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_02",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-03",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_03",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-04",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_04",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-05",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_05",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-06",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_06",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-07",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_07",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-08",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_08",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-09",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_09",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-10",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_10",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-tremor",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_tremor",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/datacratic-02.json"
+      ],
+      "log": true
+    }
+    ]
   }]
 }
