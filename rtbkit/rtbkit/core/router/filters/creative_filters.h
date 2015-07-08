@@ -75,6 +75,44 @@ private:
     std::unordered_map<uint32_t, CreativeMatrix> formatFilter;
 };
 
+struct DynamicCreativeFormatFilter : public IterativeCreativeFilter<DynamicCreativeFormatFilter>
+{
+    static constexpr const char* name = "DynamicCreativeFormat";
+    unsigned priority() const { return Priority::CreativeFormat; }
+
+    bool filterCreative(
+            FilterState& state, const AdSpot& spot, const AgentConfig& config,
+            const Creative& creative) const
+    {
+         if (spot.formats.empty()) return true;
+         if (creative.format.width == 0 && creative.format.height == 0) return true;
+
+         if (creative.format.width == 0) {
+             for (const auto& format: spot.formats) {
+                 if (format.height < creative.format.height) return false;
+             }
+
+             return true;
+         }
+         else if (creative.format.height == 0) {
+             for (const auto& format: spot.formats) {
+                 if (format.width < creative.format.width) return false;
+             }
+
+             return true;
+         }
+
+         for (const auto& format: spot.formats) {
+             if (format.width < creative.format.width
+                     || format.height < creative.format.height) return false;
+         }
+
+         return true;
+
+    }
+
+};
+
 
 /******************************************************************************/
 /* CREATIVE LANGUAGE FILTER                                                   */
