@@ -1973,9 +1973,8 @@ doBidImpl(const BidMessage &message, const std::vector<std::string> &originalMes
         }
 
         const Creative & creative = config.creatives.at(bid.creativeIndex);
-
+#if 0
         if (!creative.compatible(imp[spotIndex])) {
-#if 1
             cerr << "creative not compatible with spot: " << endl;
             cerr << "auction: " << auctionInfo.auction->requestStr
                 << endl;
@@ -1986,7 +1985,6 @@ doBidImpl(const BidMessage &message, const std::vector<std::string> &originalMes
             cerr << "bid num: " << i << endl;
             cerr << "creative num: " << bid.creativeIndex << endl;
             cerr << "creative: " << creative.toJson() << endl;
-#endif
             returnInvalidBid(agent, bidsString, auctionInfo.auction,
                     "creativeNotCompatibleWithSpot",
                     "creative %s not compatible with spot %s",
@@ -1994,7 +1992,7 @@ doBidImpl(const BidMessage &message, const std::vector<std::string> &originalMes
                     imp[spotIndex].toJson().toString().c_str());
             continue;
         }
-
+#endif
         if (!creative.biddable(auctionInfo.auction->request->exchange,
                         auctionInfo.auction->request->protocolVersion)) {
             returnInvalidBid(agent, bidsString, auctionInfo.auction,
