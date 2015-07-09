@@ -78,7 +78,7 @@ struct InitFilters
 {
     InitFilters()
     {
-        RTBKIT::FilterRegistry::registerFilter<RTBKIT::CreativeFormatFilter>();
+        RTBKIT::FilterRegistry::registerFilter<RTBKIT::DynamicCreativeFormatFilter>();
         RTBKIT::FilterRegistry::registerFilter<RTBKIT::CreativeLanguageFilter>();
         RTBKIT::FilterRegistry::registerFilter<RTBKIT::CreativeLocationFilter>();
 
