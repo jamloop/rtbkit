@@ -7,8 +7,8 @@
     {
       "id": 1,
       "type": "video",
-      "width": 720,
-      "height": 480,
+      "width": 350,
+      "height": 0,
       "duration": 10,
       "providerConfig": {
           "tremor": {
@@ -20,8 +20,8 @@
     {
       "id": 2,
       "type": "video",
-      "width": 720,
-      "height": 480,
+      "width": 350,
+      "height": 0,
       "duration": 10,
       "providerConfig": {
           "tremor": {

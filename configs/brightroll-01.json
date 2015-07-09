@@ -7,7 +7,7 @@
     {
       "id": 3,
       "type": "video",
-      "width": 0,
+      "width": 350,
       "height": 0,
       "duration": 30,
       "providerConfig": {
@@ -32,7 +32,7 @@
     {
       "id": 4,
       "type": "video",
-      "width": 0,
+      "width": 350,
       "height": 0,
       "duration": 30,
       "providerConfig": {
