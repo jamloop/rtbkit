@@ -126,7 +126,6 @@ public:
                 }
                 return "UNKNOWN";        
             }
-            
 	    },
         {
             "bidrequest.device.ip",
@@ -136,8 +135,8 @@ public:
                 if (br.device && br.device->ip) {
                     return br.device->ip.toString();
                 }
+                return "UNKNOWN";
             }
-            return "UNKNOWN";
         },
         {
             "bidrequest.timestamp",
