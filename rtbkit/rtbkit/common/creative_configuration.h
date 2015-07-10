@@ -117,26 +117,19 @@ public:
             }
         },
     	{
-            "bidrequest.publisher.page",
+            "bidrequest.site.page",
             [](const Context& ctx) -> std::string
-            {
-                auto const& br = ctx.bidrequest;
-                if (br.site && br.site->page) {
-                    return br.site->page.toString();
-                }
-                return "UNKNOWN";        
-            }
-	    },
+            { return ctx.bidrequest.site->page.toString(); } 
+        },
+        {   
+            "bidrequest.imp.pos",
+            [](const Context& ctx) -> std::string
+            { return std::to_string(ctx.bidrequest.imp[ctx.spotNum].position.val); }
+        },
         {
             "bidrequest.device.ip",
             [](const Context& ctx) -> std::string
-            {
-                auto const& br = ctx.bidrequest;
-                if (br.device && br.device->ip) {
-                    return br.device->ip.toString();
-                }
-                return "UNKNOWN";
-            }
+            { return ctx.bidrequest.device->ip; }
         },
         {
             "bidrequest.timestamp",
