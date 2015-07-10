@@ -116,7 +116,29 @@ public:
                 }
             }
         },
-
+    	{
+            "bidrequest.publisher.page",
+            [](const Context& ctx) -> std::string
+            {
+                auto const& br = ctx.bidrequest;
+                if (br.site && br.site->page) {
+                    return br.site->page.toString();
+                }
+                return "UNKNOWN";        
+            }
+            
+	    },
+        {
+            "bidrequest.device.ip",
+            [](const Context& ctx) -> std::string
+            {
+                auto const& br = ctx.bidrequest;
+                if (br.device && br.device->ip) {
+                    return br.device->ip.toString();
+                }
+            }
+            return "UNKNOWN";
+        },
         {
             "bidrequest.timestamp",
             [](const Context& ctx)
