@@ -118,18 +118,26 @@ public:
         },
     	{
             "bidrequest.site.page",
-            [](const Context& ctx) -> std::string
-            { return ctx.bidrequest.site->page.toString(); } 
+            [](const Context& ctx) -> std::string { 
+                if (ctx.bidrequest.site) {
+                    return ctx.bidrequest.site->page.toString();
+                }
+                return "UNKNOWN"; 
+            } 
         },
         {   
             "bidrequest.imp.pos",
-            [](const Context& ctx) -> std::string
+            [](const Context& ctx) -> std::string 
             { return std::to_string(ctx.bidrequest.imp[ctx.spotNum].position.val); }
         },
         {
             "bidrequest.device.ip",
-            [](const Context& ctx) -> std::string
-            { return ctx.bidrequest.device->ip; }
+            [](const Context& ctx) -> std::string { 
+                if (ctx.bidrequest.device) {
+                    return ctx.bidrequest.device->ip; 
+                }
+                return "UNKNOWN";
+            }
         },
         {
             "bidrequest.timestamp",
