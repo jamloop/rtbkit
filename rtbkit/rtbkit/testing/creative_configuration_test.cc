@@ -160,11 +160,13 @@ BOOST_AUTO_TEST_CASE(test_snippet)
     
     //OpenRTB::Site <OpenRTB::Optional> site;
     //site.page = Datacratic::Url("http://example.com/example");
+    bidrequest.site.reset(new OpenRTB::Site());
     bidrequest.site->page = Datacratic::Url("http://example.com/example");
 
     //OpenRTB::Optional <OpenRTB::Device> device;
     //device.ip = "127.0.0.1";
     //bidrequest.device = device;
+    bidrequest.device.reset(new OpenRTB::Device());
     bidrequest.device->ip = "127.0.0.1";
 
     RTBKIT::Auction::Response response;
