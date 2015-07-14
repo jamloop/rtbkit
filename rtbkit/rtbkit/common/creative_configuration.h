@@ -125,11 +125,6 @@ public:
                 return "UNKNOWN"; 
             } 
         },
-        {   
-            "bidrequest.imp.pos",
-            [](const Context& ctx) -> std::string 
-            { return std::to_string(ctx.bidrequest.imp[ctx.spotNum].position.val); }
-        },
         {
             "bidrequest.device.ip",
             [](const Context& ctx) -> std::string { 
