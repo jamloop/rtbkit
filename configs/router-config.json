@@ -17,6 +17,8 @@
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
     "auctionResource": "/",
-    "performNameLookup": false
+    "performNameLookup": false,
+    "slowModeTimeout": 86400,
+    "slowModeTolerance": 86400
   }
 ]
