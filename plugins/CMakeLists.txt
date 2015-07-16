@@ -30,4 +30,7 @@ PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER brightroll-openrtb.proto)
 add_library(brightroll_exchange SHARED brightroll_exchange_connector.cc ${PROTO_SRC} ${PROTO_HEADER})
 target_link_libraries(brightroll_exchange protobuf rtb exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
+add_library(liverail_exchange SHARED liverail_exchange_connector.cc)
+target_link_libraries(liverail_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
+
 add_subdirectory(testing)
