@@ -12,7 +12,7 @@
   {
     "exchangeType": "brightroll",
     "listenPort": 9971,
-    "numThreads": 6,
+    "numThreads": 10,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
