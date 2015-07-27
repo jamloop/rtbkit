@@ -30,4 +30,13 @@ PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER brightroll-openrtb.proto)
 add_library(brightroll_exchange SHARED brightroll_exchange_connector.cc ${PROTO_SRC} ${PROTO_HEADER})
 target_link_libraries(brightroll_exchange protobuf rtb exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
+set(VIEWABILITY_SERVICE_SRC viewability_augmentor.cc viewability_service.cc redis_viewability_backend.cc file_watcher.cc moat_data_parser.cc)
+set(VIEWABILITY_SERVICE_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request gc boost_program_options agent_configuration)
+
+add_library(viewability_service SHARED ${VIEWABILITY_SERVICE_SRC})
+target_link_libraries(viewability_service ${VIEWABILITY_SERVICE_LINK})
+
+add_executable(viewability_service_runner viewability_service_runner.cc)
+target_link_libraries(viewability_service_runner viewability_service boost_system boost_program_options boost_thread)
+
 add_subdirectory(testing)
