@@ -35,6 +35,8 @@ const std::string SNIPPET3 = "%{meta.test.coucou}";
 const std::string SNIPPET4 = "%{meta.filter#upper}";
 const std::string SNIPPET5 = "%{meta.filter#lower}";
 const std::string SNIPPET6 = "%{meta.filter#urlencode}";
+const std::string SNIPPET7 = "%{bidrequest.site.page}";
+const std::string SNIPPET8 = "%{bidrequest.device.ip}";
 
 #define APPLY_ON_SNIPPETS(SNIPPET_FN)   \
     SNIPPET_FN(1, SNIPPET1)             \
@@ -42,7 +44,9 @@ const std::string SNIPPET6 = "%{meta.filter#urlencode}";
     SNIPPET_FN(3, SNIPPET3)             \
     SNIPPET_FN(4, SNIPPET4)             \
     SNIPPET_FN(5, SNIPPET5)             \
-    SNIPPET_FN(6, SNIPPET6)
+    SNIPPET_FN(6, SNIPPET6)             \
+    SNIPPET_FN(7, SNIPPET7)             \
+    SNIPPET_FN(8, SNIPPET8)             
 
 const auto providerConfigSnippet = [&](){
     Json::Value conf;
@@ -153,6 +157,18 @@ BOOST_AUTO_TEST_CASE(test_snippet)
 
     RTBKIT::BidRequest bidrequest;
     bidrequest.auctionId = Datacratic::Id("helloworld");
+    
+    //OpenRTB::Site <OpenRTB::Optional> site;
+    //site.page = Datacratic::Url("http://example.com/example");
+    bidrequest.site.reset(new OpenRTB::Site());
+    bidrequest.site->page = Datacratic::Url("http://example.com/example");
+
+    //OpenRTB::Optional <OpenRTB::Device> device;
+    //device.ip = "127.0.0.1";
+    //bidrequest.device = device;
+    bidrequest.device.reset(new OpenRTB::Device());
+    bidrequest.device->ip = "127.0.0.1";
+
     RTBKIT::Auction::Response response;
     {
         Json::Value value;
@@ -172,6 +188,8 @@ BOOST_AUTO_TEST_CASE(test_snippet)
         const auto RESULT4 = "TEST:META";
         const auto RESULT5 = "test:meta";
         const auto RESULT6 = "Test%3AMeta";
+        const auto RESULT7 = "http://example.com/example";
+        const auto RESULT8 = "127.0.0.1";
 
 #define APPLY_FN(NB, var) \
         BOOST_CHECK_EQUAL(RESULT ## NB, conf.expand(var, context));

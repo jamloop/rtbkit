@@ -124,12 +124,12 @@ SpotXExchangeConnector::getCreativeCompatibility(
         const Creative& creative,
         bool includeReasons) const
 {
-    const auto& format = creative.format;
-    if (format.width > 300 || format.height > 250) {
-        ExchangeCompatibility result;
-        result.setIncompatible("SpotXchange only supports 300x250", includeReasons);
-        return result;
-    }
+//    const auto& format = creative.format;
+//    if (format.width > 300 || format.height > 250) {
+//        ExchangeCompatibility result;
+//        result.setIncompatible("SpotXchange only supports 300x250", includeReasons);
+//        return result;
+//    }
 
     return creativeConfig.handleCreativeCompatibility(creative, includeReasons);
 }

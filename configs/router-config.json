@@ -1,7 +1,29 @@
 [
   {
-    "exchangeType": "openrtb",
-    "listenPort": 18142,
+    "exchangeType": "tremor",
+    "listenPort": 9970,
+    "numThreads": 3,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false
+  },
+  {
+    "exchangeType": "brightroll",
+    "listenPort": 9971,
+    "numThreads": 10,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false,
+    "slowModeTimeout": 86400,
+    "slowModeTolerance": 86400
+  },
+  {
+    "exchangeType": "spotx",
+    "listenPort": 9972,
     "numThreads": 1,
     "realTimePolling": false,
     "bindHost": "0.0.0.0",

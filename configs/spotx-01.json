@@ -1,0 +1,51 @@
+{
+  "account": [
+    "datacratic_03", "spotx"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 1,
+      "type": "video",
+      "width": 350,
+      "height": 0,
+      "duration": 30,
+      "providerConfig": {
+          "spotx": {
+              "adm": "http://ad4.liverail.com/?LR_PUBLISHER_ID=132692&LR_SCHEMA=vast2-vpaid&LR_DESCRIPTION=JLVM%20SPOTX%207.10%20vpaid&LR_VIDEO_ID=[VIDEO_ID]&LR_TAGS=[TAGS]&LR_TITLE=[TITLE]&LR_VIDEO_URL=[VIDEO_URL]&LR_AUTOPLAY=[AUTOPLAY]&LR_WIDTH=[WIDTH]&LR_HEIGHT=[HEIGHT]&LR_MUTED=[MUTED]&LR_ADTYPE=[ADTYPE]&rand=[TIMESTAMP]&LR_JL_RTBPARAM_WIN_PRICE=${AUCTION_PRICE}&LR_JL_RTBPARAM_BID_REQ_ID=%{bidrequest.id}&LR_JL_RTBPARAM_IMP_ID=%{imp.id}&LR_JL_RTBPARAM_URL=%{bidrequest.site.page}&LR_JL_RTBPARAM_WIDTH=[RTB_WIDTH]&LR_JL_RTBPARAM_HEIGHT=[RTB_HEIGHT]&LR_JL_RTBPARAM_POSITION=[RTB_POSITION]&LR_JL_RTBPARAM_CATEGORY=[RTB_CATEGORY]&LR_JL_RTBPARAM_DOMAIN=[RTB_DOMAIN]&LR_JL_RTBPARAM_IP=%{bidrequest.device.ip}&LR_JL_RTBPARAM_USERIDS=[RTB_USERIDS]&LR_JL_RTBPARAM_PASSBACK=[RTB_PASSBACK]",
+              "adomain": ["jamloop.com"],
+              "adid": "132692",
+              "campaign_name": "JLVM SPOTX 7.10 vpaid",
+              "line_item_name": "JLVM SPOTX 7.10",
+              "creative_name":  "JLVM SPOTX 7.10 vpaid",
+              "creative_duration": 30,
+              "media_desc": {
+                "media_mime": "video/x-flv",
+                "media_bitrate": 800
+              },
+              "api": 1,
+              "lid": "428885",
+              "landingpage_url": "http://jamloop.com",
+              "advertiser_name": "jamloop"
+          }
+      }
+    }
+  ],
+  "externalId": 1,
+  "roundRobin": {
+    "group": "datacratic_01:spotx",
+    "weight": 1
+  },
+  "providerConfig": {
+      "spotx": {
+          "seat": "12341",
+          "seatName": "jamloop"
+      }
+  },
+  "ext": {
+    "budget": "500000000USD/1M",
+    "pace": "0USD/1M",
+    "price": "7100USD/1M",
+    "priority": 1
+  }
+}
