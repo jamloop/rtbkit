@@ -304,7 +304,8 @@
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--exchange-configuration", "configs/router-config.json",
         "--bidder", "configs/bidder-config.json",
-        "--spend-rate", "1000000USD/1M"
+        "--banker-choice", "null",
+	"--log-auctions", "true"
       ],
       "log": true
     }]
