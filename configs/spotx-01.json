@@ -39,7 +39,8 @@
   "providerConfig": {
       "spotx": {
           "seat": "12341",
-          "seatName": "jamloop"
+          "seatName": "jamloop",
+          "bidid": "12345"
       }
   },
   "ext": {
