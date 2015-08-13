@@ -862,8 +862,9 @@ namespace JamLoop {
 
             if (request.has_ext()) {
                 result->ext = toExt(request.ext());
-                if (request.ext.has_viewability()) {
-                    result->segments.add("viewability", request.ext.viewability());
+                const BidRequest::Ext& ex = request.ext();
+                if (ex.has_viewability()) {
+                    result->segments.add("viewability", ex.viewability());
                 }
             }
 
