@@ -37,6 +37,9 @@ struct SpotXExchangeConnector : public OpenRTBExchangeConnector {
 
         ///< Name of the bidder seat on whose behalf the bid is made
         std::string seatName;
+
+        ///< Bid response ID to assist tracking for bidders
+        std::string bidid;
     };
 
     ExchangeCompatibility
@@ -52,6 +55,7 @@ struct SpotXExchangeConnector : public OpenRTBExchangeConnector {
     struct CreativeInfo {
         std::string adm;
         std::vector<std::string> adomain;
+        std::string adid;
     };
 
     static Logging::Category print;
