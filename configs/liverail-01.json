@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 2
+      "id": 1,
       "type": "video",
       "width": %%PUT_YOUR_CREATIVE_WIDTH_HERE%%,
       "height": %%PUT_YOUR_CREATIVE_HEIGHT_HERE%%,
@@ -18,7 +18,7 @@
       }
     }
    ],
-    "externalId": 2,
+    "externalId": 5,
     "roundRobin": {
       "group": "datacratic_01:liverail",
       "weight": 1
