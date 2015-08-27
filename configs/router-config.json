@@ -30,5 +30,15 @@
     "auctionVerb": "POST",
     "auctionResource": "/",
     "performNameLookup": false
+  },
+  {
+    "exchangeType": "liverail",
+    "listenPort": 9973,
+    "numThreads": 1,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false
   }
 ]

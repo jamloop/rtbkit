@@ -1,0 +1,37 @@
+{
+  "account": [
+    "datacratic_01", "liverail"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 2
+      "type": "video",
+      "width": %%PUT_YOUR_CREATIVE_WIDTH_HERE%%,
+      "height": %%PUT_YOUR_CREATIVE_HEIGHT_HERE%%,
+      "duration": 10,
+      "providerConfig": {
+          "liverail": {
+              "adomain": [ "jamloop.com" ],
+              "adm": "%%PUT_YOUR_INLINE_VAST_HERE%%"
+          }
+      }
+    }
+   ],
+    "externalId": 2,
+    "roundRobin": {
+      "group": "datacratic_01:liverail",
+      "weight": 1
+    },
+    "providerConfig": {
+        "liverail": {
+            "seat": "%%PUT_YOUR_SEAT_HERE%%"
+        }
+    }
+    "ext": {
+      "budget": "500000000USD/1M",
+      "pace": "1000000USD/1M",
+      "price": "7500USD/1M",
+      "priority": 1
+    }
+}
