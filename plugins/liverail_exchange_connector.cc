@@ -175,3 +175,13 @@ namespace Jamloop {
 
 
 } // namespace Jamloop
+
+namespace {
+
+struct Init {
+    Init() {
+        RTBKIT::ExchangeConnector::registerFactory<Jamloop::LiveRailExchangeConnector>();
+    }
+} init;
+
+}
