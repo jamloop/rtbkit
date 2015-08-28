@@ -29,6 +29,8 @@ public:
         boost::program_options::options_description
         makeProgramOptions();
 
+        std::string goViewUrl;
+
     };
 
     void setConfig(const Config& config);

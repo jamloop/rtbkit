@@ -23,10 +23,16 @@ namespace JamLoop {
         ("redis-port", value<uint16_t>(&redisPort),
                 "port of the redis server");
 
+        options_description goView("Go Viewabilitty service options");
+        goView.add_options()
+        ("goview-url", value<string>(&goViewUrl),
+            "Base URL of the go viewability service");
+
         options_description commonOptions("Common Options");
         commonOptions.add_options()
         ("data-file", value<string>(&dataFile),
               "location of the MOAT data file");
+
 
         options_description allOptions;
         allOptions
@@ -70,12 +76,17 @@ namespace JamLoop {
         augmentor = make_shared<ViewabilityAugmentor>(*this);    
         augmentor->init(Default::AugmentorThreads);
 
+        if (!config.goViewUrl.empty()) {
+            augmentor->useGoView(config.goViewUrl);
+        }
 
+#if 0
         moat = make_shared<Utils::MoatDataParser>(config.dataFile,
                 [this](std::vector<Utils::MoatDataParser::Line>&& data) {
                     this->handleMoatData(std::move(data));
                 });
         addSource("ViewabilityService::moatData", moat);
+#endif
 
     }
 
@@ -101,8 +112,5 @@ namespace JamLoop {
     void
     ViewabilityService::handleMoatData(std::vector<Utils::MoatDataParser::Line>&& data)
     {
-        for (const auto& line: data) {
-            cerr << line.fieldValue("Size ID") << endl;
-        }
     }
 } // namespace JamLoop

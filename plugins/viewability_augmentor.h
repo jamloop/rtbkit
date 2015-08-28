@@ -11,6 +11,7 @@
 #include "rtbkit/core/agent_configuration/agent_configuration_listener.h"
 #include "rtbkit/plugins/augmentor/augmentor_base.h"
 #include "soa/logger/logger.h"
+#include "soa/service/http_client.h"
 
 namespace JamLoop {
 
@@ -28,13 +29,20 @@ public:
             std::string serviceName = "viewability.augmentor");
 
     void init(int nthreads);
+    void useGoView(const std::string& baseUrl);
 
 private:
     void onRequest(
             const RTBKIT::AugmentationRequest& request,
             AsyncAugmentor::SendResponseCB sendResponse);
 
+
+    RTBKIT::AugmentationList handleHttpResponse(
+            const RTBKIT::AugmentationRequest& request,
+            Datacratic::HttpClientError error, int statusCode, std::string&& body);
+
     std::shared_ptr<RTBKIT::AgentConfigurationListener> agentConfig;
+    std::shared_ptr<Datacratic::HttpClient> httpClient;
 
 };
 

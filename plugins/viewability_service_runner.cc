@@ -39,14 +39,16 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+#if 0
     const auto redisAddr = Redis::Address::tcp(config.redisHost, config.redisPort);
     auto redisBackend = std::make_shared<RedisViewabilityBackend>(redisAddr);
+#endif
 
     auto proxies = serviceArgs.makeServiceProxies();
     auto serviceName = serviceArgs.serviceName("viewabilityService");
 
     ViewabilityService service(proxies, serviceName);
-    service.setBackend(redisBackend);
+    //service.setBackend(redisBackend);
     service.setConfig(config);
 
     service.init();
