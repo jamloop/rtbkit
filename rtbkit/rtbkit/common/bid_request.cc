@@ -946,6 +946,8 @@ toJson() const
         toJsonValue(result["device"], *device);
     if (user)
         toJsonValue(result["user"], *user);
+    if (video)
+	toJsonValue(result["video"], *video);
 
     if (!winSurcharges.empty())
         result["winSurcharges"] = winSurcharges.toJson();
