@@ -163,6 +163,7 @@ DefaultDescription()
     addField("unparseable", &BidRequest::unparseable, "Unparseable fields are stored here");
     addField("bidCurrency", &BidRequest::bidCurrency, "Currency we're bidding in");
     addField("ext", &BidRequest::ext, "OpenRTB ext object");
+    addField("video", &BidRequest::video, "Bidrequest object");
 }
 
 } // namespace Datacratic
