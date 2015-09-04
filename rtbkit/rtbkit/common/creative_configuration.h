@@ -97,6 +97,39 @@ public:
         },
 
         {
+            "bidrequest.video.width",
+            [](const Context& ctx) -> std::string
+            {
+                if ( ctx.bidrequest.video){
+                    return ctx.bidrequest.video->w.toString();
+                }
+                return "";
+            }
+        },
+
+        {
+            "bidrequest.video.height",
+            [](const Context& ctx) -> std::string
+            {
+                if ( ctx.bidrequest.video){
+                    return ctx.bidrequest.video->h.toString();
+                }
+                return "";
+            }
+        },
+
+        {
+            "bidrequest.video.pos",
+            [](const Context& ctx) -> std::string
+            {
+                if ( ctx.bidrequest.video){
+                    return ctx.bidrequest.video->pos.toString();
+                }
+                return "";
+            }
+        },
+
+        {
             "bidrequest.publisher.id",
             /* [this](const Context& ctx)  this triggers a gcc bug:
                 * http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58824
