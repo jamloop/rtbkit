@@ -55,15 +55,46 @@ namespace JamLoop {
             const AugmentationRequest& request,
             AsyncAugmentor::SendResponseCB sendResponse)
     {
-        const auto& br = request.bidRequest;
-        const auto& url = br->url;
 
-        auto w = br->imp[0].formats[0].width;
+        using OpenRTB::AdPosition;
+        auto adPosition = [](AdPosition position) -> const char* const {
+            switch (static_cast<AdPosition::Vals>(position.val)) {
+                case AdPosition::UNSPECIFIED:
+                case AdPosition::UNKNOWN:
+                    return "unknown";
+                case AdPosition::ABOVE:
+                    return "above";
+                case AdPosition::BELOW:
+                    return "below";
+                case AdPosition::HEADER:
+                    return "header";
+                case AdPosition::FOOTER:
+                    return "footer";
+                case AdPosition::SIDEBAR:
+                    return "sidebar";
+                case AdPosition::FULLSCREEN:
+                    return "fullscreen";
+
+            }
+            return "unknown";
+        };
 
         if (httpClient) {
+            const auto& br = request.bidRequest;
+            auto& imp = br->imp[0];
+            auto w = imp.formats[0].width;
+
+
             Json::Value payload(Json::objectValue);
-            payload["url"] = url.toString();
+            payload["exchange"] = br->exchange;
+            if (br->site && br->site->publisher) {
+                payload["publisher"] = br->site->publisher->id.toString();
+            }
+            payload["url"] = br->url.toString();
             payload["w"] = w;
+            if (imp.video) {
+                payload["position"] = adPosition(imp.video->pos);
+            }
 
             auto onResponse =
                 std::make_shared<HttpClientSimpleCallbacks>(
