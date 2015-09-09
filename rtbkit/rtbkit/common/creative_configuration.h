@@ -100,8 +100,12 @@ public:
             "bidrequest.video.width",
             [](const Context& ctx) -> std::string
             {
-                if ( ctx.bidrequest.video){
-                    return ctx.bidrequest.video->w;
+		const auto& imp = ctx.bidrequest.imp[ctx.spotNum];
+                if (imp.video) {
+                    auto w = imp.video->w.value();
+                    if (w != -1) { 
+		        return std::to_string(w);
+                    }
                 }
                 return "";
             }
@@ -111,8 +115,12 @@ public:
             "bidrequest.video.height",
             [](const Context& ctx) -> std::string
             {
-                if ( ctx.bidrequest.video){
-                    return ctx.bidrequest.video->h;
+		const auto& imp = ctx.bidrequest.imp[ctx.spotNum];
+                if (imp.video) {
+                    auto h = imp.video->h.value();
+                    if (h != -1) { 
+		        return std::to_string(h);
+                    }
                 }
                 return "";
             }
@@ -122,8 +130,32 @@ public:
             "bidrequest.video.pos",
             [](const Context& ctx) -> std::string
             {
-                if ( ctx.bidrequest.video){
-                    return ctx.bidrequest.video->pos;
+		const auto& imp = ctx.bidrequest.imp[ctx.spotNum];
+                if (imp.video) {
+                     using OpenRTB::AdPosition;
+
+                     auto pos = imp.video->pos;
+                     switch (static_cast<AdPosition::Vals>(pos.value()))
+                     {
+                     case AdPosition::UNSPECIFIED:
+                         return "unspecified";
+                     case AdPosition::UNKNOWN:
+                         return "unknown";
+                     case  AdPosition::ABOVE:
+                         return "above";
+                     case AdPosition::BETWEEN_DEPRECATED:
+                         return "between";
+                     case AdPosition::BELOW:
+                         return "below";
+                     case AdPosition::HEADER:
+                         return "header";
+                     case AdPosition::FOOTER:
+                         return "footer";
+                     case AdPosition::SIDEBAR:
+                         return "sidebar";
+                     case AdPosition::FULLSCREEN:
+                         return "fullscreen";
+                     }
                 }
                 return "";
             }

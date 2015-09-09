@@ -293,10 +293,6 @@ struct BidRequest {
     */
     OpenRTB::Optional<OpenRTB::Site> site;
 
-    /** Information specific to the video that from the request.
-    */
-    OpenRTB::Optional<OpenRTB::Video> video;
-
     /** Information specific to the app that generated the request.  Only
         one of site or app will be present.
     */
