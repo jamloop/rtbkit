@@ -101,7 +101,7 @@ public:
             [](const Context& ctx) -> std::string
             {
                 if ( ctx.bidrequest.video){
-                    return ctx.bidrequest.video->w.toString();
+                    return ctx.bidrequest.video->w;
                 }
                 return "";
             }
@@ -112,7 +112,7 @@ public:
             [](const Context& ctx) -> std::string
             {
                 if ( ctx.bidrequest.video){
-                    return ctx.bidrequest.video->h.toString();
+                    return ctx.bidrequest.video->h;
                 }
                 return "";
             }
@@ -123,7 +123,7 @@ public:
             [](const Context& ctx) -> std::string
             {
                 if ( ctx.bidrequest.video){
-                    return ctx.bidrequest.video->pos.toString();
+                    return ctx.bidrequest.video->pos;
                 }
                 return "";
             }
