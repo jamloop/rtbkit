@@ -33,6 +33,11 @@
   "segmentFilter": {
     "viewability": { "include": [1], "exclude":[] }
   },
+  "augmentations": {
+    "viewability": {
+      "viewTreshold":30
+    }
+  },
   "externalId": 1,
   "roundRobin": {
     "group": "datacratic_01:brightroll",
