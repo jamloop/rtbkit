@@ -177,12 +177,12 @@ namespace JamLoop {
                     }
 
                     auto treshold = agentAugConfig.config["viewTreshold"];
-                    if (!treshold.isUInt()) {
+                    if (!treshold.isInt()) {
                         recordResult(account, "invalidTreshold");
                         continue;
                     }
 
-                    auto val = treshold.asUInt();
+                    auto val = treshold.asInt();
                     if (statusCode == 204 || viewabilityPrct >= val) {
                         result[account].tags.insert("pass-viewability");
                         recordResult(account, "passed");

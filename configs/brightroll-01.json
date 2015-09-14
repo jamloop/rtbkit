@@ -34,12 +34,13 @@
     "viewability": { "include": [1], "exclude":[] }
   },
   "augmentations": {
-    "viewability": {
+    "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":30
-      },
-    "filters": { "include": [], "exclude": ["pass-viewability"] }
+        "viewTreshold":30
+      },
+  "filters": { "include": [], "exclude": ["pass-viewability"] }
+    }
   },
   "externalId": 1,
   "roundRobin": {
