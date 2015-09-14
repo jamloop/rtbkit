@@ -200,6 +200,33 @@ public:
             }
         },
         {
+            "bidrequest.language",
+            [](const Context& ctx) -> std::string { 
+                if (ctx.bidrequest.language) {
+                    return ctx.bidrequest.language; 
+                }
+                return "UNKNOWN";
+            }
+	},
+        {
+            "bidrequest.ip",
+            [](const Context& ctx) -> std::string { 
+                if (ctx.bidrequest.ipAddress) {
+                    return ctx.bidrequest.ipAddress; 
+                }
+                return "UNKNOWN";
+            }
+        },
+        {
+            "bidrequest.ua",
+            [](const Context& ctx) -> std::string { 
+                if (ctx.bidrequest.userAgent) {
+                    return ctx.bidrequest.userAgent; 
+                }
+                return "UNKNOWN";
+            }
+        },
+        {
             "bidrequest.timestamp",
             [](const Context& ctx)
             { return std::to_string( ctx.bidrequest.timestamp.secondsSinceEpoch() ); }
