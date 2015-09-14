@@ -37,6 +37,7 @@ namespace JamLoop {
         options_description allOptions;
         allOptions
             .add(redisOptions)
+            .add(goView)
             .add(commonOptions);
 
         return allOptions;
