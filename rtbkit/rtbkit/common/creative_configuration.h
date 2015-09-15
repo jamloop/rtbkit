@@ -163,9 +163,6 @@ public:
 
         {
             "bidrequest.publisher.id",
-            /* [this](const Context& ctx)  this triggers a gcc bug:
-                * http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58824
-                */
             [](const Context& ctx) -> std::string
             {
                 auto const& br = ctx.bidrequest;
@@ -173,12 +170,8 @@ public:
                     return br.site->publisher->id.toString();
                 } else if (br.app && br.app->publisher) {
                     return br.app->publisher->id.toString();
-                } else {
-                    std::cerr << "In bid request: " << br.toJson().toString()
-                                << " no publisher id found" << std::endl;
-
-                    throw std::runtime_error("No publisher id available");
                 }
+		return "";
             }
         },
     	{
