@@ -36,7 +36,7 @@
       "config": {
         "viewTreshold":30
       },
-  "filters": { "include": [], "exclude": ["pass-viewability"] }
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
     }
   },
   "externalId": 1,
