@@ -1,0 +1,41 @@
+{
+  "account": [
+    "datacratic_02", "tremor"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 2,
+      "type": "video",
+      "width": 300,
+      "height": 0,
+      "duration": 30,
+      "providerConfig": {
+          "tremor": {
+              "adomain": [ "jamloop.com" ],
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmVxfo5KM18xNl_ekHSXW6qUsI3M4M68M=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbCreative%3D%{creative.name}%2CrtbCreativeID%3D%{creative.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbWinPrice%3D${AUCTION_PRICE}&eov=eov"
+          }
+      }
+    }
+   ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold":51
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
+    "externalId": 2,
+    "roundRobin": {
+      "group": "datacratic_01:tremor",
+      "weight": 1
+    },
+    "ext": {
+      "budget": "500000000USD/1M",
+      "pace": "1000000USD/1M",
+      "price": "3600USD/1M",
+      "priority": 1
+    }
+}

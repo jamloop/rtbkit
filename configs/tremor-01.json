@@ -9,7 +9,7 @@
       "type": "video",
       "width": 350,
       "height": 0,
-      "duration": 10,
+      "duration": 30,
       "providerConfig": {
           "tremor": {
               "adomain": [ "jamloop.com" ],
@@ -22,9 +22,9 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":30
+        "viewTreshold":50
       },
-  "filters": { "include": [], "exclude": ["pass-viewability"] }
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
     "externalId": 2,

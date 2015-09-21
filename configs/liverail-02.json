@@ -1,0 +1,46 @@
+{
+  "account": [
+    "datacratic_01", "liverail"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 1,
+      "type": "video",
+      "width": 300,
+      "height": 0,
+      "duration": 30,
+      "providerConfig": {
+          "liverail": {
+              "adomain": [ "jamloop.com" ],
+              "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlXjY36iz3dCVHEzDS+jgb3mAYt3Hl5eHlw=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbCreative%3D%{creative.name}%2CrtbCreativeID%3D%{creative.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI><Impression><URL id=\"myImpression\"><![CDATA[http://ad.jamloop.com/cgi-bin/w.pl?&referer=%{bidrequest.site.page}&Exch=%{exchange}&LR_JL_RTBPARAM_BID_PRICE=%{bid.price}&LR_JL_RTBPARAM_BID_REQ_ID=%{bidrequest.id}&LR_JL_RTBPARAM_IMP_ID=%{imp.id}&PWidth=%{bidrequest.width}&PHeight=%{bidrequest.height}&LR_JL_RTBPARAM_POSITION=%{bidrequest.pos}&LR_JL_RTBPARAM_IP=%{bidrequest.device.ip}&LR_JL_RTBPARAM_USERIDS=%{bidrequest.user.id}&LRSite=%{bidrequest.publisher.id}&UA=%{bidrequest.ua}&Lang=%{bidrequest.language}&cb=%{bidrequest.timestamp}&LR_JL_RTBPARAM_WIN_RATIO=${AUCTION_PRICE}]]></URL></Impression></Wrapper></Ad></VAST>"
+	}
+      }
+    }
+   ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold":51
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
+    "externalId": 5,
+    "roundRobin": {
+      "group": "datacratic_01:liverail",
+      "weight": 1
+    },
+    "providerConfig": {
+        "liverail": {
+            "seat": "141865"
+        }
+    },
+    "ext": {
+      "budget": "500000000USD/1M",
+      "pace": "1000000USD/1M",
+      "price": "3600USD/1M",
+      "priority": 1
+    }
+}

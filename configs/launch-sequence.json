@@ -188,6 +188,16 @@
       "log": true
     },
     {
+      "name": "agent-brightroll-11",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_11",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-02.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-tremor-01",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -238,6 +248,16 @@
       "log": true
     },
     {
+      "name": "agent-tremor-05",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_tremor_02",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/tremor-02.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-spotx-01",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -252,6 +272,16 @@
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_liverail",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/liverail-01.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-liverail-02",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_liverail_02",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/liverail-01.json"
       ],
