@@ -19,7 +19,7 @@ Logging::Category ViewabilityAugmentor::Logs::print(
 Logging::Category ViewabilityAugmentor::Logs::trace(
     "ViewabilityAugmentor Trace", ViewabilityAugmentor::Logs::print);
 Logging::Category ViewabilityAugmentor::Logs::error(
-    "ViewabilityAugmentor Error", ViewabilityAugmentor::Logs::error);
+    "ViewabilityAugmentor Error", ViewabilityAugmentor::Logs::print);
 
 namespace {
     std::string urldecode(const std::string& url) {
