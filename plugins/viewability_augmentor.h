@@ -11,6 +11,7 @@
 #include "rtbkit/core/agent_configuration/agent_configuration_listener.h"
 #include "rtbkit/plugins/augmentor/augmentor_base.h"
 #include "soa/logger/logger.h"
+#include "soa/service/logs.h"
 #include "soa/service/http_client.h"
 
 namespace JamLoop {
@@ -32,6 +33,12 @@ public:
     void useGoView(const std::string& baseUrl);
 
 private:
+    struct Logs {
+        static Datacratic::Logging::Category print;
+        static Datacratic::Logging::Category trace;
+        static Datacratic::Logging::Category error;
+    };
+
     void onRequest(
             const RTBKIT::AugmentationRequest& request,
             AsyncAugmentor::SendResponseCB sendResponse);

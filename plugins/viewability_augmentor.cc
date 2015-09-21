@@ -14,6 +14,36 @@ using namespace Datacratic;
 
 namespace JamLoop {
 
+Logging::Category ViewabilityAugmentor::Logs::print(
+    "ViewabilityAugmentor");
+Logging::Category ViewabilityAugmentor::Logs::trace(
+    "ViewabilityAugmentor Trace", ViewabilityAugmentor::Logs::print);
+Logging::Category ViewabilityAugmentor::Logs::error(
+    "ViewabilityAugmentor Error", ViewabilityAugmentor::Logs::error);
+
+namespace {
+    std::string urldecode(const std::string& url) {
+        std::istringstream in(url);
+        std::ostringstream decoded;
+
+        char c;
+        while (in >> c) {
+            if (c == '%') {
+                int h = 0;
+                if (in >> std::hex >> h) {
+                    decoded << static_cast<char>(h);
+                } else {
+                    throw ML::Exception("Invalid hexadecimal character");
+                }
+             } else {
+                decoded << c;
+             }
+         }
+
+         return decoded.str();
+    }
+}
+
     ViewabilityAugmentor::ViewabilityAugmentor(
         shared_ptr<ServiceProxies> proxies,
         string serviceName)
@@ -80,37 +110,45 @@ namespace JamLoop {
         };
 
         if (httpClient) {
-            const auto& br = request.bidRequest;
-            auto& imp = br->imp[0];
-            auto w = imp.formats[0].width;
+
+            try {
+                AugmentationList emptyResult;
+                Scope_Failure(sendResponse(emptyResult));
+
+                const auto& br = request.bidRequest;
+                auto& imp = br->imp[0];
+                auto w = imp.formats[0].width;
 
 
-            Json::Value payload(Json::objectValue);
-            payload["exchange"] = br->exchange;
-            if (br->site && br->site->publisher) {
-                payload["publisher"] = br->site->publisher->id.toString();
+                Json::Value payload(Json::objectValue);
+                payload["exchange"] = br->exchange;
+                if (br->site && br->site->publisher) {
+                    payload["publisher"] = br->site->publisher->id.toString();
+                }
+                payload["url"] = urldecode(br->url.toString());
+                payload["w"] = w;
+                if (imp.video) {
+                    payload["position"] = adPosition(imp.video->pos);
+                }
+
+                auto onResponse =
+                    std::make_shared<HttpClientSimpleCallbacks>(
+                            [=](const HttpRequest& req, HttpClientError error,
+                                int status, std::string&&, std::string&& body)
+                    {
+                        sendResponse(handleHttpResponse(
+                                request, error, status, std::move(body)));
+
+                    });
+
+                httpClient->post("/viewability", onResponse,
+                        HttpRequest::Content(payload),
+                        { } /* queryParams */,
+                        { } /* headers */,
+                        1);
+            } catch (const ML::Exception& e) {
+                LOG(Logs::error) << "Error when processing BidRequest: '" << e.what() << "'";
             }
-            payload["url"] = br->url.toString();
-            payload["w"] = w;
-            if (imp.video) {
-                payload["position"] = adPosition(imp.video->pos);
-            }
-
-            auto onResponse =
-                std::make_shared<HttpClientSimpleCallbacks>(
-                        [=](const HttpRequest& req, HttpClientError error,
-                            int status, std::string&&, std::string&& body)
-                {
-                    sendResponse(handleHttpResponse(
-                            request, error, status, std::move(body)));
-
-                });
-
-            httpClient->post("/viewability", onResponse,
-                    HttpRequest::Content(payload),
-                    { } /* queryParams */,
-                    { } /* headers */,
-                    1);
         }
     }
 
