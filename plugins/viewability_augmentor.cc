@@ -29,11 +29,11 @@ namespace {
         char c;
         while (in >> c) {
             if (c == '%') {
-                int h = 0;
+                uint8_t h = 0;
                 if (in >> std::hex >> h) {
                     decoded << static_cast<char>(h);
                 } else {
-                    throw ML::Exception("Invalid hexadecimal character");
+                    throw ML::Exception(ML::format("Invalid hexadecimal character at position %d when decoding url %s", in.tellg(), url.c_str()));
                 }
              } else {
                 decoded << c;
@@ -147,7 +147,7 @@ namespace {
                         { } /* headers */,
                         1);
             } catch (const ML::Exception& e) {
-                LOG(Logs::error) << "Error when processing BidRequest: '" << e.what() << "'";
+                LOG(Logs::error) << "Error when processing BidRequest: '" << e.what() << "'" << endl;
             }
         }
     }
