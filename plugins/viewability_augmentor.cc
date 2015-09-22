@@ -22,25 +22,51 @@ Logging::Category ViewabilityAugmentor::Logs::error(
     "ViewabilityAugmentor Error", ViewabilityAugmentor::Logs::print);
 
 namespace {
-    std::string urldecode(const std::string& url) {
-        std::istringstream in(url);
+    string urldecode(const std::string& url) {
+        auto fromHex = [](char c) {
+            if (isdigit(c)) return c - '0';
+            switch (c) {
+                case 'a':
+                case 'A':
+                    return 10;
+                case 'b':
+                case 'B':
+                    return 11;
+                case 'c':
+                case 'C':
+                    return 12;
+                case 'd':
+                case 'D':
+                    return 13;
+                case 'e':
+                case 'E':
+                    return 14;
+                case 'f':
+                case 'F':
+                    return 15;
+            }
+
+            throw std::invalid_argument("Invalid hexadecimal character");
+        };
+
         std::ostringstream decoded;
-
-        char c;
-        while (in >> c) {
+        auto it = url.begin(), end = url.end();
+        while (it != end) {
+            const char c = *it;
             if (c == '%') {
-                uint8_t h = 0;
-                if (in >> std::hex >> h) {
-                    decoded << static_cast<char>(h);
-                } else {
-                    throw ML::Exception(ML::format("Invalid hexadecimal character at position %d when decoding url %s", in.tellg(), url.c_str()));
+                if (it[1] && it[2]) {
+                    decoded << static_cast<char>(fromHex(it[1]) << 4 | fromHex(it[2]));
+                    it += 3;
                 }
-             } else {
+            }
+            else {
                 decoded << c;
-             }
-         }
+                ++it;
+            }
+        }
 
-         return decoded.str();
+        return decoded.str();
+
     }
 }
 
