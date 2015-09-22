@@ -46,7 +46,7 @@ namespace {
                     return 15;
             }
 
-            throw std::invalid_argument("Invalid hexadecimal character");
+            throw ML::Exception("Invalid hexadecimal character '%c'", c);
         };
 
         std::ostringstream decoded;
@@ -172,8 +172,8 @@ namespace {
                         { } /* queryParams */,
                         { } /* headers */,
                         1);
-            } catch (const ML::Exception& e) {
-                LOG(Logs::error) << "Error when processing BidRequest: '" << e.what() << "'" << endl;
+            } catch (const std::exception& e) {
+                LOG(Logs::error) << "Error when processing BidRequest: " << e.what() << endl;
             }
         }
     }
