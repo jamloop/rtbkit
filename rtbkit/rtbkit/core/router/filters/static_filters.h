@@ -460,12 +460,26 @@ namespace JamLoop {
             const auto &url = state.request.url;
             auto domain = url.host();
 
-            static constexpr const char* Http = "http://";
-            static constexpr size_t Size = sizeof("Http://") - 1;
+            // Removing the http:// part from the host
+            {
+                static constexpr const char* Http = "http://";
+                static constexpr size_t Size = sizeof("http://") - 1;
 
-            if (!domain.compare(0, Size, Http)) {
-                domain = domain.substr(Size);
+                if (!domain.compare(0, Size, Http)) {
+                    domain = domain.substr(Size);
+                }
             }
+
+            // Removing the www part from the host
+            {
+                static constexpr const char *WWW = "www.";
+                static constexpr size_t Size = 4;
+
+                if (!domain.compare(0, Size, WWW)) {
+                    domain = domain.substr(Size);
+                }
+            }
+
             return config.whiteBlackList.filter(domain) == WhiteBlackResult::Whitelisted;
         }
 
