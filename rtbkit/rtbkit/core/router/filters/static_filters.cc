@@ -335,6 +335,7 @@ struct InitFilters
         RTBKIT::FilterRegistry::registerFilter<RTBKIT::ExchangePostFilter>();
 
         RTBKIT::FilterRegistry::registerFilter<RTBKIT::LatLongDevFilter>();
+        RTBKIT::FilterRegistry::registerFilter<JamLoop::WhiteBlackListFilter>();
     }
 
 } initFilters;

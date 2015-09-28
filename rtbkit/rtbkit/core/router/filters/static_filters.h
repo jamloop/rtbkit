@@ -450,6 +450,7 @@ namespace JamLoop {
 
     class WhiteBlackListFilter : public RTBKIT::IterativeFilter<WhiteBlackListFilter>
     {
+    public:
         static constexpr const char* name = "WhiteBlackList";
 
         unsigned priority() const { return RTBKIT::Priority::JamLoop::WhiteBlackList; }
