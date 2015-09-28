@@ -10,6 +10,7 @@
 
 #include "generic_filters.h"
 #include "priority.h"
+#include "rtbkit/core/agent_configuration/white_black_list.h"
 #include "rtbkit/common/exchange_connector.h"
 #include "jml/utils/compact_vector.h"
 
@@ -443,5 +444,31 @@ struct LatLongDevFilter : public RTBKIT::FilterBaseT<LatLongDevFilter>
 
 };
 
-
 } // namespace RTBKIT
+
+namespace JamLoop {
+
+    class WhiteBlackListFilter : public RTBKIT::IterativeFilter<WhiteBlackListFilter>
+    {
+        static constexpr const char* name = "WhiteBlackList";
+
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::WhiteBlackList; }
+
+        bool filterConfig(RTBKIT::FilterState& state, const RTBKIT::AgentConfig& config) const
+        {
+            const auto &url = state.request.url;
+            auto domain = url.host();
+
+            static constexpr const char* Http = "http://";
+            static constexpr size_t Size = sizeof("Http://") - 1;
+
+            if (!domain.compare(0, Size, Http)) {
+                domain = domain.substr(Size);
+            }
+            return config.whiteBlackList.filter(domain) == WhiteBlackResult::Whitelisted;
+        }
+
+    };
+
+} // namespace JamLoop
+
