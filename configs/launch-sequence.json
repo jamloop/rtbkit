@@ -79,12 +79,13 @@
     },
     {
       "name": "viewability-service",
-      "root": ".", "path": "./bin/viewability_service_runner",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.viewability",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--goview-url", "http://127.0.0.1:9200"
-      ],
+      "root": ".", "path": "./configs/viewability_launcher.sh",
+//      "root": ".", "path": "./bin/viewability_service_runner",
+//      "arg": [
+//        "--service-name", "uswest2a.rtb1.viewability",
+//        "--bootstrap", "configs/bootstrap.uswest2a.json",
+//        "--goview-url", "http://127.0.0.1:9200"
+//      ],
       "log": true
     },
     {
@@ -92,96 +93,6 @@
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_brightroll_01",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-02",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_02",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-03",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_03",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-04",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_04",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-05",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_05",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-06",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_06",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-07",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_07",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-08",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_08",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-09",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_09",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/brightroll-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-brightroll-10",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_brightroll_10",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/brightroll-01.json"
       ],
@@ -199,46 +110,6 @@
     },
     {
       "name": "agent-tremor-01",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_tremor",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/tremor-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-tremor-02",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_tremor",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/tremor-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-tremor-03",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_tremor",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/tremor-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-tremor-04",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_tremor",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/tremor-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-tremor-04",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_tremor",
@@ -272,16 +143,6 @@
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_liverail",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/liverail-01.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-liverail-02",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_liverail_02",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/liverail-01.json"
       ],
