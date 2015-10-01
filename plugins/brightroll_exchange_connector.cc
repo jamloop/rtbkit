@@ -717,6 +717,7 @@ namespace JamLoop {
 
             result->auctionId = Id(request.id());
             result->auctionType = AuctionType::SECOND_PRICE;
+            result->exchange = "brightroll";
             if (!request.has_tmax()) {
                 result->timeAvailableMs = Default::MaximumResponseTime;
             } else {

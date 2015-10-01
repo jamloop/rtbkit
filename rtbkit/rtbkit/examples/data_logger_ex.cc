@@ -53,6 +53,9 @@ setupOutputs(
     errorOutput->open(logDir + "/%F/errors-%F-%T.log", rotationInterval);
     logger.addOutput(errorOutput, boost::regex("ROUTERERROR|PAERROR"), boost::regex());
 
+    auto bidOutput = make_shared<RotatingFileOutput>();
+    bidOutput->open(logDir + "/%F/bids-%F-%T.log", rotationInterval);
+    logger.addOutput(bidOutput, boost::regex("BID"), boost::regex());
 
     // Output auction events (wins, impressions and clicks) into strategy
     // specific folders. MultiOutput allows the aggregation of multiple outputs
