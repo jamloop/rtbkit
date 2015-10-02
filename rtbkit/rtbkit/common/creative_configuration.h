@@ -186,7 +186,7 @@ public:
         {
             "bidrequest.device.ip",
             [](const Context& ctx) -> std::string { 
-                if (ctx.bidrequest.device) {
+                if (ctx.bidrequest.device && !ctx.bidrequest.device->ip.empty()) {
                     return ctx.bidrequest.device->ip; 
                 }
                 return "UNKNOWN";
@@ -195,8 +195,8 @@ public:
         {
             "bidrequest.language",
             [](const Context& ctx) -> std::string { 
-                if (ctx.bidrequest.language) {
-                    return ctx.bidrequest.language; 
+                if (!ctx.bidrequest.language.empty()) {
+                    return ctx.bidrequest.language.rawString();
                 }
                 return "UNKNOWN";
             }
@@ -204,8 +204,8 @@ public:
         {
             "bidrequest.ip",
             [](const Context& ctx) -> std::string { 
-                if (ctx.bidrequest.ipAddress) {
-                    return ctx.bidrequest.ipAddress; 
+                if (ctx.bidrequest.ipAddress.empty()) {
+                    return ctx.bidrequest.ipAddress;
                 }
                 return "UNKNOWN";
             }
@@ -213,8 +213,8 @@ public:
         {
             "bidrequest.ua",
             [](const Context& ctx) -> std::string { 
-                if (ctx.bidrequest.userAgent) {
-                    return ctx.bidrequest.userAgent; 
+                if (ctx.bidrequest.userAgent.empty()) {
+                    return ctx.bidrequest.userAgent.rawString();
                 }
                 return "UNKNOWN";
             }
