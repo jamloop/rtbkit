@@ -204,7 +204,7 @@ public:
         {
             "bidrequest.ip",
             [](const Context& ctx) -> std::string { 
-                if (ctx.bidrequest.ipAddress.empty()) {
+                if (!ctx.bidrequest.ipAddress.empty()) {
                     return ctx.bidrequest.ipAddress;
                 }
                 return "UNKNOWN";
@@ -213,7 +213,7 @@ public:
         {
             "bidrequest.ua",
             [](const Context& ctx) -> std::string { 
-                if (ctx.bidrequest.userAgent.empty()) {
+                if (!ctx.bidrequest.userAgent.empty()) {
                     return ctx.bidrequest.userAgent.rawString();
                 }
                 return "UNKNOWN";
