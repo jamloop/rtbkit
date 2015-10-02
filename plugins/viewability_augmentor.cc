@@ -21,6 +21,10 @@ Logging::Category ViewabilityAugmentor::Logs::trace(
 Logging::Category ViewabilityAugmentor::Logs::error(
     "ViewabilityAugmentor Error", ViewabilityAugmentor::Logs::print);
 
+namespace Default {
+    static constexpr int MaximumHttpConnections = 128;
+}
+
 namespace {
     string urldecode(const std::string& url) {
         auto fromHex = [](char c) {
@@ -57,6 +61,9 @@ namespace {
                 if (it[1] && it[2]) {
                     decoded << static_cast<char>(fromHex(it[1]) << 4 | fromHex(it[2]));
                     it += 3;
+                }
+                else {
+                    throw ML::Exception("Unexpected EOF when decoding hexademical character, url='%s'", url.c_str());
                 }
             }
             else {
@@ -102,7 +109,7 @@ namespace {
     void
     ViewabilityAugmentor::useGoView(const std::string& baseUrl)
     {
-        httpClient = std::make_shared<HttpClient>(baseUrl);
+        httpClient = std::make_shared<HttpClient>(baseUrl, Default::MaximumHttpConnections);
         addSource("ViewabilityAugmentor::httpClient", httpClient);
     }
 
