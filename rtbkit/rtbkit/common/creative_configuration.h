@@ -178,7 +178,15 @@ public:
             "bidrequest.site.page",
             [](const Context& ctx) -> std::string { 
                 if (ctx.bidrequest.site) {
-                    return ctx.bidrequest.site->page.toString();
+                    std::string SP_long = ctx.bidrequest.site->page.toString();
+                    std::size_t found = SP_long.find("?");
+
+                    if (found!=std::string::npos){
+                        return SP_long.substr(0,found+1);
+                    }
+                    else {
+                        return SP_long;
+                    }
                 }
                 return "UNKNOWN"; 
             } 
