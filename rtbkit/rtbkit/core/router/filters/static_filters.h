@@ -480,7 +480,17 @@ namespace JamLoop {
                 }
             }
 
-            return config.whiteBlackList.filter(domain) == WhiteBlackResult::Whitelisted;
+            // We use an array to avoid allocating a vector everytime, even though we
+            // will still be allocating std::strings
+            std::array<std::string, 3> toLookup;
+            toLookup[0] = std::move(domain);
+            toLookup[1] = state.request.exchange;
+            if (state.request.site)
+                toLookup[2] = state.request.site->id.toString();
+            else
+                toLookup[2] = "*";
+
+            return config.whiteBlackList.filter(toLookup) == WhiteBlackResult::Whitelisted;
         }
 
     };
