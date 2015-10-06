@@ -54,5 +54,8 @@
     "pace": "0USD/1M",
     "price": "9100USD/1M",
     "priority": 1
-  }
+  },
+  "whiteBlackList": {
+    "whiteFile": "/home/rtbkit/prod/rtb/configs/9.10_MPL_WL_2015-09-14.csv"
+    }
 }
