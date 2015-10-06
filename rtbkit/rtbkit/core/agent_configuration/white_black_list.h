@@ -81,8 +81,8 @@ namespace JamLoop {
                     throw ML::Exception("Invalid key for WhiteBlackList '%s'", key.c_str());
                 }
                 else {
-                    if (key == "whiteFile") whiteFile = std::move(key);
-                    else if (key == "blackFile") blackFile = std::move(key);
+                    if (key == "whiteFile") whiteFile = it->asString();
+                    else if (key == "blackFile") blackFile = it->asString();
                     else if (key == "whiteList" || key == "blackList") {
                         auto val = *it;
                         if (!val.isArray()) throw ML::Exception("whiteList parameter must be an array");
