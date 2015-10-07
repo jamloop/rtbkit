@@ -30,15 +30,6 @@
       }
     }
   ],
-  "augmentations": {
-    "viewability": {
-      "required": true,
-      "config": {
-        "viewTreshold":50
-      },
-      "filters": { "include": ["pass-viewability"], "exclude": [] }
-    }
-  },
   "externalId": 1,
   "roundRobin": {
     "group": "datacratic_01:brightroll",
@@ -52,11 +43,11 @@
   "ext": {
     "budget": "500000000USD/1M",
     "pace": "0USD/1M",
-    "price": "9100USD/1M",
+    "price": "7100USD/1M",
     "priority": 1
   },
   "whiteBlackList": {
-    "whiteFile": "/home/rtbkit/prod/rtb/configs/3.10_SP_WL_2015-09-17.csv",
-    "blackFile": "/home/rtbkit/prod/rtb/configs/9.10_MPL_TEST_BL_2015-10-06.csv"
+    "whiteFile": "configs/3.10_SP_WL_2015-09-17.csv",
+    "blackFile": "configs/9.10_MPL_TEST_BL_2015-10-06.csv"
   }
 }

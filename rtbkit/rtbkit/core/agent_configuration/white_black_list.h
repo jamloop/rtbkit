@@ -120,8 +120,8 @@ namespace JamLoop {
                 black.insert(elem);
             }
 
-            whiteFile = std::move(whiteFile);
-            blackFile = std::move(blackFile);
+            this->whiteFile = std::move(whiteFile);
+            this->blackFile = std::move(blackFile);
         }
 
         WhiteBlackResult filter(const T& value) const {

@@ -44,7 +44,7 @@
       "priority": 1
     },
     "whiteBlackList": {
-      "whiteFile": "/home/rtbkit/prod/rtb/configs/9.10_MPL_WL_2015-09-14.csv",
-      "blackFile": "/home/rbkkit/prod/rtb/configs/9.10_MPL_TEST_BL_2015-10-06.csv"
+      "whiteFile": "configs/9.10_MPL_WL_2015-09-14.csv",
+      "blackFile": "configs/9.10_MPL_TEST_BL_2015-10-06.csv"
     }
 }
