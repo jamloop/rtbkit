@@ -79,13 +79,12 @@
     },
     {
       "name": "viewability-service",
-      "root": ".", "path": "./configs/viewability_launcher.sh",
-//      "root": ".", "path": "./bin/viewability_service_runner",
-//      "arg": [
-//        "--service-name", "uswest2a.rtb1.viewability",
-//        "--bootstrap", "configs/bootstrap.uswest2a.json",
-//        "--goview-url", "http://127.0.0.1:9200"
-//      ],
+      "root": ".", "path": "./bin/viewability_service_runner",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.viewability",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--goview-url", "http://127.0.0.1:9200"
+      ],
       "log": true
     },
     {
@@ -109,6 +108,16 @@
       "log": true
     },
     {
+      "name": "agent-brightroll-12",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_12",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-03.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-tremor-01",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -119,12 +128,12 @@
       "log": true
     },
     {
-      "name": "agent-tremor-05",
+      "name": "agent-tremor-06",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_tremor_02",
+        "--service-name", "uswest2a.rtb1.agent_tremor_03",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/tremor-02.json"
+        "--agent-configuration", "configs/tremor-03.json"
       ],
       "log": true
     },

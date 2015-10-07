@@ -19,6 +19,10 @@ struct Priority
 {
     static constexpr unsigned ExchangeName         = 0x0200;
 
+    struct JamLoop {
+        static constexpr unsigned WhiteBlackList   = 0x0300;
+    };
+
     static constexpr unsigned Location             = 0x1000;
     static constexpr unsigned Language             = 0x1100;
     static constexpr unsigned Host                 = 0x1200;
