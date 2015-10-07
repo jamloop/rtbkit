@@ -458,10 +458,24 @@ namespace JamLoop {
 
         bool filterConfig(RTBKIT::FilterState& state, const RTBKIT::AgentConfig& config) const
         {
-            const auto &url = state.request.url;
-            auto domain = url.host();
+            const auto& br = state.request;
+            std::string domain;
+            if (br.site) {
+                // Try extracting the domain from the site
+                if (!br.site->domain.empty())
+                    domain = br.site->domain.rawString();
+                // Let's now try on the publisher
+                else if (br.site->publisher && !br.site->publisher->domain.empty())
+                    domain = br.site->publisher->domain.rawString();
+            }
 
-            // Removing the http:// part from the host
+            // If the domain is not found, fallback on the page url
+            if (domain.empty()) {
+                const auto &url = br.url;
+                domain = url.host();
+            }
+
+            // Removing the http:// part from the domain
             {
                 static constexpr const char* Http = "http://";
                 static constexpr size_t Size = sizeof("http://") - 1;
@@ -471,7 +485,7 @@ namespace JamLoop {
                 }
             }
 
-            // Removing the www part from the host
+            // Removing the www part from the domain
             {
                 static constexpr const char *WWW = "www.";
                 static constexpr size_t Size = 4;
