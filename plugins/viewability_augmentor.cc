@@ -231,9 +231,25 @@ namespace {
                 return result;
             }
 
+            std::string lookupStage;
             double viewabilityPrct = 0.0;
+
             if (statusCode == 200) {
-                viewabilityPrct = std::stod(body);
+                if (body.empty()) {
+                    fail(failure, [&]() {
+                        recordError("http.emptyBody");
+                    });
+                    return result;
+                }
+
+                // The response is a JSON
+                if (body[0] == '{') {
+                    Json::Value response = Json::parse(body);
+                    viewabilityPrct = response["score"].asDouble();
+                    lookupStage = response.get("stage", "").asString();
+                } else {
+                    viewabilityPrct = std::stod(body);
+                }
             }
 
             for (const auto& agent: augRequest.agents) {
@@ -260,6 +276,9 @@ namespace {
                     if (statusCode == 204 || viewabilityPrct >= val) {
                         result[account].tags.insert("pass-viewability");
                         recordResult(account, "passed");
+                        if (!lookupStage.empty()) {
+                            recordHit("account.%s.lookup.%s", account.toString(), lookupStage.c_str());
+                        }
                     }
                     else {
                         recordResult(account, "filtered");
