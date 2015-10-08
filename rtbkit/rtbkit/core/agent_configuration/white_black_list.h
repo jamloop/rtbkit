@@ -15,6 +15,19 @@ namespace JamLoop {
         NotFound
     };
 
+    inline const char* whiteBlackString(WhiteBlackResult result) {
+        switch (result) {
+        case WhiteBlackResult::Whitelisted:
+            return "whitelisted";
+        case WhiteBlackResult::Blacklisted:
+            return "blacklisted";
+        case WhiteBlackResult::NotFound:
+            return "notfound";
+        }
+
+        return nullptr;
+    }
+
     template<typename T>
     Json::Value jsonEncode(const std::unordered_set<T>& set) {
         Json::Value result(Json::arrayValue);
