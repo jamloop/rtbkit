@@ -272,18 +272,30 @@ namespace {
                         continue;
                     }
 
-                    auto val = treshold.asInt();
-                    if (statusCode == 204 || viewabilityPrct >= val) {
-                        result[account].tags.insert("pass-viewability");
-                        recordResult(account, "passed");
-                        if (!lookupStage.empty()) {
-                            recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage.c_str());
+                    if (statusCode == 204) {
+                        auto strategy = agentAugConfig.config.get("unknownStrategy", "nobid").asString();
+                        if (strategy != "nobid" && strategy != "bid") {
+                            recordResult(account, "invalidStrategy");
+                            continue;
+                        }
+                        if (strategy == "bid") {
+                            result[account].tags.insert("pass-viewability");
+                            recordResult(account, "passed");
+                            continue;
+                        }
+
+                    } else {
+                        auto val = treshold.asInt();
+                        if (viewabilityPrct >= val) {
+                            result[account].tags.insert("pass-viewability");
+                            recordResult(account, "passed");
+                            if (!lookupStage.empty()) {
+                                recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage.c_str());
+                            }
+                            continue;
                         }
                     }
-                    else {
-                        recordResult(account, "filtered");
-                    }
-
+                    recordResult(account, "filtered");
                 }
             }
         }
