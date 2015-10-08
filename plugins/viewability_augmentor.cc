@@ -231,7 +231,10 @@ namespace {
                 return result;
             }
 
-            auto viewabilityPrct = std::stoi(body);
+            double viewabilityPrct = 0.0;
+            if (statusCode == 200) {
+                viewabilityPrct = std::stod(body);
+            }
 
             for (const auto& agent: augRequest.agents) {
                 const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
