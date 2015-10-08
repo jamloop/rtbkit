@@ -277,7 +277,7 @@ namespace {
                         result[account].tags.insert("pass-viewability");
                         recordResult(account, "passed");
                         if (!lookupStage.empty()) {
-                            recordHit("account.%s.lookup.%s", account.toString(), lookupStage.c_str());
+                            recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage.c_str());
                         }
                     }
                     else {
