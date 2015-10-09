@@ -118,6 +118,7 @@ namespace Jamloop {
             return OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
         } catch (const ML::Exception& e) {
            LOG(trace) << "Error when parsing BidRequest." << endl << payload << endl;
+           throw;
         }
     }
 
