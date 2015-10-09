@@ -17,6 +17,7 @@ namespace RTBKIT {
 
 struct Priority
 {
+    static constexpr unsigned ExchangePre          = 0x0100;
     static constexpr unsigned ExchangeName         = 0x0200;
 
     struct JamLoop {
@@ -41,8 +42,6 @@ struct Priority
     static constexpr unsigned UserPartition        = 0x3400;
 
     static constexpr unsigned CreativeSegments     = 0x3500;
-
-    static constexpr unsigned ExchangePre          = 0xF000;
 
     // Really slow so delay as much as possible.
     static constexpr unsigned CreativeExchange     = 0xF100;
