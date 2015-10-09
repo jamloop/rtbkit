@@ -487,7 +487,7 @@ namespace JamLoop {
             for (auto outcome: filterOutcome) {
                 const auto result = static_cast<WhiteBlackResult>(outcome.first);
                 const auto& configs = outcome.second;
-                auto reasons = state.getFilterReasons();
+                auto& reasons = state.getFilterReasons();
                 reasons.insert(std::make_pair(whiteBlackString(result), configs));
             }
         }
