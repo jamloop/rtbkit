@@ -456,7 +456,45 @@ namespace JamLoop {
 
         unsigned priority() const { return RTBKIT::Priority::JamLoop::WhiteBlackList; }
 
-        bool filterConfig(RTBKIT::FilterState& state, const RTBKIT::AgentConfig& config) const
+        void fillOutcome(std::unordered_map<int, RTBKIT::ConfigSet>& outcome, size_t cfgIndex,
+                        WhiteBlackResult result) const
+        {
+            auto key = static_cast<int>(result);
+            auto& configs = outcome[key];
+            configs.set(cfgIndex);
+        }
+
+        void filter(RTBKIT::FilterState& state) const {
+            std::unordered_map<int, RTBKIT::ConfigSet> filterOutcome;
+
+            auto matches = state.configs();
+            for (size_t i = matches.next(); i < matches.size(); i = matches.next(i + 1)) {
+                ExcAssert(configs[i]);
+
+                auto result = filterDomain(state, *configs[i]);
+                fillOutcome(filterOutcome, i, result);
+
+                switch (result) {
+                case WhiteBlackResult::Whitelisted:
+                    continue;
+                case WhiteBlackResult::Blacklisted:
+                case WhiteBlackResult::NotFound:
+                    matches.reset(i);
+                }
+            }
+            state.narrowConfigs(matches);
+
+            for (auto outcome: filterOutcome) {
+                const auto result = static_cast<WhiteBlackResult>(outcome.first);
+                const auto& configs = outcome.second;
+                auto reasons = state.getFilterReasons();
+                reasons.insert(std::make_pair(whiteBlackString(result), configs));
+            }
+        }
+
+        WhiteBlackResult filterDomain(
+            RTBKIT::FilterState& state,
+            const RTBKIT::AgentConfig& config) const
         {
             const auto& br = state.request;
             std::string domain;
@@ -495,7 +533,7 @@ namespace JamLoop {
                 }
             }
 
-            return config.whiteBlackList.filter(domain) == WhiteBlackResult::Whitelisted;
+            return config.whiteBlackList.filter(domain);
         }
 
     };
