@@ -9,6 +9,7 @@
 
 #include "rtbkit/plugins/exchange/openrtb_exchange_connector.h"
 #include "rtbkit/common/creative_configuration.h"
+#include "soa/service/logs.h"
 
 namespace Jamloop {
 
@@ -56,6 +57,10 @@ public:
     typedef RTBKIT::CreativeConfiguration<CreativeInfo> LiveRailCreativeConfiguration;
 
 private:
+
+    static Datacratic::Logging::Category print;
+    static Datacratic::Logging::Category trace;
+
     void initCreativeConfiguration();
 
     void setSeatBid(const RTBKIT::Auction& auction,

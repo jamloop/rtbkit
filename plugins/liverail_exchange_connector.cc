@@ -13,6 +13,12 @@ using namespace Datacratic;
 
 namespace Jamloop {
 
+    Logging::Category
+    LiveRailExchangeConnector::print("LiveRailExchangeConnector");
+
+    Logging::Category
+    LiveRailExchangeConnector::trace("LiveRailExchangeConnector Trace");
+
     LiveRailExchangeConnector::LiveRailExchangeConnector(ServiceBase& owner, std::string name)
         : OpenRTBExchangeConnector(owner, std::move(name))
         , creativeConfig(exchangeName())
@@ -108,7 +114,11 @@ namespace Jamloop {
             const HttpHeader& header,
             const std::string& payload)
     {
-        return OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
+        try {
+            return OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
+        } catch (const ML::Exception& e) {
+           LOG(trace) << "Error when parsing BidRequest." << endl << payload << endl;
+        }
     }
 
     void
