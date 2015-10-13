@@ -242,14 +242,9 @@ namespace {
                     return result;
                 }
 
-                // The response is a JSON
-                if (body[0] == '{') {
-                    Json::Value response = Json::parse(body);
-                    viewabilityPrct = response["score"].asDouble();
-                    lookupStage = response.get("stage", "").asString();
-                } else {
-                    viewabilityPrct = std::stod(body);
-                }
+                Json::Value response = Json::parse(body);
+                viewabilityPrct = response["score"].asDouble();
+                lookupStage = response.get("stage", "").asString();
             }
 
             for (const auto& agent: augRequest.agents) {

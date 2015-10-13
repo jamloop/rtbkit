@@ -33,7 +33,7 @@ target_link_libraries(brightroll_exchange protobuf rtb exchange bid_request serv
 add_library(liverail_exchange SHARED liverail_exchange_connector.cc)
 target_link_libraries(liverail_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
-set(VIEWABILITY_SERVICE_SRC viewability_augmentor.cc viewability_service.cc redis_viewability_backend.cc file_watcher.cc moat_data_parser.cc)
+set(VIEWABILITY_SERVICE_SRC viewability_augmentor.cc viewability_service.cc file_watcher.cc)
 set(VIEWABILITY_SERVICE_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request gc boost_program_options agent_configuration)
 
 add_library(viewability_service SHARED ${VIEWABILITY_SERVICE_SRC})

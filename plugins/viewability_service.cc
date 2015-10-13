@@ -15,13 +15,6 @@ namespace JamLoop {
     ViewabilityService::Config::makeProgramOptions()
     {
         using namespace boost::program_options;
-        options_description redisOptions("Backend Redis Options");
-
-        redisOptions.add_options()
-        ("redis-host", value<string>(&redisHost),
-                "location of the redis server")
-        ("redis-port", value<uint16_t>(&redisPort),
-                "port of the redis server");
 
         options_description goView("Go Viewabilitty service options");
         goView.add_options()
@@ -30,13 +23,12 @@ namespace JamLoop {
 
         options_description commonOptions("Common Options");
         commonOptions.add_options()
-        ("data-file", value<string>(&dataFile),
-              "location of the MOAT data file");
+        ("threads", value<unsigned>(&augmentorThreads)->default_value(Default::AugmentorThreads),
+              "Number of augmentation threads to use");
 
 
         options_description allOptions;
         allOptions
-            .add(redisOptions)
             .add(goView)
             .add(commonOptions);
 
@@ -62,32 +54,14 @@ namespace JamLoop {
     }
 
     void
-    ViewabilityService::setBackend(const shared_ptr<ViewabilityBackend>& backend)
-    {
-        this->backend = backend;
-    }
-
-    void
     ViewabilityService::init()
     {
-        agentConfig = make_shared<AgentConfigurationListener>(getZmqContext());
-        agentConfig->init(getServices()->config);
-        addSource("ViewabilityService::agentConfig", agentConfig);
-
         augmentor = make_shared<ViewabilityAugmentor>(*this);    
-        augmentor->init(Default::AugmentorThreads);
+        augmentor->init(config.augmentorThreads);
 
         if (!config.goViewUrl.empty()) {
             augmentor->useGoView(config.goViewUrl);
         }
-
-#if 0
-        moat = make_shared<Utils::MoatDataParser>(config.dataFile,
-                [this](std::vector<Utils::MoatDataParser::Line>&& data) {
-                    this->handleMoatData(std::move(data));
-                });
-        addSource("ViewabilityService::moatData", moat);
-#endif
 
     }
 
@@ -99,19 +73,13 @@ namespace JamLoop {
     void
     ViewabilityService::start()
     {
-        MessageLoop::start();
         augmentor->start();
     }
 
     void
     ViewabilityService::shutdown()
     {
-        MessageLoop::shutdown();
         augmentor->shutdown();
     }
 
-    void
-    ViewabilityService::handleMoatData(std::vector<Utils::MoatDataParser::Line>&& data)
-    {
-    }
 } // namespace JamLoop

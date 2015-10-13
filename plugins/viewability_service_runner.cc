@@ -1,5 +1,4 @@
 #include "viewability_service.h"
-#include "redis_viewability_backend.h"
 #include "soa/service/process_stats.h"
 #include "soa/service/service_utils.h"
 #include "jml/arch/format.h"
@@ -39,16 +38,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-#if 0
-    const auto redisAddr = Redis::Address::tcp(config.redisHost, config.redisPort);
-    auto redisBackend = std::make_shared<RedisViewabilityBackend>(redisAddr);
-#endif
-
     auto proxies = serviceArgs.makeServiceProxies();
     auto serviceName = serviceArgs.serviceName("viewabilityService");
 
     ViewabilityService service(proxies, serviceName);
-    //service.setBackend(redisBackend);
     service.setConfig(config);
 
     service.init();
