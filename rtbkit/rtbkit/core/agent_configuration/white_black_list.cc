@@ -40,12 +40,7 @@ namespace JamLoop {
          *    -> Unmatch
          */
 
-        auto pos = p.find(path);
-        if (pos != std::string::npos) {
-            return pos == 0;
-        }
-
-        return false;
+        return std::equal(std::begin(path), std::end(path), std::begin(p));
     }
 
     WhiteBlackList::Result
