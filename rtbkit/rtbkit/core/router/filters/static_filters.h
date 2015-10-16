@@ -457,7 +457,7 @@ namespace JamLoop {
         unsigned priority() const { return RTBKIT::Priority::JamLoop::WhiteBlackList; }
 
         void fillOutcome(std::unordered_map<int, RTBKIT::ConfigSet>& outcome, size_t cfgIndex,
-                        WhiteBlackResult result) const
+                        WhiteBlackList::Result result) const
         {
             auto key = static_cast<int>(result);
             auto& configs = outcome[key];
@@ -475,24 +475,24 @@ namespace JamLoop {
                 fillOutcome(filterOutcome, i, result);
 
                 switch (result) {
-                case WhiteBlackResult::Whitelisted:
+                case WhiteBlackList::Result::Whitelisted:
                     continue;
-                case WhiteBlackResult::Blacklisted:
-                case WhiteBlackResult::NotFound:
+                case WhiteBlackList::Result::Blacklisted:
+                case WhiteBlackList::Result::NotFound:
                     matches.reset(i);
                 }
             }
             state.narrowConfigs(matches);
 
             for (auto outcome: filterOutcome) {
-                const auto result = static_cast<WhiteBlackResult>(outcome.first);
+                const auto result = static_cast<WhiteBlackList::Result>(outcome.first);
                 const auto& configs = outcome.second;
                 auto& reasons = state.getFilterReasons();
                 reasons.insert(std::make_pair(whiteBlackString(result), configs));
             }
         }
 
-        WhiteBlackResult filterDomain(
+        WhiteBlackList::Result filterDomain(
             RTBKIT::FilterState& state,
             const RTBKIT::AgentConfig& config) const
         {
@@ -507,9 +507,10 @@ namespace JamLoop {
                     domain = br.site->publisher->domain.rawString();
             }
 
+            const auto& url = br.url;
+
             // If the domain is not found, fallback on the page url
             if (domain.empty()) {
-                const auto &url = br.url;
                 domain = url.host();
             }
 
@@ -533,7 +534,7 @@ namespace JamLoop {
                 }
             }
 
-            return config.whiteBlackList.filter(domain);
+            return config.whiteBlackList.filter(domain, url);
         }
 
     };

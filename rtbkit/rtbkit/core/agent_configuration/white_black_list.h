@@ -1,3 +1,11 @@
+/* white_black_list.h
+   Mathieu Stefani, 15 October 2015
+   Copyright (c) 2014 Datacratic.  All rights reserved.
+   
+   White and Black List that can be used to white-list domains and sub-directories
+*/
+
+
 #pragma once
 
 #include <string>
@@ -8,25 +16,6 @@
 #include "soa/service/json_codec.h"
 
 namespace JamLoop {
-
-    enum class WhiteBlackResult {
-        Whitelisted,
-        Blacklisted,
-        NotFound
-    };
-
-    inline const char* whiteBlackString(WhiteBlackResult result) {
-        switch (result) {
-        case WhiteBlackResult::Whitelisted:
-            return "whitelisted";
-        case WhiteBlackResult::Blacklisted:
-            return "blacklisted";
-        case WhiteBlackResult::NotFound:
-            return "notfound";
-        }
-
-        return nullptr;
-    }
 
     template<typename T>
     Json::Value jsonEncode(const std::unordered_set<T>& set) {
@@ -41,123 +30,48 @@ namespace JamLoop {
         return value.asString();
     }
 
-    template<typename T>
     class WhiteBlackList {
     public:
 
-        template<typename Arg>
-        void addWhite(Arg&& arg) {
-            white.insert(std::forward<Arg>(arg));
-        }
+        typedef std::string Domain;
 
-        template<typename Arg>
-        void addBlack(Arg&& arg) {
-            black.insert(std::forward<Arg>(arg));
-        }
+        enum class Result {
+            Whitelisted,
+            Blacklisted,
+            NotFound
+        };
 
-        Json::Value toJson() const {
-            Json::Value ret(Json::objectValue);
-            if (!whiteFile.empty() && !blackFile.empty()) {
-                ret["whiteFile"] = whiteFile;
-                ret["blackFile"] = blackFile;
-            }
-            else {
-                ret["whiteList"] = jsonEncode(white);
-                ret["blackList"] = jsonEncode(black);
-            }
-            return ret;            
-        }
+        Json::Value toJson() const;
 
-        void createFromJson(const Json::Value& value) {
-            white.clear();
-            black.clear();
+        void createFromJson(const Json::Value& value);
+        void createFromFile(std::string whiteFile, std::string blackFile);
 
-            if (value.isMember("whiteFile") && !value.isMember("blackFile")) {
-                throw ML::Exception("Missing 'blackFile' parameter for WhiteBlackList");
-            }
-            if (value.isMember("blackFile") && !value.isMember("whiteFile")) {
-                throw ML::Exception("Missing 'whiteFile' parameter for WhiteBlackList");
-            }
-
-            if ((value.isMember("whiteFile") || value.isMember("blackFile")) && (value.isMember("whiteList") || value.isMember("blackList"))) {
-                throw ML::Exception("Invalid mutually exclusive parameters for WhiteBlackList");
-            }
-
-            std::string whiteFile;
-            std::string blackFile;
-
-            for (auto it = value.begin(), end = value.end(); it != end; ++it) {
-                auto key = it.memberName();
-                if (key != "whiteFile" && key != "blackFile" &&
-                    key != "whiteList" && key != "blackList")
-                {
-                    throw ML::Exception("Invalid key for WhiteBlackList '%s'", key.c_str());
-                }
-                else {
-                    if (key == "whiteFile") whiteFile = it->asString();
-                    else if (key == "blackFile") blackFile = it->asString();
-                    else if (key == "whiteList" || key == "blackList") {
-                        auto val = *it;
-                        if (!val.isArray()) throw ML::Exception("whiteList parameter must be an array");
-                        
-                        for (const auto& w: val) {
-                            auto elem = jsonParse(w); 
-                            if (key == "whiteList") white.insert(std::move(elem));
-                            else black.insert(std::move(elem));
-                        }
-                    }
-                }
-            }
-
-            if (!whiteFile.empty() && !blackFile.empty()) {
-                createFromFile(std::move(whiteFile), std::move(blackFile));
-            }
-        }
-
-        void createFromFile(std::string whiteFile, std::string blackFile) {
-            ML::filter_istream whiteIn(whiteFile);
-            if (!whiteIn) {
-                throw ML::Exception("Could not open whitelist file '%s'", whiteFile.c_str());
-            }
-
-            ML::filter_istream blackIn(blackFile);
-            if (!blackIn) {
-                throw ML::Exception("Could not open blacklist file '%s'", blackFile.c_str());
-            }
-
-            std::string elem;
-            while (std::getline(whiteIn, elem)) {
-                white.insert(elem);
-            }
-            while (std::getline(blackIn, elem)) {
-                black.insert(elem);
-            }
-
-            this->whiteFile = std::move(whiteFile);
-            this->blackFile = std::move(blackFile);
-        }
-
-        WhiteBlackResult filter(const T& value) const {
-            if (black.find(value) != std::end(black)) {
-                return WhiteBlackResult::Blacklisted;
-            }
-            else if (white.find(value) != std::end(white)) {
-                return WhiteBlackResult::Whitelisted;
-            }
-            else {
-                return WhiteBlackResult::NotFound;
-            }
-        }
+        Result filter(const Domain& domain, const Datacratic::Url& url) const;
 
         bool empty() const {
-            return !white.empty() && !black.empty();
+            return !white.empty();
         }
 
     private:
         std::string whiteFile;
         std::string blackFile;
 
-        std::unordered_set<T> white;
-        std::unordered_set<T> black;
+        struct Directory {
+            Directory(std::string path);
+
+            bool matches(const Datacratic::Url& url) const;
+        private:
+            std::string path;
+        };
+
+#ifdef REDUCE_MEMORY_ALLOCS
+        typedef ML::compact_vector<Directory, 4> Directories;
+#else
+        typedef std::vector<Directory> Directories;
+#endif
+        std::unordered_map<Domain, Directories> white;
+        std::pair<Domain, std::string> splitDomain(const std::string& url) const;
     };
+
+    const char* whiteBlackString(WhiteBlackList::Result result);
 } // namespace JamLoop
