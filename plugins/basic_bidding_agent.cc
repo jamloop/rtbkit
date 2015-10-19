@@ -183,7 +183,8 @@ int main(int argc, char** argv) {
     banker->start();
 
     // start the bidding agent
-    JamLoop::BasicBiddingAgent agent(proxies, "basic-bidder", filename, banker);
+    const std::string name = globalArgs.serviceName("basic-bidder");
+    JamLoop::BasicBiddingAgent agent(proxies, name, filename, banker);
     agent.start();
 
     while(true) {
