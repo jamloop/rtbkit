@@ -280,12 +280,13 @@ namespace {
                         }
 
                     } else {
+                        recordOutcome(viewabilityPrct, "accounts.%s.score", account.toString());
                         auto val = treshold.asInt();
                         if (viewabilityPrct >= val) {
                             result[account].tags.insert("pass-viewability");
                             recordResult(account, "passed");
                             if (!lookupStage.empty()) {
-                                recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage.c_str());
+                                recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage);
                             }
                             continue;
                         }
