@@ -158,6 +158,16 @@
       "log": true
     },
     {
+      "name": "agent-liverail-02",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_liverail_02",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/liverail-02.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-liverail-03",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
