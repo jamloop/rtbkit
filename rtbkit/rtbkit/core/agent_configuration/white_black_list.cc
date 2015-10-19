@@ -48,11 +48,19 @@ namespace JamLoop {
         auto w = white.find(domain);
         if (w != std::end(white)) {
             const auto& directories = w->second;
-            for (const auto& dir: directories) {
-                if (dir.matches(url)) {
-                    return Result::Whitelisted;
-                }
+
+            if (directories.empty()) {
+                return Result::Whitelisted;
             }
+
+            auto matchesUrl = [&url](const Directory& dir) {
+                return dir.matches(url);
+            };
+
+            if (std::any_of(std::begin(directories), std::end(directories), matchesUrl)) {
+                return Result::Whitelisted;
+            }
+
         }
 
         return Result::NotFound;
