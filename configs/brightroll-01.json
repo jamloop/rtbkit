@@ -12,7 +12,7 @@
       "duration": 30,
       "providerConfig": {
           "brightroll": {
-              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlW5DJXscdasnFQ6laK+JbkJoOt0lqLFswM=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9FkDRxHW_03XR7w4pxdG4Is=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
               "adomain": "jamloop.com",
               "campaign_name": "JLVM BRX 7.10x vpaid",
               "line_item_name": "JLVM BRX 7.10x",
@@ -53,11 +53,11 @@
   "ext": {
     "budget": "500000000USD/1M",
     "pace": "0USD/1M",
-    "price": "9100USD/1M",
+    "price": "6100USD/1M",
     "priority": 1
   },
   "whiteBlackList": {
-    "whiteFile": "configs/9.10_MPL_WL_2015-09-14.csv",
+    "whiteFile": "configs/Xax_MPL_WL_2015-10-13.csv",
     "blackFile": "configs/blank"
     }
 }
