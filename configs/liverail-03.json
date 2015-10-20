@@ -13,7 +13,7 @@
       "providerConfig": {
           "liverail": {
               "adomain": [ "jamloop.com" ],
-              "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlXjY36iz3dCVPiyPKMIN81zqARGjzx1_bo=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI><Impression><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?referer=%{bidrequest.site.page}&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&PWidth=%{bidrequest.width}&PHeight=%{bidrequest.height}&POSITION=%{bidrequest.pos}&IP=%{bidrequest.device.ip}&USERIDS=%{bidrequest.user.id}&LRSite=%{bidrequest.publisher.id}&UA=%{bidrequest.ua}&Lang=%{bidrequest.language}&REQ_URL=%{bidrequest.site.page}&cb=%{bidrequest.timestamp}&WIN_RATIO=${AUCTION_PRICE}&src=dsp]]></Impression></Wrapper></Ad></VAST>"
+              "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlXjY36iz3dCVG7gdIG1DOfTMAfWwLo7paw=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI><Impression><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?referer=%{bidrequest.site.page}&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&PWidth=%{bidrequest.width}&PHeight=%{bidrequest.height}&POSITION=%{bidrequest.pos}&IP=%{bidrequest.device.ip}&USERIDS=%{bidrequest.user.id}&LRSite=%{bidrequest.publisher.id}&UA=%{bidrequest.ua}&Lang=%{bidrequest.language}&REQ_URL=%{bidrequest.site.page}&cb=%{bidrequest.timestamp}&WIN_RATIO=${AUCTION_PRICE}&src=dsp]]></Impression></Wrapper></Ad></VAST>"
 	}
       }
     }
@@ -22,7 +22,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":100,
+        "viewTreshold":50,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -41,11 +41,11 @@
     "ext": {
       "budget": "500000000USD/1M",
       "pace": "1000000USD/1M",
-      "price": "6100USD/1M",
+      "price": "5100USD/1M",
       "priority": 1
     },
     "whiteBlackList": {
-      "whiteFile": "configs/6.10_MPL_WL_2015-10-13.csv",
+      "whiteFile": "configs/Xax_MPL_WL_2015-10-13.csv",
       "blackFile": "configs/blank"
     }
 }
