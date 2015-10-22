@@ -79,7 +79,6 @@ expectStringUtf8()
             case '\\':c = '\\';  break;
             case '"': c = '"';   break;
             case 'u': {
-                (void) *(*context);
                 int code = context->expect_hex4();
                 c = code;
                 break;
