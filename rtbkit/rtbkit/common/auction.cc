@@ -241,7 +241,13 @@ Auction(ExchangeConnector * exchangeConnector,
     ML::atomic_add(created, 1);
 
     this->id = request->auctionId;
+
+    auto t0 = Date::now();
     this->requestSerialized = request->serializeToString();
+    auto t1 = Date::now();
+    if(Date::now().secondsSince(t0) > 0.5) {
+        std::cerr << "THIS MAKES THE JSON PRINTER CRY BEGIN\n" << requestStr << "\nEND\n";
+    }
 }
 
 Auction::
