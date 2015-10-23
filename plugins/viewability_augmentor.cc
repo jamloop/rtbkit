@@ -268,7 +268,7 @@ namespace {
                     }
 
                     if (statusCode == 204) {
-                        recordHit("accounts.%s.lookup.NoHit");
+                        recordHit("accounts.%s.lookup.NoHit", account.toString());
                         auto strategy = agentAugConfig.config.get("unknownStrategy", "nobid").asString();
                         if (strategy != "nobid" && strategy != "bid") {
                             recordResult(account, "invalidStrategy");
