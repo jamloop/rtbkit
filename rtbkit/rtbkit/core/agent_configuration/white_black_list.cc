@@ -45,23 +45,35 @@ namespace JamLoop {
 
     WhiteBlackList::Result
     WhiteBlackList::filter(const Domain& domain, const Datacratic::Url& url) const {
-        auto w = white.find(domain);
-        if (w != std::end(white)) {
-            const auto& directories = w->second;
 
-            if (directories.empty()) {
-                return Result::Whitelisted;
+        auto tryMatch = [](
+            const List& list, const Domain& domain, const Datacratic::Url& url) {
+
+            auto it = list.find(domain);
+            if (it != std::end(list)) {
+                const auto& directories = it->second;
+
+                if (directories.empty()) {
+                    return true;
+                }
+
+                auto matchesUrl = [&url](const Directory& dir) {
+                    return dir.matches(url);
+                };
+
+                if (std::any_of(std::begin(directories), std::end(directories), matchesUrl)) {
+                    return true;
+                }
+
             }
 
-            auto matchesUrl = [&url](const Directory& dir) {
-                return dir.matches(url);
-            };
+            return false;
+        };
 
-            if (std::any_of(std::begin(directories), std::end(directories), matchesUrl)) {
-                return Result::Whitelisted;
-            }
-
-        }
+        if (tryMatch(white, domain, url))
+            return Result::Whitelisted;
+        else if (tryMatch(black, domain, url))
+            return Result::Blacklisted;
 
         return Result::NotFound;
     }
@@ -115,29 +127,29 @@ namespace JamLoop {
             throw ML::Exception("Could not open whitelist file '%s'", whiteFile.c_str());
         }
 
-#if 0
         ML::filter_istream blackIn(blackFile);
         if (!blackIn) {
             throw ML::Exception("Could not open blacklist file '%s'", blackFile.c_str());
         }
-#endif
 
-        std::string elem;
-        while (std::getline(whiteIn, elem)) {
+        auto addList = [this](List& list, const std::string& line) {
             std::string domain;
             std::string directory;
 
-            std::tie(domain, directory) = splitDomain(elem);
-            auto& dirs = white[domain];
+            std::tie(domain, directory) = splitDomain(line);
+            auto& dirs = list[domain];
             if (!directory.empty()) {
                 dirs.push_back(std::move(directory));
             }
+        };
+
+        std::string elem;
+        while (std::getline(whiteIn, elem)) {
+            addList(white, elem);
         }
-#if 0
         while (std::getline(blackIn, elem)) {
-            black.insert(elem);
+            addList(black, elem);
         }
-#endif
 
         this->whiteFile = std::move(whiteFile);
         this->blackFile = std::move(blackFile);

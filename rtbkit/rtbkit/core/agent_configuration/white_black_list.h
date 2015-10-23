@@ -69,7 +69,11 @@ namespace JamLoop {
 #else
         typedef std::vector<Directory> Directories;
 #endif
-        std::unordered_map<Domain, Directories> white;
+
+        typedef std::unordered_map<Domain, Directories> List;
+        List white;
+        List black;
+
         std::pair<Domain, std::string> splitDomain(const std::string& url) const;
     };
 
