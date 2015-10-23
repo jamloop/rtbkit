@@ -1,6 +1,13 @@
 cmake_minimum_required (VERSION 2.8.7)
 project("jamloop")
 
+macro (add_executable _name)
+    _add_executable(${ARGV})
+    if (TARGET ${_name})
+        target_link_libraries(${_name} tcmalloc)
+    endif()
+endmacro()
+
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
