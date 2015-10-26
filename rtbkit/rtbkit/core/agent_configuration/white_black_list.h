@@ -52,7 +52,7 @@ namespace JamLoop {
         Result filter(const Domain& domain, const Datacratic::Url& url) const;
 
         bool empty() const {
-            return !white.empty();
+            return white.empty() && black.empty();
         }
 
     private:
