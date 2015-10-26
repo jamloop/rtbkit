@@ -29,6 +29,9 @@ namespace JamLoop {
     bool
     WhiteBlackList::Directory::matches(const Datacratic::Url& url) const {
         auto p = url.path();
+        auto beg = std::begin(p);
+        if (*beg == '/')
+            ++beg;
 
         /*
          * domain = www.domain.com/section/subsection
@@ -40,7 +43,16 @@ namespace JamLoop {
          *    -> Unmatch
          */
 
-        return std::equal(std::begin(path), std::end(path), std::begin(p));
+        return std::equal(std::begin(path), std::end(path), beg);
+    }
+
+    void
+    WhiteBlackList::addWhite(const std::string& val) {
+        addList(white, val);
+    }
+
+    void WhiteBlackList::addBlack(const std::string& val) {
+        addList(black, val);
     }
 
     WhiteBlackList::Result
@@ -132,16 +144,6 @@ namespace JamLoop {
             throw ML::Exception("Could not open blacklist file '%s'", blackFile.c_str());
         }
 
-        auto addList = [this](List& list, const std::string& line) {
-            std::string domain;
-            std::string directory;
-
-            std::tie(domain, directory) = splitDomain(line);
-            auto& dirs = list[domain];
-            if (!directory.empty()) {
-                dirs.push_back(std::move(directory));
-            }
-        };
 
         std::string elem;
         while (std::getline(whiteIn, elem)) {
@@ -153,6 +155,18 @@ namespace JamLoop {
 
         this->whiteFile = std::move(whiteFile);
         this->blackFile = std::move(blackFile);
+    }
+
+    void
+    WhiteBlackList::addList(List& list, const std::string& line) {
+        std::string domain;
+        std::string directory;
+
+        std::tie(domain, directory) = splitDomain(line);
+        auto& dirs = list[domain];
+        if (!directory.empty()) {
+            dirs.push_back(std::move(directory));
+        }
     }
 
     std::pair<WhiteBlackList::Domain, std::string>

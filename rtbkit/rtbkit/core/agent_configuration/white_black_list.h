@@ -43,6 +43,9 @@ namespace JamLoop {
 
         Json::Value toJson() const;
 
+        void addWhite(const std::string& val);
+        void addBlack(const std::string& val);
+
         void createFromJson(const Json::Value& value);
         void createFromFile(std::string whiteFile, std::string blackFile);
 
@@ -73,6 +76,8 @@ namespace JamLoop {
         typedef std::unordered_map<Domain, Directories> List;
         List white;
         List black;
+
+        void addList(List& list, const std::string& line);
 
         std::pair<Domain, std::string> splitDomain(const std::string& url) const;
     };
