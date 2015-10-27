@@ -19,6 +19,81 @@
 using namespace std;
 using namespace ML;
 
+namespace JamLoop {
+
+    bool
+    DmaList::empty() const {
+        return ie_.empty();
+    }
+
+    const
+    RTBKIT::IncludeExclude<std::string>& DmaList::ie() const {
+        return ie_;
+    }
+
+    void
+    DmaList::fromJson(const Json::Value& value, std::string name, DmaList::Validation validation) {
+        ie_.fromJson(value, std::move(name));
+
+        if (validation == DmaList::Validate) validate();
+    }
+
+    Json::Value
+    DmaList::toJson() const {
+        return ie_.toJson();
+    }
+
+    void
+    DmaList::validate() const {
+        static constexpr const char* validCodes[] = {
+            "500", "501", "502", "503", "504", "505", "506", "507",
+            "508", "509", "510", "511", "512", "513", "514", "515",
+            "516", "517", "518", "519", "520", "521", "522", "523",
+            "524", "525", "526", "527", "528", "529", "530", "531",
+            "532", "533", "534", "535", "536", "537", "538", "539",
+            "540", "541", "542", "543", "544", "545", "546", "547",
+            "548", "549", "550", "551", "552", "553", "554", "555",
+            "556", "557", "558", "559", "560", "561", "563", "564",
+            "565", "566", "567", "569", "570", "571", "573", "574",
+            "575", "576", "577", "581", "582", "583", "584", "588",
+            "592", "596", "597", "598", "600", "602", "603", "604",
+            "605", "606", "609", "610", "611", "612", "613", "616",
+            "617", "618", "619", "622", "623", "624", "625", "626",
+            "627", "628", "630", "631", "632", "633", "634", "635",
+            "636", "637", "638", "639", "640", "641", "642", "643",
+            "644", "647", "648", "649", "650", "651", "652", "656",
+            "657", "658", "659", "661", "662", "669", "670", "671",
+            "673", "675", "676", "678", "679", "682", "686", "687",
+            "691", "692", "693", "698", "702", "705", "709", "710",
+            "711", "716", "717", "718", "722", "724", "725", "734",
+            "736", "737", "740", "743", "744", "745", "746", "747",
+            "749", "751", "752", "753", "754", "755", "756", "757",
+            "758", "759", "760", "762", "764", "765", "766", "767",
+            "770", "771", "773", "789", "790", "798", "800", "801",
+            "802", "803", "804", "807", "810", "811", "813", "819",
+            "820", "821", "825", "828", "839", "855", "862", "866",
+            "868", "881"
+        };
+
+        auto check = [&](const std::vector<std::string>& list, const char* name) {
+           for (const auto& code: list) {
+               auto it = std::find_if(std::begin(validCodes), std::end(validCodes), [&](const char* c) {
+                   return code == c;
+               });
+
+               if (it == std::end(validCodes)) {
+                   throw ML::Exception("Invalid DMA Region Code '%s' for '%s'", code.c_str(), name);
+               }
+           }
+        };
+
+        check(ie_.include, "include");
+        check(ie_.exclude, "exclude");
+
+    }
+
+}
+
 namespace RTBKIT {
 
 
@@ -655,6 +730,8 @@ createFromJson(const Json::Value & json)
             newConfig.latLongDevFilter.fromJson(*it);
         else if (it.memberName() == "whiteBlackList")
             newConfig.whiteBlackList.createFromJson(*it);
+        else if (it.memberName() == "dmaFilter")
+            newConfig.dmaFilter.fromJson(*it, "dmaFilter");
         else if (it.memberName() == "segmentFilter") {
             for (auto jt = it->begin(), jend = it->end();
                  jt != jend;  ++jt) {
@@ -828,6 +905,8 @@ toJson(bool includeCreatives) const
         result["latLongDevFilter"] = latLongDevFilter.toJson();
     if (!whiteBlackList.empty())
         result["whiteBlackList"] = whiteBlackList.toJson();
+    if (!dmaFilter.empty())
+        result["dmaFilter"] = dmaFilter.toJson();
     if (!requiredIds.empty()) {
         for (unsigned i = 0;  i < requiredIds.size();  ++i)
             result["requiredIds"][i] = requiredIds[i];

@@ -20,6 +20,24 @@
 #include "rtbkit/common/account_key.h"
 #include "rtbkit/core/agent_configuration/latlonrad.h"
 
+namespace JamLoop {
+
+    struct DmaList {
+
+        enum Validation { Validate, DontValidate };
+
+        const RTBKIT::IncludeExclude<std::string>& ie() const;
+        bool empty() const;
+
+        void fromJson(const Json::Value& value, std::string name, Validation validation = Validate);
+        Json::Value toJson() const;
+
+    private:
+        RTBKIT::IncludeExclude<std::string> ie_;
+        void validate() const;
+    };
+}
+
 namespace RTBKIT {
 
 
@@ -278,6 +296,7 @@ enum BidResultFormat {
 Json::Value toJson(BidResultFormat fmt);
 void fromJson(BidResultFormat & fmt, const Json::Value & j);
 
+
 /*****************************************************************************/
 /* AGENT CONFIG                                                              */
 /*****************************************************************************/
@@ -319,8 +338,9 @@ struct AgentConfig {
     IncludeExclude<CachedRegex<boost::regex, std::string> > languageFilter;
     IncludeExclude<CachedRegex<boost::u32regex, Datacratic::UnicodeString> > locationFilter;
     JamLoop::WhiteBlackList<std::string> whiteBlackList;
-    LatLonRadList latLongDevFilter; // latitude and longitude device filter
+    JamLoop::DmaList dmaFilter;
 
+    LatLonRadList latLongDevFilter; // latitude and longitude device filter
 
     struct SegmentInfo {
         SegmentInfo()

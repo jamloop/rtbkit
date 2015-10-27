@@ -538,5 +538,37 @@ namespace JamLoop {
 
     };
 
+    struct DMAFilter : public RTBKIT::FilterBaseT<DMAFilter>
+    {
+        static constexpr const char* name = "DMA";
+
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::DMA; }
+
+
+        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
+        {
+            impl.setIncludeExclude(configIndex, value, config.dmaFilter.ie());
+        }
+
+        void filter(RTBKIT::FilterState& state) const
+        {
+            state.narrowConfigs(impl.filter(extractMetro(state.request)));
+        }
+
+    private:
+        RTBKIT::IncludeExcludeFilter< RTBKIT::ListFilter<std::string> > impl;
+
+        std::string extractMetro(const RTBKIT::BidRequest& br) const
+        {
+            if (!br.user)
+                return "";
+            if (!br.user->geo)
+                return "";
+
+            return br.user->geo->metro;
+        }
+    };
+
+
 } // namespace JamLoop
 
