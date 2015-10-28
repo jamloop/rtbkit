@@ -46,6 +46,6 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/Acc_MPL_WL_2015-09-10.csv",
-      "blackFile": "configs/blank"
+      "blackFile": "configs/Accuen_temp_Blacklist.csv"
     }
 }

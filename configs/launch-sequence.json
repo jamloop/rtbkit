@@ -118,6 +118,46 @@
       "log": true
     },
     {
+      "name": "agent-brightroll-04",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_04",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-04.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-05",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_05",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-05.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-06",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_06",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-06.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-brightroll-07",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_brightroll_07",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/brightroll-07.json"
+      ],
+      "log": true
+    },
+   {
       "name": "agent-tremor-01",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
