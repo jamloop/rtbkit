@@ -167,6 +167,8 @@ namespace Jamloop {
 
             br->url = Url(decodedUrl);
         }
+
+        return br;
     }
 
     void
