@@ -294,6 +294,78 @@ func main() {
 		io.WriteString(w, output)
 	})
 
+	http.HandleFunc("/record/viewability", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != "POST" {
+			http.Error(w, "405 method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+
+		router.mutex.RLock()
+		defer router.mutex.RUnlock()
+		defer r.Body.Close()
+
+		q := struct {
+			Exchange  string `json:"rtbExch"`
+			Publisher string `json:"rtb_Publisher_Site"`
+			PageURL   string `json:"Embedding_Page_URL"`
+			Width     *int   `json:"Player_Width"`
+			Position  string `json:"rtbPos"`
+			Rate      string `json:"IAB_Viewable_Rate"`
+		}{}
+
+		for {
+
+			err := json.NewDecoder(r.Body).Decode(&q)
+
+			if err == io.EOF {
+				break
+			}
+
+			if err != nil {
+				log.Println("ERROR", "BAD", err.Error())
+				http.Error(w, "400 bad request\n"+err.Error(), http.StatusBadRequest)
+				return
+			}
+
+			text := q.PageURL
+
+			if !strings.HasPrefix(text, "http://") {
+				text = "http://" + text
+			}
+
+			u, err := url.Parse(text)
+			if err != nil {
+				log.Println("ERROR", "URL", err.Error())
+				http.Error(w, "400 bad request\n"+err.Error(), http.StatusBadRequest)
+				return
+			}
+
+			y := ""
+			if q.Width != nil {
+				y = fmt.Sprintf("%d", *q.Width)
+			}
+
+			fmt.Printf("%v\n", q)
+
+			x, err := strconv.ParseFloat(q.Rate, 64)
+			if err != nil {
+				http.Error(w, "400 bad request\n"+err.Error(), http.StatusBadRequest)
+				return
+			}
+
+			p := atomic.LoadPointer(&router.reads)
+			d := (*Database)(p)
+
+			key := fmt.Sprintf("{%s}%s:%s:%s:%s:%s:%s:%s", u.Host, u.Path, q.Exchange, q.Publisher, q.Position, y, q.Rate)
+			viewability := math.Floor(x * 100)
+			_, err = d.Client.Do("SET", key, fmt.Sprintf("%f", viewability))
+			if err != nil {
+				http.Error(w, "503 service not available\n"+err.Error(), http.StatusServiceUnavailable)
+				return
+			}
+		}
+	})
+
 	http.HandleFunc("/switch", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "POST" {
 			http.Error(w, "405 method not allowed", http.StatusMethodNotAllowed)
