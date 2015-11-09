@@ -49,4 +49,7 @@ target_link_libraries(viewability_service ${VIEWABILITY_SERVICE_LINK})
 add_executable(viewability_service_runner viewability_service_runner.cc)
 target_link_libraries(viewability_service_runner viewability_service boost_system boost_program_options boost_thread)
 
+add_library(adaptv_exchange SHARED adaptv_exchange_connector.cc)
+target_link_libraries(adaptv_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
+
 add_subdirectory(testing)
