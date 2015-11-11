@@ -318,7 +318,7 @@ struct AgentConfig {
     IncludeExclude<CachedRegex<boost::regex, std::string> > urlFilter;
     IncludeExclude<CachedRegex<boost::regex, std::string> > languageFilter;
     IncludeExclude<CachedRegex<boost::u32regex, Datacratic::UnicodeString> > locationFilter;
-    JamLoop::WhiteBlackList<std::string> whiteBlackList;
+    JamLoop::WhiteBlackList whiteBlackList;
     LatLonRadList latLongDevFilter; // latitude and longitude device filter
 
 
