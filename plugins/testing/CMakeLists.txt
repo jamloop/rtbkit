@@ -10,3 +10,6 @@ target_link_libraries(brightroll_exchange_connector_test brightroll_exchange bid
 
 add_test(brightroll_exchange_connector_test ${EXECUTABLE_OUTPUT_PATH}/brightroll_exchange_connector_test)
 file(COPY brightroll-bidrequest.dat DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
+add_executable(white_black_list_filter_test white_black_list_filter_test.cc)
+target_link_libraries(white_black_list_filter_test rtb arch utils jsoncpp bid_request types openrtb value_description services agent_configuration filter_registry static_filters boost_unit_test_framework)
