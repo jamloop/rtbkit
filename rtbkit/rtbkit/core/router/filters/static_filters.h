@@ -469,9 +469,12 @@ namespace JamLoop {
 
             auto matches = state.configs();
             for (size_t i = matches.next(); i < matches.size(); i = matches.next(i + 1)) {
-                ExcAssert(configs[i]);
+                const auto& config = configs[i];
+                ExcAssert(config);
 
-                auto result = filterDomain(state, *configs[i]);
+                if (config->whiteBlackList.empty()) continue;
+
+                auto result = filterDomain(state, *config);
                 fillOutcome(filterOutcome, i, result);
 
                 switch (result) {
