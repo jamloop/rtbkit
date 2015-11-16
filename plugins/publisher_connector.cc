@@ -5,6 +5,7 @@
    Implementation of the publisher connector
 */
 
+#include "rtbkit/plugins/exchange/http_auction_handler.h"
 #include "publisher_connector.h"
 #include "soa/utils/scope.h"
 #include "soa/service/logs.h"
@@ -98,18 +99,36 @@ namespace JamLoop {
     PublisherConnector::PublisherConnector(ServiceBase& owner, std::string name)
         : HttpExchangeConnector(std::move(name), owner)
         , maxAuctionTime(Default::MaxAuctionTime)
+        , creativeConfig(exchangeName())
     {
         this->auctionVerb = "GET";
         this->auctionResource = "/vast2";
+        initCreativeConfiguration();
     }
 
     PublisherConnector::PublisherConnector(std::string name,
             std::shared_ptr<ServiceProxies> proxies)
         : HttpExchangeConnector(std::move(name), std::move(proxies))
         , maxAuctionTime(Default::MaxAuctionTime)
+        , creativeConfig(exchangeName())
     {
         this->auctionVerb = "GET";
         this->auctionResource = "/vast2";
+        initCreativeConfiguration();
+    }
+
+    void
+    PublisherConnector::initCreativeConfiguration() {
+        creativeConfig.addField(
+            "vast",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.vast);
+
+                if (info.vast.empty())
+                    throw std::invalid_argument("vast is required");
+
+                return true;
+        }).snippet().required();
     }
 
     ExchangeConnector::ExchangeCompatibility
@@ -175,6 +194,7 @@ namespace JamLoop {
             extractParam(queryParams, "ua", device->ua);
             extractParam(queryParams, "lang", content->language);
             extractParam(queryParams, "pageurl", site->page);
+            extractParam(queryParams, "partner", br->exchange);
 
             site->content = std::move(content);
             br->device = std::move(device);
@@ -185,10 +205,17 @@ namespace JamLoop {
 
         } catch (const std::exception& e) {
             LOG(Logs::error) << "Error when processing request: " << e.what();
-            throw;
+            handler.dropAuction();
         }
 
         return br;
+    }
+
+    HttpResponse
+    PublisherConnector::getDroppedAuctionResponse(
+        const HttpAuctionHandler& connection,
+        const std::string& reason) const {
+        return HttpResponse(200, "application/xml", genericVast);
     }
 
     HttpResponse
@@ -196,7 +223,35 @@ namespace JamLoop {
             const HttpAuctionHandler& connection,
             const Datacratic::HttpHeader& header,
             const RTBKIT::Auction& auction) const {
-        return HttpResponse(204, "", "");
+        const Auction::Data* current = auction.getCurrentData();
+
+        if (current->hasError())
+            return getDroppedAuctionResponse(connection, "");
+
+        const auto& responses = current->responses;
+        ExcAssert(responses.size() <= 1);
+
+        /* We should have only one spot, so only one response */
+        if (!current->hasValidResponse(0))
+            return getDroppedAuctionResponse(connection, "");
+
+        const auto& resp = current->winningResponse(0);
+        const AgentConfig* config
+            = std::static_pointer_cast<const AgentConfig>(resp.agentConfig).get();
+
+        int creativeIndex = resp.agentCreativeIndex;
+        const auto& creative = config->creatives[creativeIndex];
+        auto creativeInfo = creative.getProviderData<CreativeInfo>(exchangeName());
+
+        PublisherCreativeConfiguration::Context context {
+            creative,
+            resp,
+            *auction.request,
+            0
+        };
+
+        return HttpResponse(200, "application/xml",
+                creativeConfig.expand(creativeInfo->vast, context));
     }
 
     void

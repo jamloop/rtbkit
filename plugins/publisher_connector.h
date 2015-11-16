@@ -9,6 +9,7 @@
 #pragma once
 
 #include "rtbkit/plugins/exchange/http_exchange_connector.h"
+#include "rtbkit/common/creative_configuration.h"
 #include "soa/service/message_loop.h"
 #include "soa/service/http_client.h"
 #include "soa/service/typed_message_channel.h"
@@ -51,13 +52,24 @@ public:
             const std::string& payload);
 
     Datacratic::HttpResponse
+    getDroppedAuctionResponse(const Datacratic::HttpAuctionHandler& connection,
+                             const std::string& reason) const;
+
+    Datacratic::HttpResponse
     getResponse(const Datacratic::HttpAuctionHandler& connection,
             const Datacratic::HttpHeader& header,
             const RTBKIT::Auction& auction) const;
 
     void configure(const Json::Value& parameters);
 
+    struct CreativeInfo {
+        std::string vast;
+    };
+
+    typedef RTBKIT::CreativeConfiguration<CreativeInfo> PublisherCreativeConfiguration;
+
 private:
+    void initCreativeConfiguration();
     /* We should not generate a WIN ourself but instead
      * let the adserver generate and send the win to the
      * adserver connector, but keep the class until then
@@ -98,6 +110,7 @@ private:
     std::string genericVast;
     double maxAuctionTime;
     std::unique_ptr<WinSource> wins;
+    PublisherCreativeConfiguration creativeConfig;
 };
 
 } // namespace JamLoop
