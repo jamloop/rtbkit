@@ -124,7 +124,40 @@ namespace JamLoop {
             const HttpHeader& header,
             const std::string& payload)
     {
-        return OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
+        auto br = OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
+        if (br) {
+            if (br->site && br->site->publisher && br->site->publisher->id.notNull())
+                goto end;
+
+            if (br->app && br->app->publisher && br->app->publisher->id.notNull())
+                goto end;
+
+            if (br->site) {
+                const auto& ext = br->site->ext;
+                if (ext.isMember("mpcid")) {
+                    if (!br->site->publisher)
+                        br->site->publisher.reset(new OpenRTB::Publisher);
+
+                    br->site->publisher->id = Id(ext["mpcid"].asString());
+                    goto end;
+                }
+            }
+
+            if (br->app) {
+                const auto& ext = br->app->ext;
+                if (ext.isMember("mpcid")) {
+                    if (!br->app->publisher)
+                        br->app->publisher.reset(new OpenRTB::Publisher);
+
+                    br->app->publisher->id = Id(ext["mpcid"].asString());
+                }
+            }
+
+        }
+
+        end:
+            return br;
+
     }
 
     void
