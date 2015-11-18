@@ -5,14 +5,14 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 9,
+      "id": 1511169001,
       "type": "video",
       "width": 350,
       "height": 0,
       "duration": 30,
       "providerConfig": {
           "brightroll": {
-              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9JBnzT2sVDbFjEIT+GSll5o=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
+              "nurl": "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/15997503/a629683&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=rtb&description_url=rtb2&correlator=%{bidrequest.timestamp}&cust_params=exchange%3D%{exchange}%26price%3D%{bid.price}%26id%3D%{bidrequest.id}%26impid%3D%{imp.id}%26brwidth%3D%{bidrequest.width}%26brheight%3D%{bidrequest.height}%26brpos%3D%{bidrequest.pos}%26brip%3D%{bidrequest.device.ip}%26bruser%3D%{bidrequest.user.id}%26brpub%3D%{bidrequest.publisher.id}%26brua%3D%{bidrequest.ua}%26brlang%3D%{bidrequest.lang}%26brsitepage%3D%{bidrequest.site.page}%26winratio%3D##BRX_CLEARING_PRICE##",
               "adomain": "jamloop.com",
               "campaign_name": "JLVM BRX 7.10x vpaid",
               "line_item_name": "JLVM BRX 7.10x",

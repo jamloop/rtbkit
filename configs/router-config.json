@@ -1,9 +1,9 @@
 [
   {
-    "exchangeType": "tremor",
+    "exchangeType": "adaptv",
     "listenPort": 9970,
-    "numThreads": 3,
-    "realTimePolling": true,
+    "numThreads": 2,
+    "realTimePolling": false,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
     "auctionResource": "/",
@@ -42,9 +42,9 @@
     "performNameLookup": false
   },
   {
-    "exchangeType": "adaptv",
+    "exchangeType": "tremor",
     "listenPort": 9974,
-    "numThreads": 1,
+    "numThreads": 3,
     "realTimePolling": false,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
