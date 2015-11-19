@@ -145,10 +145,7 @@ namespace JamLoop {
     PublisherConnector::getCreativeCompatibility(
             const Creative& creative,
             bool includeReasons) const {
-        ExchangeConnector::ExchangeCompatibility compatibility;
-        compatibility.setCompatible();
-
-        return compatibility;
+        return creativeConfig.handleCreativeCompatibility(creative, includeReasons);
     }
 
     double
