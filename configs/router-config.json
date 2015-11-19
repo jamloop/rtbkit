@@ -50,5 +50,16 @@
     "auctionVerb": "POST",
     "auctionResource": "/",
     "performNameLookup": false
+  },
+  {
+    "exchangeType": "publisher",
+    "listenPort": 9975,
+    "numThreads": 1,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false,
+    "genericVast": "<VAST xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"vast.xsd\" version=\"2.0\"/>"
   }
 ]

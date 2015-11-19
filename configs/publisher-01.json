@@ -1,0 +1,31 @@
+{
+    "account": [
+        "publisher", "publisher_01"
+    ],
+    "bidProbability": 1,
+    "creatives": [
+    {
+        "id": 1,
+        "type": "video",
+        "width": 350,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+            "publisher": {
+              "vast": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiM_JbGgqAWsgY=?cb=%{bidrequest.timestamp}&pageUrl=www.jamloop.com%2F&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+            }
+        }
+    }
+    ],
+    "externalId": 4242,
+    "roundRobin": {
+        "group": "publisher:publisher_01",
+        "weight": 1
+    },
+    "ext": {
+        "budget": "100000000USD/1M",
+        "pace": "1000000USD/1M",
+        "price": "6000USD/1M",
+        "priority": 1
+    }
+}
