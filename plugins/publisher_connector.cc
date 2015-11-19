@@ -339,3 +339,14 @@ namespace JamLoop {
 
 
 } // namespace JamLoop
+
+namespace {
+
+struct Init {
+    Init() {
+        RTBKIT::ExchangeConnector::registerFactory<JamLoop::PublisherConnector>();
+    }
+} init;
+
+}
+
