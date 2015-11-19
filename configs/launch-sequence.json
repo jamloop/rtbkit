@@ -226,6 +226,16 @@
         "--agent-configuration", "configs/adaptv-integration.json"
       ],
       "log": true
+    },
+    {
+      "name": "agent-publisher",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_publisher",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/publisher-01.json"
+      ],
+      "log": true
     }
 ]
   },
