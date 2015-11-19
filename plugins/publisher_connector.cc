@@ -171,6 +171,10 @@ namespace JamLoop {
             Scope_Failure(br.reset());
 
             br->auctionId = generateUniqueId();
+            br->auctionType = AuctionType::SECOND_PRICE;
+            br->timeAvailableMs = maxAuctionTime;
+            br->timestamp = Date::now();
+            br->isTest = false;
 
             AdSpot spot;
             spot.id = Id("1");
