@@ -188,6 +188,9 @@ namespace JamLoop {
             Datacratic::Optional<OpenRTB::Content> content;
             content.reset(new OpenRTB::Content());
 
+            Datacratic::Optional<OpenRTB::User> user;
+            user.reset(new OpenRTB::User());
+
             const auto& queryParams = header.queryParams;
             extractParam(queryParams, "width", video->w);
             extractParam(queryParams, "height", video->h);
@@ -195,7 +198,7 @@ namespace JamLoop {
             extractParam(queryParams, "ua", device->ua);
             extractParam(queryParams, "lang", content->language);
             extractParam(queryParams, "pageurl", site->page);
-            extractParam(queryParams, "partner", br->exchange);
+            extractParam(queryParams, "partner", user->id);
 
             double price = 0.0;
             extractParam(queryParams, "price", price);
@@ -204,6 +207,7 @@ namespace JamLoop {
             site->content = std::move(content);
             br->device = std::move(device);
             br->site = std::move(site);
+            br->user = std::move(user);
             spot.video = std::move(video);
             br->imp.push_back(std::move(spot));
 
