@@ -197,12 +197,15 @@ namespace JamLoop {
             extractParam(queryParams, "pageurl", site->page);
             extractParam(queryParams, "partner", br->exchange);
 
+            double price = 0.0;
+            extractParam(queryParams, "price", price);
+            br->ext["price"] = price;
+
             site->content = std::move(content);
             br->device = std::move(device);
             br->site = std::move(site);
             spot.video = std::move(video);
             br->imp.push_back(std::move(spot));
-
 
         } catch (const std::exception& e) {
             LOG(Logs::error) << "Error when processing request: " << e.what();
@@ -237,6 +240,12 @@ namespace JamLoop {
             return getDroppedAuctionResponse(connection, "");
 
         const auto& resp = current->winningResponse(0);
+
+        auto price = auction.request->ext["price"].asDouble();
+        if(price > resp.price.maxPrice.value) {
+            return HttpResponse(200, "application/xml", genericVast);
+        }
+
         const AgentConfig* config
             = std::static_pointer_cast<const AgentConfig>(resp.agentConfig).get();
 
