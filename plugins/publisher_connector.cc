@@ -202,7 +202,7 @@ namespace JamLoop {
 
             double price = 0.0;
             extractParam(queryParams, "price", price);
-            br->ext["price"] = price;
+            br->ext["price"] = price * 1000.0;
 
             site->content = std::move(content);
             br->device = std::move(device);
@@ -247,6 +247,7 @@ namespace JamLoop {
 
         auto price = auction.request->ext["price"].asDouble();
         if(price > resp.price.maxPrice.value) {
+            recordHit("priceTooHigh");
             return HttpResponse(200, "application/xml", genericVast);
         }
 
