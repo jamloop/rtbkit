@@ -209,6 +209,7 @@ namespace Jamloop {
             br->device = std::move(device);
             br->site = std::move(site);
             br->user = std::move(user);
+            br->url = br->site->page;
             spot.video = std::move(video);
             br->imp.push_back(std::move(spot));
 
