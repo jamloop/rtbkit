@@ -15,7 +15,7 @@
 #include "soa/service/typed_message_channel.h"
 #include <memory>
 
-namespace JamLoop {
+namespace Jamloop {
 
 class PublisherConnector : public RTBKIT::HttpExchangeConnector {
 public:

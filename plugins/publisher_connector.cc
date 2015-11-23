@@ -7,6 +7,7 @@
 
 #include "rtbkit/plugins/exchange/http_auction_handler.h"
 #include "publisher_connector.h"
+#include "utils.h"
 #include "soa/utils/scope.h"
 #include "soa/service/logs.h"
 #include "soa/types/string.h"
@@ -18,7 +19,7 @@
 using namespace RTBKIT;
 using namespace Datacratic;
 
-namespace JamLoop {
+namespace Jamloop {
 
     namespace Logs {
         static Logging::Category print("PublisherConnector");
@@ -59,7 +60,7 @@ namespace JamLoop {
             template<> struct LexicalCast<Datacratic::Url>
             {
                 static Datacratic::Url cast(const std::string& value) {
-                    return Datacratic::Url(value);
+                    return Datacratic::Url(urldecode(value));
                 }
             };
 
@@ -359,7 +360,7 @@ namespace {
 
 struct Init {
     Init() {
-        RTBKIT::ExchangeConnector::registerFactory<JamLoop::PublisherConnector>();
+        RTBKIT::ExchangeConnector::registerFactory<Jamloop::PublisherConnector>();
     }
 } init;
 

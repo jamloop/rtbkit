@@ -28,6 +28,9 @@ link_directories(../bin $ENV{HOME}/local/lib)
 add_executable(basic_bidding_agent basic_bidding_agent.cc)
 target_link_libraries(basic_bidding_agent rtb bidding_agent agent_configuration bid_request banker services arch utils jsoncpp types value_description boost_system boost_program_options)
 
+add_library(jamloop_utils SHARED utils.cc)
+target_link_libraries(jamloop_utils arch)
+
 add_library(tremor_exchange SHARED tremor_exchange_connector.cc)
 target_link_libraries(tremor_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
@@ -38,7 +41,7 @@ add_library(brightroll_exchange SHARED brightroll_exchange_connector.cc ${PROTO_
 target_link_libraries(brightroll_exchange protobuf rtb exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
 add_library(liverail_exchange SHARED liverail_exchange_connector.cc)
-target_link_libraries(liverail_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
+target_link_libraries(liverail_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options)
 
 set(VIEWABILITY_SERVICE_SRC viewability_augmentor.cc viewability_service.cc file_watcher.cc)
 set(VIEWABILITY_SERVICE_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request gc boost_program_options agent_configuration)
