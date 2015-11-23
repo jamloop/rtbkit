@@ -192,14 +192,18 @@ namespace Jamloop {
             Datacratic::Optional<OpenRTB::User> user;
             user.reset(new OpenRTB::User());
 
+            int width, height;
             const auto& queryParams = header.queryParams;
-            extractParam(queryParams, "width", video->w);
-            extractParam(queryParams, "height", video->h);
+            extractParam(queryParams, "width", width);
+            extractParam(queryParams, "height", height);
             extractParam(queryParams, "ip", device->ip);
             extractParam(queryParams, "ua", device->ua);
             extractParam(queryParams, "lang", content->language);
             extractParam(queryParams, "pageurl", site->page);
             extractParam(queryParams, "partner", user->id);
+
+            video->w = width;
+            video->h = height;
 
             double price = 0.0;
             extractParam(queryParams, "price", price);
@@ -211,6 +215,7 @@ namespace Jamloop {
             br->user = std::move(user);
             br->url = br->site->page;
             spot.video = std::move(video);
+            spot.formats.push_back(Format(width, height));
             br->imp.push_back(std::move(spot));
 
         } catch (const std::exception& e) {
