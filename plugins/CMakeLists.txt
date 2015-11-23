@@ -56,6 +56,6 @@ add_library(adaptv_exchange SHARED adaptv_exchange_connector.cc)
 target_link_libraries(adaptv_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
 add_library(publisher_exchange SHARED publisher_connector.cc)
-target_link_libraries(publisher_exchange rtb exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
+target_link_libraries(publisher_exchange rtb exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options)
 
 add_subdirectory(testing)
