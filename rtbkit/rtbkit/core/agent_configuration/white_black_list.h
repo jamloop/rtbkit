@@ -79,7 +79,7 @@ namespace JamLoop {
 
         void addList(List& list, const std::string& line);
 
-        std::pair<Domain, std::string> splitDomain(const std::string& url) const;
+        std::pair<Domain, std::string> splitDomain(std::string url) const;
     };
 
     const char* whiteBlackString(WhiteBlackList::Result result);

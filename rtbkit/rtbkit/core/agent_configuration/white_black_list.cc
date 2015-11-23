@@ -170,7 +170,10 @@ namespace JamLoop {
     }
 
     std::pair<WhiteBlackList::Domain, std::string>
-    WhiteBlackList::splitDomain(const std::string& url) const {
+    WhiteBlackList::splitDomain(std::string url) const {
+        url.erase(std::remove(url.begin(), url.end(), '\r'), url.end());
+        url.erase(std::remove(url.begin(), url.end(), '\n'), url.end());
+
         auto slash = url.find('/');
         if (slash == std::string::npos) {
             return std::make_pair(url, "");
