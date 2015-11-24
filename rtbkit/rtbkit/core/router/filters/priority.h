@@ -21,6 +21,7 @@ struct Priority
 
     struct JamLoop {
         static constexpr unsigned WhiteBlackList   = 0x0300;
+        static constexpr unsigned DeviceType       = 0x3600;
     };
 
     static constexpr unsigned Location             = 0x1000;
