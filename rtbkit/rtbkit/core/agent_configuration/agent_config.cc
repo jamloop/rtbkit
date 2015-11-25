@@ -653,6 +653,8 @@ createFromJson(const Json::Value & json)
             newConfig.exchangeFilter.fromJson(*it, "exchangeFilter");
         else if (it.memberName() == "latLongDevFilter")
             newConfig.latLongDevFilter.fromJson(*it);
+        else if (it.memberName() == "deviceTypeFilter")
+            newConfig.deviceTypeFilter.fromJson(*it, "deviceTypeFilter");
         else if (it.memberName() == "whiteBlackList")
             newConfig.whiteBlackList.createFromJson(*it);
         else if (it.memberName() == "segmentFilter") {
@@ -826,6 +828,8 @@ toJson(bool includeCreatives) const
         result["exchangeFilter"] = exchangeFilter.toJson();
     if (!latLongDevFilter.empty())
         result["latLongDevFilter"] = latLongDevFilter.toJson();
+    if (!deviceTypeFilter.empty())
+        result["deviceTypeFilter"] = deviceTypeFilter.toJson();
     if (!whiteBlackList.empty())
         result["whiteBlackList"] = whiteBlackList.toJson();
     if (!requiredIds.empty()) {

@@ -13,3 +13,7 @@ file(COPY brightroll-bidrequest.dat DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY
 
 add_executable(white_black_list_filter_test white_black_list_filter_test.cc)
 target_link_libraries(white_black_list_filter_test rtb arch utils jsoncpp bid_request types openrtb value_description services agent_configuration filter_registry static_filters boost_unit_test_framework)
+
+add_executable(device_type_filter_test device_type_filter_test.cc)
+target_link_libraries(device_type_filter_test rtb arch utils jsoncpp bid_request types openrtb value_description services agent_configuration filter_registry static_filters boost_unit_test_framework)
+add_test(device_type_filter_test ${EXECUTABLE_OUTPUT_PATH}/device_type_filter_test)

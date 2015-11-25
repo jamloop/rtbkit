@@ -542,5 +542,27 @@ namespace JamLoop {
 
     };
 
+    class DeviceTypeFilter : public RTBKIT::FilterBaseT<DeviceTypeFilter> {
+    public:
+        static constexpr const char* name = "DeviceType";
+
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::DeviceType; }
+
+        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
+        {
+            impl.setIncludeExclude(configIndex, value, config.deviceTypeFilter);
+        }
+
+        void filter(RTBKIT::FilterState& state) const
+        {
+            if (state.request.device) {
+                state.narrowConfigs(impl.filter(state.request.device->devicetype));
+            }
+        }
+
+    private:
+        RTBKIT::IncludeExcludeFilter< RTBKIT::ListFilter<OpenRTB::DeviceType> > impl;
+    };
+
 } // namespace JamLoop
 
