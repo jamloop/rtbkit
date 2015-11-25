@@ -1,6 +1,6 @@
 {
     "account": [
-        "adaptv", "integration_01"
+        "adaptv", "Adap_9.1_w350_WL_HV50_643766"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -29,7 +29,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:integration_01",
+        "group": "adaptv:Adap_9.1_w350_WL_HV50_643766",
         "weight": 1
     },
     "providerConfig": {
@@ -44,7 +44,7 @@
         "priority": 1
     },
     "whiteBlackList": {
-      "whiteFile": "configs/blank",
+      "whiteFile": "configs/RTB_MP_9.10_WL_2015-10-28.csv",
       "blackFile": "configs/blank"
     }
 }

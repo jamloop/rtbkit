@@ -5,18 +5,18 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 9,
+      "id": 2015112402,
       "type": "video",
-      "width": 350,
+      "width": 300,
       "height": 0,
       "duration": 30,
       "providerConfig": {
           "brightroll": {
-              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9FkDRxHW_03XQSwOL_ywK6A=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9D6FKeGechjYrwVs2RHnDOU=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
               "adomain": "jamloop.com",
-              "campaign_name": "JLVM BRX 7.10x vpaid",
-              "line_item_name": "JLVM BRX 7.10x",
-              "creative_name":  "JLVM BRX 7.10x vpaid",
+              "campaign_name": "BRX_4.1_w300_WL_SV50_629673 vpaid",
+              "line_item_name": "BRX_4.1_w300_WL_SV50_629673",
+              "creative_name":  "BRX_4.1_w300_WL_SV50_629673 vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -34,7 +34,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":99,
+        "viewTreshold":50,
 	"unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -53,11 +53,11 @@
   "ext": {
     "budget": "500000000USD/1M",
     "pace": "0USD/1M",
-    "price": "7100USD/1M",
+    "price": "4100USD/1M",
     "priority": 1
   },
   "whiteBlackList": {
-    "whiteFile": "configs/Acc_MPL_WL_2015-09-10.csv",
+    "whiteFile": "configs/RTB_MP_4.10_WL_2015-10-28.csv",
     "blackFile": "configs/blank"
   }
 }

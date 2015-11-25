@@ -13,7 +13,7 @@
       "providerConfig": {
           "tremor": {
               "adomain": [ "jamloop.com" ],
-              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9EUgb6qq3CYBqUsI3M4M68M=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov"
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9EUgb6qq3CYBqUsI3M4M68M=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.width}%2Cheight%3D%{bidrequest.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbDeviceUA%3D%{bidrequest.ua}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov"
           }
       }
     }
