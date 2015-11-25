@@ -126,6 +126,13 @@ namespace Jamloop {
                 return std::string("publisher_") + context.bidrequest.user->id.toString();
         });
 
+        creativeConfig.addExpanderVariable(
+            "tag.price",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const double price = context.bidrequest.ext["price"].asDouble();
+                return std::to_string(price / 1000.0);
+        });
+
         creativeConfig.addField(
             "vast",
             [](const Json::Value& value, CreativeInfo& info) {
