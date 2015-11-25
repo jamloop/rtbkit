@@ -12,7 +12,7 @@
         "duration": 30,
         "providerConfig": {
             "publisher": {
-              "vast": "<VAST version=\"2.0\"><Ad><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlWN5eAlJE9nynahfI0x9qVJV7Aavw87xoo=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D%{bid.price}&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+              "vast": "<VAST version=\"2.0\"><Ad><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlWN5eAlJE9nynahfI0x9qVJV7Aavw87xoo=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D%{tag.price}&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
             }
         }
     }
