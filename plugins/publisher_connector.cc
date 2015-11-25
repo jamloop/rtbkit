@@ -121,7 +121,7 @@ namespace Jamloop {
     void
     PublisherConnector::initCreativeConfiguration() {
         creativeConfig.addExpanderVariable(
-            "exhange",
+            "exchange",
             [](const PublisherCreativeConfiguration::Context& context) {
                 return std::string("publisher_") + context.bidrequest.user->id.toString();
         });
