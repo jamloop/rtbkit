@@ -70,10 +70,10 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.router",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--exchange-configuration", "configs/router-config.json",
+        "--exchange-configuration", "configs/router-config.uswest2a.json",
         "--bidder", "configs/bidder-config.json",
         "--banker-choice", "null",
-	"--log-auctions", "true"
+        "--log-auctions", "true"
       ],
       "log": true
     },
@@ -500,12 +500,133 @@
       "arg": [
         "--service-name", "useast1b.rtb1.router",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.json",
+        "--exchange-configuration", "configs/router-config.useast1b.json",
         "--bidder", "configs/bidder-config.json",
         "--banker-choice", "null",
-	"--log-auctions", "true"
+        "--log-auctions", "true"
       ],
       "log": true
-    }]
+    },
+    {
+      "name": "viewability-service",
+      "root": ".", "path": "./bin/viewability_service_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb1.viewability",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--goview-url", "http://127.0.0.1:9200"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_11.1_w350_WL_HV50_600758",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_11.1_w350_WL_HV50_600758",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_11.1_w350_WL_HV50_600758.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_3.1_w300_WL_SV50_644372",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_3.1_w300_WL_SV50_644372",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_3.1_w300_WL_SV50_644372.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_4.1_w300_WL_SV50_644371",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_4.1_w300_WL_SV50_644371",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_4.1_w300_WL_SV50_644371.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_4.1_w350_WL_SV50_644370",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_4.1_w350_WL_SV50_644370",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_4.1_w350_WL_SV50_644370.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_5.1_w350_WL_SV50_644369",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_5.1_w350_WL_SV50_644369",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_5.1_w350_WL_SV50_644369.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_6.1_w350_WL_SV50_644368",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_WL_SV50_644368",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_6.1_w350_WL_SV50_644368.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_7.1_w350_WL_HV50_619110",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_7.1_w350_WL_HV50_619110",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_7.1_w350_WL_HV50_619110.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_7.1_w350_WL_SV50_644367",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_7.1_w350_WL_SV50_644367",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_7.1_w350_WL_SV50_644367.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_8.1_w350_WL_HV50_643768",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_8.1_w350_WL_HV50_643768",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_8.1_w350_WL_HV50_643768.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_8.1_w350_WL_SV50_644366",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_8.1_w350_WL_SV50_644366",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_8.1_w350_WL_SV50_644366.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_9.1_w350_WL_HV50_643766",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_WL_HV50_643766",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_9.1_w350_WL_HV50_643766.json"
+      ],
+      "log": true
+    }
+    ]
   }]
 }
