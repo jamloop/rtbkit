@@ -298,36 +298,6 @@
       "log": true
     },
     {
-      "name": "agent-NEX_3.1_w300_WL_SV50_644372",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_3.1_w300_WL_SV50_644372",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_3.1_w300_WL_SV50_644372.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-NEX_4.1_w300_WL_SV50_644371",
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_4.1_w300_WL_SV50_644371",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_4.1_w300_WL_SV50_644371.json"
-      ],
-      "log": true
-    },
-//    {
-//      "name": "agent-NEX_4.1_w350_WL_SV50_644370",
-//      "root": ".", "path": "./bin/basic_bidding_agent",
-//      "arg": [
-//        "--service-name", "uswest2a.rtb1.agent_NEX_4.1_w350_WL_SV50_644370",
-//        "--bootstrap", "configs/bootstrap.uswest2a.json",
-//        "--agent-configuration", "configs/NEX_4.1_w350_WL_SV50_644370.json"
-//      ],
-//      "log": true
-//    },
-    {
       "name": "agent-NEX_5.1_w350_WL_SV50_644369",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -347,16 +317,6 @@
       ],
       "log": true
     },
-//    {
-//      "name": "agent-NEX_7.1_w350_WL_HV50_619110",
-//      "root": ".", "path": "./bin/basic_bidding_agent",
-//      "arg": [
-//        "--service-name", "uswest2a.rtb1.agent_NEX_7.1_w350_WL_HV50_619110",
-//        "--bootstrap", "configs/bootstrap.uswest2a.json",
-//        "--agent-configuration", "configs/NEX_7.1_w350_WL_HV50_619110.json"
-//      ],
-//      "log": true
-//    },
     {
       "name": "agent-NEX_7.1_w350_WL_SV50_644367",
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -377,16 +337,6 @@
       ],
       "log": true
     },
-//    {
-//      "name": "agent-NEX_8.1_w350_WL_SV50_644366",
-//      "root": ".", "path": "./bin/basic_bidding_agent",
-//      "arg": [
-//        "--service-name", "uswest2a.rtb1.agent_NEX_8.1_w350_WL_SV50_644366",
-//        "--bootstrap", "configs/bootstrap.uswest2a.json",
-//        "--agent-configuration", "configs/NEX_8.1_w350_WL_SV50_644366.json"
-//      ],
-//      "log": true
-//    },
     {
       "name": "agent-NEX_9.1_w350_WL_NV_651844",
       "root": ".", "path": "./bin/basic_bidding_agent",
