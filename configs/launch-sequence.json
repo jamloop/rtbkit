@@ -410,7 +410,8 @@
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--bidder", "configs/bidder-config.json",
         "--win-seconds", "3600.0",
-        "--auction-seconds", "900.0"
+        "--auction-seconds", "900.0",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -443,7 +444,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_11.1_w350_WL_HV50S_600758",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_11.1_w350_WL_HV50_600758.json"
+        "--agent-configuration", "configs/Adap_11.1_w350_WL_HV50_600758.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -453,7 +455,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_WL_NV_651844",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_9.1_w350_WL_NV_651844.json"
+        "--agent-configuration", "configs/Adap_9.1_w350_WL_NV_651844.json",
+        "--use-http-banker"
       ],
       "log": true
     }
