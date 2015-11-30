@@ -21,8 +21,8 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":50,
-	"unknownStrategy": "nobid"
+        "viewTreshold":0,
+	"unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
