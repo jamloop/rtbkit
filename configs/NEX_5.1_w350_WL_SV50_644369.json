@@ -1,6 +1,6 @@
 {
     "account": [
-        "publisher", "RTB_MP_5.10_WL_2015-10-28"
+        "publisher", "NEX_5.1_w350_WL_SV50_644369"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -29,7 +29,7 @@
     },
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:RTB_MP_5.10_WL_2015-10-28",
+        "group": "publisher:NEX_5.1_w350_WL_SV50_644369",
         "weight": 1
     },
     "ext": {
