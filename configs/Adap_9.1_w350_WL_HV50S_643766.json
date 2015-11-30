@@ -1,11 +1,11 @@
 {
     "account": [
-        "adaptv", "Adap_9.1_w350_WL_HV50_643766"
+        "adaptv", "Adap_9.1_w350_WL_HV50S_643766"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1,
+        "id": 11-30643766,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -22,14 +22,14 @@
       "required": true,
       "config": {
         "viewTreshold":50,
-	"unknownStrategy": "nobid"
+ "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_9.1_w350_WL_HV50_643766",
+        "group": "adaptv:Adap_9.1_w350_WL_HV50S_643766",
         "weight": 1
     },
     "providerConfig": {
@@ -44,7 +44,8 @@
         "priority": 1
     },
     "whiteBlackList": {
-      "whiteFile": "configs/RTB_MP_9.10_WL_2015-10-28.csv",
-      "blackFile": "configs/blank"
+      "whiteFile": "configs/blank",
+      "blackFile": "configs/",
     }
 }
+

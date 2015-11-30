@@ -1,11 +1,11 @@
 {
     "account": [
-        "adaptv", "Adap_11.1_w350_WL_HV50_600758"
+        "adaptv", "Adap_11.1_w350_WL_HV50S_600758"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1,
+        "id": 11-30600758,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -21,15 +21,15 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":0,
-	"unknownStrategy": "bid"
+        "viewTreshold":50,
+ "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_11.1_w350_WL_HV50_600758",
+        "group": "adaptv:Adap_11.1_w350_WL_HV50S_600758",
         "weight": 1
     },
     "providerConfig": {
@@ -40,11 +40,12 @@
     "ext": {
         "budget": "100000000USD/1M",
         "pace": "1000000USD/1M",
-        "price": "16100USD/1M",
+        "price": "11100USD/1M",
         "priority": 1
     },
     "whiteBlackList": {
-      "whiteFile": "configs/RTB_MP_11.10_WL_2015-10-28.csv",
-      "blackFile": "configs/blank"
+      "whiteFile": "configs/blank",
+      "blackFile": "configs/",
     }
 }
+
