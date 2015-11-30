@@ -53,11 +53,11 @@
   "ext": {
     "budget": "500000000USD/1M",
     "pace": "0USD/1M",
-    "price": "16100USD/1M",
+    "price": "9100USD/1M",
     "priority": 1
   },
   "whiteBlackList": {
-    "whiteFile": "configs/RTB_MP_11.10_WL_2015-10-28_BRX.csv",
+    "whiteFile": "configs/RTB_MP_9.10_WL_2015-10-28.csv",
     "blackFile": "configs/blank"
   }
 }
