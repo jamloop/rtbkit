@@ -528,6 +528,16 @@
       "log": true
     },
     {
+      "name": "agent-Adap_11.1_w350_WL_HV50S_600758",
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_11.1_w350_WL_HV50S_600758",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_11.1_w350_WL_HV50S_600758.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-Adap_9.1_w350_WL_NV_651844",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
