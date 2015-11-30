@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 2015112706,
+      "id": 2015113006,
       "type": "video",
       "width": 350,
       "height": 0,
@@ -30,16 +30,16 @@
       }
     }
   ],
-  "augmentations": {
-    "viewability": {
-      "required": true,
-      "config": {
-        "viewTreshold":0,
-        "unknownStrategy": "bid"
-      },
-      "filters": { "include": ["pass-viewability"], "exclude": [] }
-    }
-  },
+//  "augmentations": {
+//    "viewability": {
+//      "required": true,
+//      "config": {
+//        "viewTreshold":0,
+//        "unknownStrategy": "bid"
+//      },
+//      "filters": { "include": ["pass-viewability"], "exclude": [] }
+//    }
+//  },
   "externalId": 1,
   "roundRobin": {
     "group": "datacratic_01:brightroll_06",
@@ -57,7 +57,7 @@
     "priority": 1
   },
   "whiteBlackList": {
-    "whiteFile": "configs/RTB_MP_11.10_WL_2015-10-28.csv",
+    "whiteFile": "configs/RTB_MP_11.10_WL_2015-10-28_BRX.csv",
     "blackFile": "configs/blank"
   }
 }
