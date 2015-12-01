@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11-30651767,
+        "id": 1130651767,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -44,8 +44,8 @@
         "priority": 1
     },
     "whiteBlackList": {
-      "whiteFile": "configs/blank",
-      "blackFile": "configs/",
+      "whiteFile": "configs/RTB_MP_3.10_WL_2015-10-28.csv",
+      "blackFile": "configs/blank",
     }
 }
 
