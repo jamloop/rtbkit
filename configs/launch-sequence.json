@@ -444,7 +444,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_11.1_w350_WL_HV50S_600758",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_11.1_w350_WL_HV50S_600758.json"
+        "--agent-configuration", "configs/Adap_11.1_w350_WL_HV50S_600758.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -454,7 +455,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_11.1_w350_WL_NV_651866",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_11.1_w350_WL_NV_651866.json"
+        "--agent-configuration", "configs/Adap_11.1_w350_WL_NV_651866.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -464,7 +466,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_11.1_w350_WL_SV50_651775",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_11.1_w350_WL_SV50_651775.json"
+        "--agent-configuration", "configs/Adap_11.1_w350_WL_SV50_651775.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -474,7 +477,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_3.1_w300_WL_HV50S_651767",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_3.1_w300_WL_HV50S_651767.json"
+        "--agent-configuration", "configs/Adap_3.1_w300_WL_HV50S_651767.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -484,7 +488,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_3.1_w300_WL_NV_650755",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_3.1_w300_WL_NV_650755.json"
+        "--agent-configuration", "configs/Adap_3.1_w300_WL_NV_650755.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -494,7 +499,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_3.1_w300_WL_SV50_644372",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_3.1_w300_WL_SV50_644372.json"
+        "--agent-configuration", "configs/Adap_3.1_w300_WL_SV50_644372.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -504,7 +510,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_4.1_w350_WL_HV50S_651782",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_4.1_w350_WL_HV50S_651782.json"
+        "--agent-configuration", "configs/Adap_4.1_w350_WL_HV50S_651782.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -514,7 +521,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_4.1_w350_WL_NV_650727",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_4.1_w350_WL_NV_650727.json"
+        "--agent-configuration", "configs/Adap_4.1_w350_WL_NV_650727.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -524,7 +532,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_4.1_w350_WL_SV50_644370",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_4.1_w350_WL_SV50_644370.json"
+        "--agent-configuration", "configs/Adap_4.1_w350_WL_SV50_644370.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -534,7 +543,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_5.1_w350_WL_HV50S_651784",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_5.1_w350_WL_HV50S_651784.json"
+        "--agent-configuration", "configs/Adap_5.1_w350_WL_HV50S_651784.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -544,7 +554,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_5.1_w350_WL_NV_650728",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_5.1_w350_WL_NV_650728.json"
+        "--agent-configuration", "configs/Adap_5.1_w350_WL_NV_650728.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -554,7 +565,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_5.1_w350_WL_SV50_644369",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_5.1_w350_WL_SV50_644369.json"
+        "--agent-configuration", "configs/Adap_5.1_w350_WL_SV50_644369.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -564,7 +576,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_WL_HV50S_651799",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_6.1_w350_WL_HV50S_651799.json"
+        "--agent-configuration", "configs/Adap_6.1_w350_WL_HV50S_651799.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -574,7 +587,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_WL_NV_650754",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_6.1_w350_WL_NV_650754.json"
+        "--agent-configuration", "configs/Adap_6.1_w350_WL_NV_650754.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -584,7 +598,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_WL_SV50_644368",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_6.1_w350_WL_SV50_644368.json"
+        "--agent-configuration", "configs/Adap_6.1_w350_WL_SV50_644368.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -594,7 +609,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_7.1_w350_WL_HV50S_619110",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_7.1_w350_WL_HV50S_619110.json"
+        "--agent-configuration", "configs/Adap_7.1_w350_WL_HV50S_619110.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -604,7 +620,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_7.1_w350_WL_NV_651821",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_7.1_w350_WL_NV_651821.json"
+        "--agent-configuration", "configs/Adap_7.1_w350_WL_NV_651821.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -614,7 +631,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_7.1_w350_WL_SV50_644367",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_7.1_w350_WL_SV50_644367.json"
+        "--agent-configuration", "configs/Adap_7.1_w350_WL_SV50_644367.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -624,7 +642,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_8.1_w350_WL_HV50S_643768",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_8.1_w350_WL_HV50S_643768.json"
+        "--agent-configuration", "configs/Adap_8.1_w350_WL_HV50S_643768.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -634,7 +653,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_8.1_w350_WL_NV_651877",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_8.1_w350_WL_NV_651877.json"
+        "--agent-configuration", "configs/Adap_8.1_w350_WL_NV_651877.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -644,7 +664,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_8.1_w350_WL_SV50_644366",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_8.1_w350_WL_SV50_644366.json"
+        "--agent-configuration", "configs/Adap_8.1_w350_WL_SV50_644366.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -654,7 +675,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_WL_HV50S_643766",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_9.1_w350_WL_HV50S_643766.json"
+        "--agent-configuration", "configs/Adap_9.1_w350_WL_HV50S_643766.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -664,7 +686,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_WL_NV_651844",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_9.1_w350_WL_NV_651844.json"
+        "--agent-configuration", "configs/Adap_9.1_w350_WL_NV_651844.json",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -674,17 +697,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_WL_SV50_650757",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_9.1_w350_WL_SV50_650757.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-Adap_6.1_w350_WL_NV_650779", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_WL_NV_650779",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_6.1_w350_WL_NV_650779.json"
+        "--agent-configuration", "configs/Adap_9.1_w350_WL_SV50_650757.json",
+        "--use-http-banker"
       ],
       "log": true
     }
