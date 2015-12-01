@@ -35,7 +35,7 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_4.10_WL_2015-10-28.csv",
-      "blackFile": "configs/blank",
+      "blackFile": "configs/blank"
     }
 }
 

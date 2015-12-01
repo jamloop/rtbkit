@@ -22,7 +22,7 @@
       "required": true,
       "config": {
         "viewTreshold":50,
- "unknownStrategy": "bid"
+        "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
@@ -45,7 +45,7 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_6.10_WL_2015-10-28.csv",
-      "blackFile": "configs/blank",
+      "blackFile": "configs/blank"
     }
 }
 
