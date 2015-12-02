@@ -511,6 +511,39 @@
         "--use-http-banker"
       ],
       "log": true
+    },
+    {
+      "name": "agent-Adap_4.1_w350_WL_NV_650727_BT655437", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_4.1_w350_WL_NV_650727_BT655437",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_4.1_w350_WL_NV_650727_BT655437.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_5.1_w350_WL_NV_650728_BT655437", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_5.1_w350_WL_NV_650728_BT655437",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_5.1_w350_WL_NV_650728_BT655437.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_6.1_w350_WL_NV_650754_BT655437", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_WL_NV_650754_BT655437",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_6.1_w350_WL_NV_650754_BT655437.json",
+        "--use-http-banker"
+      ],
+      "log": true
     }
     ]
   }]
