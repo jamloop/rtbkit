@@ -137,6 +137,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_11.1_w350_WL_HV50S_600758.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_11.1_w350_WL_NV_651866", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -146,6 +147,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_11.1_w350_WL_NV_651866.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_11.1_w350_WL_SV50_651775", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -155,6 +157,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_11.1_w350_WL_SV50_651775.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_3.1_w300_WL_HV50S_651767", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -164,6 +167,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_3.1_w300_WL_HV50S_651767.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_3.1_w300_WL_NV_650755", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -173,6 +177,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_3.1_w300_WL_NV_650755.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_3.1_w300_WL_SV50_644372", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -182,6 +187,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_3.1_w300_WL_SV50_644372.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_4.1_w350_WL_HV50S_651782", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -191,6 +197,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_4.1_w350_WL_HV50S_651782.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_4.1_w350_WL_NV_650727", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -200,6 +207,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_4.1_w350_WL_NV_650727.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_4.1_w350_WL_SV50_644370", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -209,6 +217,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_4.1_w350_WL_SV50_644370.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_5.1_w350_WL_HV50S_651784", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -218,6 +227,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_5.1_w350_WL_HV50S_651784.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_5.1_w350_WL_NV_650728", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -227,6 +237,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_5.1_w350_WL_NV_650728.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_5.1_w350_WL_SV50_644369", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -236,6 +247,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_5.1_w350_WL_SV50_644369.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_6.1_w350_WL_HV50S_651799", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -245,6 +257,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_6.1_w350_WL_HV50S_651799.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_6.1_w350_WL_NV_650754", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -254,6 +267,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_6.1_w350_WL_NV_650754.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_6.1_w350_WL_SV50_644368", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -263,6 +277,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_6.1_w350_WL_SV50_644368.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_7.1_w350_WL_HV50S_619110", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -272,6 +287,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_7.1_w350_WL_HV50S_619110.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_7.1_w350_WL_NV_651821", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -281,6 +297,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_7.1_w350_WL_NV_651821.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_7.1_w350_WL_SV50_644367", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -290,6 +307,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_7.1_w350_WL_SV50_644367.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_9.1_w350_WL_HV50S_643766", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -299,6 +317,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_9.1_w350_WL_HV50S_643766.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_9.1_w350_WL_NV_651844", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -308,6 +327,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_9.1_w350_WL_NV_651844.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_9.1_w350_WL_SV50_650757", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -317,6 +337,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_9.1_w350_WL_SV50_650757.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_3.6_w350_WL_NV_657148_BT655470", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -326,6 +347,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_3.6_w350_WL_NV_657148_BT655470.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_3.1_w350_WL_NV_657146_BT655456", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -335,6 +357,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_3.1_w350_WL_NV_657146_BT655456.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_6.1_w350_WL_NV_650754_BT655437", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -344,6 +367,7 @@
         "--agent-configuration", "configs/C:UsersMichaelJamLoop Drive1 - DSP0 - CampaignscampaignconfigsNEX_6.1_w350_WL_NV_650754_BT655437.json"
       ],
       "log": true
+    },
     {
       "name": "agent-NEX_4.1_w300_WL_NV_650750_BT655472", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -447,6 +471,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_11.1_w350_WL_NV_651866", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -457,6 +482,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_11.1_w350_WL_SV50_651775", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -467,6 +493,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_3.1_w300_WL_HV50S_651767", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -477,6 +504,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_3.1_w300_WL_NV_650755", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -487,6 +515,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_3.1_w300_WL_SV50_644372", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -497,6 +526,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_4.1_w350_WL_HV50S_651782", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -507,6 +537,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_4.1_w350_WL_NV_650727", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -517,6 +548,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_4.1_w350_WL_SV50_644370", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -527,6 +559,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_5.1_w350_WL_HV50S_651784", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -537,6 +570,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_5.1_w350_WL_NV_650728", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -547,6 +581,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_5.1_w350_WL_SV50_644369", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -557,6 +592,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_6.1_w350_WL_HV50S_651799", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -567,6 +603,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_6.1_w350_WL_NV_650754", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -577,6 +614,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_6.1_w350_WL_SV50_644368", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -587,6 +625,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_7.1_w350_WL_HV50S_619110", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -597,6 +636,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_7.1_w350_WL_NV_651821", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -607,6 +647,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_7.1_w350_WL_SV50_644367", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -617,6 +658,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_9.1_w350_WL_HV50S_643766", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -627,6 +669,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_9.1_w350_WL_NV_651844", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -637,6 +680,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_9.1_w350_WL_SV50_650757", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -647,6 +691,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_3.6_w350_WL_NV_657148_BT655470", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -657,6 +702,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_3.1_w350_WL_NV_657146_BT655456", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -667,6 +713,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_6.1_w350_WL_NV_650754_BT655437", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -677,6 +724,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-Adap_4.1_w300_WL_NV_650750_BT655472", 
       "root": ".", "path": "./bin/basic_bidding_agent",
