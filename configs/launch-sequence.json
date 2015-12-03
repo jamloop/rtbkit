@@ -554,6 +554,17 @@
         "--use-http-banker"
       ],
       "log": true
+    },
+    {
+      "name": "agent-Adap_4.1_w300_WL_NV_650750", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_4.1_w300_WL_NV_650750",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_4.1_w300_WL_NV_650750.json",
+        "--use-http-banker"
+      ],
+      "log": true
     }
     ]
   }]
