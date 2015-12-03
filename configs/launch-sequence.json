@@ -133,7 +133,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_11.1_w350_WL_HV50S_600758",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_11.1_w350_WL_HV50S_600758.json",
+        "--agent-configuration", "configs/NEX_11.1_w350_WL_HV50S_600758.json"
       ],
       "log": true
     },
@@ -143,7 +143,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_11.1_w350_WL_NV_651866",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_11.1_w350_WL_NV_651866.json",
+        "--agent-configuration", "configs/NEX_11.1_w350_WL_NV_651866.json"
       ],
       "log": true
     },
@@ -153,7 +153,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_11.1_w350_WL_SV50_651775",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_11.1_w350_WL_SV50_651775.json",
+        "--agent-configuration", "configs/NEX_11.1_w350_WL_SV50_651775.json"
       ],
       "log": true
     },
@@ -163,7 +163,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_3.1_w300_WL_HV50S_651767",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_3.1_w300_WL_HV50S_651767.json",
+        "--agent-configuration", "configs/NEX_3.1_w300_WL_HV50S_651767.json"
       ],
       "log": true
     },
@@ -173,7 +173,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_3.1_w300_WL_NV_650755",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_3.1_w300_WL_NV_650755.json",
+        "--agent-configuration", "configs/NEX_3.1_w300_WL_NV_650755.json"
       ],
       "log": true
     },
@@ -183,7 +183,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_3.1_w300_WL_SV50_644372",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_3.1_w300_WL_SV50_644372.json",
+        "--agent-configuration", "configs/NEX_3.1_w300_WL_SV50_644372.json"
       ],
       "log": true
     },
@@ -193,7 +193,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_4.1_w350_WL_HV50S_651782",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_4.1_w350_WL_HV50S_651782.json",
+        "--agent-configuration", "configs/NEX_4.1_w350_WL_HV50S_651782.json"
       ],
       "log": true
     },
@@ -203,7 +203,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_4.1_w350_WL_NV_650727",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_4.1_w350_WL_NV_650727.json",
+        "--agent-configuration", "configs/NEX_4.1_w350_WL_NV_650727.json"
       ],
       "log": true
     },
@@ -213,7 +213,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_4.1_w350_WL_SV50_644370",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_4.1_w350_WL_SV50_644370.json",
+        "--agent-configuration", "configs/NEX_4.1_w350_WL_SV50_644370.json"
       ],
       "log": true
     },
@@ -223,7 +223,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_5.1_w350_WL_HV50S_651784",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_5.1_w350_WL_HV50S_651784.json",
+        "--agent-configuration", "configs/NEX_5.1_w350_WL_HV50S_651784.json"
       ],
       "log": true
     },
@@ -233,7 +233,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_5.1_w350_WL_NV_650728",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_5.1_w350_WL_NV_650728.json",
+        "--agent-configuration", "configs/NEX_5.1_w350_WL_NV_650728.json"
       ],
       "log": true
     },
@@ -243,7 +243,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_5.1_w350_WL_SV50_644369",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_5.1_w350_WL_SV50_644369.json",
+        "--agent-configuration", "configs/NEX_5.1_w350_WL_SV50_644369.json"
       ],
       "log": true
     },
@@ -253,7 +253,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_6.1_w350_WL_HV50S_651799",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_6.1_w350_WL_HV50S_651799.json",
+        "--agent-configuration", "configs/NEX_6.1_w350_WL_HV50S_651799.json"
       ],
       "log": true
     },
@@ -263,7 +263,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_6.1_w350_WL_NV_650754",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_6.1_w350_WL_NV_650754.json",
+        "--agent-configuration", "configs/NEX_6.1_w350_WL_NV_650754.json"
       ],
       "log": true
     },
@@ -273,7 +273,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_6.1_w350_WL_SV50_644368",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_6.1_w350_WL_SV50_644368.json",
+        "--agent-configuration", "configs/NEX_6.1_w350_WL_SV50_644368.json"
       ],
       "log": true
     },
@@ -283,7 +283,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_7.1_w350_WL_HV50S_619110",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_7.1_w350_WL_HV50S_619110.json",
+        "--agent-configuration", "configs/NEX_7.1_w350_WL_HV50S_619110.json"
       ],
       "log": true
     },
@@ -293,7 +293,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_7.1_w350_WL_NV_651821",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_7.1_w350_WL_NV_651821.json",
+        "--agent-configuration", "configs/NEX_7.1_w350_WL_NV_651821.json"
       ],
       "log": true
     },
@@ -303,7 +303,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_7.1_w350_WL_SV50_644367",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_7.1_w350_WL_SV50_644367.json",
+        "--agent-configuration", "configs/NEX_7.1_w350_WL_SV50_644367.json"
       ],
       "log": true
     },
@@ -313,7 +313,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_9.1_w350_WL_HV50S_643766",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_9.1_w350_WL_HV50S_643766.json",
+        "--agent-configuration", "configs/NEX_9.1_w350_WL_HV50S_643766.json"
       ],
       "log": true
     },
@@ -323,7 +323,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_9.1_w350_WL_NV_651844",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_9.1_w350_WL_NV_651844.json",
+        "--agent-configuration", "configs/NEX_9.1_w350_WL_NV_651844.json"
       ],
       "log": true
     },
@@ -333,7 +333,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_9.1_w350_WL_SV50_650757",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_9.1_w350_WL_SV50_650757.json",
+        "--agent-configuration", "configs/NEX_9.1_w350_WL_SV50_650757.json"
       ],
       "log": true
     },
@@ -343,7 +343,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_3.6_w350_WL_NV_657148_BT655470",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_3.6_w350_WL_NV_657148_BT655470.json",
+        "--agent-configuration", "configs/NEX_3.6_w350_WL_NV_657148_BT655470.json"
       ],
       "log": true
     },
@@ -353,7 +353,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_3.1_w350_WL_NV_657146_BT655456",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_3.1_w350_WL_NV_657146_BT655456.json",
+        "--agent-configuration", "configs/NEX_3.1_w350_WL_NV_657146_BT655456.json"
       ],
       "log": true
     },
@@ -363,7 +363,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_6.1_w350_WL_NV_650754_BT655437",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_6.1_w350_WL_NV_650754_BT655437.json",
+        "--agent-configuration", "configs/NEX_6.1_w350_WL_NV_650754_BT655437.json"
       ],
       "log": true
     },
@@ -373,7 +373,7 @@
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_NEX_4.1_w300_WL_NV_650750_BT655472",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_4.1_w300_WL_NV_650750_BT655472.json",
+        "--agent-configuration", "configs/NEX_4.1_w300_WL_NV_650750_BT655472.json"
       ],
       "log": true
     }
