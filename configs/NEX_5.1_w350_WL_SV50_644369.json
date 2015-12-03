@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1,
+        "id": 1203644369,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -22,7 +22,7 @@
       "required": true,
       "config": {
         "viewTreshold":50,
-	"unknownStrategy": "bid"
+        "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
@@ -36,10 +36,11 @@
         "budget": "100000000USD/1M",
         "pace": "1000000USD/1M",
         "price": "5100USD/1M",
-        "priority": 1
+        "priority": 0
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_5.10_WL_2015-10-28.csv",
       "blackFile": "configs/blank"
     }
 }
+

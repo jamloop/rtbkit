@@ -1,11 +1,11 @@
 {
     "account": [
-        "publisher", "publisher_20"
+        "publisher", "NEX_4.1_w350_WL_SV50_644370"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1,
+        "id": 1203644370,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -22,24 +22,25 @@
       "required": true,
       "config": {
         "viewTreshold":50,
-	"unknownStrategy": "bid"
+        "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:publisher_20",
+        "group": "publisher:NEX_4.1_w350_WL_SV50_644370",
         "weight": 1
     },
     "ext": {
         "budget": "100000000USD/1M",
         "pace": "1000000USD/1M",
         "price": "4100USD/1M",
-        "priority": 1
+        "priority": 0
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_4.10_WL_2015-10-28.csv",
       "blackFile": "configs/blank"
     }
 }
+
