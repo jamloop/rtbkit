@@ -31,7 +31,7 @@
         "budget": "100000000USD/1M",
         "pace": "1000000USD/1M",
         "price": "3100USD/1M",
-        "priority": 0
+        "priority": 1
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_3.10_WL_2015-10-28.csv",
