@@ -128,7 +128,6 @@
       ],
       "log": true
     },
-    },
     {
       "name": "agent-NEX_11.1_w350_WL_HV50S_600758", 
       "root": ".", "path": "./bin/basic_bidding_agent",
