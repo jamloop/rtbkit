@@ -302,7 +302,6 @@
       "log": true
     },
 // EastLaunchStart
-    },
     {
       "name": "agent-Adap_11.1_w350_WL_HV50S_600758", 
       "root": ".", "path": "./bin/basic_bidding_agent",
