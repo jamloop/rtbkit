@@ -33,13 +33,13 @@
         "price": "2100USD/1M",
         "priority": 1
     },
-"deviceTypeFilter": {
-      "include": [4, 5],
-      "exclude": [2]
+    "deviceTypeFilter": {
+        "include": [4, 5],
+        "exclude": [2]
     },
-"whiteBlackList": {
-      "whiteFile": "configs/blank",
-      "blackFile": "configs/blank"
+    "whiteBlackList": {
+        "whiteFile": "configs/blank",
+        "blackFile": "configs/blank"
     }
 }
 
