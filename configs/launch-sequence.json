@@ -370,6 +370,17 @@
       ],
       "log": true
     },
+    {
+      "name": "Adap_2.10_MW_658499", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_2.10_MW_658499",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_2.10_MW_658499.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
 // EastLaunchStart
     {
       "name": "agent-Adap_11.1_w350_WL_HV50S_600758", 
