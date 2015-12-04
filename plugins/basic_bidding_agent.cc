@@ -126,20 +126,24 @@ void BasicBiddingAgent::sendConfig() {
 }
 
 void BasicBiddingAgent::pacing() {
-    if(!ready) {
-        // create the account
-        banker->addAccountSync(config.account);
+    try {
+        if(!ready) {
+            // create the account
+            banker->addAccountSync(config.account);
 
-        // set budget
-        LOG(trace) << "Setting budget for campaign '" << config.account[0] << "' to " << budget << std::endl;
-        banker->setBudgetSync(config.account[0], budget);
+            // set budget
+            LOG(trace) << "Setting budget for campaign '" << config.account[0] << "' to " << budget << std::endl;
+            banker->setBudgetSync(config.account[0], budget);
 
-        ready = true;
+            ready = true;
+        }
+
+        // transfer a bit of money to bidder's account
+        LOG(trace) << "Transfering " << pace << std::endl;
+        banker->topupTransferSync(config.account, pace);
+    } catch (const ML::Exception& e) {
+        LOG(error) << "Exception during pacing: " << e.what() << std::endl;
     }
-
-    // transfer a bit of money to bidder's account
-    LOG(trace) << "Transfering " << pace << std::endl;
-    banker->topupTransferSync(config.account, pace);
 }
 
 Logging::Category BasicBiddingAgent::print("BasicBiddingAgent");
