@@ -43,7 +43,7 @@
   "ext": {
     "budget": "500000000USD/1M",
     "pace": "0USD/1M",
-    "price": "6100/1M",
+    "price": "6100USD/1M",
     "priority": 1
   },
   "whiteBlackList": {
