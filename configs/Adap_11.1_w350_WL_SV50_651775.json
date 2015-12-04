@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1203651775,
+        "id": 1204651775,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -21,7 +21,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold":50,
+        "viewTreshold":0,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -40,7 +40,7 @@
     "ext": {
         "budget": "100000000USD/1M",
         "pace": "1000000USD/1M",
-        "price": "11100USD/1M",
+        "price": "11000USD/1M",
         "priority": 2
     },
     "whiteBlackList": {
