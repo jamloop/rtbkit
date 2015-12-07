@@ -1,0 +1,12 @@
+[
+  {
+    "exchangeType": "adaptv",
+    "listenPort": 9970,
+    "numThreads": 8,
+    "realTimePolling": true,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false
+  }
+]
