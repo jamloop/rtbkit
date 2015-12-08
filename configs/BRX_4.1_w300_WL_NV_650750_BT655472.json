@@ -5,9 +5,9 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 1204650750,
+      "id": 1207650750,
       "type": "video",
-      "width": 350,
+      "width": 300,
       "height": 0,
       "duration": 30,
       "providerConfig": {
@@ -23,9 +23,9 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "428889",
+              "lid": "1207650750",
               "landingpage_url": "http://jamloop.com",
-              "advertiser_name": "jamloop"
+              "advertiser_name": "jamloop.com"
           }
       }
     }

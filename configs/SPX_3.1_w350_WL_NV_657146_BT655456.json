@@ -1,0 +1,45 @@
+{
+  "account": [
+    "datacratic_03", "SPX_3.1_w350_WL_NV_657146_BT655456"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 1207657146,
+      "type": "video",
+      "width": 350,
+      "height": 0,
+      "duration": 30,
+      "providerConfig": {
+          "spotx": {
+              "adm": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlXLmjTv0UxHoLUuQmBxvzeG0jKAdfubKXc=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D$MBR&eov=eov",
+              "adomain": ["jamloop.com"],
+              "adid": "1207657146"
+          }
+      }
+    }
+  ],
+  "externalId": 1,
+  "roundRobin": {
+    "group": "datacratic_01:SPX_3.1_w350_WL_NV_657146_BT655456",
+    "weight": 1
+  },
+  "providerConfig": {
+      "spotx": {
+          "seat": "12341",
+          "seatName": "jamloop",
+          "bidid": "12345"
+      }
+  },
+  "ext": {
+    "budget": "500000000USD/1M",
+    "pace": "0USD/1M",
+    "price": "3100USD/1M",
+    "priority": 7
+  },
+    "whiteBlackList": {
+      "whiteFile": "configs/bt655456_wl.csv",
+      "blackFile": "configs/blank"
+    }
+}
+

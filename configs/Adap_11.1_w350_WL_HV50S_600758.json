@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1204600758,
+        "id": 1207600758,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -42,6 +42,10 @@
         "pace": "1000000USD/1M",
         "price": "11100USD/1M",
         "priority": 3
+    },
+    "deviceTypeFilter": {
+        "include": [2],
+        "exclude": [[4, 5]]
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_11.10_WL_2015-10-28.csv",
