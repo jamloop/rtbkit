@@ -35,7 +35,7 @@
     },
     "deviceTypeFilter": {
         "include": [2],
-        "exclude": [[4, 5]]
+        "exclude": [4, 5]
     },
     "whiteBlackList": {
       "whiteFile": "configs/bt655470_wl.csv",
