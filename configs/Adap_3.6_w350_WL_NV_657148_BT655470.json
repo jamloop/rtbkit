@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1204657148,
+        "id": 1207657148,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -32,6 +32,10 @@
         "pace": "1000000USD/1M",
         "price": "3600USD/1M",
         "priority": 6
+    },
+    "deviceTypeFilter": {
+        "include": [2],
+        "exclude": [[4, 5]]
     },
     "whiteBlackList": {
       "whiteFile": "configs/bt655470_wl.csv",
