@@ -22,13 +22,67 @@ namespace JamLoop {
         throw ML::Exception("Unreachable");
     }
 
-    WhiteBlackList::Directory::Directory(std::string path)
-        : path(std::move(path))
+    void
+    CsvReader::open() {
+         auto split = [](const std::string& str, char sep) {
+            std::vector<std::string> result;
+
+            std::istringstream iss(str);
+            std::string elem;
+            while (std::getline(iss, elem, sep)) {
+                result.push_back(std::move(elem));
+            }
+
+            return result;
+        };
+
+        stream_.open(file);
+        if (!stream_) {
+            throw ML::Exception("Could not read CSV file '%s'", file.c_str());
+        }
+
+        std::string header;
+        std::getline(stream_, header);
+        auto columns = split(header, delimiter);
+
+        std::string line;
+        size_t lineIndex = 1;
+
+        std::vector<Row> rows;
+        while (std::getline(stream_, line)) {
+            auto v = split(line, delimiter);
+
+            if (columns.size() != v.size()) {
+                throw ML::Exception(
+                        "Error while parsing '%s': columns do not match header at line '%llu'",
+                        file.c_str(), lineIndex);
+            }
+
+            Row row;
+            for (std::vector<std::string>::size_type i = 0; i < columns.size(); ++i) {
+                row.add(columns[i], v[i]);
+            }
+
+            rows.push_back(std::move(row));
+
+            ++lineIndex;
+        }
+
+        rows_.swap(rows);
+    }
+
+    WhiteBlackList::Entry::Entry(
+        const std::string& page,
+        const std::string& exchange,
+        const std::string& publisher)
+        : page(page)
+        , exchange(exchange)
+        , publisher(publisher)
     { }
 
     bool
-    WhiteBlackList::Directory::matches(const Datacratic::Url& url) const {
-        auto p = url.path();
+    WhiteBlackList::Entry::matches(const WhiteBlackList::Context& context) const {
+        auto p = context.url.path();
         auto beg = std::begin(p);
         if (*beg == '/')
             ++beg;
@@ -43,37 +97,57 @@ namespace JamLoop {
          *    -> Unmatch
          */
 
-        return std::equal(std::begin(path), std::end(path), beg);
+        if (!page.empty() && !std::equal(std::begin(page), std::end(page), beg))
+            return false;
+
+        if (exchange == Wildcard) {
+            if (publisher == Wildcard)
+                return true;
+
+            return publisher == context.pubid;
+        }
+        else if (publisher == Wildcard) {
+            if (exchange == Wildcard)
+                return true;
+
+            return exchange == context.exchange;
+        }
+
+        return publisher == context.pubid && exchange == context.exchange;
+
     }
 
     void
-    WhiteBlackList::addWhite(const std::string& val) {
-        addList(white, val);
+    WhiteBlackList::addWhite(
+            const std::string& url,
+            const std::string& exchange,
+            const std::string& pubid) {
+        addList(white, url, exchange, pubid);
     }
 
-    void WhiteBlackList::addBlack(const std::string& val) {
-        addList(black, val);
+    void WhiteBlackList::addBlack(
+            const std::string& url,
+            const std::string& exchange,
+            const std::string& pubid) {
+        addList(black, url, exchange, pubid);
     }
 
     WhiteBlackList::Result
-    WhiteBlackList::filter(const Domain& domain, const Datacratic::Url& url) const {
+    WhiteBlackList::filter(
+            const Domain& domain, const Context& context) const {
 
         auto tryMatch = [](
-            const List& list, const Domain& domain, const Datacratic::Url& url) {
+            const List& list, const Domain& domain, const Context& context) {
 
             auto it = list.find(domain);
             if (it != std::end(list)) {
-                const auto& directories = it->second;
+                const auto& entries = it->second;
 
-                if (directories.empty()) {
-                    return true;
-                }
-
-                auto matchesUrl = [&url](const Directory& dir) {
-                    return dir.matches(url);
+                auto matchesUrl = [&context](const Entry& entry) {
+                    return entry.matches(context);
                 };
 
-                if (std::any_of(std::begin(directories), std::end(directories), matchesUrl)) {
+                if (std::any_of(std::begin(entries), std::end(entries), matchesUrl)) {
                     return true;
                 }
 
@@ -82,9 +156,9 @@ namespace JamLoop {
             return false;
         };
 
-        if (tryMatch(white, domain, url))
+        if (tryMatch(white, domain, context))
             return Result::Whitelisted;
-        else if (tryMatch(black, domain, url))
+        else if (tryMatch(black, domain, context))
             return Result::Blacklisted;
 
         return Result::NotFound;
@@ -132,42 +206,47 @@ namespace JamLoop {
         }
     }
 
-    void
+        void
     WhiteBlackList::createFromFile(std::string whiteFile, std::string blackFile) {
-        ML::filter_istream whiteIn(whiteFile);
-        if (!whiteIn) {
-            throw ML::Exception("Could not open whitelist file '%s'", whiteFile.c_str());
+        CsvReader whiteReader(whiteFile);
+        CsvReader blackReader(blackFile);
+
+        for (const auto& row: whiteReader) {
+            addList(white, row);
         }
 
-        ML::filter_istream blackIn(blackFile);
-        if (!blackIn) {
-            throw ML::Exception("Could not open blacklist file '%s'", blackFile.c_str());
-        }
-
-
-        std::string elem;
-        while (std::getline(whiteIn, elem)) {
-            addList(white, elem);
-        }
-        while (std::getline(blackIn, elem)) {
-            addList(black, elem);
+        for (const auto& row: blackReader) {
+            addList(black, row);
         }
 
         this->whiteFile = std::move(whiteFile);
         this->blackFile = std::move(blackFile);
+
     }
 
     void
-    WhiteBlackList::addList(List& list, const std::string& line) {
+    WhiteBlackList::addList(List& list, const CsvReader::Row& row) {
+        auto url   = row.value("domain");
+        auto exch  = row.value("exch");
+        auto pubid = row.value("pubid");
+
+        addList(list, url, exch, pubid);
+    }
+
+    void
+    WhiteBlackList::addList(
+            List& list,
+            const std::string& url,
+            const std::string& exch,
+            const std::string& pubid) {
         std::string domain;
         std::string directory;
 
-        std::tie(domain, directory) = splitDomain(line);
-        auto& dirs = list[domain];
-        if (!directory.empty()) {
-            dirs.push_back(std::move(directory));
-        }
+        std::tie(domain, directory) = splitDomain(url);
+        auto& entries = list[domain];
+        entries.push_back(Entry(directory, exch, pubid));
     }
+
 
     std::pair<WhiteBlackList::Domain, std::string>
     WhiteBlackList::splitDomain(std::string url) const {

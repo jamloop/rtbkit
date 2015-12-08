@@ -29,11 +29,71 @@ namespace JamLoop {
     inline std::string jsonParse(const Json::Value& value) {
         return value.asString();
     }
+    class CsvReader {
+    public:
+
+        class Row {
+        public:
+            friend class CsvReader;
+
+            std::string value(const std::string& column) const {
+                auto it = data.find(column);
+                if (it == std::end(data))
+                    throw ML::Exception("Row has no value for '%s'", column.c_str());
+
+                return it->second;
+            }
+        private:
+            void add(const std::string& key, const std::string& value) {
+                data.insert(std::make_pair(key, value));
+            }
+
+            std::unordered_map<std::string, std::string> data;
+
+        };
+
+        CsvReader(const std::string& fileName, char delimiter = ',')
+            : file(fileName)
+            , delimiter(delimiter)
+
+        {
+            open();
+        }
+
+        typedef std::vector<Row> Rows;
+        typedef Rows::iterator iterator;
+        typedef Rows::const_iterator const_iterator;
+
+        void open();
+
+        iterator begin() {
+            return rows_.begin();
+        }
+
+        iterator end() {
+            return rows_.end();
+        }
+
+        const_iterator begin() const {
+            return rows_.begin();
+        }
+
+        const_iterator end() const {
+            return rows_.end();
+        }
+
+    private:
+        std::string file;
+        char delimiter;
+        ML::filter_istream stream_;
+        Rows rows_;
+    };
 
     class WhiteBlackList {
     public:
-
         typedef std::string Domain;
+
+        static constexpr const char* Wildcard = "*";
 
         enum class Result {
             Whitelisted,
@@ -41,15 +101,27 @@ namespace JamLoop {
             NotFound
         };
 
+        struct Context {
+            Datacratic::Url url;
+            std::string exchange;
+            std::string pubid;
+        };
+
         Json::Value toJson() const;
 
-        void addWhite(const std::string& val);
-        void addBlack(const std::string& val);
+        void addWhite(
+                const std::string& url,
+                const std::string& exchange,
+                const std::string& pubid);
+        void addBlack(
+                const std::string& url,
+                const std::string& exchange,
+                const std::string& pubid);
 
         void createFromJson(const Json::Value& value);
         void createFromFile(std::string whiteFile, std::string blackFile);
 
-        Result filter(const Domain& domain, const Datacratic::Url& url) const;
+        Result filter(const Domain& domain, const Context& context) const;
 
         bool empty() const {
             return white.empty() && black.empty();
@@ -59,25 +131,37 @@ namespace JamLoop {
         std::string whiteFile;
         std::string blackFile;
 
-        struct Directory {
-            Directory(std::string path);
+        struct Entry {
+        public:
 
-            bool matches(const Datacratic::Url& url) const;
+            Entry(
+                const std::string& page,
+                const std::string& exchange,
+                const std::string& publisher);
+
+            bool matches(const Context& context) const;
+
         private:
-            std::string path;
+            std::string page;
+            std::string exchange;
+            std::string publisher;
         };
 
 #ifdef REDUCE_MEMORY_ALLOCS
-        typedef ML::compact_vector<Directory, 4> Directories;
+        typedef ML::compact_vector<Entry, 4> Entries;
 #else
-        typedef std::vector<Directory> Directories;
+        typedef std::vector<Entry> Entries;
 #endif
 
-        typedef std::unordered_map<Domain, Directories> List;
+        typedef std::unordered_map<Domain, Entries> List;
         List white;
         List black;
 
-        void addList(List& list, const std::string& line);
+        void addList(List& list, const CsvReader::Row& row);
+        void addList(List& list,
+                const std::string& url,
+                const std::string& exchange,
+                const std::string& pubid);
 
         std::pair<Domain, std::string> splitDomain(std::string url) const;
     };

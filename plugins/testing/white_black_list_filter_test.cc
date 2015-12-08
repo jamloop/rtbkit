@@ -80,8 +80,10 @@ AgentConfig makeConfig(
 
     AgentConfig config;
 
-    for (auto w: white) config.whiteBlackList.addWhite(w);
-    for (auto b: black) config.whiteBlackList.addBlack(b);
+    for (auto w: white)
+        config.whiteBlackList.addWhite(w, WhiteBlackList::Wildcard, WhiteBlackList::Wildcard);
+    for (auto b: black)
+        config.whiteBlackList.addBlack(b, WhiteBlackList::Wildcard, WhiteBlackList::Wildcard);
 
     return config;
 };

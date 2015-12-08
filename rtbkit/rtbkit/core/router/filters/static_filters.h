@@ -537,7 +537,17 @@ namespace JamLoop {
                 }
             }
 
-            return config.whiteBlackList.filter(domain, url);
+            std::string pubid;
+            if (br.site && br.site->publisher)
+                pubid = br.site->publisher->id.toString();
+
+            WhiteBlackList::Context context {
+                url,
+                br.exchange,
+                pubid
+            };
+
+            return config.whiteBlackList.filter(domain, context);
         }
 
     };
