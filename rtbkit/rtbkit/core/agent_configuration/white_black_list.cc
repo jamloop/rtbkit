@@ -100,17 +100,19 @@ namespace JamLoop {
         if (!page.empty() && !std::equal(std::begin(page), std::end(page), beg))
             return false;
 
+
         if (exchange == Wildcard) {
             if (publisher == Wildcard)
                 return true;
 
             return publisher == context.pubid;
         }
-        else if (publisher == Wildcard) {
-            if (exchange == Wildcard)
-                return true;
+        else {
+            if (publisher == Wildcard) {
+                return exchange == context.exchange;
+            }
 
-            return exchange == context.exchange;
+            return exchange == context.exchange && publisher == context.pubid;
         }
 
         return publisher == context.pubid && exchange == context.exchange;

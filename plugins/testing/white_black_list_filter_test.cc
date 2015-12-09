@@ -75,6 +75,21 @@ BidRequest makeBr(const std::string& value, Level level) {
     return br;
 };
 
+BidRequest makeBr(const std::string& url, Level level, const std::string& exchange, const std::string& pubid)
+{
+    auto br = makeBr(url, level);
+
+    br.exchange = exchange;
+    if (!br.site)
+        br.site.reset(new OpenRTB::Site);
+    if (!br.site->publisher)
+        br.site->publisher.reset(new OpenRTB::Publisher);
+
+    br.site->publisher->id = Id(pubid);
+
+    return br;
+}
+
 AgentConfig makeConfig(
         std::initializer_list<std::string> white, std::initializer_list<std::string> black) {
 
@@ -87,6 +102,20 @@ AgentConfig makeConfig(
 
     return config;
 };
+
+AgentConfig makeConfig(
+        std::initializer_list<std::tuple<std::string, std::string, std::string>> white,
+        std::initializer_list<std::tuple<std::string, std::string, std::string>> black) {
+
+    AgentConfig config;
+    for (auto w: white)
+        config.whiteBlackList.addWhite(std::get<0>(w), std::get<1>(w), std::get<2>(w));
+    for (auto w: black)
+        config.whiteBlackList.addBlack(std::get<0>(w), std::get<1>(w), std::get<2>(w));
+
+    return config;
+
+}
 
 }
 
@@ -177,4 +206,55 @@ BOOST_AUTO_TEST_CASE( white_black_list_directory )
 
     auto br4 = makeBr("http://www.foxbusiness.com/markets/2015/10/26/gold-rises-on-dipping-dollar-fed-uncertainty/?intcmp=marketfeatures", Level::Url);
     doCheck(br4, "white", { 0 });
+}
+
+BOOST_AUTO_TEST_CASE( white_black_list_extended )
+{
+    WhiteBlackListFilter filter;
+    ConfigSet configMask;
+
+    auto doCheck = [&] (
+            BidRequest& request,
+            const string& exchangeName,
+            const initializer_list<size_t>& expected)
+    {
+        check(filter, request, exchangeName, configMask, expected);
+    };
+
+    using std::make_tuple;
+
+    auto c0 = makeConfig(
+        {
+            make_tuple("foxbusiness.com", "*", "*" ),
+            make_tuple("nytimes.com/info", "*", "*"),
+            make_tuple("lyrics.com", "adaptv", "*" ),
+            make_tuple("abc.com/land", "*", "54321")
+        },
+        { });
+    auto c1 = makeConfig(
+        {
+            make_tuple("foxbusiness.com", "tremor", "*" ),
+            make_tuple("nytimes.com/info", "*", "12345"),
+            make_tuple("lyrics.com/video", "brightroll", "*" ),
+            make_tuple("abc.com/land", "*", "12345")
+        },
+        { });
+
+    addConfig(filter, 0, c0);   configMask.set(0);
+    addConfig(filter, 1, c1);   configMask.set(1);
+
+    auto br0 = makeBr("http://foxbusiness.com", Level::Url, "brightroll", "12345");
+    auto br1 = makeBr("http://nytimes.com/info/index.html", Level::Url, "adaptv", "54323");
+    auto br2 = makeBr("http://lyrics.com/video/latest.html", Level::Url, "tremor", "123122");
+    auto br3 = makeBr("http://lyrics.com/video/latest.html", Level::Url, "brightroll", "123122");
+
+    auto br4 = makeBr("http://abc.com/land/latest/nov.html", Level::Url, "spotx", "12345");
+    auto br5 = makeBr("http://foxbusiness.com/markets/index.html", Level::Url, "tremor", "12345");
+
+    doCheck(br0, "brightroll", { 0 });
+    doCheck(br1, "adaptv", { 0 });
+    doCheck(br2, "tremor", {  });
+    doCheck(br3, "brightroll", { 1 });
+    doCheck(br4, "spotx", { 1 });
+    doCheck(br5, "tremor", { 0, 1 });
 }
