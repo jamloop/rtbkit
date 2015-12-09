@@ -1,29 +1,29 @@
 {
   "account": [
-    "datacratic_01", "BRX_9.1_w350_WL_HV50S_643766"
+    "datacratic_01", "BRX_9.1_w350_WL_SV50_650757"
   ],
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 1209643766,
+      "id": 1209650757,
       "type": "video",
       "width": 350,
       "height": 0,
       "duration": 30,
       "providerConfig": {
           "brightroll": {
-              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlUiriGs54REqVLbjgz_HqOhb9JgbYCAxxw=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
               "adomain": "jamloop.com",
-              "campaign_name": "BRX_9.1_w350_WL_HV50S_643766 vpaid",
-              "line_item_name": "BRX_9.1_w350_WL_HV50S_643766",
-              "creative_name":  "BRX_9.1_w350_WL_HV50S_643766 vpaid",
+              "campaign_name": "BRX_9.1_w350_WL_SV50_650757 vpaid",
+              "line_item_name": "BRX_9.1_w350_WL_SV50_650757",
+              "creative_name":  "BRX_9.1_w350_WL_SV50_650757 vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "1209643766",
+              "lid": "1209650757",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
@@ -35,14 +35,14 @@
       "required": true,
       "config": {
         "viewTreshold": 50,
-        "unknownStrategy": "nobid"
+        "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
   "externalId": 1,
   "roundRobin": {
-    "group": "datacratic_01:BRX_9.1_w350_WL_HV50S_643766",
+    "group": "datacratic_01:BRX_9.1_w350_WL_SV50_650757",
     "weight": 1
   },
   "providerConfig": {
