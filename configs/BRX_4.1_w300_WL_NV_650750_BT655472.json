@@ -1,0 +1,54 @@
+{
+  "account": [
+    "datacratic_01", "BRX_4.1_w300_WL_NV_650750_BT655472"
+  ],
+  "bidProbability": 1,
+  "creatives": [
+    {
+      "id": 1209650750,
+      "type": "video",
+      "width": 300,
+      "height": 0,
+      "duration": 30,
+      "providerConfig": {
+          "brightroll": {
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlXjKvJZ_5mhx5_gZjekhKlYay2kWwquC+Y=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##&eov=eov",
+              "adomain": "itunes.com",
+              "campaign_name": "BRX_4.1_w300_WL_NV_650750_BT655472 vpaid",
+              "line_item_name": "BRX_4.1_w300_WL_NV_650750_BT655472",
+              "creative_name":  "BRX_4.1_w300_WL_NV_650750_BT655472 vpaid",
+              "creative_duration": 30,
+              "media_desc": {
+                "media_mime": "video/x-flv",
+                "media_bitrate": 800
+              },
+              "api": 1,
+              "lid": "1209650750",
+              "landingpage_url": "http://itunes.com",
+              "advertiser_name": "itunes.com"
+          }
+      }
+    }
+  ],
+  "externalId": 1,
+  "roundRobin": {
+    "group": "datacratic_01:BRX_4.1_w300_WL_NV_650750_BT655472",
+    "weight": 1
+  },
+  "providerConfig": {
+      "brightroll": {
+          "seat": "12341"
+      }
+  },
+  "ext": {
+    "budget": "500000000USD/1M",
+    "pace": "0USD/1M",
+    "price": "4100USD/1M",
+    "priority": 1
+  },
+  "whiteBlackList": {
+      "whiteFile": "configs/bt655472_wl.csv",
+      "blackFile": "configs/blank"
+  }
+}
+
