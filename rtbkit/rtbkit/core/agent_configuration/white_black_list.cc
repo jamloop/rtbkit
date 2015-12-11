@@ -71,7 +71,7 @@ namespace JamLoop {
         rows_.swap(rows);
     }
 
-    WhiteBlackList::Entry::Entry(
+    WhiteBlackList::List::Entry::Entry(
         const std::string& page,
         const std::string& exchange,
         const std::string& publisher)
@@ -81,7 +81,7 @@ namespace JamLoop {
     { }
 
     bool
-    WhiteBlackList::Entry::matches(const WhiteBlackList::Context& context) const {
+    WhiteBlackList::List::Entry::matches(const WhiteBlackList::Context& context) const {
         auto p = context.url.path();
         auto beg = std::begin(p);
         if (*beg == '/')
@@ -120,6 +120,61 @@ namespace JamLoop {
     }
 
     void
+    WhiteBlackList::List::add(
+            const std::string& domain, const std::string& dir,
+            const std::string& exch, const std::string& pubid) {
+        auto& entries = domains[domain];
+        entries.push_back(Entry(dir, exch, pubid));
+    }
+
+    void
+    WhiteBlackList::List::addWildcard(
+            const std::string& exch, const std::string& pubid) {
+        wildcards.insert(makeWildcard(exch, pubid));
+    }
+
+    bool
+    WhiteBlackList::List::matches(
+            const std::string& domain, const Context& context) const {
+        auto it = domains.find(domain);
+        if (it != std::end(domains)) {
+            const auto& entries = it->second;
+
+            auto matchesUrl = [&context](const Entry& entry) {
+                return entry.matches(context);
+            };
+
+            if (std::any_of(std::begin(entries), std::end(entries), matchesUrl)) {
+                return true;
+            }
+
+            return false;
+
+        }
+        else {
+            return wildcards.find(
+                    makeWildcard(context.exchange, context.pubid)) != std::end(wildcards);
+        }
+    }
+
+    bool
+    WhiteBlackList::List::empty() const {
+        return domains.empty() && wildcards.empty();
+    }
+
+    void
+    WhiteBlackList::List::clear() {
+        domains.clear();
+        wildcards.clear();
+    }
+
+    std::string
+    WhiteBlackList::List::makeWildcard(
+            const std::string& exch, const std::string& pubid) const {
+        return exch + "::" + pubid;
+    }
+
+    void
     WhiteBlackList::addWhite(
             const std::string& url,
             const std::string& exchange,
@@ -141,21 +196,7 @@ namespace JamLoop {
         auto tryMatch = [](
             const List& list, const Domain& domain, const Context& context) {
 
-            auto it = list.find(domain);
-            if (it != std::end(list)) {
-                const auto& entries = it->second;
-
-                auto matchesUrl = [&context](const Entry& entry) {
-                    return entry.matches(context);
-                };
-
-                if (std::any_of(std::begin(entries), std::end(entries), matchesUrl)) {
-                    return true;
-                }
-
-            }
-
-            return false;
+            return list.matches(domain, context);
         };
 
         if (tryMatch(white, domain, context))
@@ -180,6 +221,7 @@ namespace JamLoop {
     void
     WhiteBlackList::createFromJson(const Json::Value& value) {
         white.clear();
+        black.clear();
 
         if (value.isMember("whiteFile") && !value.isMember("blackFile")) {
             throw ML::Exception("Missing 'blackFile' parameter for WhiteBlackList");
@@ -241,12 +283,15 @@ namespace JamLoop {
             const std::string& url,
             const std::string& exch,
             const std::string& pubid) {
-        std::string domain;
-        std::string directory;
+        if (url == Wildcard) {
+            list.addWildcard(exch, pubid);
+        } else {
+            std::string domain;
+            std::string directory;
 
-        std::tie(domain, directory) = splitDomain(url);
-        auto& entries = list[domain];
-        entries.push_back(Entry(directory, exch, pubid));
+            std::tie(domain, directory) = splitDomain(url);
+            list.add(domain, directory, exch, pubid);
+        }
     }
 
 

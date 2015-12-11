@@ -131,29 +131,45 @@ namespace JamLoop {
         std::string whiteFile;
         std::string blackFile;
 
-        struct Entry {
-        public:
+        struct List {
+            struct Entry {
+            public:
 
-            Entry(
-                const std::string& page,
-                const std::string& exchange,
-                const std::string& publisher);
+                Entry(
+                    const std::string& page,
+                    const std::string& exchange,
+                    const std::string& publisher);
 
-            bool matches(const Context& context) const;
+                bool matches(const Context& context) const;
 
-        private:
-            std::string page;
-            std::string exchange;
-            std::string publisher;
-        };
+            private:
+                std::string page;
+                std::string exchange;
+                std::string publisher;
+            };
+
+            void add(
+                    const std::string& domain, const std::string& dir,
+                    const std::string& exch, const std::string& pubid);
+
+            void addWildcard(const std::string& exch, const std::string& pubid);
+            bool matches(const std::string& domain, const Context& context) const;
+
+            bool empty() const;
+            void clear();
 
 #ifdef REDUCE_MEMORY_ALLOCS
-        typedef ML::compact_vector<Entry, 4> Entries;
+            typedef ML::compact_vector<Entry, 4> Entries;
 #else
-        typedef std::vector<Entry> Entries;
+            typedef std::vector<Entry> Entries;
 #endif
 
-        typedef std::unordered_map<Domain, Entries> List;
+        private:
+            std::string makeWildcard(const std::string& exch, const std::string& pubid) const;
+            std::unordered_map<Domain, Entries> domains;
+            std::unordered_set<std::string> wildcards;
+        };
+
         List white;
         List black;
 
