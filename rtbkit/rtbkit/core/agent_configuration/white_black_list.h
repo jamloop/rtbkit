@@ -32,6 +32,8 @@ namespace JamLoop {
     class CsvReader {
     public:
 
+        enum class Validation { Strict, None };
+
         class Row {
         public:
             friend class CsvReader;
@@ -52,9 +54,13 @@ namespace JamLoop {
 
         };
 
-        CsvReader(const std::string& fileName, char delimiter = ',')
+        CsvReader(
+                const std::string& fileName,
+                char delimiter = ',',
+                Validation validation = Validation::Strict)
             : file(fileName)
             , delimiter(delimiter)
+            , validation(validation)
 
         {
             open();
@@ -85,6 +91,7 @@ namespace JamLoop {
     private:
         std::string file;
         char delimiter;
+        Validation validation;
         ML::filter_istream stream_;
         Rows rows_;
     };

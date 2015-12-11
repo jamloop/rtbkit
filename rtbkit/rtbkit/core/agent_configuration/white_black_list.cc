@@ -52,15 +52,20 @@ namespace JamLoop {
         while (std::getline(stream_, line)) {
             auto v = split(line, delimiter);
 
-            if (columns.size() != v.size()) {
+            if (validation == Validation::Strict && columns.size() != v.size()) {
                 throw ML::Exception(
                         "Error while parsing '%s': columns do not match header at line '%llu'",
                         file.c_str(), lineIndex);
             }
 
             Row row;
-            for (std::vector<std::string>::size_type i = 0; i < columns.size(); ++i) {
-                row.add(columns[i], v[i]);
+            std::vector<std::string>::size_type index;
+            for (index = 0; index < v.size(); ++index) {
+                row.add(columns[index], v[index]);
+            }
+
+            for (; index < columns.size(); ++index) {
+                row.add(columns[index], std::string());
             }
 
             rows.push_back(std::move(row));
@@ -252,8 +257,8 @@ namespace JamLoop {
 
         void
     WhiteBlackList::createFromFile(std::string whiteFile, std::string blackFile) {
-        CsvReader whiteReader(whiteFile);
-        CsvReader blackReader(blackFile);
+        CsvReader whiteReader(whiteFile, ',', CsvReader::Validation::None);
+        CsvReader blackReader(blackFile, ',', CsvReader::Validation::None);
 
         for (const auto& row: whiteReader) {
             addList(white, row);
@@ -270,9 +275,17 @@ namespace JamLoop {
 
     void
     WhiteBlackList::addList(List& list, const CsvReader::Row& row) {
-        auto url   = row.value("domain");
-        auto exch  = row.value("exch");
-        auto pubid = row.value("pubid");
+        auto getValue = [&](const char* name) {
+            auto val = row.value(name);
+            if (val.empty())
+                val = Wildcard;
+
+            return val;
+        };
+
+        auto url   = getValue("domain");
+        auto exch  = getValue("exch");
+        auto pubid = getValue("pubid");
 
         addList(list, url, exch, pubid);
     }
