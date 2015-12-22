@@ -229,12 +229,12 @@
       "log": true
     },
     {
-      "name": "agent-SPX_6.1_w350_NV_650754_test",
+      "name": "agent-SPX_6.1_w300_NV_650754_test",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SPX_6.1_w350_NV_650754_test",
+        "--service-name", "uswest2a.rtb1.agent_SPX_6.1_w300_NV_650754_test",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SPX_6.1_w350_NV_650754_test.json"
+        "--agent-configuration", "configs/SPX_6.1_w300_NV_650754_test.json"
       ],
       "log": true
     }
