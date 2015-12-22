@@ -36,11 +36,10 @@
     "pace": "0USD/1M",
     "price": "6100USD/1M",
     "priority": 1
-  }
-//  },
-//    "whiteBlackList": {
-//      "whiteFile": "configs/blank",
-//      "blackFile": "configs/blank"
-//    }
+  },
+    "whiteBlackList": {
+      "whiteFile": "configs/spx.csv",
+      "blackFile": "configs/blank"
+    }
 }
 
