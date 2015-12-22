@@ -57,7 +57,7 @@
     "priority": 1
   },
   "whiteBlackList": {
-      "whiteFile": "configs/RTB_AP_3.10_WL_HF_2015-12-22",
+      "whiteFile": "configs/RTB_AP_3.10_WL_HF_2015-12-22.csv",
       "blackFile": "configs/blank"
   }
 }
