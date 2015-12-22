@@ -1,0 +1,36 @@
+{
+    "account": [
+        "publisher", "NEX_3.1_w300_WL_BL_NV_650755_HF"
+    ],
+    "bidProbability": 1,
+    "creatives": [
+    {
+        "id": 1222650755,
+        "type": "video",
+        "width": 300,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+            "publisher": {
+              "vast": "<VAST version=\"2.0\"><Ad><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlWOIXrBm91RMnWinPA3+1LaH1SliT3OrsQ=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D%{tag.price}&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+            }
+        }
+    }
+    ],
+    "externalId": 4242,
+    "roundRobin": {
+        "group": "publisher:NEX_3.1_w300_WL_BL_NV_650755_HF",
+        "weight": 1
+    },
+    "ext": {
+        "budget": "100000000USD/1M",
+        "pace": "1000000USD/1M",
+        "price": "3100USD/1M",
+        "priority": 1
+    },
+    "whiteBlackList": {
+      "whiteFile": "configs/RTB_AP_3.10_WL_HF_2015-12-22",
+      "blackFile": "configs/blank"
+    }
+}
+
