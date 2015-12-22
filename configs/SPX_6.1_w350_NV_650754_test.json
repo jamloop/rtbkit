@@ -7,7 +7,7 @@
     {
       "id": 1222650754,
       "type": "video",
-      "width": 300,
+      "width": 350,
       "height": 0,
       "duration": 30,
       "providerConfig": {
@@ -38,7 +38,7 @@
     "priority": 1
   },
     "whiteBlackList": {
-      "whiteFile": "configs/spx.csv",
+      "whiteFile": "configs/blank",
       "blackFile": "configs/blank"
     }
 }
