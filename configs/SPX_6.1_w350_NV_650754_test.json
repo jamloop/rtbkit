@@ -38,7 +38,7 @@
     "priority": 1
   },
     "whiteBlackList": {
-      "whiteFile": "configs/blank",
+//      "whiteFile": "configs/blank",
       "blackFile": "configs/blank"
     }
 }
