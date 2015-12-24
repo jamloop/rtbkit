@@ -7,6 +7,7 @@
 
 #include "adaptv_exchange_connector.h"
 #include "soa/utils/generic_utils.h"
+#include "soa/utils/scope.h"
 
 using namespace RTBKIT;
 using namespace Datacratic;
@@ -19,6 +20,13 @@ namespace JamLoop {
 
         static constexpr double MaximumResponseTime = 150;
     }
+
+Logging::Category AdaptvExchangeConnector::Logs::print(
+    "AdaptvExchangeConnector");
+Logging::Category AdaptvExchangeConnector::Logs::trace(
+    "AdaptvExchangeConnector Trace", AdaptvExchangeConnector::Logs::print);
+Logging::Category AdaptvExchangeConnector::Logs::error(
+    "AdaptvExchangeConnector Error", AdaptvExchangeConnector::Logs::print);
 
     AdaptvExchangeConnector::AdaptvExchangeConnector(
             ServiceBase& owner, std::string name)
@@ -124,40 +132,48 @@ namespace JamLoop {
             const HttpHeader& header,
             const std::string& payload)
     {
-        auto br = OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
-        if (br) {
-            if (br->site && br->site->publisher && br->site->publisher->id.notNull())
-                goto end;
+        std::shared_ptr<BidRequest> br;
+        try {
+            br = OpenRTBExchangeConnector::parseBidRequest(handler, header, payload);
 
-            if (br->app && br->app->publisher && br->app->publisher->id.notNull())
-                goto end;
+            Scope_Failure(br.reset());
 
-            if (br->site) {
-                const auto& ext = br->site->ext;
-                if (ext.isMember("mpcid")) {
-                    if (!br->site->publisher)
-                        br->site->publisher.reset(new OpenRTB::Publisher);
-
-                    br->site->publisher->id = Id(ext["mpcid"].asString());
+            if (br) {
+                if (br->site && br->site->publisher && br->site->publisher->id.notNull())
                     goto end;
+
+                if (br->app && br->app->publisher && br->app->publisher->id.notNull())
+                    goto end;
+
+                if (br->site) {
+                    const auto& ext = br->site->ext;
+                    if (ext.isMember("mpcid")) {
+                        if (!br->site->publisher)
+                            br->site->publisher.reset(new OpenRTB::Publisher);
+
+                        br->site->publisher->id = Id(ext["mpcid"].asString());
+                        goto end;
+                    }
                 }
+
+                if (br->app) {
+                    const auto& ext = br->app->ext;
+                    if (ext.isMember("mpcid")) {
+                        if (!br->app->publisher)
+                            br->app->publisher.reset(new OpenRTB::Publisher);
+
+                        br->app->publisher->id = Id(ext["mpcid"].asString());
+                    }
+                }
+
             }
 
-            if (br->app) {
-                const auto& ext = br->app->ext;
-                if (ext.isMember("mpcid")) {
-                    if (!br->app->publisher)
-                        br->app->publisher.reset(new OpenRTB::Publisher);
-
-                    br->app->publisher->id = Id(ext["mpcid"].asString());
-                }
-            }
-
+        } catch (const ML::Exception& e) {
+            LOG(Logs::error) << "Bid Request: " << payload << std::endl;
         }
 
         end:
             return br;
-
     }
 
     void
