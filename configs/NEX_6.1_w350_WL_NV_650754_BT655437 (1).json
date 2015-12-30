@@ -1,11 +1,11 @@
 {
     "account": [
-        "publisher", "NEX_6.1_w350_WL_BL_NV_650754_HF"
+        "publisher", "NEX_6.1_w350_WL_NV_650754_BT655437"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 12301365075453,
+        "id": 12281565075437,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -19,17 +19,17 @@
     ],
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_6.1_w350_WL_BL_NV_650754_HF",
+        "group": "publisher:NEX_6.1_w350_WL_NV_650754_BT655437",
         "weight": 1
     },
     "ext": {
         "budget": "100000000USD/1M",
         "pace": "1000000USD/1M",
         "price": "6100USD/1M",
-        "priority": 1
+        "priority": 4
     },
     "whiteBlackList": {
-      "whiteFile": "configs/RTB_MP_6.10_WL_HF_2015-12-22.csv",
+      "whiteFile": "configs/bt655437_wl.csv",
       "blackFile": "configs/blank"
     }
 }

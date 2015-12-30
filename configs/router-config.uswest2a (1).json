@@ -1,0 +1,65 @@
+[
+//  {
+//    "exchangeType": "adaptv",
+//    "listenPort": 9970,
+//    "numThreads": 8,
+//    "realTimePolling": true,
+//    "bindHost": "0.0.0.0",
+//    "auctionVerb": "POST",
+//    "auctionResource": "/",
+//    "performNameLookup": false
+//  },
+  {
+    "exchangeType": "brightroll",
+    "listenPort": 9971,
+    "numThreads": 4,
+    "realTimePolling": true,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false,
+    "slowModeTimeout": 86400,
+    "slowModeTolerance": 86400
+  },
+  {
+    "exchangeType": "spotx",
+    "listenPort": 9972,
+    "numThreads": 1,
+    "realTimePolling": true,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false
+  },
+  //{
+  //  "exchangeType": "liverail",
+  //  "listenPort": 9973,
+  //  "numThreads": 4,
+  //  "realTimePolling": true,
+  //  "bindHost": "0.0.0.0",
+  //  "auctionVerb": "POST",
+  //  "auctionResource": "/",
+  //  "performNameLookup": false
+  //},
+  //{
+  //  "exchangeType": "tremor",
+  //  "listenPort": 9974,
+  //  "numThreads": 3,
+  //  "realTimePolling": false,
+  //  "bindHost": "0.0.0.0",
+  //  "auctionVerb": "POST",
+  //  "auctionResource": "/",
+  //  "performNameLookup": false
+  //},
+  {
+    "exchangeType": "publisher",
+    "listenPort": 9975,
+    "numThreads": 4,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "GET",
+    "auctionResource": "/vast2",
+    "performNameLookup": false,
+    "genericVast": "<VAST xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"vast.xsd\" version=\"2.0\"/>"
+  }
+]
