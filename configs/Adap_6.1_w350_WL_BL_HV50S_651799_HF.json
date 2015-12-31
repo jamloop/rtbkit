@@ -1,0 +1,55 @@
+{
+    "account": [
+        "adaptv", "Adap_6.1_w350_WL_BL_HV50S_651799_HF"
+    ],
+    "bidProbability": 1,
+    "creatives": [
+    {
+        "id": 12311265179952,
+        "type": "video",
+        "width": 350,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+            "adaptv": {
+              "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVod0NTlcLlB0J2qv45l7Sh_bQUSuxYLpc=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+            }
+        }
+    }
+    ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 50,
+        "unknownStrategy": "nobid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
+    "externalId": 1337,
+    "roundRobin": {
+        "group": "adaptv:Adap_6.1_w350_WL_BL_HV50S_651799_HF",
+        "weight": 1
+    },
+    "providerConfig": {
+        "adaptv": {
+            "seat": "1234"
+        }
+    },
+    "ext": {
+        "budget": "100000000USD/1M",
+        "pace": "1000000USD/1M",
+        "price": "6100USD/1M",
+        "priority": 3
+    },
+    "deviceTypeFilter": {
+        "include": [2],
+        "exclude": [4, 5]
+    },
+    "whiteBlackList": {
+      "whiteFile": "configs/RTB_MP_6.10_WL_HF_2015-12-22.csv",
+      "blackFile": "configs/blank"
+    }
+}
+

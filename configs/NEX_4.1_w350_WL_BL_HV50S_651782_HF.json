@@ -1,0 +1,46 @@
+{
+    "account": [
+        "publisher", "NEX_4.1_w350_WL_BL_HV50S_651782_HF"
+    ],
+    "bidProbability": 1,
+    "creatives": [
+    {
+        "id": 12311265178244,
+        "type": "video",
+        "width": 350,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+            "publisher": {
+              "vast": "<VAST version=\"2.0\"><Ad><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlXjKvJZ_5mhx0J2qv45l7ShyyOZX1NC9jo=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D%{tag.price}&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+            }
+        }
+    }
+    ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 50,
+        "unknownStrategy": "nobid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
+    "externalId": 4242,
+    "roundRobin": {
+        "group": "publisher:NEX_4.1_w350_WL_BL_HV50S_651782_HF",
+        "weight": 1
+    },
+    "ext": {
+        "budget": "100000000USD/1M",
+        "pace": "1000000USD/1M",
+        "price": "4100USD/1M",
+        "priority": 3
+    },
+    "whiteBlackList": {
+      "whiteFile": "configs/RTB_MP_4.10_WL_HF_2015-12-22.csv",
+      "blackFile": "configs/blank"
+    }
+}
+
