@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 12311365075038,
+      "id": 01121365075038,
       "type": "video",
       "width": 300,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "1231650750",
+              "lid": "0112650750",
               "landingpage_url": "http://itunes.com",
               "advertiser_name": "itunes.com"
           }
