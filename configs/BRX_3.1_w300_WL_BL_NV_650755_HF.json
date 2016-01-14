@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 01121365075542,
+      "id": 01141065075542,
       "type": "video",
       "width": 300,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0112650755",
+              "lid": "0114650755",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
