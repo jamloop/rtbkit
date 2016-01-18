@@ -72,7 +72,6 @@
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--exchange-configuration", "configs/router-config.uswest2a.json",
         "--bidder", "configs/bidder-config.json",
-        "--banker-choice", "null",
         "--log-auctions", "true"
       ],
       "log": true
@@ -984,8 +983,8 @@
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--exchange-configuration", "configs/router-config.useast1b.json",
         "--bidder", "configs/bidder-config.json",
-        "--banker-choice", "null",
-        "--log-auctions", "true"
+        "--log-auctions", "true",
+        "--use-http-banker"
       ],
       "log": true
     },
