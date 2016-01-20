@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 01141165177541,
+      "id": 01201665177541,
       "type": "video",
       "width": 350,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0114651775",
+              "lid": "0120651775",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
@@ -58,7 +58,7 @@
   },
   "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_11.10_WL_HF_2015-12-22.csv",
-      "blackFile": "configs/blank"
+      "blackFile": "configs/RTB_MP_11.10_WL_HF_2015-12-22.csv"
   }
 }
 

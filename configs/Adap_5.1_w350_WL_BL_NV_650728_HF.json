@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 01141165072850,
+        "id": 01201665072850,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -39,7 +39,7 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/RTB_MP_5.10_WL_HF_2015-12-22.csv",
-      "blackFile": "configs/blank"
+      "blackFile": "configs/RTB_MP_5.10_WL_HF_2015-12-22.csv"
     }
 }
 
