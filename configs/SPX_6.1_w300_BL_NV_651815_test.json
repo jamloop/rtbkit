@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 01211165181539,
+      "id": 01211265181539,
       "type": "video",
       "width": 300,
       "height": 0,
@@ -39,7 +39,7 @@
   },
     "whiteBlackList": {
       "whiteFile": "configs/blank",
-      "blackFile": "configs/no"
+      "blackFile": "configs/blank"
     }
 }
 
