@@ -170,6 +170,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
 
         } catch (const ML::Exception& e) {
             LOG(Logs::error) << "Bid Request: " << payload << std::endl;
+            throw;
         }
 
         end:
