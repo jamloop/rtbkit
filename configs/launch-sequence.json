@@ -1018,13 +1018,29 @@
       ],
       "log": true
     },
+//    {
+//      "name": "viewability-service",
+//      "root": ".", "path": "./bin/viewability_service_runner",
+//      "arg": [
+//        "--service-name", "useast1b.rtb1.viewability",
+//        "--bootstrap", "configs/bootstrap.useast1b.json",
+//        "--goview-url", "http://127.0.0.1:9200"
+//      ],
+//      "log": true
+//    },
     {
       "name": "viewability-service",
-      "root": ".", "path": "./bin/viewability_service_runner",
+      "root": ".", "path": "/bin/bash",
       "arg": [
-        "--service-name", "useast1b.rtb1.viewability",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--goview-url", "http://127.0.0.1:9200"
+        "-c", "ulimit -c unlimited && ./bin/viewability_service_runner --service-name useast1b.rtb1.viewability --bootstrap configs/bootstrap.useast1b.json --goview-url http://127.0.0.1:9200"
+      ],
+      "log": true
+    },
+    {
+      "name": "descendance-watcher",
+      "root": "/home/rtbkit/prod/rtb", "path": "/home/rtbkit/prod/virtualenv/bin/python",
+      "arg": [
+        "scripts/descendance-watcher.py"
       ],
       "log": true
     },
