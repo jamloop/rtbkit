@@ -508,16 +508,6 @@
       "log": true
     },
     {
-      "name": "agent-NEX_7.1_w350_WL_SV50_644367_wild_dmo", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_7.1_w350_WL_SV50_644367_wild_dmo",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_7.1_w350_WL_SV50_644367_wild_dmo.json"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-NEX_11.1_w350_WL_SV50_651775_wild_dmo", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
