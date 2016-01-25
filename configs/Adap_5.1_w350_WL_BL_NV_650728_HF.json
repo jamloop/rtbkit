@@ -1,11 +1,11 @@
 {
     "account": [
-        "adaptv", "Adap_5.1_w350_WL_BL_NV_650728_HF"
+        "Adap_5.1_w350_WL_BL_NV_650728_HF", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 01221365072850,
+        "id": 01251865072850,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -28,8 +28,8 @@
         }
     },
     "ext": {
-        "budget": "100000000USD/1M",
-        "pace": "1000000USD/1M",
+        "budget": "100000000000USD/1M",
+        "pace": "100000000USD/1M",
         "price": "5100USD/1M",
         "priority": 1
     },

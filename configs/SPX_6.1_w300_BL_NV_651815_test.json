@@ -1,11 +1,11 @@
 {
   "account": [
-    "datacratic_03", "SPX_6.1_w300_BL_NV_651815_test"
+    "SPX_6.1_w300_BL_NV_651815_test", "1"
   ],
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 01221365181539,
+      "id": 01251865181539,
       "type": "video",
       "width": 300,
       "height": 0,
@@ -14,7 +14,7 @@
           "spotx": {
               "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVod0NTlcLlB5+qljq9dHr1R85vO4_eAh0=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D$MBR&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>",
               "adomain": ["itunes.com"],
-              "adid": "0122651815"
+              "adid": "0125651815"
           }
       }
     }
@@ -32,8 +32,8 @@
       }
   },
   "ext": {
-    "budget": "500000000USD/1M",
-    "pace": "0USD/1M",
+    "budget": "60000000USD/1M",
+    "pace": "1440000000USD/1M",
     "price": "6100USD/1M",
     "priority": 1
   },

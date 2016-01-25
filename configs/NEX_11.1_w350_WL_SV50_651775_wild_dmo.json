@@ -1,11 +1,11 @@
 {
     "account": [
-        "publisher", "NEX_11.1_w350_WL_SV50_651775_wild_dmo"
+        "NEX_11.1_w350_WL_SV50_651775_wild_dmo", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 01221365177568,
+        "id": 01251865177568,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -33,8 +33,8 @@
         "weight": 1
     },
     "ext": {
-        "budget": "100000000USD/1M",
-        "pace": "1000000USD/1M",
+        "budget": "100000000000USD/1M",
+        "pace": "100000000USD/1M",
         "price": "11100USD/1M",
         "priority": 2
     },

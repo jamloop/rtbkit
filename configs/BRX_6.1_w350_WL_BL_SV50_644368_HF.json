@@ -1,11 +1,11 @@
 {
   "account": [
-    "datacratic_01", "BRX_6.1_w350_WL_BL_SV50_644368_HF"
+    "BRX_6.1_w350_WL_BL_SV50_644368_HF", "1"
   ],
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 01221364436854,
+      "id": 01251864436854,
       "type": "video",
       "width": 350,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0122644368",
+              "lid": "0125644368",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
@@ -51,8 +51,8 @@
       }
   },
   "ext": {
-    "budget": "500000000USD/1M",
-    "pace": "0USD/1M",
+    "budget": "100000000000USD/1M",
+    "pace": "100000000USD/1M",
     "price": "6100USD/1M",
     "priority": 1
   },
