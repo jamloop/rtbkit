@@ -60,7 +60,8 @@
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--bidder", "configs/bidder-config.json",
         "--win-seconds", "3600.0",
-        "--auction-seconds", "900.0"
+        "--auction-seconds", "900.0",
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -72,7 +73,8 @@
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--exchange-configuration", "configs/router-config.uswest2a.json",
         "--bidder", "configs/bidder-config.json",
-        "--log-auctions", "true"
+        "--log-auctions", "true",
+        "--use-http-banker"
       ],
       "log": true
     },
