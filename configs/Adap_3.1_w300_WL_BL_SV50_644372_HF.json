@@ -39,8 +39,8 @@
         }
     },
     "ext": {
-        "budget": "10000000000000USD/1M",
-        "pace": "694444444USD/1M",
+        "budget": "1000000000000USD/1M",
+        "pace": "100000000USD/1M",
         "price": "3100USD/1M",
         "priority": 2
     },
