@@ -280,16 +280,6 @@
       "log": true
     },
     {
-      "name": "agent-NEX_6.11_w350_BL_NV_651815_test", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_6.11_w350_BL_NV_651815_test",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_6.11_w350_BL_NV_651815_test.json"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-BRX_11.1_w350_WL_BL_HV50S_600758_HF", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -799,6 +789,17 @@
         "--service-name", "useast1b.rtb1.agent_Adap_4.1_w300_WL_BL_NV_650750_BT655472",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/Adap_4.1_w300_WL_BL_NV_650750_BT655472.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_6.11_w350_BL_NV_651815_test", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_6.11_w350_BL_NV_651815_test",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_6.11_w350_BL_NV_651815_test.json",
         "--use-http-banker"
       ],
       "log": true
