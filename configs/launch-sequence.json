@@ -573,7 +573,7 @@
         "--bidder", "configs/bidder-config.json",
         "--win-seconds", "3600.0",
         "--auction-seconds", "900.0",
-        "--banker-choice", "null"
+        "--use-http-banker"
       ],
       "log": true
     },
@@ -586,7 +586,7 @@
         "--exchange-configuration", "configs/router-config.useast1b.json",
         "--bidder", "configs/bidder-config.json",
         "--log-auctions", "true",
-        "--banker-choice", "null"
+        "--use-http-banker"
       ],
       "log": true
     },
