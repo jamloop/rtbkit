@@ -1,6 +1,6 @@
 {
     "account": [
-        "NEX_6.1_w350_BL_NV_651815_test", "1"
+        "NEX_6.11_w350_BL_NV_651815_test", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -19,13 +19,13 @@
     ],
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_6.1_w350_BL_NV_651815_test",
+        "group": "publisher:NEX_6.11_w350_BL_NV_651815_test",
         "weight": 1
     },
     "ext": {
         "budget": "60000000USD/1M",
         "pace": "1000000USD/1M",
-        "price": "6100USD/1M",
+        "price": "6110USD/1M",
         "priority": 1
     },
     "whiteBlackList": {
