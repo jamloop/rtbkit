@@ -794,17 +794,6 @@
       "log": true
     },
     {
-      "name": "agent-Adap_6.1_w350_BL_NV_651815_test", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_6.1_w350_BL_NV_651815_test",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_6.1_w350_BL_NV_651815_test.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-Adap_11.1_w350_WL_BL_HV50S_600758_HF", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
