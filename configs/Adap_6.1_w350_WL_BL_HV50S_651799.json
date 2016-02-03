@@ -5,14 +5,14 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 02031165179921,
+        "id": 02031265179921,
         "type": "video",
         "width": 350,
         "height": 0,
         "duration": 30,
         "providerConfig": {
             "adaptv": {
-              "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVod0NTlcLlB0J2qv45l7Sh_bQUSuxYLpc=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI><Impression id=\"IMPRESSION\"><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?src=dspImpTrack&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&PWidth=%{bidrequest.video.width}&PHeight=%{bidrequest.video.height}&POSITION=%{bidrequest.video.pos}&IP=%{bidrequest.device.ip}&USERIDS=%{bidrequest.user.id}&LRSite=%{bidrequest.publisher.id}&UA=TEST&Lang=%{bidrequest.language}&REQ_URL=%{bidrequest.site.page#urlencode}&cb=%{bidrequest.timestamp}&WIN_RATIO=1]]></Impression></Wrapper></Ad></VAST>",
+              "adm": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVod0NTlcLlB0J2qv45l7Sh_bQUSuxYLpc=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D${AUCTION_PRICE}&eov=eov]]></VASTAdTagURI><Impression id=\"IMPRESSION\">http%3A%2F%2Fad.jamloop.com%2Fcgi-bin%2Fy.pl%3Fsrc%3DdspImpTrack%26Exch%3D%25%7Bexchange%7D%26BID_PRICE%3D%25%7Bbid.price%7D%26BID_REQ_ID%3D%25%7Bbidrequest.id%7D%26IMP_ID%3D%25%7Bimp.id%7D%26PWidth%3D%25%7Bbidrequest.video.width%7D%26PHeight%3D%25%7Bbidrequest.video.height%7D%26POSITION%3D%25%7Bbidrequest.video.pos%7D%26IP%3D%25%7Bbidrequest.device.ip%7D%26USERIDS%3D%25%7Bbidrequest.user.id%7D%26LRSite%3D%25%7Bbidrequest.publisher.id%7D%26UA%3D%25%7Bbidrequest.ua%7D%26Lang%3D%25%7Bbidrequest.language%7D%26REQ_URL%3D%25%7Bbidrequest.site.page%7D%26cb%3D%25%7Bbidrequest.timestamp%7D%26WIN_RATIO%3D%24%7BAUCTION_PRICE%7D</Impression></Wrapper></Ad></VAST>",
               "nurl": "http://ad.jamloop.com/cgi-bin/z.pl?src=adapWinTrack&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&WIN_RATIO=${AUCTION_PRICE}"
             }
         }
