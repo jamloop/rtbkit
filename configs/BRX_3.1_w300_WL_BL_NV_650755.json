@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 0203176507556,
+      "id": 0204106507556,
       "type": "video",
       "width": 300,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0203650755",
+              "lid": "0204650755",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
@@ -42,7 +42,7 @@
   },
   "ext": {
     "budget": "1000000000000USD/1M",
-    "pace": "100000000USD/1M",
+    "pace": "600000000USD/1M",
     "price": "3100USD/1M",
     "priority": 1
   },

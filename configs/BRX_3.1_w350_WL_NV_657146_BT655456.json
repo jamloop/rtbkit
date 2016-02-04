@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 02031765714636,
+      "id": 02041065714636,
       "type": "video",
       "width": 350,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0203657146",
+              "lid": "0204657146",
               "landingpage_url": "http://itunes.com",
               "advertiser_name": "itunes.com"
           }
@@ -42,7 +42,7 @@
   },
   "ext": {
     "budget": "1000000000000USD/1M",
-    "pace": "100000000USD/1M",
+    "pace": "600000000USD/1M",
     "price": "3100USD/1M",
     "priority": 1
   },

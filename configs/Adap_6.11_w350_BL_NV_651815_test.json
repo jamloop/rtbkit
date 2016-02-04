@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 02031765181539,
+        "id": 02041065181539,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -29,8 +29,8 @@
         }
     },
     "ext": {
-        "budget": "60000000USD/1M",
-        "pace": "1000000USD/1M",
+        "budget": "12000000USD/1M",
+        "pace": "6000000USD/1M",
         "price": "6110USD/1M",
         "priority": 1
     },
