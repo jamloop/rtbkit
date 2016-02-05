@@ -306,6 +306,7 @@
         "--bidder", "configs/bidder-config.json",
         "--banker-choice", "null",
         "--log-auctions", "true"
+        "--spend-rate", "200000USD/1M"
       ],
       "log": true
     },
