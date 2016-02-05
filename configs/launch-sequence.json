@@ -74,7 +74,7 @@
         "--exchange-configuration", "configs/router-config.uswest2a.json",
         "--bidder", "configs/bidder-config.json",
         "--log-auctions", "true",
-        "--use-http-banker"
+        "--use-http-banker",
         "--spend-rate", "200000USD/1M"
       ],
       "log": true
