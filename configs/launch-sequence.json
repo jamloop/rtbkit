@@ -292,7 +292,8 @@
         "--bidder", "configs/bidder-config.json",
         "--win-seconds", "3600.0",
         "--auction-seconds", "900.0",
-        "--use-http-banker"
+        "--use-http-banker",
+        "--spend-rate", "200000USD/1M"        
       ],
       "log": true
     },
