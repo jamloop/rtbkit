@@ -75,7 +75,7 @@
         "--bidder", "configs/bidder-config.json",
         "--log-auctions", "true",
         "--use-http-banker",
-        "--spend-rate", "200000USD/1M"
+        "--spend-rate", "1000000USD/1M"
       ],
       "log": true
     },
@@ -587,8 +587,7 @@
         "--exchange-configuration", "configs/router-config.useast1b.json",
         "--bidder", "configs/bidder-config.json",
         "--log-auctions", "true",
-        "--use-http-banker",
-        "--spend-rate", "500000USD/1M"
+        "--use-http-banker"
       ],
       "log": true
     },
