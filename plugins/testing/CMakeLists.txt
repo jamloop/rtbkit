@@ -17,3 +17,7 @@ target_link_libraries(white_black_list_filter_test rtb arch utils jsoncpp bid_re
 add_executable(device_type_filter_test device_type_filter_test.cc)
 target_link_libraries(device_type_filter_test rtb arch utils jsoncpp bid_request types openrtb value_description services agent_configuration filter_registry static_filters boost_unit_test_framework)
 add_test(device_type_filter_test ${EXECUTABLE_OUTPUT_PATH}/device_type_filter_test)
+
+add_executable(geo_pipeline_test geo_pipeline_test.cc)
+target_link_libraries(geo_pipeline_test rtb arch utils jsoncpp geo_pipeline bid_request types value_description boost_unit_test_framework)
+add_test(geo_pipeline_test ${EXECUTABLE_OUTPUT_PATH}/geo_pipeline_test)

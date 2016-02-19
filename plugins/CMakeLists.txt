@@ -58,4 +58,7 @@ target_link_libraries(adaptv_exchange rtb openrtb_exchange bid_request services 
 add_library(publisher_exchange SHARED publisher_connector.cc)
 target_link_libraries(publisher_exchange rtb exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options)
 
+add_library(geo_pipeline SHARED geo_pipeline.cc)
+target_link_libraries(geo_pipeline rtb jsoncpp)
+
 add_subdirectory(testing)
