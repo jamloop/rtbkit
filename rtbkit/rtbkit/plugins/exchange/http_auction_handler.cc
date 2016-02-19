@@ -386,6 +386,12 @@ handleHttpPayload(const HttpHeader & header,
         (max(5.0, (timeAvailableMs - networkTimeMs)) / 1000.0);
 
     try {
+        auto preStatus = endpoint->preBidRequest(header, payload);
+        if (preStatus == PipelineStatus::Stop) {
+             dropAuction("pre bid request pipeline");
+             return;
+        }
+
         auto bidRequest = parseBidRequest(header, payload);
 
         if (!bidRequest) {
@@ -402,6 +408,12 @@ handleHttpPayload(const HttpHeader & header,
                                   firstData, expiry));
 
         endpoint->adjustAuction(auction);
+
+        auto postStatus = endpoint->postBidRequest(auction);
+        if (postStatus == PipelineStatus::Stop) {
+            dropAuction("post bid request pipeline");
+            return;
+        }
 
 
 #if 0
