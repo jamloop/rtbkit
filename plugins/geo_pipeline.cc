@@ -93,7 +93,12 @@ GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
 }
 
 GeoDatabase::GeoDatabase() {
-    loadGuard.store(false, std::memory_order_relaxed);
+    dataGuard.store(nullptr, std::memory_order_relaxed);
+}
+
+GeoDatabase::~GeoDatabase() {
+    auto *d = dataGuard.load(std::memory_order_acquire);
+    if (d) delete d;
 }
 
 uint64_t
@@ -153,6 +158,8 @@ GeoDatabase::load(
         std::string subDivision1Name;
     };
 
+    Data* d = new Data();
+
     std::unordered_map<uint32_t, LocationEntry> locationIndex;
     while (std::getline(locationFs, line)) {
         auto fields = split(line, ',');
@@ -208,43 +215,48 @@ GeoDatabase::load(
 
         auto ipEntry = Entry::fromIp(addr);
         ipEntry.metroCode = locationEntry.metroCode;
-        subnets.push_back(ipEntry);
+        d->subnets.push_back(ipEntry);
 
         auto geoEntry = Entry::fromGeo(std::stod(latitude), std::stod(longitude));
         geoEntry.metroCode = locationEntry.metroCode;
 
         auto geoHash = makeGeoHash(geoEntry, precision);
-        auto& geoEntries = geoloc[geoHash];
+        auto& geoEntries = d->geoloc[geoHash];
         geoEntries.push_back(geoEntry);
 
     }
 
-    std::sort(std::begin(subnets), std::end(subnets), [](const Entry& lhs, const Entry& rhs) {
+    std::sort(std::begin(d->subnets), std::end(d->subnets), [](const Entry& lhs, const Entry& rhs) {
         return lhs.ip() < rhs.ip();
     });
 
-    precision_ = precision;
+    d->precision = precision;
+
+    dataGuard.store(d, std::memory_order_release);
 
     std::cout << "Parsed " << count << " lines, skipped " << skipped << " (" << ((skipped * 100) / count) << "%)" << std::endl;
-
-    loadGuard.store(true, std::memory_order_release);
 }
 
 bool
 GeoDatabase::isLoaded() const {
-    return loadGuard.load();
+    return dataGuard.load(std::memory_order_acquire) != nullptr;
 }
 
 std::string
 GeoDatabase::findMetro(const GeoDatabase::Context& context) {
-    auto loaded = loadGuard.load(std::memory_order_acquire);
-    if (!loaded) {
+    // @Note since we have a data-dependency here (pointer load), we could
+    // in theory use consume memory ordering. However, compilers do not
+    // implement it correctly and emit a simple acquire barrier. Also,
+    // since we do not target platforms with data-dependency reordering,
+    // we mostly don't care.
+    auto data = dataGuard.load(std::memory_order_acquire);
+    if (!data) {
         return GeoDatabase::NoMetro;
     }
 
     if (context.hasValidGeo()) {
-        auto it = geoloc.find(makeGeoHash(context, precision_));
-        if (it != std::end(geoloc)) {
+        auto it = data->geoloc.find(makeGeoHash(context, data->precision));
+        if (it != std::end(data->geoloc)) {
             const auto& entries = it->second;
             for (const auto& entry: entries) {
                 if (entry.isLocated(context.latitude, context.longitude))
@@ -262,11 +274,11 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
     }
 
     auto it = std::lower_bound(
-            std::begin(subnets), std::end(subnets), addr, [&](const Entry& lhs, InAddr rhs) {
+            std::begin(data->subnets), std::end(data->subnets), addr, [&](const Entry& lhs, InAddr rhs) {
             return lhs.ip() < rhs;
     });
 
-    if (it == std::end(subnets) || it == std::begin(subnets)) {
+    if (it == std::end(data->subnets) || it == std::begin(data->subnets)) {
         return GeoDatabase::NoMetro;
     }
 

@@ -9,6 +9,7 @@
 
 #include "rtbkit/common/bid_request_pipeline.h"
 #include <cmath>
+#include <atomic>
 
 namespace Jamloop {
 
@@ -44,6 +45,7 @@ struct GeoDatabase {
     };
 
     GeoDatabase();
+    ~GeoDatabase();
 
     static const std::string NoMetro;
 
@@ -87,11 +89,13 @@ private:
     uint64_t makeGeoHash(const Entry& entry, Precision precision);
     uint64_t makeGeoHash(const Context& context, Precision precision);
 
-    std::vector<Entry> subnets;
-    std::unordered_map<uint64_t, std::vector<Entry>> geoloc;
-    Precision precision_;
+    struct Data {
+        std::vector<Entry> subnets;
+        std::unordered_map<uint64_t, std::vector<Entry>> geoloc;
+        Precision precision;
+    };
 
-    std::atomic<bool> loadGuard;
+    std::atomic<Data *> dataGuard;
 };
 
 class GeoPipeline : public RTBKIT::BidRequestPipeline {
