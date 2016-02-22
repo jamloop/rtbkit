@@ -6,6 +6,7 @@
 */
 
 #include "geo_pipeline.h"
+#include "jml/utils/filter_streams.h"
 
 using namespace Datacratic;
 using namespace RTBKIT;
@@ -62,11 +63,11 @@ void
 GeoDatabase::load(
         const std::string& ipFile, const std::string& locationFile)
 {
-    std::ifstream ipFs(ipFile);
+    ML::filter_istream ipFs(ipFile);
     if (!ipFs)
         throw ML::Exception("Could not open IP file '%s'", ipFile.c_str());
 
-    std::ifstream locationFs(locationFile);
+    ML::filter_istream locationFs(locationFile);
     if (!locationFs)
         throw ML::Exception("Could not open Location file '%s'", locationFile.c_str());
 

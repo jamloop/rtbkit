@@ -14,8 +14,8 @@
 using namespace RTBKIT;
 using namespace Jamloop;
 
-constexpr const char *IpFile       = "configs/GeoLite2-City-Blocks-IPv4.csv";
-constexpr const char *LocationFile = "configs/GeoLite2-City-Locations-en.csv";
+constexpr const char *IpFile       = "configs/GeoLite2-City-Blocks-IPv4.csv.gz";
+constexpr const char *LocationFile = "configs/GeoLite2-City-Locations-en.csv.gz";
 
 BOOST_AUTO_TEST_CASE( test_ip_addr ) {
     BOOST_CHECK_EQUAL(toAddr("23.5.178.10"), 23UL << 24 | 5UL << 16 | 178UL << 8 | 10 << 0);
