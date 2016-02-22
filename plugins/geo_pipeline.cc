@@ -144,6 +144,10 @@ GeoDatabase::load(
         entries.push_back(entry);
     }
 
+    std::sort(std::begin(entries), std::end(entries), [](const Entry& lhs, const Entry& rhs) {
+        return lhs.ip < rhs.ip;
+    });
+
     std::cout << "Parsed " << count << " lines, skipped " << skipped << " (" << ((skipped * 100) / count) << "%)" << std::endl;
 
     entriesGuard.store(true, std::memory_order_release);
