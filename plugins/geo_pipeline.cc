@@ -182,7 +182,7 @@ GeoDatabase::findMetro(const std::string& ip) {
 
 void
 GeoDatabase::loadAsync(const std::string& ipFile, const std::string& locationFile) {
-    std::thread thr([&]() { load(ipFile, locationFile); });
+    std::thread thr([=]() { load(ipFile, locationFile); });
     thr.detach();
 };
 
