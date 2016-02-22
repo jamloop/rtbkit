@@ -55,13 +55,76 @@ std::vector<std::string> split(const std::string& str, char c) {
 
 const std::string GeoDatabase::NoMetro;
 
+GeoDatabase::Entry
+GeoDatabase::Entry::fromIp(InAddr ip) {
+    Entry e;
+    e.u.ip = ip;
+    return e;
+}
+
+GeoDatabase::Entry
+GeoDatabase::Entry::fromGeo(double latitude, double longitude) {
+    Entry e;
+    e.u.latitude = latitude;
+    e.u.longitude = longitude;
+    return e;
+}
+
+InAddr
+GeoDatabase::Entry::ip() const {
+    return u.ip;
+}
+
+std::pair<double, double>
+GeoDatabase::Entry::geo() const {
+    return std::make_pair(u.latitude, u.longitude);
+}
+
+bool
+GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
+    // @Note Might need to tweak it a little bit or even put it configurable
+    static constexpr double Epsilon = 1e-3;
+
+    auto almostEquals = [&](double lhs, double rhs) {
+        return std::fabs(lhs - rhs) < Epsilon;
+    };
+
+    return almostEquals(latitude, u.latitude) && almostEquals(longitude, u.longitude);
+}
+
 GeoDatabase::GeoDatabase() {
-    entriesGuard.store(false, std::memory_order_relaxed);
+    loadGuard.store(false, std::memory_order_relaxed);
+}
+
+uint64_t
+GeoDatabase::makeGeoHash(double latitude, double longitude, Precision precision) {
+    return precision.scale<uint64_t>(latitude) << 32 | precision.scale<uint32_t>(longitude);
+}
+
+uint64_t
+GeoDatabase::makeGeoHash(const GeoDatabase::Entry& entry, Precision precision) {
+    /* Structured binding soon ?
+     * auto {latitude, longitude} = entry.geo();
+     */
+
+    double latitude;
+    double longitude;
+
+    std::tie(latitude, longitude) = entry.geo();
+    return makeGeoHash(latitude, longitude, precision);
+}
+
+uint64_t
+GeoDatabase::makeGeoHash(const GeoDatabase::Context& context, Precision precision) {
+    ExcAssert(context.hasValidGeo());
+
+    return makeGeoHash(context.latitude, context.longitude, precision);
 }
 
 void
 GeoDatabase::load(
-        const std::string& ipFile, const std::string& locationFile)
+        const std::string& ipFile, const std::string& locationFile,
+        Precision precision)
 {
     ML::filter_istream ipFs(ipFile);
     if (!ipFs)
@@ -122,6 +185,9 @@ GeoDatabase::load(
         auto subnet = fields.at(0);
         auto geoName = fields.at(1);
 
+        auto latitude = fields.at(7);
+        auto longitude = fields.at(8);
+
         std::string ip;
         auto cidrPos = subnet.find('/');
         if (cidrPos == std::string::npos) ip = std::move(subnet);
@@ -137,56 +203,83 @@ GeoDatabase::load(
             ++skipped;
             continue;
         }
+
         const auto& locationEntry = locationIt->second;
 
-        Entry entry { addr, locationEntry.metroCode };
+        auto ipEntry = Entry::fromIp(addr);
+        ipEntry.metroCode = locationEntry.metroCode;
+        subnets.push_back(ipEntry);
 
-        entries.push_back(entry);
+        auto geoEntry = Entry::fromGeo(std::stod(latitude), std::stod(longitude));
+        geoEntry.metroCode = locationEntry.metroCode;
+
+        auto geoHash = makeGeoHash(geoEntry, precision);
+        auto& geoEntries = geoloc[geoHash];
+        geoEntries.push_back(geoEntry);
+
     }
 
-    std::sort(std::begin(entries), std::end(entries), [](const Entry& lhs, const Entry& rhs) {
-        return lhs.ip < rhs.ip;
+    std::sort(std::begin(subnets), std::end(subnets), [](const Entry& lhs, const Entry& rhs) {
+        return lhs.ip() < rhs.ip();
     });
+
+    precision_ = precision;
 
     std::cout << "Parsed " << count << " lines, skipped " << skipped << " (" << ((skipped * 100) / count) << "%)" << std::endl;
 
-    entriesGuard.store(true, std::memory_order_release);
+    loadGuard.store(true, std::memory_order_release);
 }
 
 bool
 GeoDatabase::isLoaded() const {
-    return entriesGuard.load();
+    return loadGuard.load();
 }
 
 std::string
-GeoDatabase::findMetro(const std::string& ip) {
-    auto loaded = entriesGuard.load(std::memory_order_acquire);
+GeoDatabase::findMetro(const GeoDatabase::Context& context) {
+    auto loaded = loadGuard.load(std::memory_order_acquire);
     if (!loaded) {
         return GeoDatabase::NoMetro;
     }
 
-    auto addr = toAddr(ip.c_str());
+    if (context.hasValidGeo()) {
+        auto it = geoloc.find(makeGeoHash(context, precision_));
+        if (it != std::end(geoloc)) {
+            const auto& entries = it->second;
+            for (const auto& entry: entries) {
+                if (entry.isLocated(context.latitude, context.longitude))
+                    return entry.metroCode;
+            }
+        }
+    }
+
+    if (context.ip.empty())
+        return GeoDatabase::NoMetro;
+
+    auto addr = toAddr(context.ip.c_str());
     if (addr == InAddrNone) {
         return GeoDatabase::NoMetro;
     }
 
     auto it = std::lower_bound(
-            std::begin(entries), std::end(entries), addr, [&](const Entry& lhs, InAddr rhs) {
-            return lhs.ip < rhs;
+            std::begin(subnets), std::end(subnets), addr, [&](const Entry& lhs, InAddr rhs) {
+            return lhs.ip() < rhs;
     });
 
-    if (it == std::end(entries) || it == std::begin(entries)) {
+    if (it == std::end(subnets) || it == std::begin(subnets)) {
         return GeoDatabase::NoMetro;
     }
 
-    if (it->ip > addr)
+    if (it->ip() > addr)
         --it;
     return it->metroCode;
 }
 
 void
-GeoDatabase::loadAsync(const std::string& ipFile, const std::string& locationFile) {
-    std::thread thr([=]() { load(ipFile, locationFile); });
+GeoDatabase::loadAsync(
+        const std::string& ipFile, const std::string& locationFile,
+        GeoDatabase::Precision precision) {
+    std::thread thr([=]() { load(ipFile, locationFile, precision); });
     thr.detach();
 };
 
@@ -197,9 +290,10 @@ GeoPipeline::GeoPipeline(
 {
     auto ipFile = config["ipFile"].asString();
     auto locationFile = config["locationFile"].asString();
+    auto prec = config["precision"].asDouble();
 
     db.reset(new GeoDatabase);
-    db->loadAsync(ipFile, locationFile);
+    db->loadAsync(ipFile, locationFile, GeoDatabase::Precision(prec));
 }
 
 PipelineStatus
@@ -220,12 +314,25 @@ GeoPipeline::postBidRequest(
     if (br->user && br->user->geo)
        if (!br->user->geo->metro.empty()) return PipelineStatus::Continue;
 
-    if (!br->device) return PipelineStatus::Continue;
+    std::string ip;
 
-    auto ip = br->device->ip;
-    if (ip.empty()) return PipelineStatus::Continue;
+    if (br->device);
+        ip = br->device->ip;
 
-    auto metro = db->findMetro(ip);
+    double latitude, longitude;
+    latitude = longitude = std::numeric_limits<double>::quiet_NaN();
+    if (br->user && br->user->geo) {
+        latitude = br->user->geo->lat.val;
+        longitude = br->user->geo->lon.val;
+    }
+
+    GeoDatabase::Context context {
+        std::move(ip),
+        latitude,
+        longitude
+    };
+
+    auto metro = db->findMetro(context);
     if (metro != GeoDatabase::NoMetro) {
         if (!br->user) br->user.reset(new OpenRTB::User);
         if (!br->user->geo) br->user->geo.reset(new OpenRTB::Geo);

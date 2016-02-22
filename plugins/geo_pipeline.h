@@ -8,6 +8,7 @@
 #pragma once
 
 #include "rtbkit/common/bid_request_pipeline.h"
+#include <cmath>
 
 namespace Jamloop {
 
@@ -17,25 +18,80 @@ InAddr toAddr(const char* str);
 
 struct GeoDatabase {
 
+    struct Context {
+        std::string ip;
+        double latitude;
+        double longitude;
+
+        bool hasValidGeo() const {
+            return !std::isnan(latitude) && !std::isnan(longitude);
+        }
+    };
+
+    struct Precision {
+        explicit Precision(double s = 1.0)
+            : s(s)
+        {
+        }
+
+        template<typename T>
+        T scale(double value) {
+            return static_cast<T>(value / s);
+        }
+
+    private:
+        double s;
+    };
+
     GeoDatabase();
 
     static const std::string NoMetro;
 
-    void loadAsync(const std::string& ipFile, const std::string& locationFile);
+    void loadAsync(
+            const std::string& ipFile, const std::string& locationFile,
+            Precision precision);
 
-    void load(const std::string& ipFile, const std::string& locationFile);
-    std::string findMetro(const std::string &ip);
+    void load(
+            const std::string& ipFile, const std::string& locationFile,
+            Precision precision);
+
+    std::string findMetro(const Context &context);
 
     bool isLoaded() const;
 
 private:
+
     struct Entry {
-        InAddr ip;
         std::string metroCode;
+
+        static Entry fromIp(InAddr ip);
+        static Entry fromGeo(double latitude, double longitude);
+
+        InAddr ip() const;
+        std::pair<double, double> geo() const;
+
+        bool isLocated(double latitude, double longitude) const;
+
+        union {
+            struct {
+                InAddr ip;
+            };
+            struct {
+                double latitude;
+                double longitude;
+            };
+        } u;
     };
 
-    std::vector<Entry> entries;
-    std::atomic<bool> entriesGuard;
+    uint64_t makeGeoHash(double latitude, double longitude, Precision precision);
+    uint64_t makeGeoHash(const Entry& entry, Precision precision);
+    uint64_t makeGeoHash(const Context& context, Precision precision);
+
+    std::vector<Entry> subnets;
+    std::unordered_map<uint64_t, std::vector<Entry>> geoloc;
+    Precision precision_;
+
+    std::atomic<bool> loadGuard;
 };
 
 class GeoPipeline : public RTBKIT::BidRequestPipeline {
