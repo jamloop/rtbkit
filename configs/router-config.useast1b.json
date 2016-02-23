@@ -7,6 +7,12 @@
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
     "auctionResource": "/",
-    "performNameLookup": false
+    "performNameLookup": false,
+    "pipeline": {
+        "type": "geo",
+        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "precision": 0.1
+    }
   }
 ]
