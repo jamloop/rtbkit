@@ -339,6 +339,7 @@ struct InitFilters
         RTBKIT::FilterRegistry::registerFilter<RTBKIT::LatLongDevFilter>();
         RTBKIT::FilterRegistry::registerFilter<JamLoop::WhiteBlackListFilter>();
         RTBKIT::FilterRegistry::registerFilter<JamLoop::DeviceTypeFilter>();
+        RTBKIT::FilterRegistry::registerFilter<JamLoop::DMAFilter>();
     }
 
 } initFilters;
