@@ -335,7 +335,7 @@ GeoPipeline::GeoPipeline(
     auto locationFile = config["locationFile"].asString();
     auto prec = config["precision"].asDouble();
 
-    db.reset(new GeoDatabase(serviceName + ".geo", proxies));
+    db.reset(new GeoDatabase(this->serviceName() + ".geo", proxies));
     db->loadAsync(ipFile, locationFile, GeoDatabase::Precision(prec));
 }
 
