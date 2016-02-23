@@ -44,7 +44,9 @@ struct GeoDatabase {
         double s;
     };
 
-    GeoDatabase();
+    GeoDatabase(
+            const std::string& prefix,
+            std::shared_ptr<Datacratic::ServiceProxies> proxies);
     ~GeoDatabase();
 
     static const std::string NoMetro;
@@ -96,12 +98,13 @@ private:
     };
 
     std::atomic<Data *> dataGuard;
+    std::unique_ptr<Datacratic::EventRecorder> events;
 };
 
 class GeoPipeline : public RTBKIT::BidRequestPipeline {
 public:
     GeoPipeline(
-            std::shared_ptr<Datacratic::ServiceProxies> proxies,
+            const std::shared_ptr<Datacratic::ServiceProxies>& proxies,
             std::string serviceName, const Json::Value& config);
 
     RTBKIT::PipelineStatus preBidRequest(

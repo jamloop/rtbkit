@@ -92,7 +92,11 @@ GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
     return almostEquals(latitude, u.latitude) && almostEquals(longitude, u.longitude);
 }
 
-GeoDatabase::GeoDatabase() {
+GeoDatabase::GeoDatabase(
+        const std::string& prefix,
+        std::shared_ptr<ServiceProxies> proxies)
+    : events(new EventRecorder(prefix, std::move(proxies)))
+{
     dataGuard.store(nullptr, std::memory_order_relaxed);
 }
 
@@ -250,7 +254,14 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
     // since we do not target platforms with data-dependency reordering,
     // we mostly don't care.
     auto data = dataGuard.load(std::memory_order_acquire);
+
+    auto recordUnmatch = [=](const char* key) {
+        events->recordHit("unmatch.total");
+        events->recordHit("unmatch.detail.%s", key);
+    };
+
     if (!data) {
+        recordUnmatch("noData");
         return GeoDatabase::NoMetro;
     }
 
@@ -259,17 +270,22 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
         if (it != std::end(data->geoloc)) {
             const auto& entries = it->second;
             for (const auto& entry: entries) {
-                if (entry.isLocated(context.latitude, context.longitude))
+                if (entry.isLocated(context.latitude, context.longitude)) {
+                    events->recordHit("match.latlon");
                     return entry.metroCode;
+                }
             }
         }
     }
 
-    if (context.ip.empty())
+    if (context.ip.empty()) {
+        recordUnmatch("noIp");
         return GeoDatabase::NoMetro;
+    }
 
     auto addr = toAddr(context.ip.c_str());
     if (addr == InAddrNone) {
+        recordUnmatch("invalidIp");
         return GeoDatabase::NoMetro;
     }
 
@@ -279,11 +295,14 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
     });
 
     if (it == std::end(data->subnets) || it == std::begin(data->subnets)) {
+        recordUnmatch("unknownSubnet");
         return GeoDatabase::NoMetro;
     }
 
     if (it->ip() > addr)
         --it;
+
+    events->recordHit("match.ip");
     return it->metroCode;
 }
 
@@ -296,15 +315,15 @@ GeoDatabase::loadAsync(
 };
 
 GeoPipeline::GeoPipeline(
-        std::shared_ptr<Datacratic::ServiceProxies> proxies,
+        const std::shared_ptr<Datacratic::ServiceProxies>& proxies,
         std::string serviceName, const Json::Value& config)
-    : BidRequestPipeline(std::move(proxies), std::move(serviceName))
+    : BidRequestPipeline(proxies, std::move(serviceName))
 {
     auto ipFile = config["ipFile"].asString();
     auto locationFile = config["locationFile"].asString();
     auto prec = config["precision"].asDouble();
 
-    db.reset(new GeoDatabase);
+    db.reset(new GeoDatabase(serviceName + ".geo", proxies));
     db->loadAsync(ipFile, locationFile, GeoDatabase::Precision(prec));
 }
 

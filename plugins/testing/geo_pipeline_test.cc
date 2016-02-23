@@ -12,6 +12,7 @@
 #include "geo_pipeline.h"
 
 using namespace RTBKIT;
+using namespace Datacratic;
 using namespace Jamloop;
 
 constexpr const char *IpFile       = "configs/GeoLite2-City-Blocks-IPv4.csv.gz";
@@ -127,7 +128,8 @@ struct GeoFixture {
 
     GeoFixture() {
         std::cout << "Loading database" << std::endl;
-        db.reset(new GeoDatabase);
+        auto proxies = std::make_shared<ServiceProxies>();
+        db.reset(new GeoDatabase("test.geo", proxies));
         db->load(IpFile, LocationFile, GeoDatabase::Precision(0.1));
     }
 
