@@ -7,6 +7,7 @@
 
 #include "geo_pipeline.h"
 #include "jml/utils/filter_streams.h"
+#include "soa/utils/scope.h"
 
 using namespace Datacratic;
 using namespace RTBKIT;
@@ -248,6 +249,11 @@ GeoDatabase::isLoaded() const {
 
 std::string
 GeoDatabase::findMetro(const GeoDatabase::Context& context) {
+    auto start = Date::now();
+    auto exit = ScopeExit([&]() noexcept {
+        auto end = Date::now();
+        events->recordHit("matchTimeMs", end.secondsSince(start) * 1000);
+    });
     // @Note since we have a data-dependency here (pointer load), we could
     // in theory use consume memory ordering. However, compilers do not
     // implement it correctly and emit a simple acquire barrier. Also,
