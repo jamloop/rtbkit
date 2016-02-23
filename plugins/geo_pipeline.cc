@@ -84,7 +84,7 @@ GeoDatabase::Entry::geo() const {
 bool
 GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
     // @Note Might need to tweak it a little bit or even put it configurable
-    static constexpr double Epsilon = 1e-3;
+    static constexpr double Epsilon = 1e-2;
 
     auto almostEquals = [&](double lhs, double rhs) {
         return std::fabs(lhs - rhs) < Epsilon;
@@ -361,6 +361,9 @@ GeoPipeline::postBidRequest(
     if (br->user && br->user->geo) {
         latitude = br->user->geo->lat.val;
         longitude = br->user->geo->lon.val;
+    } else if (br->device && br->device->geo) {
+        latitude = br->device->geo->lat.val;
+        longitude = br->device->geo->lon.val;
     }
 
     GeoDatabase::Context context {
