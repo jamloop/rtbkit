@@ -281,7 +281,13 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
                     return entry.metroCode;
                 }
             }
+
+            recordUnmatch("latlon.noHit");
+        } else {
+            recordUnmatch("latlon.unknownHash");
         }
+    } else {
+        recordUnmatch("noLatLon");
     }
 
     if (context.ip.empty()) {
