@@ -250,9 +250,9 @@ GeoDatabase::isLoaded() const {
 std::string
 GeoDatabase::findMetro(const GeoDatabase::Context& context) {
     auto start = Date::now();
-    auto exit = ScopeExit([&]() noexcept {
+    auto exit = ScopeExit([=]() noexcept {
         auto end = Date::now();
-        events->recordHit("matchTimeMs", end.secondsSince(start) * 1000);
+        events->recordOutcome(end.secondsSince(start) * 1000, "matchTimeMs");
     });
     // @Note since we have a data-dependency here (pointer load), we could
     // in theory use consume memory ordering. However, compilers do not
