@@ -1,6 +1,6 @@
 {
     "account": [
-        "Adap_9.1_w350_HV50S_643766_JL12273-01DSK", "1"
+        "Adap_9.1_w350_HV50S_643766_JL1227301DSK", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -30,7 +30,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_9.1_w350_HV50S_643766_JL12273-01DSK",
+        "group": "adaptv:Adap_9.1_w350_HV50S_643766_JL1227301DSK",
         "weight": 1
     },
     "providerConfig": {
