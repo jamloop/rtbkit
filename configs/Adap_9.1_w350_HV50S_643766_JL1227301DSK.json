@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 02291864376669,
+        "id": 03010064376669,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -23,7 +23,7 @@
       "required": true,
       "config": {
         "viewTreshold": 50,
-        "unknownStrategy": "bid"
+        "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
@@ -40,14 +40,14 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "60000000USD/1M",
-        "price": "9110USD/1M",
+        "pace": "600000000USD/1M",
+        "price": "9100USD/1M",
         "priority": 3
     },
-	"dmaFilter": {
-		"include": [ "643" ],
-		"exclude": [ ]
-	},
+    "deviceTypeFilter": {
+        "include": [2],
+        "exclude": [4, 5]
+    },
     "whiteBlackList": {
       "whiteFile": "configs/blank",
       "blackFile": "configs/blank"

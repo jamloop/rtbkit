@@ -361,32 +361,32 @@
       "log": true
     },
     {
-      "name": "agent-BRX_9.1_w350_HV50S_643766_JL12273-01DSK", 
+      "name": "agent-BRX_9.1_w350_HV50S_643766_JL1227301DSK", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BRX_9.1_w350_HV50S_643766_JL12273-01DSK",
+        "--service-name", "uswest2a.rtb1.agent_BRX_9.1_w350_HV50S_643766_JL1227301DSK",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BRX_9.1_w350_HV50S_643766_JL12273-01DSK.json"
+        "--agent-configuration", "configs/BRX_9.1_w350_HV50S_643766_JL1227301DSK.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SPX_9.1_w350_HV50S_643766_JL12273-01DSK",
+      "name": "agent-SPX_9.1_w350_HV50S_643766_JL1227301DSK",
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SPX_9.1_w350_HV50S_643766_JL12273-01DSK",
+        "--service-name", "uswest2a.rtb1.agent_SPX_9.1_w350_HV50S_643766_JL1227301DSK",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SPX_9.1_w350_HV50S_643766_JL12273-01DSK.json"
+        "--agent-configuration", "configs/SPX_9.1_w350_HV50S_643766_JL1227301DSK.json"
       ],
       "log": true
     },
     {
-      "name": "agent-NEX_9.1_w350_HV50S_643766_JL12273-01DSK", 
+      "name": "agent-NEX_9.1_w350_HV50S_643766_JL1227301DSK", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_9.1_w350_HV50S_643766_JL12273-01DSK",
+        "--service-name", "uswest2a.rtb1.agent_NEX_9.1_w350_HV50S_643766_JL1227301DSK",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_9.1_w350_HV50S_643766_JL12273-01DSK.json"
+        "--agent-configuration", "configs/NEX_9.1_w350_HV50S_643766_JL1227301DSK.json"
       ],
       "log": true
     }
@@ -765,12 +765,12 @@
       "log": true
     },
     {
-      "name": "agent-Adap_9.1_w350_HV50S_643766_JL12273-01DSK", 
+      "name": "agent-Adap_9.1_w350_HV50S_643766_JL1227301DSK", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_HV50S_643766_JL12273-01DSK",
+        "--service-name", "useast1b.rtb1.agent_Adap_9.1_w350_HV50S_643766_JL1227301DSK",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_9.1_w350_HV50S_643766_JL12273-01DSK.json",
+        "--agent-configuration", "configs/Adap_9.1_w350_HV50S_643766_JL1227301DSK.json",
         "--use-http-banker"
       ],
       "log": true
