@@ -1,11 +1,11 @@
 {
     "account": [
-        "Adap_9.1_w350_WL_BL_HV50S_643766", "1"
+        "Adap_9.1_w350_HV50S_643766_JL12273-01DSK", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 02041064376632,
+        "id": 02291864376669,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_9.1_w350_WL_BL_HV50S_643766",
+        "group": "adaptv:Adap_9.1_w350_HV50S_643766_JL12273-01DSK",
         "weight": 1
     },
     "providerConfig": {
@@ -40,17 +40,21 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "600000000USD/1M",
-        "price": "9100USD/1M",
+        "pace": "60000000USD/1M",
+        "price": "9110USD/1M",
         "priority": 3
     },
     "deviceTypeFilter": {
         "include": [2],
         "exclude": [4, 5]
     },
+	"dmaFilter": {
+		"include": [ "643" ],
+		"exclude": [ ]
+	},
     "whiteBlackList": {
-      "whiteFile": "configs/RTB_MP_9.10_WL_2015-10-28.csv",
-      "blackFile": "configs/RTB_MP_9.10_WL_2015-10-28.csv"
+      "whiteFile": "configs/blank",
+      "blackFile": "configs/blank"
     }
 }
 
