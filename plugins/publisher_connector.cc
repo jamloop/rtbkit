@@ -238,6 +238,36 @@ namespace Jamloop {
                 return std::to_string(price / 1000.0);
         });
 
+        creativeConfig.addExpanderVariable(
+            "bidrequest.page",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return std::string("apps://") + br.app->name.rawString();
+
+                return br.site->page.toString();
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.app.storeurl",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return br.app->storeurl.toString();
+
+                return std::string("");
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.app.bundle",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return br.app->bundle.rawString();
+
+                return std::string();
+        });
+
         creativeConfig.addField(
             "vast",
             [](const Json::Value& value, CreativeInfo& info) {
@@ -310,11 +340,15 @@ namespace Jamloop {
             Datacratic::Optional<OpenRTB::User> user;
             user.reset(new OpenRTB::User());
 
+            Datacratic::Optional<OpenRTB::App> app;
+            app.reset(new OpenRTB::App());
+
             int width, height;
             double lat, lon;
             lat = lon = 0.0;
             VideoType videoType;
             DeviceId did;
+            std::string appName;
 
             const auto& queryParams = header.queryParams;
             extractParam(queryParams, "width", width);
@@ -325,8 +359,17 @@ namespace Jamloop {
             extractParam(queryParams, "lang", content->language);
             extractParam(queryParams, "pageurl", site->page);
             extractParam(queryParams, "partner", user->id);
-            extractParam(queryParams, "videotype", videoType, Flag::Required);
-            extractParam(queryParams, "deviceid", did, Flag::Required);
+            extractParam(queryParams, "app_storeurl", app->storeurl);
+            extractParam(queryParams, "app_bundle", app->bundle);
+            extractParam(queryParams, "app_name", app->name);
+
+            if (extractParam(queryParams, "videotype", videoType)) {
+                br->ext["videotype"] = videoTypeString(videoType);
+            }
+            if (extractParam(queryParams, "deviceid", did)) {
+                br->ext["deviceid"] = deviceIdString(did);
+            }
+
             auto hasLat = extractParam(queryParams, "lat", lat);
             auto hasLon = extractParam(queryParams, "lon", lon);
 
@@ -352,8 +395,6 @@ namespace Jamloop {
             spot.formats.push_back(Format(width, height));
             br->imp.push_back(std::move(spot));
 
-            br->ext["videotype"] = videoTypeString(videoType);
-            br->ext["deviceid"] = deviceIdString(did);
 
         } catch (const std::exception& e) {
             LOG(Logs::error) << "Error when processing request: " << e.what();
