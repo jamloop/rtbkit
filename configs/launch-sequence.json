@@ -189,28 +189,6 @@
       ],
       "log": true
     },
-    {
-      "name": "Adap_2.10_MW_658499", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_2.10_MW_658499",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_2.10_MW_658499.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "Adap_2.75_MA_658496", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_2.75_MA_658496",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_2.75_MA_658496.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
 // EastLaunchStart
     }
 // EastLaunchEnd
