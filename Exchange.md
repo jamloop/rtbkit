@@ -73,3 +73,19 @@ for more insight.
 | adm                    | string           | This a complete and valid VAST XML document inline                       | Yes      |
 | adomain                | array of string  | The advertiser landing page                                              | Yes      |
 | buyerid                | string           | LiveRail provided buyer id                                               | No       |
+
+## Adaptv
+
+### Agent
+
+| Field                  | Type             | Description                                                              | Required |
+| ---------------------- | ---------------- | ------------------------------------------------------------------------ | -------- |
+| seat                   | string           | ID of the bidder seat on whose behalf this bid is made                   | No       |
+
+### Creative
+
+| Field                  | Type             | Description                                                              | Required |
+| ---------------------- | ---------------- | ------------------------------------------------------------------------ | -------- |
+| adid                   | string           | ID that references the ad to be served if the bid wins                   | No       |
+| nurl                   | string           | Win notice URL called if the bid wins                                    | No       |
+| adm                    | string           | VAST XML ad markup for the Video Object                                  | Yes      |
