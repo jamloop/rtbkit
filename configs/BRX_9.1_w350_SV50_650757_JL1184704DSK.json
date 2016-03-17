@@ -56,11 +56,11 @@
     "price": "9100USD/1M",
     "priority": 1
   },
-  "whiteBlackList": {
     "dmaFilter": {
         "include": [ "619" ],
         "exclude": [ ]
     },
+  "whiteBlackList": {
       "whiteFile": "configs/blank",
       "blackFile": "configs/blank"
   }
