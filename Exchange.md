@@ -94,11 +94,11 @@ for more insight.
 
 ### Agent
 
-|  Field   |  Type  |                      Description                       | Required |
-|----------|--------|--------------------------------------------------------|----------|
-| seat     | string | ID of the bidder seat on whose behalf this bid is made | Yes      |
-| bidid    | string |                                                        | Yes      |
-| seatName | string |                                                        | No       |
+|  Field   |  Type  |                       Description                        | Required |
+|----------|--------|----------------------------------------------------------|----------|
+| seat     | string | ID of the bidder seat on whose behalf this bid is made   | Yes      |
+| bidid    | string | Bid response ID to assist tracking for bidders           | Yes      |
+| seatName | string | Name of the bidder seat on whose behalf this bid is made | No       |
 
 ### Creative
 
