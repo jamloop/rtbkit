@@ -289,6 +289,16 @@
         "--agent-configuration", "configs/NEX_6.1_w300_HV50S_651808_JL1184704DSK.json"
       ],
       "log": true
+    },
+    {
+      "name": "agent-NEX_15.1_w1_NV_729823_ctv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_NEX_15.1_w1_NV_729823_ctv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/NEX_15.1_w1_NV_729823_ctv.json"
+      ],
+      "log": true
     }
 // WestLaunchEnd
 ]
@@ -495,6 +505,17 @@
         "--service-name", "useast1b.rtb1.agent_Adap_6.1_w300_HV50S_651808_JL1184704DSK",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/Adap_6.1_w300_HV50S_651808_JL1184704DSK.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-Adap_15.1_w1_NV_729823_ctv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_Adap_15.1_w1_NV_729823_ctv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/Adap_15.1_w1_NV_729823_ctv.json",
         "--use-http-banker"
       ],
       "log": true
