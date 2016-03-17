@@ -1,11 +1,11 @@
 {
     "account": [
-        "NEX_9.1_w350_SV50_650757_dealid", "1"
+        "NEX_9.1_w350_WL_BL_SV50_650757_dealid", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0317006507573,
+        "id": 0316186507573,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -29,7 +29,7 @@
     },
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_9.1_w350_SV50_650757_dealid",
+        "group": "publisher:NEX_9.1_w350_WL_BL_SV50_650757_dealid",
         "weight": 1
     },
     "ext": {
@@ -38,13 +38,9 @@
         "price": "9100USD/1M",
         "priority": 2
     },
-    "deviceTypeFilter": {
-        "include": [ 2 ],
-        "exclude": [ ]
-    },
     "whiteBlackList": {
-      "whiteFile": "configs/blank",
-      "blackFile": "configs/blank"
+      "whiteFile": "configs/black",
+      "blackFile": "configs/white"
     }
 }
 

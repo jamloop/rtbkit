@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0315196507573,
+        "id": 0317006507573,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -45,8 +45,8 @@
         "priority": 2
     },
     "deviceTypeFilter": {
-        "include": [2],
-        "exclude": [4, 5]
+        "include": [ 2 ],
+        "exclude": [ ]
     },
     "whiteBlackList": {
       "whiteFile": "configs/blank",
