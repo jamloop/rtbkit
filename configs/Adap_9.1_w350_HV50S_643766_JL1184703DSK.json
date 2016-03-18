@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03181764376623,
+        "id": 03181864376623,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -43,10 +43,6 @@
         "pace": "625000USD/1M",
         "price": "9100USD/1M",
         "priority": 13
-    },
-    "deviceTypeFilter": {
-        "include": [ 2 ],
-        "exclude": [ ]
     },
     "dmaFilter": {
         "include": [ "604" ],
