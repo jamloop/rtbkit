@@ -1,6 +1,6 @@
 {
     "account": [
-        "NEX_9.1_w350_HV50S_643766_JL1184703DSK", "1"
+        "NEX_9.1_w350_WL_HV50S_643766_JL1184703DSK", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -29,7 +29,7 @@
     },
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_9.1_w350_HV50S_643766_JL1184703DSK",
+        "group": "publisher:NEX_9.1_w350_WL_HV50S_643766_JL1184703DSK",
         "weight": 1
     },
     "ext": {
@@ -47,7 +47,7 @@
         "exclude": [ ]
     },
     "whiteBlackList": {
-      "whiteFile": "configs/blank",
+      "whiteFile": "configs/wl_modot18-34.csv",
       "blackFile": "configs/blank"
     }
 }

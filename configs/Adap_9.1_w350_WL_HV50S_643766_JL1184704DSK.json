@@ -1,6 +1,6 @@
 {
     "account": [
-        "Adap_9.1_w350_HV50S_643766_JL1184704DSK", "1"
+        "Adap_9.1_w350_WL_HV50S_643766_JL1184704DSK", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -30,7 +30,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_9.1_w350_HV50S_643766_JL1184704DSK",
+        "group": "adaptv:Adap_9.1_w350_WL_HV50S_643766_JL1184704DSK",
         "weight": 1
     },
     "providerConfig": {
@@ -53,7 +53,7 @@
         "exclude": [ ]
     },
     "whiteBlackList": {
-      "whiteFile": "configs/blank",
+      "whiteFile": "configs/wl_modot18-34.csv",
       "blackFile": "configs/blank"
     }
 }
