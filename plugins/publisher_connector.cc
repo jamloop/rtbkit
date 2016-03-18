@@ -239,11 +239,11 @@ namespace Jamloop {
         });
 
         creativeConfig.addExpanderVariable(
-            "bidrequest.page",
+            "bidrequest.site.page",
             [](const PublisherCreativeConfiguration::Context& context) {
                 const auto& br = context.bidrequest;
                 if (br.app)
-                    return std::string("apps://") + br.app->name.rawString();
+                    return std::string("apps://") + br.app->name.rawString() + '/';
 
                 return br.site->page.toString();
         });
