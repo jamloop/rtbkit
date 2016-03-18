@@ -361,7 +361,7 @@ namespace Jamloop {
             extractParam(queryParams, "partner", user->id);
             extractParam(queryParams, "app_storeurl", app->storeurl);
             extractParam(queryParams, "app_bundle", app->bundle);
-            extractParam(queryParams, "app_name", app->name);
+            extractParam(queryParams, "appName", app->name);
 
             if (extractParam(queryParams, "videotype", videoType)) {
                 br->ext["videotype"] = videoTypeString(videoType);
@@ -391,6 +391,7 @@ namespace Jamloop {
             br->site = std::move(site);
             br->user = std::move(user);
             br->url = br->site->page;
+            br->app = std::move(app);
             spot.video = std::move(video);
             spot.formats.push_back(Format(width, height));
             br->imp.push_back(std::move(spot));
