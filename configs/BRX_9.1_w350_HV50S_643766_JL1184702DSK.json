@@ -1,11 +1,11 @@
 {
   "account": [
-    "BRX_9.1_w350_WL_HV50S_643766_JL1184702DSK", "1"
+    "BRX_9.1_w350_HV50S_643766_JL1184702DSK", "1"
   ],
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 03181564376622,
+      "id": 03181764376622,
       "type": "video",
       "width": 350,
       "height": 0,
@@ -14,9 +14,9 @@
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3DJL1184702DSK&eov=eov",
               "adomain": "savemolives.com",
-              "campaign_name": "BRX_9.1_w350_WL_HV50S_643766_JL1184702DSK vpaid",
-              "line_item_name": "BRX_9.1_w350_WL_HV50S_643766_JL1184702DSK",
-              "creative_name":  "BRX_9.1_w350_WL_HV50S_643766_JL1184702DSK vpaid",
+              "campaign_name": "BRX_9.1_w350_HV50S_643766_JL1184702DSK vpaid",
+              "line_item_name": "BRX_9.1_w350_HV50S_643766_JL1184702DSK",
+              "creative_name":  "BRX_9.1_w350_HV50S_643766_JL1184702DSK vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -42,7 +42,7 @@
     },
   "externalId": 1,
   "roundRobin": {
-    "group": "datacratic_01:BRX_9.1_w350_WL_HV50S_643766_JL1184702DSK",
+    "group": "datacratic_01:BRX_9.1_w350_HV50S_643766_JL1184702DSK",
     "weight": 1
   },
   "providerConfig": {
@@ -61,7 +61,7 @@
         "exclude": [ ]
     },
   "whiteBlackList": {
-      "whiteFile": "configs/wl_modot18-34.csv",
+      "whiteFile": "configs/blank",
       "blackFile": "configs/blank"
   }
 }
