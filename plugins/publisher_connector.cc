@@ -268,6 +268,38 @@ namespace Jamloop {
                 return std::string();
         });
 
+        creativeConfig.addExpanderVariable(
+            "bidrequest.app.name",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return br.app->name.rawString();
+
+                return std::string();
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.pos",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.device) {
+                    using OpenRTB::DeviceType;
+                    auto type = static_cast<DeviceType::Vals>(br.device->devicetype.val);
+                    switch (type) {
+                    case DeviceType::Vals::PC:
+                        return std::string("pc");
+                    case DeviceType::Vals::TV:
+                        return std::string("tv");
+                    case DeviceType::Vals::PHONE:
+                        return std::string("phone");
+                    case DeviceType::Vals::TABLET:
+                        return std::string("tablet");
+                    }
+                }
+
+                return std::string();
+        });
+
         creativeConfig.addField(
             "vast",
             [](const Json::Value& value, CreativeInfo& info) {
