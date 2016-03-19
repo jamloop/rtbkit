@@ -1,11 +1,11 @@
 {
     "account": [
-        "Adap_9.1_w350_HV50S_643766_JL1184703DSK", "1"
+        "Adap_9.1_w350_HV30S_643766_JL1184703DSK", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03182064376623,
+        "id": 03182164376623,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -22,7 +22,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 50,
+        "viewTreshold": 30,
         "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -30,7 +30,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_9.1_w350_HV50S_643766_JL1184703DSK",
+        "group": "adaptv:Adap_9.1_w350_HV30S_643766_JL1184703DSK",
         "weight": 1
     },
     "providerConfig": {

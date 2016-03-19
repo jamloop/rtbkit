@@ -1,11 +1,11 @@
 {
     "account": [
-        "NEX_9.1_w350_HV50S_643766_JL1184702DSK", "1"
+        "NEX_9.1_w350_HV30S_643766_JL1184702DSK", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03182064376622,
+        "id": 03182164376622,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -21,7 +21,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 50,
+        "viewTreshold": 30,
         "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -29,7 +29,7 @@
     },
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_9.1_w350_HV50S_643766_JL1184702DSK",
+        "group": "publisher:NEX_9.1_w350_HV30S_643766_JL1184702DSK",
         "weight": 1
     },
     "ext": {
