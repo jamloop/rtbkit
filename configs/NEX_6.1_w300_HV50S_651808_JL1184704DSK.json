@@ -5,14 +5,14 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03182065180820,
+        "id": 03182065180815,
         "type": "video",
         "width": 300,
         "height": 0,
         "duration": 30,
         "providerConfig": {
             "publisher": {
-              "vast": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVod0NTlcLlB1_NzYcZaTTAg5KQTb3aSWI=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&a.idfa=%{bidrequest.ext.deviceid}&a.aid=%{bidrequest.ext.deviceid}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D%{tag.price}%2CrtbCmp%3DJL1184704DSK&eov=eov]]></VASTAdTagURI><Impression><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?src=dspImpTrack&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&PWidth=%{bidrequest.video.width}&PHeight=%{bidrequest.video.height}&POSITION=%{bidrequest.video.pos}&IP=%{bidrequest.device.ip}&USERIDS=%{bidrequest.user.id}&LRSite=%{bidrequest.publisher.id}&UA=%{bidrequest.ua}&Lang=%{bidrequest.language}&REQ_URL=%{bidrequest.site.page#urlencode}&cb=%{bidrequest.timestamp}&WIN_RATIO=%{tag.price}&rtbCmp=JL1184704DSK]]></Impression></Wrapper></Ad></VAST>"
+              "vast": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVod0NTlcLlB1_NzYcZaTTAg5KQTb3aSWI=?cb=%{bidrequest.timestamp}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbIP%3D%{bidrequest.device.ip}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbWinRatio%3D%{tag.price}%2CrtbCmp%3DJL1184704DSK&eov=eov]]></VASTAdTagURI><Impression><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?src=dspImpTrack&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&PWidth=%{bidrequest.video.width}&PHeight=%{bidrequest.video.height}&POSITION=%{bidrequest.video.pos}&IP=%{bidrequest.device.ip}&USERIDS=%{bidrequest.user.id}&LRSite=%{bidrequest.publisher.id}&UA=%{bidrequest.ua}&Lang=%{bidrequest.language}&REQ_URL=%{bidrequest.site.page#urlencode}&cb=%{bidrequest.timestamp}&WIN_RATIO=%{tag.price}&rtbCmp=JL1184704DSK]]></Impression></Wrapper></Ad></VAST>"
             }
         }
     }
@@ -33,14 +33,10 @@
         "weight": 1
     },
     "ext": {
-        "budget": "151000000USD/1M",
-        "pace": "208333USD/1M",
+        "budget": "300000000USD/1M",
+        "pace": "416666USD/1M",
         "price": "6100USD/1M",
         "priority": 13
-    },
-    "deviceTypeFilter": {
-        "include": [ 3 ],
-        "exclude": [ ]
     },
     "dmaFilter": {
         "include": [ "619" ],
