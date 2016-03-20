@@ -5,7 +5,7 @@
   "bidProbability": 1,
   "creatives": [
     {
-      "id": 03182165180812,
+      "id": 03201165180812,
       "type": "video",
       "width": 300,
       "height": 0,
@@ -23,7 +23,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0318651808",
+              "lid": "0320651808",
               "landingpage_url": "http://savemolives.com",
               "advertiser_name": "savemolives.com"
           }
@@ -51,8 +51,8 @@
       }
   },
   "ext": {
-    "budget": "300000000USD/1M",
-    "pace": "416666USD/1M",
+    "budget": "450000000USD/1M",
+    "pace": "1875000USD/1M",
     "price": "6100USD/1M",
     "priority": 1
   },
