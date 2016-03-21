@@ -424,6 +424,7 @@ namespace Jamloop {
             br->user = std::move(user);
             br->url = br->site->page;
             br->app = std::move(app);
+            br->userAgent = br->device->ua;
             spot.video = std::move(video);
             spot.formats.push_back(Format(width, height));
             br->imp.push_back(std::move(spot));
