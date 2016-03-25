@@ -20,6 +20,21 @@
 
 namespace RTBKIT {
 
+namespace {
+    OpenRTB::Geo *getGeo(const BidRequest& br) {
+        if (br.user) {
+            if (br.user->geo)
+                return br.user->geo.get();
+        }
+        if (br.device) {
+            if (br.device->geo)
+                return br.device->geo.get();
+        }
+
+        return nullptr;
+    }
+}
+
 template <typename CreativeData>
 class CreativeConfiguration
 {
@@ -231,6 +246,62 @@ public:
             "bidrequest.timestamp",
             [](const Context& ctx)
             { return std::to_string( ctx.bidrequest.timestamp.secondsSinceEpoch() ); }
+        },
+        {
+            "bidrequest.geo.zip",
+            [](const Context& ctx) -> std::string {
+                auto geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->zip.empty())
+                        return geo->zip.rawString();
+                }
+
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.region",
+            [](const Context& ctx) -> std::string {
+                auto geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->region.empty())
+                        return geo->region;
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.country",
+            [](const Context& ctx) -> std::string {
+                auto geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->country.empty())
+                        return geo->country;
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.metro",
+            [](const Context& ctx) -> std::string {
+                auto* geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->metro.empty())
+                        return geo->metro;
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.city",
+            [](const Context& ctx) -> std::string {
+                auto* geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->city.empty())
+                        return geo->city.rawString();
+                }
+                return "";
+            }
         },
 
         {
