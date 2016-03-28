@@ -217,9 +217,10 @@ func main() {
 		return
 	`
 
-    get := fullGet
-    if lookup == "partial"
-        get = partialGet
+	get := fullGet
+	if lookup != nil && *lookup == "partial" {
+		get = partialGet
+	}
 
 	router.white.get, err = router.white.Client.LuaScript(get)
 	if err != nil {
