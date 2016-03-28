@@ -203,7 +203,7 @@ public:
                         return SP_long;
                     }
                 }
-                return "UNKNOWN"; 
+                return ""; 
             } 
         },
         {
@@ -212,7 +212,7 @@ public:
                 if (ctx.bidrequest.device && !ctx.bidrequest.device->ip.empty()) {
                     return ctx.bidrequest.device->ip; 
                 }
-                return "UNKNOWN";
+                return "";
             }
         },
         {
@@ -221,7 +221,7 @@ public:
                 if (!ctx.bidrequest.language.empty()) {
                     return ctx.bidrequest.language.rawString();
                 }
-                return "UNKNOWN";
+                return "";
             }
 	},
         {
@@ -230,7 +230,7 @@ public:
                 if (!ctx.bidrequest.ipAddress.empty()) {
                     return ctx.bidrequest.ipAddress;
                 }
-                return "UNKNOWN";
+                return "";
             }
         },
         {
@@ -239,7 +239,7 @@ public:
                 if (!ctx.bidrequest.userAgent.empty()) {
                     return ctx.bidrequest.userAgent.rawString();
                 }
-                return "UNKNOWN";
+                return "";
             }
         },
         {
