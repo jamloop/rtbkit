@@ -208,7 +208,7 @@ ForensiqAugmentor::handleHttpResponse(
                     continue;
                 }
 
-                recordOutcome(thresh, "accounts.%s.score", account.toString());
+                recordOutcome(score, "accounts.%s.score", account.toString());
                 if (score <= thresh) {
                     result[account].tags.insert("pass-forensiq");
                     recordResult(account, "passed");
