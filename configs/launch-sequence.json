@@ -231,6 +231,16 @@
       "log": true
     },
     {
+      "name": "forensiq-augmentor",
+      "root": ".", "path": "./bin/forensiq_augmentor_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb1.forensiq",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--api-key", "On7GnjI4WfbtLf1WDp3X"
+      ],
+      "log": true
+    },
+    {
       "name": "descendance-watcher",
       "root": "/home/rtbkit/prod/rtb", "path": "/home/rtbkit/prod/virtualenv/bin/python",
       "arg": [
