@@ -1,11 +1,11 @@
 {
     "account": [
-        "Adap_15.1_w1_NV_729823_ctv", "1"
+        "Adap_15.1_cTV_729823_ctv", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0329117298234,
+        "id": 0329157298234,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -18,18 +18,9 @@
         }
     }
     ],
-   "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 80
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-      }
-    },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_15.1_w1_NV_729823_ctv",
+        "group": "adaptv:Adap_15.1_cTV_729823_ctv",
         "weight": 1
     },
     "providerConfig": {
