@@ -38,13 +38,6 @@
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
-      },
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 80
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
   "externalId": 1,
