@@ -89,6 +89,16 @@
       ],
       "log": true
     },
+    {
+      "name": "forensiq-augmentor",
+      "root": ".", "path": "./bin/forensiq_augmentor_runner",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.forensiq",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--api-key", "On7GnjI4WfbtLf1WDp3X"
+      ],
+      "log": true
+    },
 // WestLaunchStart
     {
       "name": "agent-BRX_9.1_w350_HV50S_643766_dealid", 
