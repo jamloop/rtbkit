@@ -19,6 +19,7 @@ InAddr toAddr(const char* str);
 
 struct GeoDatabase {
 
+
     struct Context {
         std::string ip;
         double latitude;
@@ -44,12 +45,17 @@ struct GeoDatabase {
         double s;
     };
 
+    struct Result {
+        std::string metroCode;
+        std::string zipCode;
+        std::string countryCode;
+        std::string region;
+    };
+
     GeoDatabase(
             const std::string& prefix,
             std::shared_ptr<Datacratic::ServiceProxies> proxies);
     ~GeoDatabase();
-
-    static const std::string NoMetro;
 
     void loadAsync(
             const std::string& ipFile, const std::string& locationFile,
@@ -59,7 +65,7 @@ struct GeoDatabase {
             const std::string& ipFile, const std::string& locationFile,
             Precision precision);
 
-    std::string findMetro(const Context &context);
+    std::pair<bool, Result> lookup(const Context &context);
 
     bool isLoaded() const;
 
@@ -67,6 +73,9 @@ private:
 
     struct Entry {
         std::string metroCode;
+        std::string zipCode;
+        std::string countryCode;
+        std::string region;
 
         static Entry fromIp(InAddr ip);
         static Entry fromGeo(double latitude, double longitude);
@@ -75,6 +84,8 @@ private:
         std::pair<double, double> geo() const;
 
         bool isLocated(double latitude, double longitude) const;
+
+        Result toResult() const;
 
         union {
             struct {
@@ -85,6 +96,7 @@ private:
                 double longitude;
             };
         } u;
+
     };
 
     uint64_t makeGeoHash(double latitude, double longitude, Precision precision);

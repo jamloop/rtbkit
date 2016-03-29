@@ -44,6 +44,16 @@ InAddr toAddr(const char* str) {
     return res;
 }
 
+std::string cleanField(const std::string& str) {
+    auto first = str.begin(), last = str.end();
+    if (str.front() == '"')
+        std::advance(first, 1);
+    if (str.back() == '"')
+        std::advance(last, -2); // -2 because end() points past the end
+
+    return std::string(first, last);
+}
+
 std::vector<std::string> split(const std::string& str, char c) {
     std::istringstream iss(str);
     std::vector<std::string> res;
@@ -53,8 +63,6 @@ std::vector<std::string> split(const std::string& str, char c) {
 
     return res;
 }
-
-const std::string GeoDatabase::NoMetro;
 
 GeoDatabase::Entry
 GeoDatabase::Entry::fromIp(InAddr ip) {
@@ -91,6 +99,11 @@ GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
     };
 
     return almostEquals(latitude, u.latitude) && almostEquals(longitude, u.longitude);
+}
+
+GeoDatabase::Result
+GeoDatabase::Entry::toResult() const {
+    return Result { metroCode, zipCode, countryCode, region };
 }
 
 GeoDatabase::GeoDatabase(
@@ -157,6 +170,9 @@ GeoDatabase::load(
 
     struct LocationEntry {
         std::string metroCode;
+        std::string countryCode;
+        std::string region;
+
         uint32_t geoNameId;
 
         // Useful for debug
@@ -174,12 +190,14 @@ GeoDatabase::load(
         auto metroCode = fields.at(11);
         if (metroCode.empty()) continue;
 
+        auto countryCode = fields.at(4);
+        auto region = fields.at(6);
         auto subDivision1Name = fields.at(7);
 
         auto geoNameId = std::stoi(geoId);
 
         locationIndex.insert(
-                std::make_pair(geoNameId, LocationEntry { metroCode, geoNameId, std::move(subDivision1Name) }));
+                std::make_pair(geoNameId, LocationEntry { std::move(metroCode), std::move(countryCode), std::move(region), geoNameId, std::move(subDivision1Name) }));
     }
 
     size_t count { 1 };
@@ -197,6 +215,7 @@ GeoDatabase::load(
         auto subnet = fields.at(0);
         auto geoName = fields.at(1);
 
+        auto postalCode = cleanField(fields.at(6));
         auto latitude = fields.at(7);
         auto longitude = fields.at(8);
 
@@ -220,10 +239,16 @@ GeoDatabase::load(
 
         auto ipEntry = Entry::fromIp(addr);
         ipEntry.metroCode = locationEntry.metroCode;
+        ipEntry.zipCode = postalCode;
+        ipEntry.countryCode = locationEntry.countryCode;
+        ipEntry.region = locationEntry.region;
         d->subnets.push_back(ipEntry);
 
         auto geoEntry = Entry::fromGeo(std::stod(latitude), std::stod(longitude));
         geoEntry.metroCode = locationEntry.metroCode;
+        geoEntry.zipCode = postalCode;
+        geoEntry.countryCode = locationEntry.countryCode;
+        geoEntry.region = locationEntry.region;
 
         auto geoHash = makeGeoHash(geoEntry, precision);
         auto& geoEntries = d->geoloc[geoHash];
@@ -247,8 +272,8 @@ GeoDatabase::isLoaded() const {
     return dataGuard.load(std::memory_order_acquire) != nullptr;
 }
 
-std::string
-GeoDatabase::findMetro(const GeoDatabase::Context& context) {
+std::pair<bool, GeoDatabase::Result>
+GeoDatabase::lookup(const GeoDatabase::Context& context) {
     auto start = Date::now();
     auto exit = ScopeExit([=]() noexcept {
         auto end = Date::now();
@@ -266,9 +291,15 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
         events->recordHit("unmatch.detail.%s", key);
     };
 
+    static const auto NoEntry = std::make_pair(false, Result { });
+
+    auto makeResult = [](const Entry& entry) {
+        return std::make_pair(true, entry.toResult());
+    };
+
     if (!data) {
         recordUnmatch("noData");
-        return GeoDatabase::NoMetro;
+        return NoEntry;
     }
 
     if (context.hasValidGeo()) {
@@ -278,7 +309,7 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
             for (const auto& entry: entries) {
                 if (entry.isLocated(context.latitude, context.longitude)) {
                     events->recordHit("match.latlon");
-                    return entry.metroCode;
+                    return makeResult(entry);
                 }
             }
 
@@ -292,13 +323,13 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
 
     if (context.ip.empty()) {
         recordUnmatch("noIp");
-        return GeoDatabase::NoMetro;
+        return NoEntry;
     }
 
     auto addr = toAddr(context.ip.c_str());
     if (addr == InAddrNone) {
         recordUnmatch("invalidIp");
-        return GeoDatabase::NoMetro;
+        return NoEntry;
     }
 
     auto it = std::lower_bound(
@@ -308,14 +339,14 @@ GeoDatabase::findMetro(const GeoDatabase::Context& context) {
 
     if (it == std::end(data->subnets) || it == std::begin(data->subnets)) {
         recordUnmatch("unknownSubnet");
-        return GeoDatabase::NoMetro;
+        return NoEntry;
     }
 
     if (it->ip() > addr)
         --it;
 
     events->recordHit("match.ip");
-    return it->metroCode;
+    return makeResult(*it);
 }
 
 void
@@ -378,12 +409,19 @@ GeoPipeline::postBidRequest(
         longitude
     };
 
-    auto metro = db->findMetro(context);
-    if (metro != GeoDatabase::NoMetro) {
+    bool found;
+    GeoDatabase::Result result;
+
+    std::tie(found, result) = db->lookup(context);
+
+    if (found) {
         if (!br->user) br->user.reset(new OpenRTB::User);
         if (!br->user->geo) br->user->geo.reset(new OpenRTB::Geo);
 
-        br->user->geo->metro = std::move(metro);
+        br->user->geo->metro = std::move(result.metroCode);
+        br->user->geo->country = std::move(result.countryCode);
+        br->user->geo->region = std::move(result.region);
+        br->user->geo->zip = Datacratic::UnicodeString(std::move(result.zipCode));
     }
 
     return PipelineStatus::Continue;

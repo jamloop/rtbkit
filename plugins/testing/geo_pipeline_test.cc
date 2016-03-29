@@ -100,12 +100,15 @@ struct Range {
 const struct Data {
     Range range;
     uint32_t metro;
+    std::string zip;
+    std::string country;
+    std::string region;
 } Tests[] = {
-    { CIDR(24.94.248.0, 24), 606 },
-    { CIDR(71.44.104.0, 24), 698 },
-    { CIDR(97.67.115.0, 24), 522 },
-    { CIDR(98.214.32.0, 25), 717 },
-    { CIDR(99.44.32.0, 22), 825 }
+    { CIDR(24.94.248.0, 24), 606, "36362", "US", "AL" },
+    { CIDR(71.44.104.0, 24), 698, "36024", "US", "AL" },
+    { CIDR(97.67.115.0, 24), 522, "36027", "US", "AL" },
+    { CIDR(98.214.32.0, 25), 717, "62351", "US", "IL" },
+    { CIDR(99.44.32.0, 22), 825, "91932", "US", "CA" }
 };
 
 } // namespace IP
@@ -151,10 +154,29 @@ BOOST_AUTO_TEST_CASE( test_ip_mapping )
                 std::numeric_limits<double>::quiet_NaN(),
                 std::numeric_limits<double>::quiet_NaN()
             };
-            auto metroCode = db->findMetro(context);
-            BOOST_CHECK(!metroCode.empty());
-            if (std::stoi(metroCode) != test.metro) {
-                std::cerr << "Found a mismatch for IP[" << ip << "], got metro = " << metroCode << ", expected " << test.metro << std::endl;
+
+            bool found;
+            GeoDatabase::Result result;
+
+            std::tie(found, result) = db->lookup(context);
+            BOOST_CHECK(found);
+            if (std::stoi(result.metroCode) != test.metro) {
+                std::cerr << "Found a mismatch for IP[" << ip << "], got metro = " << result.metroCode << ", expected " << test.metro << std::endl;
+                BOOST_CHECK(false);
+            }
+
+            if (result.zipCode != test.zip) {
+                std::cerr << "Found a mismatch for IP[" << ip << "], got zip = " << result.zipCode << ", expected " << test.zip << std::endl;
+                BOOST_CHECK(false);
+            }
+
+            if (result.countryCode != test.country) {
+                std::cerr << "Found a mismatch for IP[" << ip << "], got country = " << result.countryCode << ", expected " << test.country << std::endl;
+                BOOST_CHECK(false);
+            }
+
+            if (result.region != test.region) {
+                std::cerr << "Found a mismatch for IP[" << ip << "], got region = " << result.region << ", expected " << test.region << std::endl;
                 BOOST_CHECK(false);
             }
         }
@@ -172,10 +194,15 @@ BOOST_AUTO_TEST_CASE( test_geo_mapping )
             test.longitude
         };
 
-        auto metroCode = db->findMetro(context);
-        if (metroCode.empty() || std::stoi(metroCode) != test.metro) {
+        bool found;
+        GeoDatabase::Result result;
+
+        std::tie(found, result) = db->lookup(context);
+
+        auto metroCode = db->lookup(context);
+        if (!found || std::stoi(result.metroCode) != test.metro) {
             std::cerr << "Found a mismatch for Geo[lat=" << test.latitude << ",lon=" << test.longitude
-                      << "], got metro = " << metroCode << ", expected " << test.metro << std::endl;
+                      << "], got metro = " << result.metroCode << ", expected " << test.metro << std::endl;
             BOOST_CHECK(false);
         }
     }
