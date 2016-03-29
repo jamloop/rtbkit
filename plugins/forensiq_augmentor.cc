@@ -52,6 +52,8 @@ ForensiqAugmentor::init(int nthreads, const std::string& apiKey)
 
     httpClient = std::make_shared<HttpClient>(ForensiqAPI, 128);
     addSource("ForensiqAugmentor::httpClient", httpClient);
+
+    apiKey_ = apiKey;
 }
 
 void
