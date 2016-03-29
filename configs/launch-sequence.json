@@ -100,7 +100,8 @@
       "log": true
     },
 // WestLaunchStart
-    {
+//
+{
       "name": "agent-BRX_9.1_w350_HV50S_643766_dealid", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
