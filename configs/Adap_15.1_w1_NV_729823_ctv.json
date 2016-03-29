@@ -22,7 +22,7 @@
     "forensiq": {
         "required": true,
          "config": {
-            "riskScoreThreshold": 80,
+            "riskScoreThreshold": 80
          },
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
