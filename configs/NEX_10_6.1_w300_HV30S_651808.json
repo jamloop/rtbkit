@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03301165180811,
+        "id": 03301265180811,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -25,13 +25,6 @@
         "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
-      },
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 80
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
     "externalId": 4242,
