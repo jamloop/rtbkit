@@ -101,46 +101,6 @@
     },
 // WestLaunchStart
     {
-      "name": "agent-BRX_1_9.1_w350_HV50S_643766_dealid", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BRX_1_9.1_w350_HV50S_643766_dealid",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BRX_1_9.1_w350_HV50S_643766_dealid.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-NEX_1_9.1_w350_HV50S_643766_dealid", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_1_9.1_w350_HV50S_643766_dealid",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_1_9.1_w350_HV50S_643766_dealid.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BRX_2_9.1_w350_SV50_650757_dealid", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BRX_2_9.1_w350_SV50_650757_dealid",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BRX_2_9.1_w350_SV50_650757_dealid.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-NEX_2_9.1_w350_SV50_650757_dealid", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NEX_2_9.1_w350_SV50_650757_dealid",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NEX_2_9.1_w350_SV50_650757_dealid.json"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-NEX_3_15.1_cTV_729823_ctv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -409,28 +369,6 @@
       "log": true
     },
 // EastLaunchStart
-    {
-      "name": "agent-Adap_1_9.1_w350_HV50S_643766_dealid", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_1_9.1_w350_HV50S_643766_dealid",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_1_9.1_w350_HV50S_643766_dealid.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-Adap_2_9.1_w350_SV50_650757_dealid", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_Adap_2_9.1_w350_SV50_650757_dealid",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/Adap_2_9.1_w350_SV50_650757_dealid.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
     {
       "name": "agent-Adap_3_15.1_cTV_729823_ctv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
