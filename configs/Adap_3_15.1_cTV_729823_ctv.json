@@ -1,6 +1,6 @@
 {
     "account": [
-        "Adap_15.1_cTV_729823_ctv", "1"
+        "Adap_3_15.1_cTV_729823_ctv", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -20,7 +20,7 @@
     ],
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_15.1_cTV_729823_ctv",
+        "group": "adaptv:Adap_3_15.1_cTV_729823_ctv",
         "weight": 1
     },
     "providerConfig": {

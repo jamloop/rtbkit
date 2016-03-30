@@ -1,11 +1,11 @@
 {
     "account": [
-        "NEX_11.1_w350_SV50_651775", "1"
+        "NEX_8_11.1_w350_SV50_651775", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03301165177510,
+        "id": 0330116517759,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -36,7 +36,7 @@
     },
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_11.1_w350_SV50_651775",
+        "group": "publisher:NEX_8_11.1_w350_SV50_651775",
         "weight": 1
     },
     "ext": {
@@ -50,7 +50,7 @@
         "exclude": [ ]
     },
     "dmaFilter": {
-        "include": [ "529" ],
+        "include": [ "582" ],
         "exclude": [ ]
     },
     "whiteBlackList": {

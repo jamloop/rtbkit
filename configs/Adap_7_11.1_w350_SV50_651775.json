@@ -1,11 +1,11 @@
 {
     "account": [
-        "Adap_11.1_w350_SV50_651775", "1"
+        "Adap_7_11.1_w350_SV50_651775", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 03301165177510,
+        "id": 0330116517758,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -37,7 +37,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_11.1_w350_SV50_651775",
+        "group": "adaptv:Adap_7_11.1_w350_SV50_651775",
         "weight": 1
     },
     "providerConfig": {
@@ -56,7 +56,7 @@
         "exclude": [ ]
     },
     "dmaFilter": {
-        "include": [ "529" ],
+        "include": [ "527" ],
         "exclude": [ ]
     },
     "whiteBlackList": {

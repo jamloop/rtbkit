@@ -1,6 +1,6 @@
 {
     "account": [
-        "Adap_9.1_w350_HV50S_643766_dealid", "1"
+        "Adap_1_9.1_w350_HV50S_643766_dealid", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -30,7 +30,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_9.1_w350_HV50S_643766_dealid",
+        "group": "adaptv:Adap_1_9.1_w350_HV50S_643766_dealid",
         "weight": 1
     },
     "providerConfig": {

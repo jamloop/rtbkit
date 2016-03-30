@@ -1,6 +1,6 @@
 {
     "account": [
-        "NEX_15.1_cTV_729823_ctv", "1"
+        "NEX_3_15.1_cTV_729823_ctv", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -19,7 +19,7 @@
     ],
     "externalId": 4242,
     "roundRobin": {
-        "group": "publisher:NEX_15.1_cTV_729823_ctv",
+        "group": "publisher:NEX_3_15.1_cTV_729823_ctv",
         "weight": 1
     },
     "ext": {

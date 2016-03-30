@@ -1,6 +1,6 @@
 {
     "account": [
-        "Adap_6.1_Mobile_735546", "1"
+        "Adap_6_6.1_Mobile_735546", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -20,7 +20,7 @@
     ],
     "externalId": 1337,
     "roundRobin": {
-        "group": "adaptv:Adap_6.1_Mobile_735546",
+        "group": "adaptv:Adap_6_6.1_Mobile_735546",
         "weight": 1
     },
     "providerConfig": {
