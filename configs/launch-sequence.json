@@ -75,7 +75,8 @@
         "--bidder", "configs/bidder-config.json",
         "--log-auctions", "true",
         "--use-http-banker",
-        "--spend-rate", "5000000USD/1M"
+        "--spend-rate", "5000000USD/1M",
+        "--augmenter-timeout", "15"
       ],
       "log": true
     },
@@ -328,7 +329,8 @@
         "--bidder", "configs/bidder-config.json",
         "--log-auctions", "true",
         "--use-http-banker",
-        "--spend-rate", "5000000USD/1M"
+        "--spend-rate", "5000000USD/1M",
+        "--augmenter-timeout", "15"
       ],
       "log": true
     },
