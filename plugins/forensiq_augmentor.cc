@@ -61,15 +61,6 @@ ForensiqAugmentor::onRequest(
         const AugmentationRequest& request,
         AsyncAugmentor::SendResponseCB sendResponse)
 {
-    auto onResponse =
-        std::make_shared<HttpClientSimpleCallbacks>(
-                [=](const HttpRequest& req, HttpClientError error,
-                    int status, std::string&&, std::string&& body)
-        {
-            sendResponse(handleHttpResponse(
-                    request, error, status, std::move(body)));
-        });
-
     RestParams queryParams;
 
     auto addGeo = [&](const Optional<OpenRTB::Geo>& geo) {
@@ -131,6 +122,23 @@ ForensiqAugmentor::onRequest(
     queryParams.push_back(std::make_pair("ck", apiKey_));
     queryParams.push_back(std::make_pair("seller", seller));
 
+    Date start = Date::now();
+
+    auto onResponse =
+        std::make_shared<HttpClientSimpleCallbacks>(
+                [=](const HttpRequest& req, HttpClientError error,
+                    int status, std::string&&, std::string&& body)
+        {
+            auto latency = Date::now().secondsSince(start) * 1000;
+            recordHit("http.responses");
+            recordOutcome(latency, "http.latencyMs");
+
+            sendResponse(handleHttpResponse(
+                    request, error, status, std::move(body)));
+        });
+
+
+    recordHit("http.request");
     httpClient->get("/check", onResponse, queryParams, { }, 1);
 }
 
@@ -146,8 +154,8 @@ ForensiqAugmentor::handleHttpResponse(
     };
 
     auto recordError = [&](std::string key) {
-        recordHit("error.%s", key.c_str());
-        recordHit("error.total");
+        recordHit("http.error.%s", key.c_str());
+        recordHit("http.error.error.total");
     };
 
     AugmentationList result;
@@ -163,17 +171,19 @@ ForensiqAugmentor::handleHttpResponse(
 
     if (error != HttpClientError::None) {
         fail(failure, [&] {
-            recordError("http." + HttpClientCallbacks::errorMessage(error));            
+            recordError(HttpClientCallbacks::errorMessage(error));
         });
         return result;
     }
     else {
         if (statusCode != HTTP_OK) {
             fail(failure, [&] {
-                recordError("http.invalidCode");
+                recordError("invalidCode");
             });
             return result;
         }
+
+        recordHit("http.validResponses");
         auto response = Json::parse(body);
         auto score = response["riskScore"].asDouble();
 
