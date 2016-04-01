@@ -63,6 +63,10 @@
     "price": "6100USD/1M",
     "priority": 1
   },
+    "deviceTypeFilter": {
+        "include": [ 2 ],
+        "exclude": [ ]
+    },
     "dmaFilter": {
         "include": [ "527" ],
         "exclude": [ ]
