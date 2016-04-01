@@ -101,7 +101,6 @@
       "log": true
     },
 // WestLaunchStart
-    },
     {
       "name": "agent-ctv_15.1_cTV_3", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -312,7 +311,6 @@
       "log": true
     },
 // EastLaunchStart
-    },
     {
       "name": "agent-ctv_15.1_cTV_3", 
       "root": ".", "path": "./bin/basic_bidding_agent",
