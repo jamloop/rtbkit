@@ -19,7 +19,14 @@
     "auctionResource": "/",
     "performNameLookup": false,
     "slowModeTimeout": 86400,
-    "slowModeTolerance": 86400
+    "slowModeTolerance": 86400,
+    "pipeline": {
+        "type": "geo",
+        "serviceName": "uswest2a.rtb1.router.pipeline.brightroll",
+        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "precision": 0.1
+    }
   },
   {
     "exchangeType": "spotx",
