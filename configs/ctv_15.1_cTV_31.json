@@ -1,11 +1,11 @@
 {
     "account": [
-        "ctv_15.1_cTV_3", "1"
+        "ctv_15.1_cTV_31", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0404117298234,
+        "id": 04041172982332,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -21,9 +21,9 @@
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlWgi_vZbF8lnBHwiRcH3XrJoOt0lqLFswM=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3Dctv&eov=eov",
               "adomain": "jamloop.com",
-              "campaign_name": "ctv_15.1_cTV_3 vpaid",
-              "line_item_name": "ctv_15.1_cTV_3",
-              "creative_name":  "ctv_15.1_cTV_3 vpaid",
+              "campaign_name": "ctv_15.1_cTV_31 vpaid",
+              "line_item_name": "ctv_15.1_cTV_31",
+              "creative_name":  "ctv_15.1_cTV_31 vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -39,7 +39,7 @@
     ],
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:ctv_15.1_cTV_3",
+        "group": "jl:ctv_15.1_cTV_31",
         "weight": 1
     },
     "providerConfig": {
@@ -59,10 +59,14 @@
         "budget": "1000000000000USD/1M",
         "pace": "600000000USD/1M",
         "price": "15100USD/1M",
-        "priority": 1
+        "priority": 11
     },
     "deviceTypeFilter": {
         "include": [ 3 ],
+        "exclude": [ ]
+    },
+    "dmaFilter": {
+        "include": [ "635" ],
         "exclude": [ ]
     },
     "whiteBlackList": {

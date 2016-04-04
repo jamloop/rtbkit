@@ -1,11 +1,11 @@
 {
     "account": [
-        "JL12317x06_6.1_Mobile_6", "1"
+        "JL12317x06_6.1_Mobile_13", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0404117355467,
+        "id": 04041173554614,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -21,9 +21,9 @@
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlWOIXrBm91RMs4Khx8g7pgRoxxHpQitg1c=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.pos}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3DJL12317-06&eov=eov",
               "adomain": "mcdonalds.com",
-              "campaign_name": "JL12317x06_6.1_Mobile_6 vpaid",
-              "line_item_name": "JL12317x06_6.1_Mobile_6",
-              "creative_name":  "JL12317x06_6.1_Mobile_6 vpaid",
+              "campaign_name": "JL12317x06_6.1_Mobile_13 vpaid",
+              "line_item_name": "JL12317x06_6.1_Mobile_13",
+              "creative_name":  "JL12317x06_6.1_Mobile_13 vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -39,7 +39,7 @@
     ],
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:JL12317x06_6.1_Mobile_6",
+        "group": "jl:JL12317x06_6.1_Mobile_13",
         "weight": 1
     },
     "providerConfig": {
@@ -66,7 +66,7 @@
         "exclude": [ ]
     },
     "dmaFilter": {
-        "include": [ "529" ],
+        "include": [ "630" ],
         "exclude": [ ]
     },
     "whiteBlackList": {
