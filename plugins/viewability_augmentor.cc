@@ -21,22 +21,35 @@ Logging::Category ViewabilityAugmentor::Logs::trace(
 Logging::Category ViewabilityAugmentor::Logs::error(
     "ViewabilityAugmentor Error", ViewabilityAugmentor::Logs::print);
 
+enum class ExchangeViewability {
+    Viewable,
+    NonViewable,
+    Unknown
+};
+
 namespace Default {
     static constexpr int MaximumHttpConnections = 128;
 }
 
+static constexpr int AdaptvUnknownViewabilityScore = 5;
+
 namespace {
-    /* Some exchanges like Adap or Brightroll directly send a viewability flag inside the BidRequest.
-     * If the video request is considered viewable by the exchange, then we bypass the go service
-     * and directly consider it viewable
-     */
-    bool isViewable(const std::shared_ptr<RTBKIT::BidRequest>& br) {
+    /* Some exchanges like Adap or Brightroll directly send a viewability score inside the BidRequest.
+     * We use that score to determine whether an impression is viewable or not if is unknown to the
+     * go service
+    */
+    ExchangeViewability getExchangeViewability(const std::shared_ptr<RTBKIT::BidRequest>& br, int threshold) {
         /* BrightRoll sends an int inside the ext of the BR */
         if (br->exchange == "brightroll") {
             auto ext = br->ext;
             if (ext.isMember("viewability")) {
                 auto viewability = ext["viewability"].asInt();
-                return viewability == 1;
+                switch (viewability) {
+                    case 1:
+                        return ExchangeViewability::Viewable;
+                    case 2:
+                        return ExchangeViewability::NonViewable;
+                }
             }
         } else if (br->exchange == "adaptv") {
             /* Adaptv sends only one impression and puts the viewability flag inside
@@ -44,12 +57,17 @@ namespace {
             const auto& spot = br->imp[0];
             auto ext = spot.video->ext;
             if (ext.isMember("viewability")) {
-                auto viewability = ext["viewability"].asString();
-                return viewability == "VIEWABLE";
+                auto score = ext["viewability"].asInt();
+                if (score <= AdaptvUnknownViewabilityScore)
+                    return ExchangeViewability::Unknown;
+                else if (score >= threshold)
+                    return ExchangeViewability::Viewable;
+                else
+                    return ExchangeViewability::NonViewable;
             }
         }
 
-        return false;
+        return ExchangeViewability::Unknown;
     }
 }
 
@@ -123,23 +141,9 @@ ViewabilityAugmentor::onRequest(
 
         Scope_Failure(sendResponse(emptyResult));
 
-        const auto& br = request.bidRequest;
-        if (isViewable(br)) {
-            for (const auto& agent: request.agents) {
-                const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
-                const AccountKey& account = configEntry.config->account;
-
-                recordHit("accounts.%s.exchange");
-                recordHit("accounts.%s.passed", account.toString());
-
-                emptyResult[account].tags.insert("pass-viewability");
-            }
-
-            sendResponse(emptyResult);
-            return;
-        }
-
         if (httpClient) {
+
+            const auto& br = request.bidRequest;
             auto& imp = br->imp[0];
             auto w = imp.formats[0].width;
 
@@ -253,29 +257,53 @@ ViewabilityAugmentor::handleHttpResponse(
                     continue;
                 }
 
-                auto treshold = agentAugConfig.config["viewTreshold"];
-                if (!treshold.isInt()) {
-                    recordResult(account, "invalidTreshold");
+                auto threshold = agentAugConfig.config["viewTreshold"];
+                if (!threshold.isInt()) {
+                    recordResult(account, "invalidThreshold");
                     continue;
                 }
 
+                auto thresh = threshold.asInt();
+
                 if (statusCode == 204) {
                     recordHit("accounts.%s.lookup.NoHit", account.toString());
-                    auto strategy = agentAugConfig.config.get("unknownStrategy", "nobid").asString();
-                    if (strategy != "nobid" && strategy != "bid") {
-                        recordResult(account, "invalidStrategy");
-                        continue;
-                    }
-                    if (strategy == "bid") {
+
+                    const auto& br = augRequest.bidRequest;
+
+                    auto recordExchangeResult = [&](const char* result) {
+                        recordHit("accounts.%s.result.%s.%s", account.toString(), br->exchange, result);
+                    };
+
+                    auto ev = getExchangeViewability(br, thresh);
+                    if (ev == ExchangeViewability::Viewable) {
                         result[account].tags.insert("pass-viewability");
+
+                        recordExchangeResult("viewable");
                         recordResult(account, "passed");
                         continue;
+
+                    } else if (ev == ExchangeViewability::NonViewable) {
+                        recordExchangeResult("nonviewable");
+                        recordResult(account, "filtered");
+                        continue;
+                    } else {
+                        recordExchangeResult("unknown");
+
+                        auto strategy = agentAugConfig.config.get("unknownStrategy", "nobid").asString();
+                        if (strategy != "nobid" && strategy != "bid") {
+                            recordResult(account, "invalidStrategy");
+                            continue;
+                        }
+                        if (strategy == "bid") {
+                            result[account].tags.insert("pass-viewability");
+                            recordResult(account, "passed");
+                            continue;
+                        }
                     }
 
                 } else {
                     recordOutcome(viewabilityPrct, "accounts.%s.score", account.toString());
-                    auto val = treshold.asInt();
-                    if (viewabilityPrct >= val) {
+                    if (viewabilityPrct >= thresh) {
                         result[account].tags.insert("pass-viewability");
                         recordResult(account, "passed");
                         if (!lookupStage.empty()) {
