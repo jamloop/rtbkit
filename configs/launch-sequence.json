@@ -132,12 +132,12 @@
       "log": true
     },
     {
-      "name": "agent-dma582_9.1_w1_NV_24", 
+      "name": "agent-dma582_9.1_Mobile_24", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_dma582_9.1_w1_NV_24",
+        "--service-name", "uswest2a.rtb1.agent_dma582_9.1_Mobile_24",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/dma582_9.1_w1_NV_24.json"
+        "--agent-configuration", "configs/dma582_9.1_Mobile_24.json"
       ],
       "log": true
     }
@@ -285,12 +285,12 @@
       "log": true
     },
     {
-      "name": "agent-dma582_9.1_w1_NV_24", 
+      "name": "agent-dma582_9.1_Mobile_24", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_dma582_9.1_w1_NV_24",
+        "--service-name", "useast1b.rtb1.agent_dma582_9.1_Mobile_24",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/dma582_9.1_w1_NV_24.json",
+        "--agent-configuration", "configs/dma582_9.1_Mobile_24.json",
         "--use-http-banker"
       ],
       "log": true
