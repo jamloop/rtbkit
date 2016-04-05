@@ -303,6 +303,20 @@ public:
                 return "";
             }
         },
+        {
+            "bidrequest.device.type",
+            [](const Context& ctx) -> std::string {
+                const auto& br = ctx.bidrequest;
+                if (br.device) {
+                    auto type = static_cast<OpenRTB::DeviceType::Vals>(br.device->devicetype.val);
+                    if (type !=  OpenRTB::DeviceType::Vals::UNSPECIFIED) {
+                        return std::to_string(br.device->devicetype.val);
+                    }
+                }
+
+                return "";
+            }
+        },
 
         {
             "response.account",
