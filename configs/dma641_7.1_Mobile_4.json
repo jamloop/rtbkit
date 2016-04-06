@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0406127407755,
+        "id": 0406137407755,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -37,6 +37,15 @@
         }
     }
     ],
+   "augmentations": {
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 64
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:dma641_7.1_Mobile_4",
