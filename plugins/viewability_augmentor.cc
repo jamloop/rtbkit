@@ -31,8 +31,6 @@ namespace Default {
     static constexpr int MaximumHttpConnections = 128;
 }
 
-static constexpr int AdaptvUnknownViewabilityScore = 5;
-
 namespace {
     /* Some exchanges like Adap or Brightroll directly send a viewability score inside the BidRequest.
      * We use that score to determine whether an impression is viewable or not if is unknown to the
@@ -58,12 +56,12 @@ namespace {
             auto ext = spot.video->ext;
             if (ext.isMember("viewability")) {
                 auto score = ext["viewability"].asInt();
-                if (score <= AdaptvUnknownViewabilityScore)
-                    return ExchangeViewability::Unknown;
-                else if (score >= threshold)
-                    return ExchangeViewability::Viewable;
-                else
-                    return ExchangeViewability::NonViewable;
+                if (score > -1) {
+                    if (score >= threshold)
+                        return ExchangeViewability::Viewable;
+                    else
+                        return ExchangeViewability::NonViewable;
+                }
             }
         }
 
