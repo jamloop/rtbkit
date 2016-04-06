@@ -381,6 +381,7 @@ namespace Jamloop {
             VideoType videoType;
             DeviceId did;
             std::string appName;
+            std::string partner;
 
             const auto& queryParams = header.queryParams;
             extractParam(queryParams, "width", width);
@@ -390,7 +391,7 @@ namespace Jamloop {
             extractParam(queryParams, "devicetype", device->devicetype);
             extractParam(queryParams, "lang", content->language);
             extractParam(queryParams, "pageurl", site->page);
-            extractParam(queryParams, "partner", user->id);
+            extractParam(queryParams, "partner", partner);
             extractParam(queryParams, "app_storeurl", app->storeurl);
             extractParam(queryParams, "app_bundle", app->bundle);
             extractParam(queryParams, "appName", app->name);
@@ -400,6 +401,13 @@ namespace Jamloop {
             }
             if (extractParam(queryParams, "deviceid", did)) {
                 br->ext["deviceid"] = deviceIdString(did);
+            }
+
+            auto pos = partner.find('_');
+            if (pos != std::string::npos) {
+                user->id = Id(partner.substr(0, pos));
+            } else {
+                user->id = Id(partner);
             }
 
             auto hasLat = extractParam(queryParams, "lat", lat);
