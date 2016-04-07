@@ -67,4 +67,12 @@ target_link_libraries(forensiq_augmentor ${AUGMENTOR_LINK})
 add_executable(forensiq_augmentor_runner forensiq_augmentor_runner.cc)
 target_link_libraries(forensiq_augmentor_runner forensiq_augmentor boost_system boost_program_options boost_thread)
 
+add_library(http_augmentor_headers http_augmentor_headers.cc utils)
+target_link_libraries(http_augmentor_headers net)
+
+add_library(http_viewability http_viewability_augmentor.cc)
+target_link_libraries(http_viewability net http_augmentor_headers ${AUGMENTOR_LINK} openrtb_bid_request openrtb)
+add_executable(http_viewability_runner http_viewability_augmentor_runner.cc)
+target_link_libraries(http_viewability_runner http_viewability http_augmentor_headers pthread boost_system boost_program_options boost_thread)
+
 add_subdirectory(testing)

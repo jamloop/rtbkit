@@ -148,9 +148,9 @@ Scope::Failure<Func> ScopeFailure(Func && func) {
 using Scope::fail;
 
 
-#define CAT(a, b) a##b
-#define LABEL_(prefix, a) CAT(prefix, a)
-#define UNIQUE_LABEL(prefix) LABEL_(CAT(__scope, prefix), __LINE__)
+#define CAT_(a, b) a##b
+#define LABEL_(prefix, a) CAT_(prefix, a)
+#define UNIQUE_LABEL(prefix) LABEL_(CAT_(__scope, prefix), __LINE__)
 
 #define Scope_Exit(func) \
     auto UNIQUE_LABEL(exitlambda) = [&]() noexcept { func; }; \
