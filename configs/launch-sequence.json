@@ -110,6 +110,7 @@
         "--agent-configuration", "configs/dma641_w350_HV50S_1.json"
       ],
       "log": true
+    },
     {
       "name": "agent-dma641_w350_HV50S_1_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
@@ -700,6 +701,7 @@
         "--use-http-banker"
       ],
       "log": true
+    },
     {
       "name": "agent-dma641_w350_HV50S_1_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
