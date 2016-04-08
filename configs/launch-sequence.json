@@ -915,6 +915,17 @@
       "log": true
     },
     {
+      "name": "agent-chan_w350_KV_33", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_w350_KV_33",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_w350_KV_33.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-chan_cTV_35", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
