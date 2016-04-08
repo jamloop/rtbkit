@@ -110,6 +110,15 @@
         "--agent-configuration", "configs/dma641_w350_HV50S_1.json"
       ],
       "log": true
+    {
+      "name": "agent-dma641_w350_HV50S_1_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma641_w350_HV50S_1_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma641_w350_HV50S_1_KV.json"
+      ],
+      "log": true
     },
     {
       "name": "agent-dma641_w300_HV50S_2", 
@@ -118,6 +127,16 @@
         "--service-name", "uswest2a.rtb1.agent_dma641_w300_HV50S_2",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma641_w300_HV50S_2.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma641_w300_HV50S_2_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma641_w300_HV50S_2_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma641_w300_HV50S_2_KV.json"
       ],
       "log": true
     },
@@ -152,12 +171,32 @@
       "log": true
     },
     {
+      "name": "agent-dma635_w350_HV50S_5_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma635_w350_HV50S_5_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma635_w350_HV50S_5_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma635_w300_HV50S_6", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma635_w300_HV50S_6",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma635_w300_HV50S_6.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma635_w300_HV50S_6_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma635_w300_HV50S_6_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma635_w300_HV50S_6_KV.json"
       ],
       "log": true
     },
@@ -192,12 +231,32 @@
       "log": true
     },
     {
+      "name": "agent-dma630_w350_HV50S_9_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma630_w350_HV50S_9_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma630_w350_HV50S_9_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma630_w300_HV50S_10", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma630_w300_HV50S_10",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma630_w300_HV50S_10.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma630_w300_HV50S_10_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma630_w300_HV50S_10_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma630_w300_HV50S_10_KV.json"
       ],
       "log": true
     },
@@ -232,12 +291,32 @@
       "log": true
     },
     {
+      "name": "agent-dma510_w350_HV50S_13_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma510_w350_HV50S_13_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma510_w350_HV50S_13_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma510_w300_HV50S_14", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma510_w300_HV50S_14",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma510_w300_HV50S_14.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma510_w300_HV50S_14_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma510_w300_HV50S_14_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma510_w300_HV50S_14_KV.json"
       ],
       "log": true
     },
@@ -272,12 +351,32 @@
       "log": true
     },
     {
+      "name": "agent-dma534_w350_HV50S_17_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma534_w350_HV50S_17_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma534_w350_HV50S_17_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma534_w300_HV50S_18", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma534_w300_HV50S_18",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma534_w300_HV50S_18.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma534_w300_HV50S_18_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma534_w300_HV50S_18_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma534_w300_HV50S_18_KV.json"
       ],
       "log": true
     },
@@ -312,12 +411,32 @@
       "log": true
     },
     {
+      "name": "agent-dma582_w350_HV50S_21_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma582_w350_HV50S_21_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma582_w350_HV50S_21_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma582_w300_HV50S_22", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma582_w300_HV50S_22",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma582_w300_HV50S_22.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma582_w300_HV50S_22_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma582_w300_HV50S_22_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma582_w300_HV50S_22_KV.json"
       ],
       "log": true
     },
@@ -352,12 +471,32 @@
       "log": true
     },
     {
+      "name": "agent-dma529_w350_HV50S_25_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma529_w350_HV50S_25_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma529_w350_HV50S_25_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma529_w300_HV50S_26", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma529_w300_HV50S_26",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma529_w300_HV50S_26.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma529_w300_HV50S_26_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma529_w300_HV50S_26_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma529_w300_HV50S_26_KV.json"
       ],
       "log": true
     },
@@ -392,12 +531,32 @@
       "log": true
     },
     {
+      "name": "agent-dma527_w350_HV50S_29_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma527_w350_HV50S_29_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma527_w350_HV50S_29_KV.json"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma527_w300_HV50S_30", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_dma527_w300_HV50S_30",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma527_w300_HV50S_30.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma527_w300_HV50S_30_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma527_w300_HV50S_30_KV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma527_w300_HV50S_30_KV.json"
       ],
       "log": true
     },
@@ -418,26 +577,6 @@
         "--service-name", "uswest2a.rtb1.agent_dma527_Mobile_32",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/dma527_Mobile_32.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-chan_w350_HV50S_33", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_w350_HV50S_33",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_w350_HV50S_33.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-chan_cTV_35", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_cTV_35",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_cTV_35.json"
       ],
       "log": true
     }
@@ -561,6 +700,16 @@
         "--use-http-banker"
       ],
       "log": true
+    {
+      "name": "agent-dma641_w350_HV50S_1_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma641_w350_HV50S_1_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma641_w350_HV50S_1_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
     },
     {
       "name": "agent-dma641_w300_HV50S_2", 
@@ -569,6 +718,17 @@
         "--service-name", "useast1b.rtb1.agent_dma641_w300_HV50S_2",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma641_w300_HV50S_2.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma641_w300_HV50S_2_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma641_w300_HV50S_2_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma641_w300_HV50S_2_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -607,12 +767,34 @@
       "log": true
     },
     {
+      "name": "agent-dma635_w350_HV50S_5_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma635_w350_HV50S_5_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma635_w350_HV50S_5_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma635_w300_HV50S_6", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma635_w300_HV50S_6",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma635_w300_HV50S_6.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma635_w300_HV50S_6_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma635_w300_HV50S_6_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma635_w300_HV50S_6_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -651,12 +833,34 @@
       "log": true
     },
     {
+      "name": "agent-dma630_w350_HV50S_9_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma630_w350_HV50S_9_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma630_w350_HV50S_9_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma630_w300_HV50S_10", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma630_w300_HV50S_10",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma630_w300_HV50S_10.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma630_w300_HV50S_10_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma630_w300_HV50S_10_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma630_w300_HV50S_10_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -695,12 +899,34 @@
       "log": true
     },
     {
+      "name": "agent-dma510_w350_HV50S_13_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma510_w350_HV50S_13_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma510_w350_HV50S_13_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma510_w300_HV50S_14", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma510_w300_HV50S_14",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma510_w300_HV50S_14.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma510_w300_HV50S_14_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma510_w300_HV50S_14_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma510_w300_HV50S_14_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -739,12 +965,34 @@
       "log": true
     },
     {
+      "name": "agent-dma534_w350_HV50S_17_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma534_w350_HV50S_17_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma534_w350_HV50S_17_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma534_w300_HV50S_18", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma534_w300_HV50S_18",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma534_w300_HV50S_18.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma534_w300_HV50S_18_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma534_w300_HV50S_18_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma534_w300_HV50S_18_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -783,12 +1031,34 @@
       "log": true
     },
     {
+      "name": "agent-dma582_w350_HV50S_21_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma582_w350_HV50S_21_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma582_w350_HV50S_21_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma582_w300_HV50S_22", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma582_w300_HV50S_22",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma582_w300_HV50S_22.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma582_w300_HV50S_22_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma582_w300_HV50S_22_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma582_w300_HV50S_22_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -827,12 +1097,34 @@
       "log": true
     },
     {
+      "name": "agent-dma529_w350_HV50S_25_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma529_w350_HV50S_25_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma529_w350_HV50S_25_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma529_w300_HV50S_26", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma529_w300_HV50S_26",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma529_w300_HV50S_26.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma529_w300_HV50S_26_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma529_w300_HV50S_26_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma529_w300_HV50S_26_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -871,12 +1163,34 @@
       "log": true
     },
     {
+      "name": "agent-dma527_w350_HV50S_29_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma527_w350_HV50S_29_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma527_w350_HV50S_29_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-dma527_w300_HV50S_30", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_dma527_w300_HV50S_30",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma527_w300_HV50S_30.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma527_w300_HV50S_30_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma527_w300_HV50S_30_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma527_w300_HV50S_30_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -899,39 +1213,6 @@
         "--service-name", "useast1b.rtb1.agent_dma527_Mobile_32",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma527_Mobile_32.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-chan_w350_HV50S_33", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_w350_HV50S_33",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_w350_HV50S_33.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-chan_w350_KV_33", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_w350_KV_33",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_w350_KV_33.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-chan_cTV_35", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_cTV_35",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_cTV_35.json",
         "--use-http-banker"
       ],
       "log": true
