@@ -2,7 +2,7 @@
     "account": [
         "chan_w350_KV_33", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": .25,
     "creatives": [
     {
         "id": 04081064376634,
