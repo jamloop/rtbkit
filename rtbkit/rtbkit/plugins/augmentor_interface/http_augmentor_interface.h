@@ -52,6 +52,7 @@ protected:
                 const std::string& augmentorName,
                 const std::shared_ptr<Auction>& auction,
                 const std::set<std::string>& agents,
+                const std::map<std::string, std::vector<AugmentationConfig>>& configs,
                 Datacratic::Date date);
 
 private:

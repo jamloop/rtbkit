@@ -238,6 +238,7 @@ struct AugmentationConfig
     {}
 
     std::string name;
+    std::string interface;
     Json::Value config;
     IncludeExclude<std::string> filters;
     bool required;

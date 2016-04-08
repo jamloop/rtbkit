@@ -31,6 +31,7 @@ void AugmentorInterface::init(){
                 std::move(message.augmentorName),
                 message.auction,
                 message.agents,
+                message.configs,
                 std::move(message.date));
         };
 
@@ -42,6 +43,7 @@ void AugmentorInterface::sendAugmentMessage(
             const std::string& augmentorName,
             const std::shared_ptr<Auction>& auction,
             const std::set<std::string>& agents,
+            const std::map<std::string, std::vector<AugmentationConfig>>& configs,
             Datacratic::Date date){
 
     AugmentMessage m;
@@ -49,6 +51,7 @@ void AugmentorInterface::sendAugmentMessage(
     m.augmentorName = augmentorName;
     m.auction = auction;
     m.agents = agents;
+    m.configs = configs;
     m.date = std::move(date);
     inbox.push(std::move(m));
 }

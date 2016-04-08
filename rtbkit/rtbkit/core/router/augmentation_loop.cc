@@ -264,6 +264,7 @@ augment(const std::shared_ptr<AugmentationInfo> & info,
                 augmentors.insert(name);
                 entry->augmentorAgents[name].insert(bidder.agent);
             }
+            entry->augmentationConfigs[bidder.agent] = config.augmentations;
         }
     }
 
@@ -381,8 +382,12 @@ doAugmentation(std::shared_ptr<Entry>&& entry)
         recordHit("augmentor.%s.instances.%s.request", *it, instance->address());
 
         set<string> agents = entry->augmentorAgents[*it];
+        std::map<std::string, std::vector<AugmentationConfig>> configs;
 
         entry->instances[*it] = instance;
+        for (const auto& agent: agents) {
+            configs[agent] = entry->augmentationConfigs[agent];
+        }
         
         // Send the message to the augmentor
         augmentorInterface->sendAugmentMessage(
@@ -390,6 +395,7 @@ doAugmentation(std::shared_ptr<Entry>&& entry)
                 *it,
                 entry->info->auction,
                 agents,
+                configs,
                 Date::now());
 
         sentToAugmentor = true;

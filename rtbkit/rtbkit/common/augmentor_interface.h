@@ -82,6 +82,7 @@ struct AugmentorInterface : public MessageLoop, public ServiceBase {
             const std::string& augmentorName,
             const std::shared_ptr<Auction>& auction,
             const std::set<std::string>& agents,
+            const std::map<std::string, std::vector<AugmentationConfig>>& configs,
             Datacratic::Date date = Datacratic::Date::now());
 
 
@@ -118,6 +119,7 @@ protected:
         std::string augmentorName;
         std::shared_ptr<Auction> auction;
         std::set<std::string> agents;
+        std::map<std::string, std::vector<AugmentationConfig>> configs;
         Datacratic::Date date;
     };
 
@@ -128,6 +130,7 @@ protected:
                 const std::string& augmentorName,
                 const std::shared_ptr<Auction>& auction,
                 const std::set<std::string>& agents,
+                const std::map<std::string, std::vector<AugmentationConfig>>& configs,
                 Datacratic::Date date) = 0;
 };
 

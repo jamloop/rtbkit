@@ -93,6 +93,7 @@ HttpAugmentorInterface::doSendAugmentMessage(
     const std::string& name,
     const std::shared_ptr<Auction>& auction,
     const std::set<std::string>& agents,
+    const std::map<std::string, std::vector<AugmentationConfig>>& configs,
     Date date)
 {
     auto httpInstance = std::static_pointer_cast<HttpAugmentorInstanceInfo>(instance);

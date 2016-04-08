@@ -112,6 +112,8 @@ private:
         // possibly keeping a dangling pointer
         std::map<std::string, std::weak_ptr<AugmentorInstanceInfo>> instances;
         std::map<std::string, std::set<std::string> > augmentorAgents;
+
+        std::map<std::string, std::vector<AugmentationConfig>> augmentationConfigs;
         OnFinished onFinished;
         Date timeout;
     };

@@ -454,6 +454,7 @@ toJson() const
 
     if (!config.isNull()) result["config"] = config;
     if (!filters.empty()) result["filters"] = filters.toJson();
+    if (!interface.empty()) result["interface"] = interface;
     if (required) result["required"] = true;
 
     return result;
@@ -469,6 +470,7 @@ fromJson(const Json::Value& json)
 
         if      (m == "config") config = val;
         else if (m == "filters") filters.fromJson(val, "augmentor.filters");
+        else if (m == "interface") interface = val.asString();
         else if (m == "required") required = val.asBool();
 
         else ExcCheck(false, "Unknown AugmentorInfo field: " + m);
