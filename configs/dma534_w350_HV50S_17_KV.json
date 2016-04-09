@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04081464376618,
+        "id": 04090864376618,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -35,7 +35,7 @@
     "providerConfig": {
         "adaptvhv": {
             "seat": "1234"
-        },
+        }
     },
     "ext": {
         "budget": "10000000000USD/1M",
