@@ -1,0 +1,94 @@
+{
+    "account": [
+        "dma510_w350_HV40S_13", "1"
+    ],
+    "bidProbability": 1,
+    "creatives": [
+    {
+        "id": 04101464376614,
+        "type": "video",
+        "width": 350,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+            "adaptv": {
+              "adm": "<VAST version=\"2.0\"><Ad id=\"preroll\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DMP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D${AUCTION_PRICE}%2CrtbCmp%3Ddma510&eov=eov]]></VASTAdTagURI><Impression><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?br.timestamp=%{bidrequest.timestamp};;br.ext.deviceid=%{bidrequest.ext.deviceid};;br.device.ip=%{bidrequest.device.ip};;br.ua=%{bidrequest.ua#urlencode};;br.app.bundle=%{bidrequest.app.bundle#urlencode};;br.app.storeurl=%{bidrequest.app.storeurl#urlencode};;br.site.page=%{bidrequest.site.page#urlencode};;Exch=%{exchange};;BID_PRICE=%{bid.price};;BID_REQ_ID=%{bidrequest.id};;IMP_ID=%{imp.id};;br.video.width=%{bidrequest.video.width};;br.video.height=%{bidrequest.video.height};;br.ext.devicetype=%{bidrequest.device.type};;br.ext.videotype=%{bidrequest.ext.videotype};;rtb.view=HV;;rtb.player=MP;;br.user.id=%{bidrequest.user.id};;br.publisher.id=%{bidrequest.publisher.id};;br.language=%{bidrequest.language};;br.geo.country=%{bidrequest.geo.country};;br.geo.zip=%{bidrequest.geo.zip};;br.geo.region=%{bidrequest.geo.region};;br.geo.metro=%{bidrequest.geo.metro};;WIN_RATIO=${AUCTION_PRICE};;DOMAIN=eov&rtbCmp=dma510]]></Impression></Wrapper></Ad></VAST>",
+              "nurl": "http://ad.jamloop.com/cgi-bin/z.pl?src=adapWinTrack&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&WIN_RATIO=${AUCTION_PRICE}"
+            },
+            "publisher": {
+              "vast": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DMP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D%{tag.price}%2CrtbCmp%3Ddma510&eov=eov]]></VASTAdTagURI><Impression><![CDATA[http://ad.jamloop.com/cgi-bin/y.pl?br.timestamp=%{bidrequest.timestamp};;br.ext.deviceid=%{bidrequest.ext.deviceid};;br.device.ip=%{bidrequest.device.ip};;br.ua=%{bidrequest.ua#urlencode};;br.app.bundle=%{bidrequest.app.bundle#urlencode};;br.app.storeurl=%{bidrequest.app.storeurl#urlencode};;br.site.page=%{bidrequest.site.page#urlencode};;Exch=%{exchange};;BID_PRICE=%{bid.price};;BID_REQ_ID=%{bidrequest.id};;IMP_ID=%{imp.id};;br.video.width=%{bidrequest.video.width};;br.video.height=%{bidrequest.video.height};;br.ext.devicetype=%{bidrequest.device.type};;br.ext.videotype=%{bidrequest.ext.videotype};;rtb.view=HV;;rtb.player=MP;;br.user.id=%{bidrequest.user.id};;br.publisher.id=%{bidrequest.publisher.id};;br.language=%{bidrequest.language};;br.geo.country=%{bidrequest.geo.country};;br.geo.zip=%{bidrequest.geo.zip};;br.geo.region=%{bidrequest.geo.region};;br.geo.metro=%{bidrequest.geo.metro};;WIN_RATIO=%{tag.price};;DOMAIN=eov&rtbCmp=dma510]]></Impression></Wrapper></Ad></VAST>"
+            },
+          "brightroll": {
+              "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DMP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3Ddma510&eov=eov",
+              "adomain": "mcdonalds.com",
+              "campaign_name": "dma510_w350_HV40S_13 vpaid",
+              "line_item_name": "dma510_w350_HV40S_13",
+              "creative_name":  "dma510_w350_HV40S_13 vpaid",
+              "creative_duration": 30,
+              "media_desc": {
+                "media_mime": "video/x-flv",
+                "media_bitrate": 800
+              },
+              "api": 1,
+              "lid": "0410643766",
+              "landingpage_url": "http://mcdonalds.com",
+              "advertiser_name": "mcdonalds.com"
+          }
+        }
+    }
+    ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 40,
+        "unknownStrategy": "nobid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 84
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
+    "externalId": 1337,
+    "roundRobin": {
+        "group": "jl:dma510_w350_HV40S_13",
+        "weight": 1
+    },
+    "providerConfig": {
+        "adaptv": {
+            "seat": "1234"
+        },
+      "spotx": {
+          "seat": "12341",
+          "seatName": "jamloop",
+          "bidid": "12345"
+      },
+      "brightroll": {
+          "seat": "12341"
+      }
+    },
+    "ext": {
+        "budget": "10000000000USD/1M",
+        "pace": "416666USD/1M",
+        "price": "17100USD/1M",
+        "priority": 13
+    },
+    "deviceTypeFilter": {
+        "include": [ 2 ],
+        "exclude": [ ]
+    },
+    "dmaFilter": {
+        "include": [ "510" ],
+        "exclude": [ ]
+    },
+    "whiteBlackList": {
+      "whiteFile": "configs/all_wl",
+      "blackFile": "configs/facebook.csv"
+    }
+}
+
