@@ -52,7 +52,7 @@
         "exclude": [ ]
     },
     "whiteBlackList": {
-      "whiteFile": "configs/all_wl",
+      "whiteFile": "configs/blank",
       "blackFile": "configs/facebook.csv"
     }
 }
