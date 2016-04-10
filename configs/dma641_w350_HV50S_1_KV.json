@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0409126437662,
+        "id": 0410136437662,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -22,7 +22,7 @@
     "forensiq": {
         "required": true,
          "config": {
-            "riskScoreThreshold": 64
+            "riskScoreThreshold": 84
          },
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
