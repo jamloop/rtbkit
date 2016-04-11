@@ -592,22 +592,22 @@
       "log": true
     },
     {
-      "name": "agent-chan_w350_SV_34", 
+      "name": "agent-chan_w350_NV_34", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_w350_SV_34",
+        "--service-name", "uswest2a.rtb1.agent_chan_w350_NV_34",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_w350_SV_34.json"
+        "--agent-configuration", "configs/chan_w350_NV_34.json"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_w350_SV_34_KV", 
+      "name": "agent-chan_w350_NV_34_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_w350_SV_34_KV",
+        "--service-name", "uswest2a.rtb1.agent_chan_w350_NV_34_KV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_w350_SV_34_KV.json"
+        "--agent-configuration", "configs/chan_w350_NV_34_KV.json"
       ],
       "log": true
     },
@@ -1751,23 +1751,23 @@
       "log": true
     },
     {
-      "name": "agent-chan_w350_SV_34", 
+      "name": "agent-chan_w350_NV_34", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_w350_SV_34",
+        "--service-name", "useast1b.rtb1.agent_chan_w350_NV_34",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_w350_SV_34.json",
+        "--agent-configuration", "configs/chan_w350_NV_34.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_w350_SV_34_KV", 
+      "name": "agent-chan_w350_NV_34_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_w350_SV_34_KV",
+        "--service-name", "useast1b.rtb1.agent_chan_w350_NV_34_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_w350_SV_34_KV.json",
+        "--agent-configuration", "configs/chan_w350_NV_34_KV.json",
         "--use-http-banker"
       ],
       "log": true
