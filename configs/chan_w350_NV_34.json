@@ -51,7 +51,7 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/blank",
-      "blackFile": "configs/facbook.csv"
+      "blackFile": "configs/facebook.csv"
     }
 }
 
