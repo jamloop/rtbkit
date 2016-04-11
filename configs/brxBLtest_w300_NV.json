@@ -51,7 +51,7 @@
         "exclude": [ ]
     },
     "dmaFilter": {
-        "include": [ "623" ],
+        "include": [ "501" ],
         "exclude": [ ]
     },
     "whiteBlackList": {
