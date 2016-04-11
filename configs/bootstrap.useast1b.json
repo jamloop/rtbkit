@@ -4,7 +4,7 @@
   "zookeeper-uri": "127.0.0.1:2181",
   "carbon-uri": "127.0.0.1:2003",
   "carbon-dump-interval": 10,
-  "banker-uri": "http://ec2-52-25-228-142.us-west-2.compute.amazonaws.com:9985",
+  "banker-uri": "http://127.0.0.1:9985",
   "portRanges": {
     "logs":                   [16000, 17000],
     "router":                 [17000, 18000],

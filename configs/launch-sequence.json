@@ -649,6 +649,16 @@
     "root": "/home/rtbkit/prod/rtb/",
     "tasks": [
     {
+      "name": "banker",
+      "root": ".", "path": "./bin/banker_service_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb1.banker",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--redis-uri", "127.0.0.1:6380"
+      ],
+      "log": true
+    },
+    {
       "name": "configs",
       "root": ".", "path": "./bin/agent_configuration_service_runner",
       "arg": [
