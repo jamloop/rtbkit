@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0411176437664,
+        "id": 0411196437664,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -37,12 +37,6 @@
             "seat": "1234"
         }
     },
-    "ext": {
-        "budget": "10000000000USD/1M",
-        "pace": "104166USD/1M",
-        "price": "10100USD/1M",
-        "priority": 17
-    },
     "deviceTypeFilter": {
         "include": [ 2 ],
         "exclude": [ ]
@@ -51,9 +45,11 @@
         "include": [ "635" ],
         "exclude": [ ]
     },
-    "whiteBlackList": {
-      "whiteFile": "configs/blank",
-      "blackFile": "configs/facebook.csv"
+    "ext": {
+        "budget": "10000000000USD/1M",
+        "pace": "104166USD/1M",
+        "price": "10100USD/1M",
+        "priority": 13
     }
 }
 
