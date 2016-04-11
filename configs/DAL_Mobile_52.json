@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04111174077553,
+        "id": 04111374077553,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -64,7 +64,7 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/blank",
-      "blackFile": "configs/blank"
+      "blackFile": "configs/facebook.csv"
     }
 }
 
