@@ -66,6 +66,6 @@
 //        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
 //        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
 //        "precision": 0.1
-    }
+//    }
   }
 ]
