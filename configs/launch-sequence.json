@@ -640,6 +640,16 @@
         "--agent-configuration", "configs/SNT_Mobile.json"
       ],
       "log": true
+    },
+    {
+      "name": "agent-AUS_BRX", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_AUS_BRX",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/AUS_BRX"
+      ],
+      "log": true
     }
 // WestLaunchEnd
 ]
@@ -1341,6 +1351,17 @@
         "--service-name", "useast1b.rtb1.agent_SNT_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/SNT_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-AUS_BRX", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_AUS_BRX",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/AUS_BRX",
         "--use-http-banker"
       ],
       "log": true
