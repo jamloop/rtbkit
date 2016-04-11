@@ -580,6 +580,86 @@
         "--agent-configuration", "configs/dma527_Mobile_32.json"
       ],
       "log": true
+    },
+    {
+      "name": "agent-dma641_w480_HV_37", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma641_w480_HV_37",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma641_w480_HV_37.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma635_w480_HV_38", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma635_w480_HV_38",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma635_w480_HV_38.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma630_w480_HV_39", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma630_w480_HV_39",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma630_w480_HV_39.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma566_w480_HV_40", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma566_w480_HV_40",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma566_w480_HV_40.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma569_w480_HV_41", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma569_w480_HV_41",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma569_w480_HV_41.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma582_w480_HV_42", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma582_w480_HV_42",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma582_w480_HV_42.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma529_w480_HV_43", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma529_w480_HV_43",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma529_w480_HV_43.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma527_w480_HV_44", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_dma527_w480_HV_44",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/dma527_w480_HV_44.json"
+      ],
+      "log": true
     }
 // WestLaunchEnd
 ]
@@ -1215,6 +1295,94 @@
         "--service-name", "useast1b.rtb1.agent_dma527_Mobile_32",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/dma527_Mobile_32.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma641_w480_HV_37", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma641_w480_HV_37",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma641_w480_HV_37.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma635_w480_HV_38", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma635_w480_HV_38",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma635_w480_HV_38.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma630_w480_HV_39", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma630_w480_HV_39",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma630_w480_HV_39.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma566_w480_HV_40", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma566_w480_HV_40",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma566_w480_HV_40.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma569_w480_HV_41", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma569_w480_HV_41",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma569_w480_HV_41.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma582_w480_HV_42", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma582_w480_HV_42",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma582_w480_HV_42.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma529_w480_HV_43", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma529_w480_HV_43",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma529_w480_HV_43.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-dma527_w480_HV_44", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_dma527_w480_HV_44",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/dma527_w480_HV_44.json",
         "--use-http-banker"
       ],
       "log": true
