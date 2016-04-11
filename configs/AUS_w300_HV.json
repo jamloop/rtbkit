@@ -72,7 +72,7 @@
     },
     "whiteBlackList": {
       "whiteFile": "configs/blank",
-      "blackFile": "configs/facebook.csv"
+      "blackFile": "configs/blank"
     }
 }
 
