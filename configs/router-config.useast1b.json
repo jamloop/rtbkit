@@ -49,23 +49,23 @@
         "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
         "precision": 0.1
     }
-//  },
-//  {
-//    "exchangeType": "publisher",
-//    "listenPort": 9975,
-//    "numThreads": 4,
-//    "realTimePolling": false,
-//    "bindHost": "0.0.0.0",
-//    "auctionVerb": "GET",
-//    "auctionResource": "/vast2",
-//    "performNameLookup": false,
-//    "genericVast": "<VAST xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"vast.xsd\" version=\"2.0\"/>",
-//    "pipeline": {
-//        "type": "geo",
-//        "serviceName": "useast1b.rtb1.router.pipeline.publisher",
-//        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
-//        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
-//        "precision": 0.1
-//    }
+  },
+  {
+    "exchangeType": "publisher",
+    "listenPort": 9975,
+    "numThreads": 4,
+    "realTimePolling": false,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "GET",
+    "auctionResource": "/vast2",
+    "performNameLookup": false,
+    "genericVast": "<VAST xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"vast.xsd\" version=\"2.0\"/>",
+    "pipeline": {
+        "type": "geo",
+        "serviceName": "useast1b.rtb1.router.pipeline.publisher",
+        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "precision": 0.1
+    }
   }
 ]
