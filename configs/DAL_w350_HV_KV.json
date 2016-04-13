@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04121564376615,
+        "id": 04131964376615,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -18,6 +18,15 @@
         }
     }
     ],
+   "augmentations": {
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 64
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:DAL_w350_HV_KV",
