@@ -22,16 +22,6 @@
         }
     }
     ],
-   "augmentations": {
-    "viewability": {
-      "required": true,
-      "config": {
-        "viewTreshold": 40,
-        "unknownStrategy": "bid"
-      },
-      "filters": { "include": ["pass-viewability"], "exclude": [] }
-      }
-    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:chan_w300_NV",
