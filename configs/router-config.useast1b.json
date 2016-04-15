@@ -11,8 +11,8 @@
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router.pipeline.adaptv",
-        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
-        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
     }
   },
@@ -28,8 +28,8 @@
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router.pipeline.adaptvhv",
-        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
-        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
     }
   },
@@ -45,8 +45,8 @@
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router.pipeline.brightroll",
-        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
-        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
     }
   },
@@ -63,8 +63,8 @@
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router.pipeline.publisher",
-        "ipFile": "configs/GeoLite2-City-Blocks-IPv4.csv.gz",
-        "locationFile": "configs/GeoLite2-City-Locations-en.csv.gz",
+        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
     }
   }
