@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 0414167298232,
+        "id": 0415097298232,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -30,13 +30,23 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0414729823",
+              "lid": "0415729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 40,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:AUS_cTV",

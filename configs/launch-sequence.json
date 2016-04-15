@@ -184,6 +184,72 @@
       "log": true
     },
     {
+      "name": "agent-chan_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_w350_SV_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_w350_SV_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_w350_SV_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_w300_SV_KV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_w300_SV_KV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_w300_SV_KV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
       "name": "agent-COM_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -195,45 +261,45 @@
       "log": true
     },
     {
-      "name": "agent-COM_w350_HV", 
+      "name": "agent-COM_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w350_HV",
+        "--service-name", "useast1b.rtb1.agent_COM_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w350_HV.json",
+        "--agent-configuration", "configs/COM_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w350_HV_KV", 
+      "name": "agent-COM_w350_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w350_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_COM_w350_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w350_HV_KV.json",
+        "--agent-configuration", "configs/COM_w350_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w300_HV", 
+      "name": "agent-COM_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w300_HV",
+        "--service-name", "useast1b.rtb1.agent_COM_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w300_HV.json",
+        "--agent-configuration", "configs/COM_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w300_HV_KV", 
+      "name": "agent-COM_w300_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w300_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_COM_w300_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w300_HV_KV.json",
+        "--agent-configuration", "configs/COM_w300_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -591,45 +657,45 @@
       "log": true
     },
     {
-      "name": "agent-KNO_w350_HV", 
+      "name": "agent-KNO_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w350_HV",
+        "--service-name", "useast1b.rtb1.agent_KNO_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w350_HV.json",
+        "--agent-configuration", "configs/KNO_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_w350_HV_KV", 
+      "name": "agent-KNO_w350_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w350_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_KNO_w350_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w350_HV_KV.json",
+        "--agent-configuration", "configs/KNO_w350_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_w300_HV", 
+      "name": "agent-KNO_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w300_HV",
+        "--service-name", "useast1b.rtb1.agent_KNO_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w300_HV.json",
+        "--agent-configuration", "configs/KNO_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_w300_HV_KV", 
+      "name": "agent-KNO_w300_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w300_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_KNO_w300_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w300_HV_KV.json",
+        "--agent-configuration", "configs/KNO_w300_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -855,45 +921,45 @@
       "log": true
     },
     {
-      "name": "agent-SPM_w350_HV", 
+      "name": "agent-SPM_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w350_HV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w350_HV.json",
+        "--agent-configuration", "configs/SPM_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w350_HV_KV", 
+      "name": "agent-SPM_w350_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w350_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w350_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w350_HV_KV.json",
+        "--agent-configuration", "configs/SPM_w350_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w300_HV", 
+      "name": "agent-SPM_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w300_HV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w300_HV.json",
+        "--agent-configuration", "configs/SPM_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w300_HV_KV", 
+      "name": "agent-SPM_w300_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w300_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w300_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w300_HV_KV.json",
+        "--agent-configuration", "configs/SPM_w300_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -921,45 +987,45 @@
       "log": true
     },
     {
-      "name": "agent-STL_w350_HV", 
+      "name": "agent-STL_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w350_HV",
+        "--service-name", "useast1b.rtb1.agent_STL_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w350_HV.json",
+        "--agent-configuration", "configs/STL_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_w350_HV_KV", 
+      "name": "agent-STL_w350_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w350_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_STL_w350_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w350_HV_KV.json",
+        "--agent-configuration", "configs/STL_w350_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_w300_HV", 
+      "name": "agent-STL_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w300_HV",
+        "--service-name", "useast1b.rtb1.agent_STL_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w300_HV.json",
+        "--agent-configuration", "configs/STL_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_w300_HV_KV", 
+      "name": "agent-STL_w300_SV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w300_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_STL_w300_SV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w300_HV_KV.json",
+        "--agent-configuration", "configs/STL_w300_SV_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -993,28 +1059,6 @@
         "--service-name", "useast1b.rtb1.agent_AUS_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/AUS_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-COM_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-COM_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -1130,28 +1174,6 @@
       "log": true
     },
     {
-      "name": "agent-KNO_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-KNO_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-LAF_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -1213,50 +1235,6 @@
         "--service-name", "useast1b.rtb1.agent_SNT_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/SNT_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SPM_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SPM_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-STL_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-STL_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
