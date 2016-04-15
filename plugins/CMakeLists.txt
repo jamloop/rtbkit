@@ -23,7 +23,7 @@ else()
     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-include_directories(../rtbkit ../rtbkit/leveldb/include $ENV{HOME}/local/include)
+include_directories(${PROTOBUF_INCLUDE_DIR} ../rtbkit ../rtbkit/leveldb/include $ENV{HOME}/local/include)
 link_directories(../bin $ENV{HOME}/local/lib)
 add_executable(basic_bidding_agent basic_bidding_agent.cc)
 target_link_libraries(basic_bidding_agent rtb bidding_agent agent_configuration bid_request banker services arch utils jsoncpp types value_description boost_system boost_program_options)

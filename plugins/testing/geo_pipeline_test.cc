@@ -10,6 +10,7 @@
 
 #include <boost/test/unit_test.hpp>
 #include "geo_pipeline.h"
+#include "soa/jsoncpp/json.h"
 
 using namespace RTBKIT;
 using namespace Datacratic;
@@ -144,6 +145,7 @@ struct GeoFixture {
 // but I did not find how to do it unfortunately
 BOOST_FIXTURE_TEST_SUITE(geo_suite, GeoFixture)
 
+#if 0
 BOOST_AUTO_TEST_CASE( test_ip_mapping )
 {
     for (auto test: IP::Tests) {
@@ -206,6 +208,133 @@ BOOST_AUTO_TEST_CASE( test_geo_mapping )
             BOOST_CHECK(false);
         }
     }
+}
+#endif
+
+BOOST_AUTO_TEST_CASE( test_metro_distribution )
+{
+    struct Stats {
+
+        Stats()
+            : totalLines(0)
+            , totalMatches(0)
+        { }
+
+        size_t totalLines;
+        size_t totalMatches;
+
+        struct Entry {
+            Entry()
+                : latLonCount(0)
+                , ipCount(0)
+            { }
+            size_t latLonCount;
+            size_t ipCount;
+
+            size_t total() const {
+                return latLonCount + ipCount;
+            }
+        };
+
+        std::map<std::string, Entry> dmaDistribution;
+        std::vector<std::pair<InAddr, int>> subnetDistribution;
+
+        void record(const GeoDatabase::Result& result) {
+            auto& entry = dmaDistribution[result.metroCode];
+
+            if (result.matchType == GeoDatabase::MatchType::LatLon)
+                ++entry.latLonCount;
+            else {
+                ++entry.ipCount;
+
+                auto it = std::find_if(subnetDistribution.begin(), subnetDistribution.end(), [&](const std::pair<InAddr, int>& entry) {
+                        return entry.first == result.ip;
+                });
+
+                if (it == std::end(subnetDistribution)) {
+                    auto newEntry = std::make_pair(result.ip, 1);
+                    subnetDistribution.push_back(newEntry);
+                } else {
+                    auto& val = it->second;
+                    ++val;
+                }
+            }
+
+            ++totalMatches;
+        }
+
+        void dump() {
+            std::cout << "Stats:" << std::endl;
+            std::cout << "Total parsed lines: " << totalLines << std::endl;
+            std::cout << "Total matched DMAs: " << totalMatches << std::endl;
+            std::cout << "DMA distribution:" << std::endl;
+
+            auto pct = [](size_t val, size_t max) {
+                return (val * 100) / max;
+            };
+
+            const std::string indent(4, ' ');
+            for (const auto& d: dmaDistribution) {
+                std::cout << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), totalMatches) << "%)" << std::endl;
+                std::cout << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
+                std::cout << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+            }
+            std::cout << "Subnet distribution:" << std::endl;
+
+            auto ipStr = [](InAddr ip) {
+                auto a = (ip >> 24) & 0xFF;
+                auto b = (ip >> 16) & 0xFF;
+                auto c = (ip >> 8) & 0xFF;
+                auto d = ip & 0xFF;
+
+                std::ostringstream oss;
+                oss << a << "." << b << "." << c << "." << d;
+                return oss.str();
+            };
+
+            std::sort(subnetDistribution.begin(), subnetDistribution.end(), [](const std::pair<InAddr, int>& lhs, const std::pair<InAddr, int>& rhs) {
+                    return lhs.second > rhs.second;
+            });
+
+            for (const auto&s : subnetDistribution) {
+                std::cout << ipStr(s.first) << " -> " << s.second << " (" << pct(s.second, totalMatches) << "%)" << std::endl;
+            }
+        }
+    };
+
+    std::ifstream in("plugins/testing/adap-9976-brs.log");
+    if (!in)
+        throw ML::Exception("Could not read bid requests file");
+    std::string br;
+    Stats stats;
+    
+    while (std::getline(in, br)) {
+        auto request = Json::parse(br);
+        auto& device = request["device"];
+        auto ip = device.get("ip", "").asString();
+        auto& geo = device["geo"];
+
+        auto lat = device.get("lat", std::numeric_limits<double>::quiet_NaN()).asDouble();
+        auto lon = device.get("lon", std::numeric_limits<double>::quiet_NaN()).asDouble();
+
+        GeoDatabase::Context context {
+            ip,
+            lat,
+            lon
+        };
+
+        bool found;
+        GeoDatabase::Result result;
+
+        std::tie(found, result) = db->lookup(context);
+        if (found) {
+            stats.record(result);
+        }
+
+        ++stats.totalLines;
+    }
+
+    stats.dump();
 }
 
 BOOST_AUTO_TEST_SUITE_END()

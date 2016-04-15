@@ -102,8 +102,14 @@ GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
 }
 
 GeoDatabase::Result
-GeoDatabase::Entry::toResult() const {
-    return Result { metroCode, zipCode, countryCode, region };
+GeoDatabase::Entry::toResult(MatchType mt) const {
+    Result result { mt, metroCode, zipCode, countryCode, region };
+
+    if (mt == GeoDatabase::MatchType::Ip) {
+        result.ip = u.ip;
+    }
+    
+    return result;
 }
 
 GeoDatabase::GeoDatabase(
@@ -293,8 +299,8 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
 
     static const auto NoEntry = std::make_pair(false, Result { });
 
-    auto makeResult = [](const Entry& entry) {
-        return std::make_pair(true, entry.toResult());
+    auto makeResult = [](const Entry& entry, MatchType mt) {
+        return std::make_pair(true, entry.toResult(mt));
     };
 
     if (!data) {
@@ -309,7 +315,8 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
             for (const auto& entry: entries) {
                 if (entry.isLocated(context.latitude, context.longitude)) {
                     events->recordHit("match.latlon");
-                    return makeResult(entry);
+                    std::cout << "Matched lat/lon" << std::endl;
+                    return makeResult(entry, MatchType::LatLon);
                 }
             }
 
@@ -346,7 +353,7 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
         --it;
 
     events->recordHit("match.ip");
-    return makeResult(*it);
+    return makeResult(*it, MatchType::Ip);
 }
 
 void

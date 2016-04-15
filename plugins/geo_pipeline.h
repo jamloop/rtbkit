@@ -19,6 +19,10 @@ InAddr toAddr(const char* str);
 
 struct GeoDatabase {
 
+    enum class MatchType {
+        Ip,
+        LatLon
+    };
 
     struct Context {
         std::string ip;
@@ -46,10 +50,14 @@ struct GeoDatabase {
     };
 
     struct Result {
+        MatchType matchType;
         std::string metroCode;
         std::string zipCode;
         std::string countryCode;
         std::string region;
+
+
+        InAddr ip;
     };
 
     GeoDatabase(
@@ -85,7 +93,7 @@ private:
 
         bool isLocated(double latitude, double longitude) const;
 
-        Result toResult() const;
+        Result toResult(MatchType mt) const;
 
         union {
             struct {
