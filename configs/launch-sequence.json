@@ -1196,23 +1196,23 @@
       "log": true
     },
     {
-      "name": "agent-SNT_w350_SV", 
+      "name": "agent-chan_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_chan_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w350_SV.json",
+        "--agent-configuration", "configs/chan_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_w350_SV", 
+      "name": "agent-chan_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_chan_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w350_SV.json",
+        "--agent-configuration", "configs/chan_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
