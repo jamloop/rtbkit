@@ -1,6 +1,6 @@
 {
     "account": [
-        "chan_w300_SV", "1"
+        "chan_w300_NV", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -29,7 +29,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:chan_w300_SV",
+        "group": "jl:chan_w300_NV",
         "weight": 1
     },
     "providerConfig": {
@@ -43,7 +43,7 @@
         "budget": "10000000000USD/1M",
         "pace": "3472USD/1M",
         "price": "7100USD/1M",
-        "priority": 2
+        "priority": 1
     }
 }
 
