@@ -14,8 +14,7 @@
 namespace Jamloop {
 
 typedef uint32_t InAddr;
-static constexpr auto InAddrNone = InAddr(-1);
-InAddr toAddr(const char* str);
+bool toAddr(const char* str, InAddr* out);
 
 struct GeoDatabase {
 

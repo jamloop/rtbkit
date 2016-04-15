@@ -14,7 +14,7 @@ using namespace RTBKIT;
 
 namespace Jamloop {
 
-InAddr toAddr(const char* str) {
+bool toAddr(const char* str, InAddr* out) {
     size_t shift = 24 ;
 
     InAddr res = 0;
@@ -23,13 +23,13 @@ InAddr toAddr(const char* str) {
     const char *p = str;
     while (*p) {
         if (*p == '.') {
-            if (shift == 0) return InAddrNone;
+            if (shift == 0) return false;
 
             res |= (InAddr(byte) << shift);
             shift -= 8;
             byte = 0;
         } else {
-            if (!isdigit(*p)) return InAddrNone;
+            if (!isdigit(*p)) return false;
 
             byte *= 10;
             byte += *p - '0';
@@ -41,7 +41,9 @@ InAddr toAddr(const char* str) {
     // Last one
     res |= byte;
 
-    return res;
+    *out = res;
+    return true;
+
 }
 
 std::string cleanField(const std::string& str) {
@@ -224,8 +226,9 @@ GeoDatabase::load(
         if (cidrPos == std::string::npos) ip = std::move(subnet);
         else ip = subnet.substr(0, cidrPos);
 
-        auto addr = toAddr(ip.c_str());
-        if (addr == InAddrNone)
+        InAddr addr;
+        auto ok = toAddr(ip.c_str(), &addr);
+        if (!ok)
             throw ML::Exception("Encountered invalid IP '%s', line '%lu'", ip.c_str(), count);
 
         auto geoNameId = std::stoi(geoName);
@@ -326,8 +329,9 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
         return NoEntry;
     }
 
-    auto addr = toAddr(context.ip.c_str());
-    if (addr == InAddrNone) {
+    InAddr addr;
+    bool ok = toAddr(context.ip.c_str(), &addr);
+    if (!ok) {
         recordUnmatch("invalidIp");
         return NoEntry;
     }

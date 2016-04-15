@@ -15,12 +15,21 @@ using namespace RTBKIT;
 using namespace Datacratic;
 using namespace Jamloop;
 
-constexpr const char *IpFile       = "configs/GeoLite2-City-Blocks-IPv4.csv.gz";
-constexpr const char *LocationFile = "configs/GeoLite2-City-Locations-en.csv.gz";
+constexpr const char *IpFile       = "configs/GeoIP2-City-Blocks-IPv4.csv.gz";
+constexpr const char *LocationFile = "configs/GeoIP2-City-Locations-en.csv.gz";
 
 BOOST_AUTO_TEST_CASE( test_ip_addr ) {
-    BOOST_CHECK_EQUAL(toAddr("23.5.178.10"), 23UL << 24 | 5UL << 16 | 178UL << 8 | 10 << 0);
-    BOOST_CHECK_EQUAL(toAddr("1.4.1.0"),     1UL << 24  | 4UL << 16 | 1UL << 8   | 0 << 0);
+    auto check = [](const char* ip, InAddr expected) {
+        InAddr addr;
+        bool ok = toAddr(ip, &addr);
+
+        BOOST_CHECK(ok);
+        BOOST_CHECK_EQUAL(expected, addr);
+    };
+
+    check("23.5.178.10"    , 23UL << 24 | 5UL << 16 | 178UL << 8 | 10 << 0);
+    check("1.4.1.0"        , 1UL << 24  | 4UL << 16 | 1UL << 8   | 0 << 0);
+    check("255.255.255.255", 255UL << 24 | 255UL << 16 | 255UL << 8 | 255 << 0);
 }
 
 namespace IP {
@@ -82,7 +91,11 @@ struct Range {
     static Range fromCIDR(const char* subnet, int bits) {
         uint32_t mask = (uint32_t(-1) << (32 - bits)) & uint32_t(-1);
 
-        auto addr = toAddr(subnet);
+        InAddr addr;
+
+        bool ok = toAddr(subnet, &addr);
+        if (!ok) throw ML::Exception("Invalid subnet address '%s'", subnet);
+
         auto last = addr | ~mask;
 
         return Range(Iterator(addr, 0), Iterator(last, 0));
@@ -104,11 +117,11 @@ const struct Data {
     std::string country;
     std::string region;
 } Tests[] = {
-    { CIDR(24.94.248.0, 24), 606, "36362", "US", "AL" },
-    { CIDR(71.44.104.0, 24), 698, "36024", "US", "AL" },
+    { CIDR(24.94.248.0, 24), 606, "36322", "US", "AL" },
+    { CIDR(71.44.104.0, 24), 698, "36109", "US", "AL" },
     { CIDR(97.67.115.0, 24), 522, "36027", "US", "AL" },
-    { CIDR(98.214.32.0, 25), 717, "62351", "US", "IL" },
-    { CIDR(99.44.32.0, 22), 825, "91932", "US", "CA" }
+    { CIDR(98.214.32.0, 22), 717, "62301", "US", "IL" },
+    { CIDR(99.44.32.0, 24), 825, "92154", "US", "CA" }
 };
 
 } // namespace IP
