@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04171672982378,
+        "id": 04171672982358,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -37,16 +37,6 @@
         }
     }
     ],
-   "augmentations": {
-    "viewability": {
-      "required": true,
-      "config": {
-        "viewTreshold": 40,
-        "unknownStrategy": "bid"
-      },
-      "filters": { "include": ["pass-viewability"], "exclude": [] }
-      }
-    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:MSP_cTV",
