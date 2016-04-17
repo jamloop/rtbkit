@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04161074077581,
+        "id": 04170774077581,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0416740775",
+              "lid": "0417740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "10000000000USD/1M",
-        "pace": "13888USD/1M",
+        "pace": "138888USD/1M",
         "price": "6100USD/1M",
         "priority": 11
     }

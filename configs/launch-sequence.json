@@ -216,45 +216,45 @@
       "log": true
     },
     {
-      "name": "agent-COM_w350_HV", 
+      "name": "agent-COM_w350_NV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w350_HV",
+        "--service-name", "useast1b.rtb1.agent_COM_w350_NV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w350_HV.json",
+        "--agent-configuration", "configs/COM_w350_NV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w350_HV_KV", 
+      "name": "agent-COM_w350_NV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w350_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_COM_w350_NV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w350_HV_KV.json",
+        "--agent-configuration", "configs/COM_w350_NV_KV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w300_HV", 
+      "name": "agent-COM_w300_NV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w300_HV",
+        "--service-name", "useast1b.rtb1.agent_COM_w300_NV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w300_HV.json",
+        "--agent-configuration", "configs/COM_w300_NV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w300_HV_KV", 
+      "name": "agent-COM_w300_NV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w300_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_COM_w300_NV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w300_HV_KV.json",
+        "--agent-configuration", "configs/COM_w300_NV_KV.json",
         "--use-http-banker"
       ],
       "log": true
@@ -854,45 +854,45 @@
       "log": true
     },
     {
-      "name": "agent-SPM_w350_HV", 
+      "name": "agent-SPM_w350_NV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w350_HV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w350_NV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w350_HV.json",
+        "--agent-configuration", "configs/SPM_w350_NV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w350_HV_KV", 
+      "name": "agent-SPM_w350_NV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w350_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w350_NV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w350_HV_KV.json",
+        "--agent-configuration", "configs/SPM_w350_NV_KV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w300_HV", 
+      "name": "agent-SPM_w300_NV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w300_HV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w300_NV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w300_HV.json",
+        "--agent-configuration", "configs/SPM_w300_NV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w300_HV_KV", 
+      "name": "agent-SPM_w300_NV_KV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w300_HV_KV",
+        "--service-name", "useast1b.rtb1.agent_SPM_w300_NV_KV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w300_HV_KV.json",
+        "--agent-configuration", "configs/SPM_w300_NV_KV.json",
         "--use-http-banker"
       ],
       "log": true
