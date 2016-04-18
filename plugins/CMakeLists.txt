@@ -44,10 +44,10 @@ add_library(liverail_exchange SHARED liverail_exchange_connector.cc)
 target_link_libraries(liverail_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options)
 
 set(VIEWABILITY_SERVICE_SRC viewability_augmentor.cc viewability_service.cc file_watcher.cc)
-set(VIEWABILITY_SERVICE_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request gc boost_program_options agent_configuration)
+set(AUGMENTOR_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request gc boost_program_options agent_configuration)
 
 add_library(viewability_service SHARED ${VIEWABILITY_SERVICE_SRC})
-target_link_libraries(viewability_service ${VIEWABILITY_SERVICE_LINK})
+target_link_libraries(viewability_service ${AUGMENTOR_LINK})
 
 add_executable(viewability_service_runner viewability_service_runner.cc)
 target_link_libraries(viewability_service_runner viewability_service boost_system boost_program_options boost_thread)
@@ -55,7 +55,19 @@ target_link_libraries(viewability_service_runner viewability_service boost_syste
 add_library(adaptv_exchange SHARED adaptv_exchange_connector.cc)
 target_link_libraries(adaptv_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
+add_library(adaptvhv_exchange SHARED adaptvhv_exchange_connector.cc)
+target_link_libraries(adaptvhv_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
+
 add_library(publisher_exchange SHARED publisher_connector.cc)
 target_link_libraries(publisher_exchange rtb exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options)
+
+add_library(geo_pipeline SHARED geo_pipeline.cc)
+target_link_libraries(geo_pipeline rtb jsoncpp)
+
+add_library(forensiq_augmentor SHARED forensiq_augmentor.cc)
+target_link_libraries(forensiq_augmentor ${AUGMENTOR_LINK})
+
+add_executable(forensiq_augmentor_runner forensiq_augmentor_runner.cc)
+target_link_libraries(forensiq_augmentor_runner forensiq_augmentor boost_system boost_program_options boost_thread)
 
 add_subdirectory(testing)

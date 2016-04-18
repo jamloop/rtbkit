@@ -9,6 +9,7 @@
 
 #include "rtbkit/plugins/exchange/openrtb_exchange_connector.h"
 #include "rtbkit/common/creative_configuration.h"
+#include "soa/service/logs.h"
 
 namespace JamLoop {
 
@@ -60,6 +61,12 @@ public:
     typedef RTBKIT::CreativeConfiguration<CreativeInfo> AdaptvCreativeConfiguration;
 
 private:
+    struct Logs {
+        static Datacratic::Logging::Category print;
+        static Datacratic::Logging::Category trace;
+        static Datacratic::Logging::Category error;
+    };
+
     void initCreativeConfiguration();
     void setSeatBid(const RTBKIT::Auction& auction,
                     int spotNum,

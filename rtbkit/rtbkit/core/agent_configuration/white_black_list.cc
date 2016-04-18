@@ -87,6 +87,9 @@ namespace JamLoop {
         else if (tryMatch(black, domain, url))
             return Result::Blacklisted;
 
+        if (white.empty())
+            return Result::Whitelisted;
+
         return Result::NotFound;
     }
 

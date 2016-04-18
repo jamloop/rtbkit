@@ -20,6 +20,21 @@
 
 namespace RTBKIT {
 
+namespace {
+    OpenRTB::Geo *getGeo(const BidRequest& br) {
+        if (br.user) {
+            if (br.user->geo)
+                return br.user->geo.get();
+        }
+        if (br.device) {
+            if (br.device->geo)
+                return br.device->geo.get();
+        }
+
+        return nullptr;
+    }
+}
+
 template <typename CreativeData>
 class CreativeConfiguration
 {
@@ -188,7 +203,7 @@ public:
                         return SP_long;
                     }
                 }
-                return "UNKNOWN"; 
+                return ""; 
             } 
         },
         {
@@ -197,7 +212,7 @@ public:
                 if (ctx.bidrequest.device && !ctx.bidrequest.device->ip.empty()) {
                     return ctx.bidrequest.device->ip; 
                 }
-                return "UNKNOWN";
+                return "";
             }
         },
         {
@@ -206,7 +221,7 @@ public:
                 if (!ctx.bidrequest.language.empty()) {
                     return ctx.bidrequest.language.rawString();
                 }
-                return "UNKNOWN";
+                return "";
             }
 	},
         {
@@ -215,7 +230,7 @@ public:
                 if (!ctx.bidrequest.ipAddress.empty()) {
                     return ctx.bidrequest.ipAddress;
                 }
-                return "UNKNOWN";
+                return "";
             }
         },
         {
@@ -224,13 +239,83 @@ public:
                 if (!ctx.bidrequest.userAgent.empty()) {
                     return ctx.bidrequest.userAgent.rawString();
                 }
-                return "UNKNOWN";
+                return "";
             }
         },
         {
             "bidrequest.timestamp",
             [](const Context& ctx)
             { return std::to_string( ctx.bidrequest.timestamp.secondsSinceEpoch() ); }
+        },
+        {
+            "bidrequest.geo.zip",
+            [](const Context& ctx) -> std::string {
+                auto geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->zip.empty())
+                        return geo->zip.rawString();
+                }
+
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.region",
+            [](const Context& ctx) -> std::string {
+                auto geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->region.empty())
+                        return geo->region;
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.country",
+            [](const Context& ctx) -> std::string {
+                auto geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->country.empty())
+                        return geo->country;
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.metro",
+            [](const Context& ctx) -> std::string {
+                auto* geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->metro.empty())
+                        return geo->metro;
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.geo.city",
+            [](const Context& ctx) -> std::string {
+                auto* geo = getGeo(ctx.bidrequest);
+                if (geo) {
+                    if (!geo->city.empty())
+                        return geo->city.rawString();
+                }
+                return "";
+            }
+        },
+        {
+            "bidrequest.device.type",
+            [](const Context& ctx) -> std::string {
+                const auto& br = ctx.bidrequest;
+                if (br.device) {
+                    auto type = static_cast<OpenRTB::DeviceType::Vals>(br.device->devicetype.val);
+                    if (type !=  OpenRTB::DeviceType::Vals::UNSPECIFIED) {
+                        return std::to_string(br.device->devicetype.val);
+                    }
+                }
+
+                return "";
+            }
         },
 
         {

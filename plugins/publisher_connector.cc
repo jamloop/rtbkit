@@ -31,6 +31,61 @@ namespace Jamloop {
         static constexpr double MaxAuctionTime = 100.0;
     }
 
+#define VIDEO_TYPES \
+    VIDEO_TYPE(Instream    , "instream")     \
+    VIDEO_TYPE(Outstream   , "outstream")    \
+    VIDEO_TYPE(Inbanner    , "inbanner")     \
+    VIDEO_TYPE(Interstitial, "interstitial") \
+    VIDEO_TYPE(Ingame      , "ingame")       \
+    VIDEO_TYPE(Inapp       , "inapp")
+
+#define DEVICE_IDS \
+    DEVICE_ID(Idfa    , "idfa") \
+    DEVICE_ID(IdfaMd5 , "idfa_md5") \
+    DEVICE_ID(IdfaSha1, "idfa_sha1") \
+    DEVICE_ID(Aid     , "aid") \
+    DEVICE_ID(AidMd5  , "aid_md5") \
+    DEVICE_ID(AidSha1 , "aid_sha1")
+
+    enum class VideoType {
+    #define VIDEO_TYPE(val, _) val,
+        VIDEO_TYPES
+    #undef VIDEO_TYPE
+    };
+
+    enum class DeviceId {
+    #define DEVICE_ID(val, _) val,
+        DEVICE_IDS
+    #undef DEVICE_ID
+    };
+
+    const char *videoTypeString(VideoType type) {
+        switch (type) {
+        #define VIDEO_TYPE(val, str) \
+            case VideoType::val: return str;
+        VIDEO_TYPES
+        #undef VIDEO_TYPE
+        }
+
+        return "";
+    }
+
+    const char *deviceIdString(DeviceId id) {
+        switch (id) {
+        #define DEVICE_ID(val, str) \
+            case DeviceId::val: return str;
+        DEVICE_IDS
+        #undef DEVICE_ID
+        }
+
+        return "";
+    }
+
+    enum class Flag {
+        Required,
+        Optional
+    };
+
     namespace {
         Id generateUniqueId() {
             boost::uuids::random_generator gen;
@@ -80,6 +135,51 @@ namespace Jamloop {
                     return pos;
                 }
             };
+
+            template<> struct LexicalCast<VideoType>
+            {
+                static VideoType cast(const std::string& value) {
+                #define VIDEO_TYPE(val, str) \
+                    if (value == str) return VideoType::val;
+                VIDEO_TYPES
+                #undef VIDEO_TYPE
+                    throw ML::Exception("Unknown video type '%s'", value.c_str());
+                }
+            };
+
+            template<> struct LexicalCast<DeviceId>
+            {
+                static DeviceId cast(const std::string& value) {
+                #define DEVICE_ID(val, str) \
+                    if (value == str) return DeviceId::val;
+                    DEVICE_IDS
+                #undef DEVICE_ID
+                    throw ML::Exception("Unknown device type '%s'", value.c_str());
+                }
+            };
+
+            template<> struct LexicalCast<OpenRTB::DeviceType>
+            {
+                static OpenRTB::DeviceType cast(const std::string& value) {
+                    OpenRTB::DeviceType res;
+                    if (value == "2" || value == "desktop") {
+                        res.val = static_cast<int>(OpenRTB::DeviceType::Vals::PC);
+                    }
+                    else if (value == "3" || value == "ctv") {
+                        res.val = static_cast<int>(OpenRTB::DeviceType::Vals::TV);
+                    }
+                    else if (value == "4" || value == "phone") {
+                        res.val = static_cast<int>(OpenRTB::DeviceType::Vals::PHONE);
+                    }
+                    else if (value == "5" || value == "tablet") {
+                        res.val = static_cast<int>(OpenRTB::DeviceType::Vals::TABLET);
+                    }
+                    else {
+                        throw ML::Exception("Unknown devicetype '%s'", value.c_str());
+                    }
+                    return res;
+                }
+            };
         }
 
         template<typename Param>
@@ -88,12 +188,17 @@ namespace Jamloop {
         } 
 
         template<typename Param>
-        void extractParam(const RestParams& params, const char* name, Param& out) {
-            if (!params.hasValue(name))
-                throw ML::Exception("Could not find query param '%s'", name);
+        bool extractParam(const RestParams& params, const char* name, Param& out, Flag flag = Flag::Optional) {
+            if (!params.hasValue(name)) {
+                if (flag == Flag::Required) {
+                    throw ML::Exception("Could not find required query param '%s'", name);
+                }
+                return false;
+            }
 
             auto value = params.getValue(name);
             out = param_cast<Param>(value);
+            return true;
         }
     }
 
@@ -131,6 +236,68 @@ namespace Jamloop {
             [](const PublisherCreativeConfiguration::Context& context) {
                 const double price = context.bidrequest.ext["price"].asDouble();
                 return std::to_string(price / 1000.0);
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.site.page",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return std::string("apps://") + br.app->name.rawString() + '/';
+
+                return br.site->page.toString();
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.app.storeurl",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return br.app->storeurl.toString();
+
+                return std::string("");
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.app.bundle",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return br.app->bundle.rawString();
+
+                return std::string();
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.app.name",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.app)
+                    return br.app->name.rawString();
+
+                return std::string();
+        });
+
+        creativeConfig.addExpanderVariable(
+            "bidrequest.pos",
+            [](const PublisherCreativeConfiguration::Context& context) {
+                const auto& br = context.bidrequest;
+                if (br.device) {
+                    using OpenRTB::DeviceType;
+                    auto type = static_cast<DeviceType::Vals>(br.device->devicetype.val);
+                    switch (type) {
+                    case DeviceType::Vals::PC:
+                        return std::string("pc");
+                    case DeviceType::Vals::TV:
+                        return std::string("tv");
+                    case DeviceType::Vals::PHONE:
+                        return std::string("phone");
+                    case DeviceType::Vals::TABLET:
+                        return std::string("tablet");
+                    }
+                }
+
+                return std::string();
         });
 
         creativeConfig.addField(
@@ -205,18 +372,55 @@ namespace Jamloop {
             Datacratic::Optional<OpenRTB::User> user;
             user.reset(new OpenRTB::User());
 
+            Datacratic::Optional<OpenRTB::App> app;
+            app.reset(new OpenRTB::App());
+
             int width, height;
+            double lat, lon;
+            lat = lon = 0.0;
+            VideoType videoType;
+            DeviceId did;
+            std::string appName;
+            std::string partner;
+
             const auto& queryParams = header.queryParams;
             extractParam(queryParams, "width", width);
             extractParam(queryParams, "height", height);
             extractParam(queryParams, "ip", device->ip);
             extractParam(queryParams, "ua", device->ua);
+            extractParam(queryParams, "devicetype", device->devicetype);
             extractParam(queryParams, "lang", content->language);
             extractParam(queryParams, "pageurl", site->page);
-            extractParam(queryParams, "partner", user->id);
+            extractParam(queryParams, "partner", partner);
+            extractParam(queryParams, "app_storeurl", app->storeurl);
+            extractParam(queryParams, "app_bundle", app->bundle);
+            extractParam(queryParams, "appName", app->name);
+
+            if (extractParam(queryParams, "videotype", videoType)) {
+                br->ext["videotype"] = videoTypeString(videoType);
+            }
+            if (extractParam(queryParams, "deviceid", did)) {
+                br->ext["deviceid"] = deviceIdString(did);
+            }
+
+            auto pos = partner.find('_');
+            if (pos != std::string::npos) {
+                user->id = Id(partner.substr(0, pos));
+            } else {
+                user->id = Id(partner);
+            }
+
+            auto hasLat = extractParam(queryParams, "lat", lat);
+            auto hasLon = extractParam(queryParams, "lon", lon);
 
             video->w = width;
             video->h = height;
+
+            if (hasLat || hasLon) {
+                user->geo.reset(new OpenRTB::Geo);
+                user->geo->lat = lat;
+                user->geo->lon = lon;
+            }
 
             double price = 0.0;
             extractParam(queryParams, "price", price);
@@ -227,9 +431,12 @@ namespace Jamloop {
             br->site = std::move(site);
             br->user = std::move(user);
             br->url = br->site->page;
+            br->app = std::move(app);
+            br->userAgent = br->device->ua;
             spot.video = std::move(video);
             spot.formats.push_back(Format(width, height));
             br->imp.push_back(std::move(spot));
+
 
         } catch (const std::exception& e) {
             LOG(Logs::error) << "Error when processing request: " << e.what();

@@ -176,3 +176,30 @@ BOOST_AUTO_TEST_CASE( white_black_list_directory )
     auto br4 = makeBr("http://www.foxbusiness.com/markets/2015/10/26/gold-rises-on-dipping-dollar-fed-uncertainty/?intcmp=marketfeatures", Level::Url);
     doCheck(br4, "white", { 0 });
 }
+
+BOOST_AUTO_TEST_CASE( empty_white_list ) {
+    WhiteBlackListFilter filter;
+    ConfigSet configMask;
+
+    auto doCheck = [&] (
+            BidRequest& request,
+            const string& exchangeName,
+            const initializer_list<size_t>& expected)
+    {
+        check(filter, request, exchangeName, configMask, expected);
+    };
+
+    auto c0 = makeConfig({ }, { "bad.com", "bbc.com" });
+    auto c1 = makeConfig({ "good.com", "bbc.com" }, { });
+    auto c2 = makeConfig({"foxbusiness.com", "nytimes.com/info", "lyrics.com" }, { "bad.com" });
+
+    addConfig(filter, 0, c0);   configMask.set(0);
+    addConfig(filter, 1, c1);   configMask.set(1);
+    addConfig(filter, 2, c2);   configMask.set(2);
+
+    auto br0 = makeBr("bad.com", Level::Site);
+    auto br1 = makeBr("good.com", Level::Site);
+
+    doCheck(br0, "bad", { });
+    doCheck(br1, "good", { 0, 1 });
+}

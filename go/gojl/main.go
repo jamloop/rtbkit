@@ -46,6 +46,7 @@ func main() {
 	black := flag.String("black", "", "address of a REDIS cluster")
 	white := flag.String("white", "", "address of a REDIS cluster")
 	color := flag.String("color", "black", "name of the color handling reads")
+	lookup := flag.String("lookup", "full", "Format of lookup to use (full or partial)")
 	cpu := flag.Int("cpu", 1, "number of CPU to use")
 
 	flag.Parse()
@@ -96,7 +97,7 @@ func main() {
 		log.Fatal("color must be either 'black' or 'white'")
 	}
 
-	get := `
+	fullGet := `
 		-- KEYS is { Host }
 		-- ARGV is { Path, Width, Exchange, Publisher, Position }
 
@@ -168,6 +169,58 @@ func main() {
 		end
 		return
 	`
+
+	partialGet := `
+		-- KEYS is { Host }
+		-- ARGV is { Path, Width, Exchange, Publisher, Position }
+
+		local h = "{"..KEYS[1].."}"
+		local u = h..ARGV[1]
+		local w = ":"..ARGV[2]
+		local p = ":"..ARGV[3]..":"..ARGV[4]
+		local q = ":"..ARGV[5]
+
+		if w ~= ":" and p ~= "::" then
+			-- url+width+publisher+position
+			if q ~= ":" then
+				local x = redis.pcall("GET", u..w..p..q)
+				if x then
+				    return {x, "Hit1PageWidthPublisherPosition"}
+				end
+			end
+
+			-- url+width+publisher
+			local x = redis.pcall("GET", u..w..p..":")
+			if x then
+			    return {x, "Hit2PageWidthPublisher"}
+			end
+		end
+		-- url+width
+		if w ~= ":" then
+			local x = redis.pcall("GET", u..w..":::")
+			if x then
+			    return {x, "Hit3PageWidth"}
+			end
+		end
+		-- url+publisher
+		if p ~= "::" then
+			local x = redis.pcall("GET", u..":"..p..":")
+			if x then
+			    return {x, "Hit4PagePublisher"}
+			end
+		end
+		-- url
+		local x = redis.call("GET", u.."::::")
+		if x then
+		    return {x, "Hit5Page"}
+		end
+		return
+	`
+
+	get := fullGet
+	if lookup != nil && *lookup == "partial" {
+		get = partialGet
+	}
 
 	router.white.get, err = router.white.Client.LuaScript(get)
 	if err != nil {
