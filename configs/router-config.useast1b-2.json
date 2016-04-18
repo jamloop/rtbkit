@@ -54,7 +54,7 @@
     "exchangeType": "publisher",
     "listenPort": 19975,
     "numThreads": 2,
-    "realTimePolling": false,
+    "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "GET",
     "auctionResource": "/vast2",
