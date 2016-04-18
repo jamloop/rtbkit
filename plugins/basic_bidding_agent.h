@@ -58,6 +58,8 @@ private:
     Amount pace;
     Amount price;
     double priority;
+    std::mutex amount_mutex;
+    Amount total_amount_spent_on_wins_since_last_topup;
 
     // connection to the banker for pacing and budget
     std::shared_ptr<BudgetController> banker;

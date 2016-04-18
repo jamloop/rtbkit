@@ -48,6 +48,11 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
     // setup bidding
     onBidRequest = bind(&BasicBiddingAgent::bid, this, _1, _2, _3, _4, _5, _6, _7);
 
+    onWin = onLateWin =  [&] (const BidResult & bid_result) {
+        std::lock_guard<std::mutex> lck(amount_mutex);
+        total_amount_spent_on_wins_since_last_topup += bid_result.secondPrice;
+    };
+
     // setup pacing
     if (!pace.isZero()) {
         addPeriodic("BasicBiddingAgent::pace", 60.0, [&](uint64_t) {
@@ -135,12 +140,26 @@ void BasicBiddingAgent::pacing() {
             LOG(trace) << "Setting budget for campaign '" << config.account[0] << "' to " << budget << std::endl;
             banker->setBudgetSync(config.account[0], budget);
 
-            ready = true;
-        }
+            Amount needed_by_pal = MicroUSD(100000);
+            Amount init_amount = pace + needed_by_pal;
+            LOG(trace) << "Transferring init amount " << init_amount.toString()
+                       << " to account " << config.account.toString() << std::endl;
+            banker->topupTransferSync(config.account,pace);
 
-        // transfer a bit of money to bidder's account
-        LOG(trace) << "Transfering " << pace << std::endl;
-        banker->topupTransferSync(config.account, pace);
+            ready = true;
+        } else {
+
+            Amount amount_to_transfer = MicroUSD(0);
+            {
+                std::lock_guard<std::mutex> lck(amount_mutex);
+                amount_to_transfer =
+                    std::min(total_amount_spent_on_wins_since_last_topup,pace);
+                total_amount_spent_on_wins_since_last_topup -=
+                    std::min(total_amount_spent_on_wins_since_last_topup,pace);
+            }
+
+            banker->topupTransferSync(config.account, amount_to_transfer);
+        }
     } catch (const ML::Exception& e) {
         LOG(error) << "Exception during pacing: " << e.what() << std::endl;
     }
