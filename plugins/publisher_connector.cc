@@ -346,6 +346,7 @@ namespace Jamloop {
         auto br = std::make_shared<BidRequest>();
 
         try {
+            JML_TRACE_EXCEPTIONS(false);
             Scope_Failure(br.reset());
 
             br->auctionId = generateUniqueId();
@@ -439,7 +440,7 @@ namespace Jamloop {
 
 
         } catch (const std::exception& e) {
-            LOG(Logs::error) << "Error when processing request: " << e.what();
+            //LOG(Logs::error) << "Error when processing request: " << e.what();
             handler.dropAuction();
         }
 
