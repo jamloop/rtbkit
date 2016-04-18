@@ -66,15 +66,29 @@
       "log": true
     },
     {
-      "name": "router",
+      "name": "router-1",
       "root": ".", "path": "./bin/router_runner",
       "arg": [
-        "--service-name", "useast1b.rtb1.router",
+        "--service-name", "useast1b.rtb1.router1",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.useast1b.json",
+        "--exchange-configuration", "configs/router-config.useast1b-1.json",
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
-        "--spend-rate", "2000000USD/1M",
+        "--spend-rate", "400000USD/1M",
+        "--augmenter-timeout", "15"
+      ],
+      "log": true
+    },
+    {
+      "name": "router-2",
+      "root": ".", "path": "./bin/router_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb1.router2",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--exchange-configuration", "configs/router-config.useast1b-2.json",
+        "--bidder", "configs/bidder-config.json",
+        "--use-http-banker",
+        "--spend-rate", "400000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
