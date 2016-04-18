@@ -194,17 +194,6 @@
       "log": true
     },
     {
-      "name": "agent-chan_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-DAL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
