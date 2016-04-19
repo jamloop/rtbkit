@@ -49,7 +49,6 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
     onBidRequest = bind(&BasicBiddingAgent::bid, this, _1, _2, _3, _4, _5, _6, _7);
 
     onWin = onLateWin =  [&] (const BidResult & bid_result) {
-        std::lock_guard<std::mutex> lck(amount_mutex);
         total_amount_spent_on_wins_since_last_topup += bid_result.secondPrice;
     };
 
@@ -148,15 +147,12 @@ void BasicBiddingAgent::pacing() {
 
             ready = true;
         } else {
-
-            Amount amount_to_transfer = MicroUSD(0);
-            {
-                std::lock_guard<std::mutex> lck(amount_mutex);
-                amount_to_transfer =
-                    std::min(total_amount_spent_on_wins_since_last_topup,pace);
-                total_amount_spent_on_wins_since_last_topup -=
-                    std::min(total_amount_spent_on_wins_since_last_topup,pace);
-            }
+            // Compute the amount that will be transfered to the child account
+            Amount amount_to_transfer =
+                std::min(total_amount_spent_on_wins_since_last_topup,pace);
+            // Update the amount spent on wins since last topup
+            total_amount_spent_on_wins_since_last_topup -=
+                std::min(total_amount_spent_on_wins_since_last_topup,pace);
 
             banker->topupTransferSync(config.account, amount_to_transfer);
         }
