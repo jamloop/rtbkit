@@ -188,7 +188,7 @@ namespace Jamloop {
         } 
 
         template<typename Param>
-        bool extractParam(const RestParams& params, const char* name, Param& out, Flag flag = Flag::Optional) {
+        bool extractParam(const RestParams& params, const char* name, Param& out, Param defaultValue = Param(), Flag flag = Flag::Optional) {
             if (!params.hasValue(name)) {
                 if (flag == Flag::Required) {
                     throw ML::Exception("Could not find required query param '%s'", name);
@@ -197,6 +197,11 @@ namespace Jamloop {
             }
 
             auto value = params.getValue(name);
+            if (value.empty()) {
+                out = defaultValue;
+                return false;
+            }
+
             out = param_cast<Param>(value);
             return true;
         }
@@ -411,8 +416,8 @@ namespace Jamloop {
                 user->id = Id(partner);
             }
 
-            auto hasLat = extractParam(queryParams, "lat", lat);
-            auto hasLon = extractParam(queryParams, "lon", lon);
+            auto hasLat = extractParam(queryParams, "lat", lat, std::numeric_limits<double>::quiet_NaN());
+            auto hasLon = extractParam(queryParams, "lon", lon, std::numeric_limits<double>::quiet_NaN());
 
             video->w = width;
             video->h = height;
