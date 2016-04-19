@@ -46,6 +46,102 @@ bool toAddr(const char* str, InAddr* out) {
 
 }
 
+struct Subnet {
+    explicit Subnet(InAddr addr, int bits)
+        : bits_(bits)
+        , mask_(createMask(bits))
+        , host_(addr & mask_)
+    {
+        createString();
+    }
+
+    bool isIn(InAddr addr) const {
+        return (addr & mask_) == host_;
+    }
+
+    bool isIn(const std::string& ip) const {
+        InAddr addr;
+        bool ok = toAddr(ip.c_str(), &addr);
+        if (!ok) return false;
+
+        return isIn(addr);
+    }
+
+    std::string toString() const {
+        return str_;
+    }
+
+private:
+    int bits_;
+    uint32_t mask_;
+    InAddr host_;
+
+    std::string str_;
+
+    uint32_t createMask(int bits) const {
+        ExcCheck(bits > 0, "Invalid bits (must be > 0)");
+        ExcCheck(bits <= 32, "Invalid bits (must be <= 32)");
+
+        uint32_t mask = (uint32_t(-1) << (32 - bits)) & uint32_t(-1);
+        return mask;
+    }
+
+    void createString() {
+        std::ostringstream oss;
+        uint8_t a = (host_ >> 24) & 0xFF;
+        uint8_t b = (host_ >> 16) & 0xFF;
+        uint8_t c = (host_ >> 8) & 0xFF;
+        uint8_t d = (host_ >> 0) & 0xFF;
+
+        oss << a << '_' << b << '_' << c << '_' << d << '#' << bits_;
+        str_ = oss.str();
+    }
+};
+
+struct Ipv4 {
+    Ipv4(InAddr addr)
+        : addr(addr)
+    { }
+
+    static Ipv4 fromString(const char* str) {
+        InAddr out;
+        bool ok = toAddr(str, &out);
+        if (!ok)
+            throw ML::Exception("Invalid IP address: '%s'", str);
+
+        return Ipv4(out);
+    }
+
+    InAddr addr;
+};
+
+#define IP(addr) Ipv4::fromString(#addr)
+
+Subnet operator/(Ipv4 ip, int bits) {
+    return Subnet(ip.addr, bits);
+}
+
+static Subnet BannedSubnets[] = {
+    IP(196.62.0.0)    / 24,
+    IP(161.8.128.0)   / 18,
+    IP(161.8.192.0)   / 19,
+    IP(161.8.224.0)   / 20,
+    IP(161.8.240.0)   / 20,
+    IP(161.8.248.0)   / 22,
+    IP(161.8.252.0)   / 23,
+    IP(161.8.253.0)   / 23,
+    IP(185.120.56.0)  / 24,
+    IP(212.22.65.0)   / 23,
+    IP(212.22.80.0)   / 23,
+    IP(212.22.82.0)   / 24,
+    IP(212.22.88.0)   / 24,
+    IP(212.22.89.0)   / 24,
+    IP(212.22.90.0)   / 24,
+    IP(212.22.91.0)   / 24,
+    IP(213.169.150.0) / 24
+};
+
+
 std::string cleanField(const std::string& str) {
     auto first = str.begin(), last = str.end();
     if (str.front() == '"')
@@ -396,6 +492,23 @@ GeoPipeline::postBidRequest(
 
     if (br->device);
         ip = br->device->ip;
+
+    if (!ip.empty()) {
+        auto it = std::find_if(std::begin(BannedSubnets), std::end(BannedSubnets), [&](const Subnet& subnet) {
+            return subnet.isIn(ip);
+        });
+
+
+        if (it != std::end(BannedSubnets)) {
+            auto subnet = *it;
+
+            recordHit("subnet.blacklist.total");
+            recordHit("subnet.blacklist.detail.%s", subnet.toString().c_str());
+
+            return PipelineStatus::Stop;
+        }
+
+    }
 
     double latitude, longitude;
     latitude = longitude = std::numeric_limits<double>::quiet_NaN();
