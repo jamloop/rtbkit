@@ -93,7 +93,7 @@ private:
         uint8_t c = (host_ >> 8) & 0xFF;
         uint8_t d = (host_ >> 0) & 0xFF;
 
-        oss << a << '.' << b << '.' << c << '.' << d << '/' << bits_;
+        oss << a << '_' << b << '_' << c << '_' << d << '#' << bits_;
         str_ = oss.str();
     }
 };
