@@ -5,9 +5,9 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04191774077549,
+        "id": 04191974077549,
         "type": "video",
-        "width": 300,
+        "width": 1,
         "height": 0,
         "duration": 30,
         "providerConfig": {
