@@ -75,6 +75,10 @@
         "include": [ "534" ],
         "exclude": [ ]
     },
+    "whiteBlackList": {
+      "whiteFile": "configs/blank",
+      "blackFile": "configs/facebook.csv"
+    },
     "ext": {
         "budget": "10000000000USD/1M",
         "pace": "111111USD/1M",
