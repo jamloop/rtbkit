@@ -63,7 +63,7 @@
         "--auction-seconds", "900.0",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-      ],
+      ]
       "log": true
     },
     {
