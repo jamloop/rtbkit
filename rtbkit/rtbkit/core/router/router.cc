@@ -1992,6 +1992,9 @@ doBidImpl(const BidMessage &message, const std::vector<std::string> &originalMes
 
     recordHit("bid");
 
+    const string & exchange = auctionInfo.auction->request->exchange;
+    recordHit("exchange.%s.bid", exchange.c_str());
+
     const auto& agent = message.agents[0];
     auto biddersIt = auctionInfo.bidders.find(agent);
     auto & config = *biddersIt->second.agentConfig;
