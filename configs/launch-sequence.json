@@ -62,8 +62,8 @@
         "--win-seconds", "3600.0",
         "--auction-seconds", "900.0",
         "--use-http-banker",
-        "--banker-sync-rate", "5.0",
-      ]
+        "--banker-sync-rate", "5.0"
+      ],
       "log": true
     },
     {
