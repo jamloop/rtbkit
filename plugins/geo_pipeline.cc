@@ -75,10 +75,10 @@ Subnet::toString() const {
 void
 Subnet::createString() {
     std::ostringstream oss;
-    uint8_t a = (host >> 24) & 0xFF;
-    uint8_t b = (host >> 16) & 0xFF;
-    uint8_t c = (host >> 8) & 0xFF;
-    uint8_t d = (host >> 0) & 0xFF;
+    int a = (host >> 24) & 0xFF;
+    int b = (host >> 16) & 0xFF;
+    int c = (host >> 8) & 0xFF;
+    int d = (host >> 0) & 0xFF;
 
     oss << a << '.' << b << '.' << c << '.' << d << '/' << bits;
     str_ = oss.str();
