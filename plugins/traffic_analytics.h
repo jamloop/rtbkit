@@ -26,7 +26,7 @@ public:
 
     class Result {
     public:
-        void dump(std::ostream& os);
+        void dump(std::ostream& os, int top, bool dma);
         void save(std::ostream& os) const;
 
         void record(const GeoDatabase::Result& result);

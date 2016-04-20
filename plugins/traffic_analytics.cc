@@ -112,20 +112,22 @@ TrafficAnalytics::TrafficAnalytics(
 { }
 
 void
-TrafficAnalytics::Result::dump(std::ostream& os) {
-    std::cout << "Stats: " << std::endl;
-    std::cout << "Total matched requests: " << total << std::endl;
-    std::cout << "DMA distribution:" << std::endl;
-
+TrafficAnalytics::Result::dump(std::ostream& os, int top, bool dma = true) {
     auto pct = [](size_t val, size_t max) {
         return (val * 100) / max;
     };
 
-    const std::string indent(4, ' ');
-    for (const auto& d: dmaDistribution) {
-        std::cout << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), total) << "%)" << std::endl;
-        std::cout << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
-        std::cout << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+    std::cout << "Stats: " << std::endl;
+    std::cout << "Total matched requests: " << total << std::endl;
+    if (dma) {
+        std::cout << "DMA distribution:" << std::endl;
+
+        const std::string indent(4, ' ');
+        for (const auto& d: dmaDistribution) {
+            std::cout << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), total) << "%)" << std::endl;
+            std::cout << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
+            std::cout << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+        }
     }
 
     std::cout << "Subnet distribution:" << std::endl;
@@ -134,7 +136,10 @@ TrafficAnalytics::Result::dump(std::ostream& os) {
             return lhs.second > rhs.second;
     });
 
-    for (const auto&s : subnetDistribution) {
+    size_t total = top == -1 ? subnetDistribution.size() : top;
+
+    for (size_t i = 0; i < top; ++i) {
+        const auto& s = subnetDistribution[i]; 
         std::cout << s.first.toString() << " -> " << s.second << " (" << pct(s.second, total) << "%)" << std::endl;
     }
 }
@@ -257,6 +262,9 @@ int main(int argc, char* argv[]) {
     std::string geoIpFile;
     std::string geoLocFile;
 
+    int top;
+    bool dma;
+
     auto opts = serviceArgs.makeProgramOptions();
     opts.add_options()
         ("duration", value<int>(&sampleDurationSeconds),
@@ -267,6 +275,10 @@ int main(int argc, char* argv[]) {
          "Location of the Geo Ipv4 file")
         ("geo-location-file", value<string>(&geoLocFile),
          "Location of the Geo locations file")
+        ("top", value<int>(&top)->default_value(-1),
+         "Only print the top subnets (-1 for all)")
+        ("dma", bool_switch(&dma)->default_value(false),
+         "Print DMAs")
         ("help,h", "Print this message");
 
     variables_map vm;
@@ -289,7 +301,7 @@ int main(int argc, char* argv[]) {
         for (auto& r: result) {
             std::cout << "Result for " << r.first << std::endl;
             std::cout << "----------------------------------------------" << std::endl;
-            r.second.dump(std::cout);
+            r.second.dump(std::cout, top, dma);
         }
     });
 
