@@ -145,7 +145,7 @@ struct GeoFixture {
 // but I did not find how to do it unfortunately
 BOOST_FIXTURE_TEST_SUITE(geo_suite, GeoFixture)
 
-#if 0
+#if 1
 BOOST_AUTO_TEST_CASE( test_ip_mapping )
 {
     for (auto test: IP::Tests) {
@@ -211,6 +211,7 @@ BOOST_AUTO_TEST_CASE( test_geo_mapping )
 }
 #endif
 
+#if 0
 BOOST_AUTO_TEST_CASE( test_metro_distribution )
 {
     struct Stats {
@@ -336,5 +337,6 @@ BOOST_AUTO_TEST_CASE( test_metro_distribution )
 
     stats.dump();
 }
+#endif
 
 BOOST_AUTO_TEST_SUITE_END()

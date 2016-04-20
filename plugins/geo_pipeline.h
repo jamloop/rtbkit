@@ -17,10 +17,28 @@ typedef uint32_t InAddr;
 static constexpr auto InAddrNone = InAddr(-1);
 InAddr toAddr(const char* str);
 
+struct Subnet {
+    Subnet();
+    explicit Subnet(InAddr ipv4, int bits);
+
+    uint32_t mask;
+    InAddr host;
+    int bits;
+
+    std::string toString() const;
+
+private:
+    uint32_t createMask(int bits) const;
+    void createString();
+    std::string str_;
+};
+
+bool operator==(const Subnet& lhs, const Subnet& rhs);
+
 struct GeoDatabase {
 
     enum class MatchType {
-        Ip,
+        Subnet,
         LatLon
     };
 
@@ -57,7 +75,7 @@ struct GeoDatabase {
         std::string region;
 
 
-        InAddr ip;
+        Subnet subnet;
     };
 
     GeoDatabase(
@@ -85,25 +103,21 @@ private:
         std::string countryCode;
         std::string region;
 
-        static Entry fromIp(InAddr ip);
+        static Entry fromSubnet(Subnet subnet);
         static Entry fromGeo(double latitude, double longitude);
 
-        InAddr ip() const;
+        Subnet subnet() const;
         std::pair<double, double> geo() const;
 
         bool isLocated(double latitude, double longitude) const;
 
         Result toResult(MatchType mt) const;
 
-        union {
-            struct {
-                InAddr ip;
-            };
-            struct {
-                double latitude;
-                double longitude;
-            };
-        } u;
+    private:
+        Subnet subnet_;
+
+        double latitude_;
+        double longitude_;
 
     };
 

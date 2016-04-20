@@ -21,7 +21,7 @@
 using namespace Datacratic;
 using namespace std;
 
-namespace JamLoop {
+namespace Jamloop {
 
 struct OneShotTimerEventSource : public AsyncEventSource {
     OneShotTimerEventSource()
@@ -105,12 +105,28 @@ private:
 };
 
 TrafficAnalytics::TrafficAnalytics(
+        GeoDatabase& db,
         std::string serviceName, std::shared_ptr<ServiceProxies> proxies)
     : ServiceBase(std::move(serviceName), std::move(proxies))
+    , geoDb(db)
 { }
 
 void
 TrafficAnalytics::Result::dump(std::ostream& os) const {
+    std::cout << "Stats: " << std::endl;
+    std::cout << "Total matched requests: " << total << std::endl;
+    std::cout << "DMA distribution:" << std::endl;
+
+    auto pct = [](size_t val, size_t max) {
+        return (val * 100) / max;
+    };
+
+    const std::string indent(4, ' ');
+    for (const auto& d: dmaDistribution) {
+        std::cout << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), total) << "%)" << std::endl;
+        std::cout << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
+        std::cout << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+    }
 }
 
 void
@@ -118,10 +134,71 @@ TrafficAnalytics::Result::save(std::ostream& os) const {
 }
 
 void
+TrafficAnalytics::Result::record(const GeoDatabase::Result& result) {
+    ++total;
+    auto& entry = dmaDistribution[result.metroCode];
+    
+    if (result.matchType == GeoDatabase::MatchType::LatLon)
+        ++entry.latLonCount;
+    else {
+        ++entry.ipCount;
+
+        auto it = std::find_if(subnetDistribution.begin(), subnetDistribution.end(),
+            [&](const std::pair<Subnet, int>& entry) {
+                return entry.first == result.subnet;
+        }); 
+
+        if (it == std::end(subnetDistribution)) {
+            auto newEntry = std::make_pair(result.subnet, 1);
+            subnetDistribution.push_back(newEntry);
+        } else {
+            auto& val = it->second;
+            ++val;
+        }
+    }
+}
+
+void
 TrafficAnalytics::run(std::chrono::seconds duration, TrafficAnalytics::OnFinish onFinish)
 {
+    this->onFinish = onFinish;
+    collector.onDone = [=](std::vector<Json::Value>&& requests) {
+        doStats(std::move(requests));
+    };
+
     collector.init(getServices(), duration);
     collector.start();
+}
+
+void
+TrafficAnalytics::doStats(std::vector<Json::Value>&& requests) {
+
+    std::unordered_map<std::string, Result> results;
+
+    for (const auto& request: requests) {
+        if (request.isMember("device")) {
+            auto device = request["device"];
+            if (device.isMember("ip")) {
+                auto ip = device["ip"].asString();
+                GeoDatabase::Context context {
+                    ip,
+                    std::numeric_limits<double>::quiet_NaN(),
+                    std::numeric_limits<double>::quiet_NaN()
+                }; 
+
+                bool found;
+                GeoDatabase::Result result;
+
+                std::tie(found, result) = geoDb.lookup(context);
+                if (found) {
+                    auto& excResult = results[request["exchange"].asString()];
+                    excResult.record(result);
+                } 
+            }
+        }
+    }
+
+    onFinish(std::move(results));
 }
 
 void
@@ -129,10 +206,13 @@ TrafficAnalytics::Collector::init(
         const std::shared_ptr<ServiceProxies>& proxies,
         std::chrono::seconds dur) {
 
+    requests.reserve(1e6);
+    shutdown = false;
     subscriber = std::make_shared<ZmqNamedMultipleSubscriber>(proxies->zmqContext);
     subscriber->init(proxies->config);
     subscriber->messageHandler = [&](vector<zmq::message_t>&& message) {
-        processMessage(std::move(message));
+        if (!shutdown)
+            processMessage(std::move(message));
     };
 
     subscriber->connectAllServiceProviders("rtbRequestRouter", "logger", { "AUCTION" });
@@ -144,12 +224,14 @@ TrafficAnalytics::Collector::init(
 
 void
 TrafficAnalytics::Collector::onTimer() {
-    std::cout << "Timer fired" << std::endl;
+    shutdown = true;
+    onDone(std::move(requests));
 }
 
 void
 TrafficAnalytics::Collector::processMessage(std::vector<zmq::message_t>&& message) {
-    std::cout << "Received BidRequest" << std::endl;
+    auto reqStr = message[2].toString();
+    requests.push_back(Json::parse(reqStr));
 }
 
 }
@@ -162,6 +244,8 @@ int main(int argc, char* argv[]) {
     int sampleDurationSeconds;
 
     std::string outFile;
+    std::string geoIpFile;
+    std::string geoLocFile;
 
     auto opts = serviceArgs.makeProgramOptions();
     opts.add_options()
@@ -169,6 +253,10 @@ int main(int argc, char* argv[]) {
          "Duration of the sample in seconds")
         ("out", value<std::string>(&outFile),
          "Name of the output file")
+        ("geo-ip-file", value<string>(&geoIpFile),
+         "Location of the Geo Ipv4 file")
+        ("geo-location-file", value<string>(&geoLocFile),
+         "Location of the Geo locations file")
         ("help,h", "Print this message");
 
     variables_map vm;
@@ -181,14 +269,18 @@ int main(int argc, char* argv[]) {
     }
 
     auto proxies = serviceArgs.makeServiceProxies();
-    auto serviceName = serviceArgs.serviceName("forensiq");
+    auto serviceName = serviceArgs.serviceName("traffic-analytics");
 
-    JamLoop::TrafficAnalytics analytics(serviceName, proxies);
-    analytics.run(std::chrono::seconds(sampleDurationSeconds), [&](const JamLoop::TrafficAnalytics::Result& result) {
-        result.dump(std::cout);
+    Jamloop::GeoDatabase db(serviceName, proxies);
+    db.load(geoIpFile, geoLocFile, Jamloop::GeoDatabase::Precision(0.1));
 
-        std::ofstream os(outFile);
-        result.save(os);
+    Jamloop::TrafficAnalytics analytics(db, serviceName, proxies);
+    analytics.run(std::chrono::seconds(sampleDurationSeconds), [&](std::unordered_map<std::string, Jamloop::TrafficAnalytics::Result>&& result) {
+        for (const auto& r: result) {
+            std::cout << "Result for " << r.first << std::endl;
+            std::cout << "----------------------------------------------" << std::endl;
+            r.second.dump(std::cout);
+        }
     });
 
     std::this_thread::sleep_for(std::chrono::seconds(12));

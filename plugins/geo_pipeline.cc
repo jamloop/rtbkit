@@ -44,6 +44,51 @@ InAddr toAddr(const char* str) {
     return res;
 }
 
+Subnet::Subnet()
+    : mask(0)
+    , host(0)
+    , bits(0)
+{ }
+
+Subnet::Subnet(InAddr ipv4, int bits)
+    : mask(createMask(bits))
+    , host(ipv4 & mask)
+    , bits(bits)
+{
+    createString();
+}
+
+uint32_t
+Subnet::createMask(int bits) const {
+    ExcCheck(bits > 0, "Invalid bits (must be > 0)");
+    ExcCheck(bits <= 32, "Invalid bits (must be <= 32)");
+
+    uint32_t mask = (uint32_t(-1) << (32 - bits)) & uint32_t(-1);
+    return mask;
+}
+
+std::string
+Subnet::toString() const {
+    return str_;
+}
+
+void
+Subnet::createString() {
+    std::ostringstream oss;
+    uint8_t a = (host >> 24) & 0xFF;
+    uint8_t b = (host >> 16) & 0xFF;
+    uint8_t c = (host >> 8) & 0xFF;
+    uint8_t d = (host >> 0) & 0xFF;
+
+    oss << a << '.' << b << '.' << c << '.' << d << '/' << bits;
+    str_ = oss.str();
+}
+
+bool operator==(const Subnet& lhs, const Subnet& rhs) {
+    return lhs.host == rhs.host && lhs.bits == rhs.bits;
+}
+
+
 std::string cleanField(const std::string& str) {
     auto first = str.begin(), last = str.end();
     if (str.front() == '"')
@@ -65,28 +110,29 @@ std::vector<std::string> split(const std::string& str, char c) {
 }
 
 GeoDatabase::Entry
-GeoDatabase::Entry::fromIp(InAddr ip) {
+GeoDatabase::Entry::fromSubnet(Subnet subnet) {
     Entry e;
-    e.u.ip = ip;
+    e.subnet_ = subnet;
+    e.latitude_ = e.longitude_ = std::numeric_limits<double>::quiet_NaN();
     return e;
 }
 
 GeoDatabase::Entry
 GeoDatabase::Entry::fromGeo(double latitude, double longitude) {
     Entry e;
-    e.u.latitude = latitude;
-    e.u.longitude = longitude;
+    e.latitude_ = latitude;
+    e.longitude_ = longitude;
     return e;
 }
 
-InAddr
-GeoDatabase::Entry::ip() const {
-    return u.ip;
+Subnet
+GeoDatabase::Entry::subnet() const {
+    return subnet_;
 }
 
 std::pair<double, double>
 GeoDatabase::Entry::geo() const {
-    return std::make_pair(u.latitude, u.longitude);
+    return std::make_pair(latitude_, longitude_);
 }
 
 bool
@@ -98,15 +144,15 @@ GeoDatabase::Entry::isLocated(double latitude, double longitude) const {
         return std::fabs(lhs - rhs) < Epsilon;
     };
 
-    return almostEquals(latitude, u.latitude) && almostEquals(longitude, u.longitude);
+    return almostEquals(latitude, latitude_) && almostEquals(longitude, longitude_);
 }
 
 GeoDatabase::Result
 GeoDatabase::Entry::toResult(MatchType mt) const {
     Result result { mt, metroCode, zipCode, countryCode, region };
 
-    if (mt == GeoDatabase::MatchType::Ip) {
-        result.ip = u.ip;
+    if (mt == GeoDatabase::MatchType::Subnet) {
+        result.subnet = subnet_;
     }
     
     return result;
@@ -226,9 +272,13 @@ GeoDatabase::load(
         auto longitude = fields.at(8);
 
         std::string ip;
+        int bits;
         auto cidrPos = subnet.find('/');
-        if (cidrPos == std::string::npos) ip = std::move(subnet);
-        else ip = subnet.substr(0, cidrPos);
+        if (cidrPos == std::string::npos) throw ML::Exception("Invalid CIDR '%s'", subnet.c_str());
+        else {
+            ip = subnet.substr(0, cidrPos);
+            bits = std::stoi(subnet.substr(cidrPos + 1));
+        }
 
         auto addr = toAddr(ip.c_str());
         if (addr == InAddrNone)
@@ -243,12 +293,12 @@ GeoDatabase::load(
 
         const auto& locationEntry = locationIt->second;
 
-        auto ipEntry = Entry::fromIp(addr);
-        ipEntry.metroCode = locationEntry.metroCode;
-        ipEntry.zipCode = postalCode;
-        ipEntry.countryCode = locationEntry.countryCode;
-        ipEntry.region = locationEntry.region;
-        d->subnets.push_back(ipEntry);
+        auto subnetEntry = Entry::fromSubnet(Subnet(addr, bits));
+        subnetEntry.metroCode = locationEntry.metroCode;
+        subnetEntry.zipCode = postalCode;
+        subnetEntry.countryCode = locationEntry.countryCode;
+        subnetEntry.region = locationEntry.region;
+        d->subnets.push_back(subnetEntry);
 
         auto geoEntry = Entry::fromGeo(std::stod(latitude), std::stod(longitude));
         geoEntry.metroCode = locationEntry.metroCode;
@@ -263,7 +313,7 @@ GeoDatabase::load(
     }
 
     std::sort(std::begin(d->subnets), std::end(d->subnets), [](const Entry& lhs, const Entry& rhs) {
-        return lhs.ip() < rhs.ip();
+        return lhs.subnet().host < rhs.subnet().host;
     });
 
     d->precision = precision;
@@ -315,7 +365,6 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
             for (const auto& entry: entries) {
                 if (entry.isLocated(context.latitude, context.longitude)) {
                     events->recordHit("match.latlon");
-                    std::cout << "Matched lat/lon" << std::endl;
                     return makeResult(entry, MatchType::LatLon);
                 }
             }
@@ -341,7 +390,7 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
 
     auto it = std::lower_bound(
             std::begin(data->subnets), std::end(data->subnets), addr, [&](const Entry& lhs, InAddr rhs) {
-            return lhs.ip() < rhs;
+            return lhs.subnet().host < rhs;
     });
 
     if (it == std::end(data->subnets) || it == std::begin(data->subnets)) {
@@ -349,11 +398,11 @@ GeoDatabase::lookup(const GeoDatabase::Context& context) {
         return NoEntry;
     }
 
-    if (it->ip() > addr)
+    if (it->subnet().host > addr)
         --it;
 
     events->recordHit("match.ip");
-    return makeResult(*it, MatchType::Ip);
+    return makeResult(*it, MatchType::Subnet);
 }
 
 void

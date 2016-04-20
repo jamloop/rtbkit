@@ -68,6 +68,6 @@ add_executable(forensiq_augmentor_runner forensiq_augmentor_runner.cc)
 target_link_libraries(forensiq_augmentor_runner forensiq_augmentor boost_system boost_program_options boost_thread)
 
 add_executable(traffic_analytics traffic_analytics.cc)
-target_link_libraries(traffic_analytics services utils jsoncpp arch boost_system boost_program_options zmq)
+target_link_libraries(traffic_analytics services utils jsoncpp arch geo_pipeline boost_system boost_program_options zmq types value_description bid_request)
 
 add_subdirectory(testing)
