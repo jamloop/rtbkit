@@ -112,7 +112,7 @@ TrafficAnalytics::TrafficAnalytics(
 { }
 
 void
-TrafficAnalytics::Result::dump(std::ostream& os) const {
+TrafficAnalytics::Result::dump(std::ostream& os) {
     std::cout << "Stats: " << std::endl;
     std::cout << "Total matched requests: " << total << std::endl;
     std::cout << "DMA distribution:" << std::endl;
@@ -126,6 +126,16 @@ TrafficAnalytics::Result::dump(std::ostream& os) const {
         std::cout << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), total) << "%)" << std::endl;
         std::cout << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
         std::cout << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+    }
+
+    std::cout << "Subnet distribution:" << std::endl;
+
+    std::sort(subnetDistribution.begin(), subnetDistribution.end(), [](const std::pair<Subnet, int>& lhs, const std::pair<Subnet, int>& rhs) {
+            return lhs.second > rhs.second;
+    });
+
+    for (const auto&s : subnetDistribution) {
+        std::cout << s.first.toString() << " -> " << s.second << " (" << pct(s.second, total) << "%)" << std::endl;
     }
 }
 
@@ -230,7 +240,7 @@ TrafficAnalytics::Collector::onTimer() {
 
 void
 TrafficAnalytics::Collector::processMessage(std::vector<zmq::message_t>&& message) {
-    auto reqStr = message[2].toString();
+    auto reqStr = message[3].toString();
     requests.push_back(Json::parse(reqStr));
 }
 
@@ -276,7 +286,7 @@ int main(int argc, char* argv[]) {
 
     Jamloop::TrafficAnalytics analytics(db, serviceName, proxies);
     analytics.run(std::chrono::seconds(sampleDurationSeconds), [&](std::unordered_map<std::string, Jamloop::TrafficAnalytics::Result>&& result) {
-        for (const auto& r: result) {
+        for (auto& r: result) {
             std::cout << "Result for " << r.first << std::endl;
             std::cout << "----------------------------------------------" << std::endl;
             r.second.dump(std::cout);

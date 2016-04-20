@@ -281,8 +281,8 @@ GeoDatabase::load(
         }
 
         auto addr = toAddr(ip.c_str());
-        if (addr == InAddrNone)
-            throw ML::Exception("Encountered invalid IP '%s', line '%lu'", ip.c_str(), count);
+       // if (addr == InAddrNone)
+       //     throw ML::Exception("Encountered invalid IP '%s', line '%lu'", ip.c_str(), count);
 
         auto geoNameId = std::stoi(geoName);
         auto locationIt = locationIndex.find(geoNameId);
