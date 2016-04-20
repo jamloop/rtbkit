@@ -23,7 +23,7 @@ else()
     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-include_directories(${PROTOBUF_INCLUDE_DIR} ../rtbkit ../rtbkit/leveldb/include $ENV{HOME}/local/include)
+include_directories(../rtbkit ../rtbkit/leveldb/include $ENV{HOME}/local/include)
 link_directories(../bin $ENV{HOME}/local/lib)
 add_executable(basic_bidding_agent basic_bidding_agent.cc)
 target_link_libraries(basic_bidding_agent rtb bidding_agent agent_configuration bid_request banker services arch utils jsoncpp types value_description boost_system boost_program_options)
@@ -55,9 +55,6 @@ target_link_libraries(viewability_service_runner viewability_service boost_syste
 add_library(adaptv_exchange SHARED adaptv_exchange_connector.cc)
 target_link_libraries(adaptv_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
 
-add_library(adaptvhv_exchange SHARED adaptvhv_exchange_connector.cc)
-target_link_libraries(adaptvhv_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description boost_system boost_thread boost_program_options)
-
 add_library(publisher_exchange SHARED publisher_connector.cc)
 target_link_libraries(publisher_exchange rtb exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options)
 
@@ -69,5 +66,8 @@ target_link_libraries(forensiq_augmentor ${AUGMENTOR_LINK})
 
 add_executable(forensiq_augmentor_runner forensiq_augmentor_runner.cc)
 target_link_libraries(forensiq_augmentor_runner forensiq_augmentor boost_system boost_program_options boost_thread)
+
+add_executable(traffic_analytics traffic_analytics.cc)
+target_link_libraries(traffic_analytics services utils jsoncpp arch boost_system boost_program_options zmq)
 
 add_subdirectory(testing)
