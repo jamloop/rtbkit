@@ -138,7 +138,7 @@ TrafficAnalytics::Result::dump(std::ostream& os, int top, bool dma = true) {
 
     size_t total = top == -1 ? subnetDistribution.size() : top;
 
-    for (size_t i = 0; i < top; ++i) {
+    for (size_t i = 0; i < total; ++i) {
         const auto& s = subnetDistribution[i]; 
         std::cout << s.first.toString() << " -> " << s.second << " (" << pct(s.second, total) << "%)" << std::endl;
     }
@@ -296,6 +296,8 @@ int main(int argc, char* argv[]) {
     Jamloop::GeoDatabase db(serviceName, proxies);
     db.load(geoIpFile, geoLocFile, Jamloop::GeoDatabase::Precision(0.1));
 
+    std::atomic<bool> over(false);
+
     Jamloop::TrafficAnalytics analytics(db, serviceName, proxies);
     analytics.run(std::chrono::seconds(sampleDurationSeconds), [&](std::unordered_map<std::string, Jamloop::TrafficAnalytics::Result>&& result) {
         for (auto& r: result) {
@@ -303,8 +305,11 @@ int main(int argc, char* argv[]) {
             std::cout << "----------------------------------------------" << std::endl;
             r.second.dump(std::cout, top, dma);
         }
+        over = true;
     });
 
-    std::this_thread::sleep_for(std::chrono::seconds(12));
+    while (!over) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 
 }
