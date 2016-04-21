@@ -244,9 +244,17 @@ Auction(ExchangeConnector * exchangeConnector,
 
     auto t0 = Date::now();
     this->requestSerialized = request->serializeToString();
-    auto t1 = Date::now();
     if(Date::now().secondsSince(t0) > 0.5) {
-        std::cerr << "THIS MAKES THE JSON PRINTER CRY BEGIN\n" << requestStr << "\nEND\n";
+        std::cerr << "BID REQUEST SERIALIZATION TO STRING TOOK MORE THAN 0.5 s" << std::endl;
+        std::cerr << "================ BR STRING =================" << std::endl;
+        std::cerr << requestStr << std::endl;
+        std::cerr << "================ BR LENGHT ===============" << std::endl;
+        std::cerr << requestStr.size() << std::endl;
+        std::cerr << "================ BR FORMAT ===============" << std::endl;
+        std::cerr << requestStrFormat << std::endl;
+        std::cerr << "================ BR CONVERTED TO JSON STR =================" << std::endl;
+        std::cerr << request->toJsonStr() << std::endl;
+        std::cerr << "===========================================================" << std::endl;
     }
 }
 
