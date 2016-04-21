@@ -2,7 +2,7 @@
   {
     "exchangeType": "adaptv",
     "listenPort": 19970,
-    "numThreads": 4,
+    "numThreads": 8,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
