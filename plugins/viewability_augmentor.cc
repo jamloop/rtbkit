@@ -136,15 +136,28 @@ ViewabilityAugmentor::onRequest(
 
     try {
         AugmentationList emptyResult;
-
         Scope_Failure(sendResponse(emptyResult));
+
+        const auto& br = request.bidRequest;
+        if (br->ext.isMember("inventoryType")) {
+            auto type = br->ext["inventoryType"].asString();
+            if (type == "highviewable") {
+                AugmentationList result;
+                for (const auto& agent: request.agents) {
+                    const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
+                    const AccountKey& account = configEntry.config->account;
+
+                    result[account].tags.insert("pass-viewability");
+                }
+                sendResponse(result);
+                return;
+            }
+        }
 
         if (httpClient) {
 
-            const auto& br = request.bidRequest;
             auto& imp = br->imp[0];
             auto w = imp.formats[0].width;
-
 
             Json::Value payload(Json::objectValue);
             payload["exchange"] = br->exchange;

@@ -79,6 +79,17 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
         }).snippet().required();
     }
 
+    void
+    AdaptvExchangeConnector::configure(const Json::Value& config) {
+        OpenRTBExchangeConnector::configure(config);
+
+        auto type = config.get("inventoryType", "standard").asString();
+        if (type != "standard" || type != "highviewable")
+            throw ML::Exception("Invalid inventory type '%s'", type.c_str());
+
+        inventoryType = std::move(type);
+    }
+
 
     ExchangeConnector::ExchangeCompatibility
     AdaptvExchangeConnector::getCampaignCompatibility(
@@ -174,6 +185,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
         }
 
         end:
+            if (br) br->ext["inventoryType"] = inventoryType;
             return br;
     }
 
