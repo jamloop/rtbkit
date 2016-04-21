@@ -2,7 +2,7 @@
   {
     "exchangeType": "adaptv",
     "listenPort": 9970,
-    "numThreads": 1,
+    "numThreads": 2,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
@@ -36,7 +36,7 @@
   {
     "exchangeType": "brightroll",
     "listenPort": 9971,
-    "numThreads": 1,
+    "numThreads": 2,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
@@ -53,7 +53,7 @@
   {
     "exchangeType": "publisher",
     "listenPort": 9975,
-    "numThreads": 1,
+    "numThreads": 2,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "GET",
