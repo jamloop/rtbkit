@@ -1,25 +1,25 @@
 [
-  {
-    "exchangeType": "adaptv",
-    "listenPort": 19970,
-    "numThreads": 3,
-    "realTimePolling": true,
-    "bindHost": "0.0.0.0",
-    "auctionVerb": "POST",
-    "auctionResource": "/",
-    "performNameLookup": false,
-    "pipeline": {
-        "type": "geo",
-        "serviceName": "useast1b.rtb1.router-2.pipeline.adaptv",
-        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
-        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
-        "precision": 0.1
-    }
-  },
+//  {
+//    "exchangeType": "adaptv",
+//    "listenPort": 19970,
+//    "numThreads": 3,
+//    "realTimePolling": true,
+//    "bindHost": "0.0.0.0",
+//    "auctionVerb": "POST",
+//    "auctionResource": "/",
+//    "performNameLookup": false,
+//    "pipeline": {
+//        "type": "geo",
+//        "serviceName": "useast1b.rtb1.router-2.pipeline.adaptv",
+//        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+//        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
+//        "precision": 0.1
+//    }
+//  },
   {
     "exchangeType": "adaptvhv",
     "listenPort": 19976,
-    "numThreads": 3,
+    "numThreads": 6,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
