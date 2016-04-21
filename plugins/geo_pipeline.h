@@ -16,6 +16,24 @@ namespace Jamloop {
 typedef uint32_t InAddr;
 bool toAddr(const char* str, InAddr* out);
 
+struct Subnet {
+    explicit Subnet(InAddr addr, int bits);
+
+    bool isIn(InAddr addr) const;
+    bool isIn(const std::string& ip) const;
+
+    InAddr host() const { return host_; }
+    int bits() const { return bits_; }
+
+private:
+    int bits_;
+    uint32_t mask_;
+    InAddr host_;
+
+    uint32_t createMask(int bits) const;
+};
+        
+
 struct GeoDatabase {
 
 

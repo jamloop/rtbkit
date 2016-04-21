@@ -46,57 +46,35 @@ bool toAddr(const char* str, InAddr* out) {
 
 }
 
-struct Subnet {
-    explicit Subnet(InAddr addr, int bits)
-        : bits_(bits)
-        , mask_(createMask(bits))
-        , host_(addr & mask_)
-    {
-        createString();
-    }
+Subnet::Subnet(InAddr addr, int bits)
+    : bits_(bits)
+    , mask_(createMask(bits))
+    , host_(addr & mask_)
+{
+}
 
-    bool isIn(InAddr addr) const {
-        return (addr & mask_) == host_;
-    }
+bool
+Subnet::isIn(InAddr addr) const {
+    return (addr & mask_) == host_;
+}
 
-    bool isIn(const std::string& ip) const {
-        InAddr addr;
-        bool ok = toAddr(ip.c_str(), &addr);
-        if (!ok) return false;
+bool
+Subnet::isIn(const std::string& ip) const {
+    InAddr addr;
+    bool ok = toAddr(ip.c_str(), &addr);
+    if (!ok) return false;
 
-        return isIn(addr);
-    }
+    return isIn(addr);
+}
 
-    std::string toString() const {
-        return str_;
-    }
+uint32_t
+Subnet::createMask(int bits) const {
+    ExcCheck(bits > 0, "Invalid bits (must be > 0)");
+    ExcCheck(bits <= 32, "Invalid bits (must be <= 32)");
 
-private:
-    int bits_;
-    uint32_t mask_;
-    InAddr host_;
-
-    std::string str_;
-
-    uint32_t createMask(int bits) const {
-        ExcCheck(bits > 0, "Invalid bits (must be > 0)");
-        ExcCheck(bits <= 32, "Invalid bits (must be <= 32)");
-
-        uint32_t mask = (uint32_t(-1) << (32 - bits)) & uint32_t(-1);
-        return mask;
-    }
-
-    void createString() {
-        std::ostringstream oss;
-        uint8_t a = (host_ >> 24) & 0xFF;
-        uint8_t b = (host_ >> 16) & 0xFF;
-        uint8_t c = (host_ >> 8) & 0xFF;
-        uint8_t d = (host_ >> 0) & 0xFF;
-
-        oss << a << '_' << b << '_' << c << '_' << d << '#' << bits_;
-        str_ = oss.str();
-    }
-};
+    uint32_t mask = (uint32_t(-1) << (32 - bits)) & uint32_t(-1);
+    return mask;
+}
 
 struct Ipv4 {
     Ipv4(InAddr addr)
@@ -121,7 +99,7 @@ Subnet operator/(Ipv4 ip, int bits) {
     return Subnet(ip.addr, bits);
 }
 
-static Subnet BannedSubnets[] = {
+static const Subnet BannedSubnets[] = {
     IP(196.62.0.0)    / 24,
     IP(161.8.128.0)   / 18,
     IP(161.8.192.0)   / 19,
@@ -490,10 +468,30 @@ GeoPipeline::postBidRequest(
 
     std::string ip;
 
-    if (br->device);
+    if (br->device)
         ip = br->device->ip;
 
     if (!ip.empty()) {
+
+        auto recordSubnet = [&](const Subnet& sub) {
+            auto host = sub.host();
+            auto bits = sub.bits();
+
+            char key[sizeof("255.255.255.255/32")];
+            std::fill(std::begin(key), std::end(key), 0);
+
+
+            std::sprintf(key, "%d_%d_%d_%d#%d",
+                (host >> 24) & 0xFF,
+                (host >> 16) & 0xFF,
+                (host >> 8)  & 0xFF,
+                (host >> 0)  & 0xFF,
+                bits);
+
+            recordHit("subnet.blacklist.detail.%s", key);
+
+        };
+
         auto it = std::find_if(std::begin(BannedSubnets), std::end(BannedSubnets), [&](const Subnet& subnet) {
             return subnet.isIn(ip);
         });
@@ -503,7 +501,7 @@ GeoPipeline::postBidRequest(
             auto subnet = *it;
 
             recordHit("subnet.blacklist.total");
-            recordHit("subnet.blacklist.detail.%s", subnet.toString().c_str());
+            recordSubnet(subnet);
 
             return PipelineStatus::Stop;
         }

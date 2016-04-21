@@ -32,6 +32,22 @@ BOOST_AUTO_TEST_CASE( test_ip_addr ) {
     check("255.255.255.255", 255UL << 24 | 255UL << 16 | 255UL << 8 | 255 << 0);
 }
 
+BOOST_AUTO_TEST_CASE( test_subnet ) {
+    auto makeSubnet = [](const char* ip, int bits) {
+        InAddr addr;
+        bool ok = toAddr(ip, &addr);
+
+        BOOST_CHECK(ok);
+        return Subnet(addr, bits);
+    };
+
+    auto s1 = makeSubnet("196.62.0.0", 24);
+    BOOST_CHECK(s1.isIn("196.62.0.15"));
+    BOOST_CHECK(!s1.isIn("196.62.238.78"));
+
+    BOOST_CHECK(!s1.isIn("196.74.1.90"));
+}
+
 namespace IP {
 
 struct Range {
