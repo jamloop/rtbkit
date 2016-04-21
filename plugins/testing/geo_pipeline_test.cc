@@ -37,33 +37,21 @@ namespace IP {
 struct Range {
 
     struct Iterator {
-        Iterator(InAddr addr, size_t incrIndex)
-            : incrIndex(incrIndex)
+        Iterator(InAddr addr)
+            : addr(addr)
         {
-            vals[3] = (addr >> 24) & 0xFF;
-            vals[2] = (addr >> 16) & 0xFF;
-            vals[1] = (addr >> 8) & 0xFF;
-            vals[0] = addr & 0xFF;
-        }
-
-        Iterator(uint8_t *v, size_t incrIndex)
-            : incrIndex(incrIndex)
-        {
-            std::memcpy(vals, v, sizeof(vals));
         }
 
         std::string asString() const {
+
             std::ostringstream oss;
-            oss << (int)vals[3] << "." << (int)vals[2] << "." << (int)vals[1] << "." << (int)vals[0];
+            oss << ((addr >> 24) & 0xFF) << "." << ((addr >> 16) & 0xFF) << "." << ((addr >> 8) & 0xFF) << "." << ((addr >> 0) & 0xFF);
             return oss.str();
         }
 
         Iterator operator++() {
-            if (vals[incrIndex] == 255) {
-                ++incrIndex;
-            }
-            ++vals[incrIndex];
-            return Iterator(vals, incrIndex);
+            ++addr;
+            return Iterator(addr);
         }
 
         std::string operator*() const {
@@ -71,7 +59,7 @@ struct Range {
         }
 
         bool operator==(Iterator other) const {
-            return vals[3] == other.vals[3] && vals[2] == other.vals[2] && vals[1] == other.vals[1] && vals[0] == other.vals[0];
+            return other.addr == addr;
         }
 
         bool operator!=(Iterator other) const {
@@ -79,11 +67,10 @@ struct Range {
         }
 
     private:
-        uint8_t vals[4];
-        size_t incrIndex;
+        InAddr addr;
     };
 
-    Range(Iterator first, Iterator last)
+    Range(InAddr first, InAddr last)
         : first(first)
         , last(last)  {
     }
@@ -98,14 +85,14 @@ struct Range {
 
         auto last = addr | ~mask;
 
-        return Range(Iterator(addr, 0), Iterator(last, 0));
+        return Range(addr, last);
     }
 
-    Iterator begin() const { return first; }
-    Iterator end() const { return last; }
+    Iterator begin() const { return Iterator(first); }
+    Iterator end() const { return Iterator(last); }
 
-    Iterator first;
-    Iterator last;
+    InAddr first;
+    InAddr last;
 };
 
 #define CIDR(bits, mask) Range::fromCIDR(#bits, mask)
