@@ -442,6 +442,7 @@ namespace Jamloop {
             spot.video = std::move(video);
             spot.formats.push_back(Format(width, height));
             br->imp.push_back(std::move(spot));
+            br->exchange = "publisher";
 
 
         } catch (const std::exception& e) {
