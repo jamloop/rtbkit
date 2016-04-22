@@ -19,7 +19,7 @@
   {
     "exchangeType": "adaptvhv",
     "listenPort": 19976,
-    "numThreads": 2,
+    "numThreads": 3,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
