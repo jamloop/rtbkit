@@ -100,7 +100,7 @@ Subnet operator/(Ipv4 ip, int bits) {
 }
 
 static const Subnet BannedSubnets[] = {
-    IP(196.62.0.0)    / 24,
+    IP(196.62.0.0)    / 16,
     IP(161.8.128.0)   / 18,
     IP(161.8.192.0)   / 19,
     IP(161.8.224.0)   / 20,
