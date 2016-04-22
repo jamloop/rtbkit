@@ -29,25 +29,35 @@ public:
         void dump(std::ostream& os, int top, bool dma);
         void save(std::ostream& os) const;
 
-        void record(const GeoDatabase::Result& result);
+        void record(const GeoDatabase::Result& result, const std::string& exhange);
+
+        void setRequests(std::vector<Json::Value> reqs);
 
     private:
-        struct Entry {
-            size_t latLonCount;
-            size_t ipCount;
+        struct ExchangeEntry {
+            struct Entry {
+                size_t latLonCount;
+                size_t ipCount;
 
-            size_t total() const {
-                return latLonCount + ipCount;
-            }
+                size_t total() const {
+                    return latLonCount + ipCount;
+                }
+            };
+
+            size_t total;
+
+            void record(const GeoDatabase::Result& result);
+
+            std::map<std::string, Entry> dmaDistribution;
+            std::vector<std::pair<Subnet, int>> subnetDistribution;
         };
 
-        size_t total;
+        std::unordered_map<std::string, ExchangeEntry> exchanges;
 
-        std::map<std::string, Entry> dmaDistribution;
-        std::vector<std::pair<Subnet, int>> subnetDistribution;
+        std::vector<Json::Value> requests;
     };
 
-    typedef std::function<void(std::unordered_map<std::string, Result>&&)> OnFinish;
+    typedef std::function<void(Result&&)> OnFinish;
 
     void run(std::chrono::seconds duration, OnFinish onFinish);
 

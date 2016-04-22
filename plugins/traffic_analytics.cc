@@ -113,43 +113,67 @@ TrafficAnalytics::TrafficAnalytics(
 
 void
 TrafficAnalytics::Result::dump(std::ostream& os, int top, bool dma = true) {
-    auto pct = [](size_t val, size_t max) {
-        return (val * 100) / max;
-    };
+    for (auto& exchange: exchanges) {
+        os << "Result for " << exchange.first << std::endl;
+        os << "----------------------------------" << std::endl;
+        auto pct = [](size_t val, size_t max) {
+            return (val * 100) / max;
+        };
 
-    std::cout << "Stats: " << std::endl;
-    std::cout << "Total matched requests: " << total << std::endl;
-    if (dma) {
-        std::cout << "DMA distribution:" << std::endl;
+        auto& entry = exchange.second;
 
-        const std::string indent(4, ' ');
-        for (const auto& d: dmaDistribution) {
-            std::cout << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), total) << "%)" << std::endl;
-            std::cout << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
-            std::cout << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+        os << "Stats: " << std::endl;
+        os << "Total matched requests: " << entry.total << std::endl;
+        if (dma) {
+            os << "DMA distribution:" << std::endl;
+
+            const std::string indent(4, ' ');
+            for (const auto& d: entry.dmaDistribution) {
+                os << d.first << " -> " << d.second.total() << " ("  << pct(d.second.total(), entry.total) << "%)" << std::endl;
+                os << indent << "IP      -> " << d.second.ipCount << " (" << pct(d.second.ipCount, d.second.total()) << "%)" << std::endl;
+                os << indent << "lat/lon -> " << d.second.latLonCount << " (" << pct(d.second.latLonCount, d.second.total()) << "%)" << std::endl;
+            }
         }
-    }
 
-    std::cout << "Subnet distribution:" << std::endl;
+        os << "Subnet distribution:" << std::endl;
 
-    std::sort(subnetDistribution.begin(), subnetDistribution.end(), [](const std::pair<Subnet, int>& lhs, const std::pair<Subnet, int>& rhs) {
-            return lhs.second > rhs.second;
-    });
+        std::sort(entry.subnetDistribution.begin(), entry.subnetDistribution.end(), [](const std::pair<Subnet, int>& lhs, const std::pair<Subnet, int>& rhs) {
+                return lhs.second > rhs.second;
+        });
 
-    size_t total = top == -1 ? subnetDistribution.size() : top;
+        size_t total = top == -1 ? entry.subnetDistribution.size() : top;
 
-    for (size_t i = 0; i < total; ++i) {
-        const auto& s = subnetDistribution[i]; 
-        std::cout << s.first.toString() << " -> " << s.second << " (" << pct(s.second, total) << "%)" << std::endl;
+        for (size_t i = 0; i < total; ++i) {
+            const auto& s = entry.subnetDistribution[i]; 
+            os << s.first.toString() << " -> " << s.second << " (" << pct(s.second, total) << "%)" << std::endl;
+        }
+
+        os << std::endl;
     }
 }
 
 void
 TrafficAnalytics::Result::save(std::ostream& os) const {
+    for (const auto& req: requests) {
+        os << req << '\n';
+    }
+    os.flush();
 }
 
 void
-TrafficAnalytics::Result::record(const GeoDatabase::Result& result) {
+TrafficAnalytics::Result::record(
+        const GeoDatabase::Result& result, const std::string& exchangeName) {
+    auto& entry = exchanges[exchangeName];
+    entry.record(result);
+}
+
+void
+TrafficAnalytics::Result::setRequests(std::vector<Json::Value> reqs) {
+    requests = std::move(reqs);
+}
+
+void
+TrafficAnalytics::Result::ExchangeEntry::record(const GeoDatabase::Result& result) {
     ++total;
     auto& entry = dmaDistribution[result.metroCode];
     
@@ -188,7 +212,7 @@ TrafficAnalytics::run(std::chrono::seconds duration, TrafficAnalytics::OnFinish 
 void
 TrafficAnalytics::doStats(std::vector<Json::Value>&& requests) {
 
-    std::unordered_map<std::string, Result> results;
+    Result results;
 
     for (const auto& request: requests) {
         if (request.isMember("device")) {
@@ -206,12 +230,14 @@ TrafficAnalytics::doStats(std::vector<Json::Value>&& requests) {
 
                 std::tie(found, result) = geoDb.lookup(context);
                 if (found) {
-                    auto& excResult = results[request["exchange"].asString()];
-                    excResult.record(result);
+                    auto exchange = request["exchange"].asString();
+                    results.record(result, exchange);
                 } 
             }
         }
     }
+
+    results.setRequests(std::move(requests));
 
     onFinish(std::move(results));
 }
@@ -258,7 +284,6 @@ int main(int argc, char* argv[]) {
 
     int sampleDurationSeconds;
 
-    std::string outFile;
     std::string geoIpFile;
     std::string geoLocFile;
 
@@ -269,8 +294,6 @@ int main(int argc, char* argv[]) {
     opts.add_options()
         ("duration", value<int>(&sampleDurationSeconds),
          "Duration of the sample in seconds")
-        ("out", value<std::string>(&outFile),
-         "Name of the output file")
         ("geo-ip-file", value<string>(&geoIpFile),
          "Location of the Geo Ipv4 file")
         ("geo-location-file", value<string>(&geoLocFile),
@@ -299,12 +322,17 @@ int main(int argc, char* argv[]) {
     std::atomic<bool> over(false);
 
     Jamloop::TrafficAnalytics analytics(db, serviceName, proxies);
-    analytics.run(std::chrono::seconds(sampleDurationSeconds), [&](std::unordered_map<std::string, Jamloop::TrafficAnalytics::Result>&& result) {
-        for (auto& r: result) {
-            std::cout << "Result for " << r.first << std::endl;
-            std::cout << "----------------------------------------------" << std::endl;
-            r.second.dump(std::cout, top, dma);
-        }
+    analytics.run(std::chrono::seconds(sampleDurationSeconds), [&](Jamloop::TrafficAnalytics::Result&& result) {
+
+        const auto now = std::time(NULL);
+        char s[100];
+        std::strftime(s, sizeof(s), "m_d_Y-HMS", std::localtime(&now));
+        const std::string outFile = std::string("traffic.dump.") + s;
+
+        result.dump(std::cout, top, dma);
+
+        std::ofstream out(outFile);
+        result.save(out);
         over = true;
     });
 
