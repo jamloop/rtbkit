@@ -137,6 +137,234 @@
       ],
       "log": true
     },
+// WestLaunchStart
+    {
+      "name": "agent-AUS_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_AUS_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/AUS_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_chan_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/chan_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_chan_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/chan_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_chan_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/chan_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_chan_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/chan_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/DAL_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-MSP_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_MSP_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/MSP_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-GWH_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_GWH_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/GWH_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-WAU_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_WAU_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/WAU_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-ORL_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_ORL_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/ORL_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-CLE_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_CLE_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/CLE_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-BIR_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_BIR_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/BIR_w300_SV.json"
+      ],
+      "log": true
+    }
+// WestLaunchEnd
+    ]
+  },
+  {
+    "name": "useast1b.rtb2",
+    "root": "/home/rtbkit/prod/rtb/",
+    "tasks": [
+    {
+      "name": "router-1",
+      "root": ".", "path": "./bin/router_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb2.router1",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--exchange-configuration", "configs/router-config.useast1b-1.json",
+        "--bidder", "configs/bidder-config.json",
+        "--use-http-banker",
+        "--banker-sync-rate", "5.0",
+        "--spend-rate", "1000000USD/1M",
+        "--augmenter-timeout", "15"
+      ],
+      "log": true
+    },
+    {
+      "name": "router-2",
+      "root": ".", "path": "./bin/router_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb2.router2",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--exchange-configuration", "configs/router-config.useast1b-2.json",
+        "--bidder", "configs/bidder-config.json",
+        "--use-http-banker",
+        "--banker-sync-rate", "5.0",
+        "--spend-rate", "1000000USD/1M",
+        "--augmenter-timeout", "15"
+      ],
+      "log": true
+    }
 // EastLaunchStart
     {
       "name": "agent-AUS_w300_SV", 
@@ -348,42 +576,6 @@
       "log": true
     }
 // EastLaunchEnd
-    ]
-  },
-  {
-    "name": "useast1b.rtb2",
-    "root": "/home/rtbkit/prod/rtb/",
-    "tasks": [
-    {
-      "name": "router-1",
-      "root": ".", "path": "./bin/router_runner",
-      "arg": [
-        "--service-name", "useast1b.rtb2.router1",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.useast1b-1.json",
-        "--bidder", "configs/bidder-config.json",
-        "--use-http-banker",
-        "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
-        "--augmenter-timeout", "15"
-      ],
-      "log": true
-    },
-    {
-      "name": "router-2",
-      "root": ".", "path": "./bin/router_runner",
-      "arg": [
-        "--service-name", "useast1b.rtb2.router2",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.useast1b-2.json",
-        "--bidder", "configs/bidder-config.json",
-        "--use-http-banker",
-        "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
-        "--augmenter-timeout", "15"
-      ],
-      "log": true
-    }
     ]
   }]
 }
