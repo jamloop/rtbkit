@@ -111,16 +111,6 @@
       ],
       "log": true
     },
-//    {
-//      "name": "viewability-service",
-//      "root": ".", "path": "./bin/viewability_service_runner",
-//      "arg": [
-//        "--service-name", "useast1b.rtb1.viewability",
-//        "--bootstrap", "configs/bootstrap.useast1b.json",
-//        "--goview-url", "http://127.0.0.1:9200"
-//      ],
-//      "log": true
-//    },
     {
       "name": "viewability-service",
       "root": ".", "path": "/bin/bash",
@@ -358,6 +348,56 @@
       "log": true
     }
 // EastLaunchEnd
+    ]
+  },
+  {
+    "name": "useast1b.rtb2",
+    "root": "/home/rtbkit/prod/rtb/",
+    "tasks": [
+    {
+      "name": "pal",
+      "root": ".", "path": "./bin/post_auction_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb2.pal",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--bidder", "configs/bidder-config.json",
+        "--win-seconds", "3600.0",
+        "--auction-seconds", "900.0",
+        "--use-http-banker",
+        "--banker-sync-rate", "5.0"
+      ],
+      "log": true
+    },
+    {
+      "name": "router-1",
+      "root": ".", "path": "./bin/router_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb2.router1",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--exchange-configuration", "configs/router-config.useast1b-1.json",
+        "--bidder", "configs/bidder-config.json",
+        "--use-http-banker",
+        "--banker-sync-rate", "5.0",
+        "--spend-rate", "1000000USD/1M",
+        "--augmenter-timeout", "15"
+      ],
+      "log": true
+    },
+    {
+      "name": "router-2",
+      "root": ".", "path": "./bin/router_runner",
+      "arg": [
+        "--service-name", "useast1b.rtb2.router2",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--exchange-configuration", "configs/router-config.useast1b-2.json",
+        "--bidder", "configs/bidder-config.json",
+        "--use-http-banker",
+        "--banker-sync-rate", "5.0",
+        "--spend-rate", "1000000USD/1M",
+        "--augmenter-timeout", "15"
+      ],
+      "log": true
+    }
     ]
   }]
 }
