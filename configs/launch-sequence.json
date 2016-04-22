@@ -364,7 +364,7 @@
         "--augmenter-timeout", "15"
       ],
       "log": true
-    }
+    },
 // EastLaunchStart
     {
       "name": "agent-AUS_w300_SV", 
