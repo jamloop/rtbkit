@@ -369,7 +369,7 @@
       "name": "router-3",
       "root": ".", "path": "./bin/router_runner",
       "arg": [
-        "--service-name", "useast1b.rtb1.router3",
+        "--service-name", "useast1b.rtb2.router3",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--exchange-configuration", "configs/router-config.useast1b-3.json",
         "--bidder", "configs/bidder-config.json",
