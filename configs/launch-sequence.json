@@ -76,7 +76,7 @@
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
+        "--spend-rate", "5000000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -91,7 +91,7 @@
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
+        "--spend-rate", "5000000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -106,7 +106,7 @@
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
+        "--spend-rate", "5000000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -345,7 +345,7 @@
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
+        "--spend-rate", "5000000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -360,7 +360,7 @@
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
+        "--spend-rate", "5000000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -375,7 +375,7 @@
         "--bidder", "configs/bidder-config.json",
         "--use-http-banker",
         "--banker-sync-rate", "5.0",
-        "--spend-rate", "1000000USD/1M",
+        "--spend-rate", "5000000USD/1M",
         "--augmenter-timeout", "15"
       ],
       "log": true
