@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04221674077515,
+        "id": 04230674077515,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -34,14 +34,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0422740775",
+              "lid": "0423740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 042216740775153,
+        "id": 042306740775153,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -70,14 +70,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0422740775",
+              "lid": "0423740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 042216740775154,
+        "id": 042306740775154,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -106,22 +106,13 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0422740775",
+              "lid": "0423740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-   "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 64
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-      }
-    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:MSP_Mobile",
@@ -148,7 +139,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "416666USD/1M",
+        "pace": "555555USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }
