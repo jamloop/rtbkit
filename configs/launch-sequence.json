@@ -379,62 +379,62 @@
       "log": true
     },
     {
-      "name": "agent-DAL_w300_SV", 
+      "name": "agent-DAL_w1_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_DAL_w1_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w300_SV.json"
+        "--agent-configuration", "configs/DAL_w1_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_w300_SV_kv", 
+      "name": "agent-DAL_w1_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_DAL_w1_SV_kv",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w300_SV_kv.json"
+        "--agent-configuration", "configs/DAL_w1_SV_kv.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w300_SV", 
+      "name": "agent-HNH_w1_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_HNH_w1_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w300_SV.json"
+        "--agent-configuration", "configs/HNH_w1_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w300_SV_kv", 
+      "name": "agent-HNH_w1_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_HNH_w1_SV_kv",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w300_SV_kv.json"
+        "--agent-configuration", "configs/HNH_w1_SV_kv.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w300_SV", 
+      "name": "agent-HSB_w1_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_HSB_w1_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w300_SV.json"
+        "--agent-configuration", "configs/HSB_w1_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w300_SV_kv", 
+      "name": "agent-HSB_w1_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_HSB_w1_SV_kv",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w300_SV_kv.json"
+        "--agent-configuration", "configs/HSB_w1_SV_kv.json"
       ],
       "log": true
     },
@@ -1176,67 +1176,67 @@
       "log": true
     },
     {
-      "name": "agent-DAL_w300_SV", 
+      "name": "agent-DAL_w1_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_DAL_w1_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w300_SV.json",
+        "--agent-configuration", "configs/DAL_w1_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_w300_SV_kv", 
+      "name": "agent-DAL_w1_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_DAL_w1_SV_kv",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w300_SV_kv.json",
+        "--agent-configuration", "configs/DAL_w1_SV_kv.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w300_SV", 
+      "name": "agent-HNH_w1_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_HNH_w1_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w300_SV.json",
+        "--agent-configuration", "configs/HNH_w1_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w300_SV_kv", 
+      "name": "agent-HNH_w1_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_HNH_w1_SV_kv",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w300_SV_kv.json",
+        "--agent-configuration", "configs/HNH_w1_SV_kv.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w300_SV", 
+      "name": "agent-HSB_w1_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_HSB_w1_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w300_SV.json",
+        "--agent-configuration", "configs/HSB_w1_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w300_SV_kv", 
+      "name": "agent-HSB_w1_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_HSB_w1_SV_kv",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w300_SV_kv.json",
+        "--agent-configuration", "configs/HSB_w1_SV_kv.json",
         "--use-http-banker"
       ],
       "log": true
