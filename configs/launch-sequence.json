@@ -139,492 +139,12 @@
     },
 // WestLaunchStart
     {
-      "name": "agent-MSP_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_MSP_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/MSP_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-GWH_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_GWH_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/GWH_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-WAU_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_WAU_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/WAU_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_ORL_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/ORL_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_CLE_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/CLE_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BIR_cTV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BIR_cTV.json"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-AUS_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_AUS_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/AUS_cTV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_ORL_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/ORL_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_CLE_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/CLE_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BIR_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BIR_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-AUS_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_AUS_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/AUS_Mobile.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_ORL_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/ORL_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_ORL_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/ORL_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_CLE_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/CLE_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_CLE_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/CLE_w300_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BIR_w300_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BIR_w300_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_BIR_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/BIR_w300_SV_kv.json"
       ],
       "log": true
     },
@@ -649,202 +169,62 @@
       "log": true
     },
     {
-      "name": "agent-DAL_w350_SV", 
+      "name": "agent-AUS_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w350_SV",
+        "--service-name", "uswest2a.rtb1.agent_AUS_w350_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w350_SV.json"
+        "--agent-configuration", "configs/AUS_w350_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_w350_SV_kv", 
+      "name": "agent-AUS_w350_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w350_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_AUS_w350_SV_kv",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w350_SV_kv.json"
+        "--agent-configuration", "configs/AUS_w350_SV_kv.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w350_SV", 
+      "name": "agent-AUS_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w350_SV",
+        "--service-name", "uswest2a.rtb1.agent_AUS_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w350_SV.json"
+        "--agent-configuration", "configs/AUS_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w350_SV_kv", 
+      "name": "agent-BIR_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w350_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_BIR_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w350_SV_kv.json"
+        "--agent-configuration", "configs/BIR_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w350_SV", 
+      "name": "agent-BIR_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w350_SV",
+        "--service-name", "uswest2a.rtb1.agent_BIR_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w350_SV.json"
+        "--agent-configuration", "configs/BIR_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w350_SV_kv", 
+      "name": "agent-BIR_w300_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w350_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_BIR_w300_SV_kv",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_ORL_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/ORL_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_ORL_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/ORL_w350_SV_kv.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_CLE_w350_SV",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/CLE_w350_SV.json"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_CLE_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/CLE_w350_SV_kv.json"
+        "--agent-configuration", "configs/BIR_w300_SV_kv.json"
       ],
       "log": true
     },
@@ -869,22 +249,522 @@
       "log": true
     },
     {
-      "name": "agent-AUS_w350_SV", 
+      "name": "agent-BIR_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_AUS_w350_SV",
+        "--service-name", "uswest2a.rtb1.agent_BIR_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/AUS_w350_SV.json"
+        "--agent-configuration", "configs/BIR_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_w350_SV_kv", 
+      "name": "agent-DAL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_AUS_w350_SV_kv",
+        "--service-name", "uswest2a.rtb1.agent_DAL_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/AUS_w350_SV_kv.json"
+        "--agent-configuration", "configs/DAL_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/DAL_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/DAL_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_DAL_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/DAL_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_DAL_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/DAL_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_DAL_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/DAL_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-GWH_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_GWH_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/GWH_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HSB_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HSB_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HNH_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HNH_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_HUN_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/HUN_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_JAK_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/JAK_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LAF_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LAF_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_LUB_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/LUB_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-MSP_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_MSP_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/MSP_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_cTV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_w300_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_w300_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_w300_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_w350_SV",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_w350_SV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_w350_SV_kv.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_SNT_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/SNT_Mobile.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-WAU_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_WAU_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/WAU_Mobile.json"
       ],
       "log": true
     }
@@ -942,540 +822,12 @@
     },
 // EastLaunchStart
     {
-      "name": "agent-MSP_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_MSP_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/MSP_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-GWH_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_GWH_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/GWH_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-WAU_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_WAU_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/WAU_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_ORL_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/ORL_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_CLE_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/CLE_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_cTV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_BIR_cTV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/BIR_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-AUS_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_AUS_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/AUS_cTV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_ORL_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/ORL_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_CLE_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/CLE_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_BIR_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/BIR_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-AUS_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_AUS_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/AUS_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-DAL_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HNH_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HSB_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_ORL_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/ORL_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_ORL_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/ORL_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_CLE_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/CLE_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_CLE_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/CLE_w300_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_w300_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_BIR_w300_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/BIR_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-BIR_w300_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_BIR_w300_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/BIR_w300_SV_kv.json",
         "--use-http-banker"
       ],
       "log": true
@@ -1503,221 +855,67 @@
       "log": true
     },
     {
-      "name": "agent-DAL_w350_SV", 
+      "name": "agent-AUS_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_AUS_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w350_SV.json",
+        "--agent-configuration", "configs/AUS_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_w350_SV_kv", 
+      "name": "agent-AUS_w350_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w350_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_AUS_w350_SV_kv",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w350_SV_kv.json",
+        "--agent-configuration", "configs/AUS_w350_SV_kv.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w350_SV", 
+      "name": "agent-AUS_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_AUS_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w350_SV.json",
+        "--agent-configuration", "configs/AUS_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w350_SV_kv", 
+      "name": "agent-BIR_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w350_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_BIR_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w350_SV_kv.json",
+        "--agent-configuration", "configs/BIR_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w350_SV", 
+      "name": "agent-BIR_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_BIR_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w350_SV.json",
+        "--agent-configuration", "configs/BIR_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w350_SV_kv", 
+      "name": "agent-BIR_w300_SV_kv", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w350_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_BIR_w300_SV_kv",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-HUN_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-JAK_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LAF_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-SNT_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_ORL_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/ORL_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-ORL_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_ORL_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/ORL_w350_SV_kv.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w350_SV", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_CLE_w350_SV",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/CLE_w350_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-CLE_w350_SV_kv", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_CLE_w350_SV_kv",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/CLE_w350_SV_kv.json",
+        "--agent-configuration", "configs/BIR_w300_SV_kv.json",
         "--use-http-banker"
       ],
       "log": true
@@ -1745,23 +943,573 @@
       "log": true
     },
     {
-      "name": "agent-AUS_w350_SV", 
+      "name": "agent-BIR_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_AUS_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_BIR_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/AUS_w350_SV.json",
+        "--agent-configuration", "configs/BIR_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_w350_SV_kv", 
+      "name": "agent-DAL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_AUS_w350_SV_kv",
+        "--service-name", "useast1b.rtb1.agent_DAL_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/AUS_w350_SV_kv.json",
+        "--agent-configuration", "configs/DAL_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/DAL_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/DAL_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_DAL_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/DAL_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_DAL_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/DAL_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-DAL_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_DAL_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/DAL_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-GWH_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_GWH_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/GWH_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HSB_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HSB_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HSB_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HSB_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HSB_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HSB_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HSB_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HSB_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HSB_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HSB_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HSB_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HNH_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HNH_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HNH_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HNH_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HNH_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HNH_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HNH_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HNH_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HNH_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HNH_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HNH_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HUN_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HUN_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HUN_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HUN_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HUN_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HUN_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HUN_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HUN_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HUN_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HUN_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-HUN_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_HUN_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/HUN_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_JAK_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/JAK_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_JAK_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/JAK_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_JAK_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/JAK_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_JAK_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/JAK_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_JAK_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/JAK_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-JAK_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_JAK_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/JAK_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LAF_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LAF_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LAF_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LAF_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LAF_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LAF_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LAF_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LAF_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LAF_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LAF_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LAF_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LAF_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LAF_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LUB_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LUB_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LUB_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LUB_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LUB_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LUB_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LUB_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LUB_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LUB_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LUB_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-LUB_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_LUB_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/LUB_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-MSP_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_MSP_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/MSP_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_cTV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_SNT_cTV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/SNT_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w300_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_SNT_w300_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/SNT_w300_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w300_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_SNT_w300_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/SNT_w300_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w350_SV", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_SNT_w350_SV",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/SNT_w350_SV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_w350_SV_kv", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_SNT_w350_SV_kv",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/SNT_w350_SV_kv.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-SNT_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_SNT_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/SNT_Mobile.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-WAU_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_WAU_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/WAU_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
