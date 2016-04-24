@@ -1,0 +1,71 @@
+{
+    "account": [
+        "chan_w300_SV_kv", "1"
+    ],
+    "bidProbability": 1,
+    "creatives": [
+    {
+        "id": 0423226437664,
+        "type": "video",
+        "width": 300,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+          }
+        }
+    },
+    {
+        "id": 04232264376643,
+        "type": "video",
+        "width": 350,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+          }
+        }
+    },
+    {
+        "id": 04232264376644,
+        "type": "video",
+        "width": 480,
+        "height": 0,
+        "duration": 30,
+        "providerConfig": {
+          }
+        }
+    }
+    ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 40,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
+    "externalId": 1337,
+    "roundRobin": {
+        "group": "jl:chan_w300_SV_kv",
+        "weight": 1
+    },
+    "providerConfig": {
+      "spotx": {
+          "seat": "12341",
+          "seatName": "jamloop",
+          "bidid": "12345"
+        }
+    },
+    "deviceTypeFilter": {
+        "include": [ 2 ],
+        "exclude": [ ]
+    },
+    "ext": {
+        "budget": "50000000000USD/1M",
+        "pace": "222222USD/1M",
+        "price": "7100USD/1M",
+        "priority": 2
+    }
+}
+
