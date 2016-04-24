@@ -1,11 +1,11 @@
 {
     "account": [
-        "JAK_w350_SV_KV", "1"
+        "JAK_w350_SV_kv", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04232264376649,
+        "id": 04232364376649,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -18,7 +18,7 @@
         }
     },
     {
-        "id": 042322643766493,
+        "id": 042323643766493,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
         }
     },
     {
-        "id": 042322643766494,
+        "id": 042323643766494,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -63,7 +63,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:JAK_w350_SV_KV",
+        "group": "jl:JAK_w350_SV_kv",
         "weight": 1
     },
     "providerConfig": {

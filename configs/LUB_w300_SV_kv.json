@@ -1,11 +1,11 @@
 {
     "account": [
-        "LUB_w300_SV_KV", "1"
+        "LUB_w300_SV_kv", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04232264376639,
+        "id": 04232364376639,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -18,7 +18,7 @@
         }
     },
     {
-        "id": 042322643766393,
+        "id": 042323643766393,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
         }
     },
     {
-        "id": 042322643766394,
+        "id": 042323643766394,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -63,7 +63,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:LUB_w300_SV_KV",
+        "group": "jl:LUB_w300_SV_kv",
         "weight": 1
     },
     "providerConfig": {

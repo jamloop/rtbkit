@@ -1,11 +1,11 @@
 {
     "account": [
-        "SNT_w350_SV_KV", "1"
+        "SNT_w350_SV_kv", "1"
     ],
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04232264376652,
+        "id": 04232364376652,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -18,7 +18,7 @@
         }
     },
     {
-        "id": 042322643766523,
+        "id": 042323643766523,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
         }
     },
     {
-        "id": 042322643766524,
+        "id": 042323643766524,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -63,7 +63,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:SNT_w350_SV_KV",
+        "group": "jl:SNT_w350_SV_kv",
         "weight": 1
     },
     "providerConfig": {
