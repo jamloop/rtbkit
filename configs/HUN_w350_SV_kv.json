@@ -1,6 +1,6 @@
 {
     "account": [
-        "HUN_w350_SV_kv", "1"
+        "HUN_w350_SV_KV", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -63,7 +63,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:HUN_w350_SV_kv",
+        "group": "jl:HUN_w350_SV_KV",
         "weight": 1
     },
     "providerConfig": {

@@ -1,6 +1,6 @@
 {
     "account": [
-        "ORL_w300_SV_kv", "1"
+        "ORL_w300_SV_KV", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -63,7 +63,7 @@
     },
     "externalId": 1337,
     "roundRobin": {
-        "group": "jl:ORL_w300_SV_kv",
+        "group": "jl:ORL_w300_SV_KV",
         "weight": 1
     },
     "providerConfig": {
