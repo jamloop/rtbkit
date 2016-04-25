@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04250964376619,
+        "id": 04251864376619,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -37,7 +37,7 @@
         }
     },
     {
-        "id": 042509643766193,
+        "id": 042518643766193,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -69,7 +69,7 @@
         }
     },
     {
-        "id": 042509643766194,
+        "id": 042518643766194,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -109,13 +109,6 @@
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
-      },
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 64
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
     "externalId": 1337,

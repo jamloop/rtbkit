@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04250974077511,
+        "id": 04251874077511,
         "type": "video",
         "width": 1,
         "height": 0,
@@ -37,7 +37,7 @@
         }
     },
     {
-        "id": 042509740775113,
+        "id": 042518740775113,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -69,7 +69,7 @@
         }
     },
     {
-        "id": 042509740775114,
+        "id": 042518740775114,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -101,15 +101,6 @@
         }
     }
     ],
-   "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 64
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-      }
-    },
     "externalId": 1337,
     "roundRobin": {
         "group": "jl:LAF_Mobile",
