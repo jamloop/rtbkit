@@ -17,7 +17,8 @@
 //    }
 //  },
   {
-    "exchangeType": "adaptvhv",
+    "exchangeType": "adaptv",
+    "uniqueName": "adaptvhv",
     "listenPort": 29976,
     "numThreads": 4,
     "realTimePolling": true,
@@ -25,6 +26,7 @@
     "auctionVerb": "POST",
     "auctionResource": "/",
     "performNameLookup": false,
+    "inventoryType": "highviewable",
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router-3.pipeline.adaptvhv",
