@@ -148,6 +148,8 @@ struct HttpExchangeConnector
     */
     virtual std::string exchangeName() const = 0;
 
+    std::string uniqueName() const;
+
     /** Parse the given payload into a bid request. */
     virtual std::shared_ptr<BidRequest>
     parseBidRequest(HttpAuctionHandler & connection,
@@ -309,6 +311,8 @@ protected:
     std::string auctionResource;
     std::string auctionVerb;
     double absoluteTimeMax;
+
+    std::string uniqueName_;
 
     /// The ping time to known hosts in milliseconds
     std::unordered_map<std::string, float> pingTimesByHostMs;

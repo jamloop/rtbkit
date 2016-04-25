@@ -119,6 +119,15 @@ struct ExchangeConnector: public ServiceBase {
     */
     virtual std::string exchangeName() const = 0;
 
+    /**
+     * Return the unique name of the exchange.
+     * Useful if multiple exchange connectors with the same name are being
+     * used. Defaults to exchangeName
+     */
+    virtual std::string uniqueName() const {
+        return exchangeName();
+    }
+
     /** Return the win cost model for the bid of an agent
     */
     virtual WinCostModel getWinCostModel(Auction const & auction,

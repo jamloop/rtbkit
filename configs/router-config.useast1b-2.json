@@ -1,6 +1,7 @@
 [
   {
     "exchangeType": "adaptv",
+    "uniqueName": "adaptv",
     "listenPort": 19970,
     "numThreads": 2,
     "realTimePolling": true,
@@ -19,6 +20,7 @@
   },
   {
     "exchangeType": "adaptv",
+    "uniqueName": "adaptvhv",
     "listenPort": 19976,
     "numThreads": 4,
     "realTimePolling": true,

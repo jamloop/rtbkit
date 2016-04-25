@@ -110,6 +110,8 @@ configure(const Json::Value & parameters)
     if (parameters.isMember("realTimePolling"))
         realTimePolling(parameters["realTimePolling"].asBool());
 
+    uniqueName_ = parameters.get("uniqueName", exchangeName()).asString();
+
     configurePipeline(parameters["pipeline"]);
 }
 
@@ -248,6 +250,12 @@ getServiceStatus() const
         result["hostConnections"][cnt.first] = cnt.second;
 
     return result;
+}
+
+std::string
+HttpExchangeConnector::
+uniqueName() const {
+    return uniqueName_;
 }
 
 std::shared_ptr<BidRequest>

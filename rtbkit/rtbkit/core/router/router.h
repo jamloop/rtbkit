@@ -226,7 +226,7 @@ struct Router : public ServiceBase,
     void addExchange(ExchangeConnector * exchange)
     {
         loopMonitor.addCallback(
-                "exchanges." + exchange->exchangeName(),
+                "exchanges." + exchange->uniqueName(),
                 exchange->getLoadSampleFn());
 
         Guard guard(lock);
@@ -241,7 +241,7 @@ struct Router : public ServiceBase,
     void addExchange(ExchangeConnector & exchange)
     {
         loopMonitor.addCallback(
-                "exchanges." + exchange.exchangeName(),
+                "exchanges." + exchange.uniqueName(),
                 exchange.getLoadSampleFn());
 
         Guard guard(lock);
@@ -259,7 +259,7 @@ struct Router : public ServiceBase,
     void addExchange(std::shared_ptr<ExchangeConnector> const & exchange)
     {
         loopMonitor.addCallback(
-                "exchanges." + exchange->exchangeName(),
+                "exchanges." + exchange->uniqueName(),
                 exchange->getLoadSampleFn());
 
         Guard guard(lock);
@@ -270,7 +270,7 @@ struct Router : public ServiceBase,
     void addExchangeNoConnect(std::shared_ptr<ExchangeConnector> const & exchange)
     {
         loopMonitor.addCallback(
-                "exchanges." + exchange->exchangeName(),
+                "exchanges." + exchange->uniqueName(),
                 exchange->getLoadSampleFn());
 
         Guard guard(lock);
