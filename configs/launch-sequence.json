@@ -709,22 +709,22 @@
       "log": true
     },
     {
-      "name": "agent-chan_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_Mobile",
-        "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_Mobile.json"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-chan_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "uswest2a.rtb1.agent_chan_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
         "--agent-configuration", "configs/chan_cTV.json"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "uswest2a.rtb1.agent_chan_Mobile",
+        "--bootstrap", "configs/bootstrap.uswest2a.json",
+        "--agent-configuration", "configs/chan_Mobile.json"
       ],
       "log": true
     }
@@ -1409,23 +1409,23 @@
       "log": true
     },
     {
-      "name": "agent-chan_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_Mobile.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-chan_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
         "--service-name", "useast1b.rtb1.agent_chan_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/chan_cTV.json",
+        "--use-http-banker"
+      ],
+      "log": true
+    },
+    {
+      "name": "agent-chan_Mobile", 
+      "root": ".", "path": "./bin/basic_bidding_agent",
+      "arg": [
+        "--service-name", "useast1b.rtb1.agent_chan_Mobile",
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--agent-configuration", "configs/chan_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
