@@ -143,12 +143,16 @@ ViewabilityAugmentor::onRequest(
             auto type = br->ext["inventoryType"].asString();
             if (type == "highviewable") {
                 AugmentationList result;
+
                 for (const auto& agent: request.agents) {
                     const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
                     const AccountKey& account = configEntry.config->account;
 
                     result[account].tags.insert("pass-viewability");
+                    recordHit("accounts.%s.adapviewable", account.toString());
+                    recordHit("accounts.%s.passed", account.toString());
                 }
+
                 sendResponse(result);
                 return;
             }
