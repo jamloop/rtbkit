@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04242064376625,
+        "id": 04242164376625,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -80,7 +80,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "333333USD/1M",
+        "pace": "20833USD/1M",
         "price": "15100USD/1M",
         "priority": 12
     }
