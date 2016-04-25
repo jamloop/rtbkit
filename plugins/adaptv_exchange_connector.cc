@@ -84,7 +84,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
         OpenRTBExchangeConnector::configure(config);
 
         auto type = config.get("inventoryType", "standard").asString();
-        if (type != "standard" || type != "highviewable")
+        if (type != "standard" && type != "highviewable")
             throw ML::Exception("Invalid inventory type '%s'", type.c_str());
 
         inventoryType = std::move(type);
