@@ -28,6 +28,8 @@ public:
         return exchangeNameString();
     }
 
+    void configure(const Json::Value& config);
+
     struct CampaignInfo {
         Datacratic::Id seat;
     };
@@ -73,6 +75,8 @@ private:
                     OpenRTB::BidResponse& response) const;
 
     AdaptvCreativeConfiguration creativeConfig;
+
+    std::string inventoryType;
 
 };
 

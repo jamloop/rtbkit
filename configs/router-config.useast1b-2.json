@@ -8,6 +8,7 @@
     "auctionVerb": "POST",
     "auctionResource": "/",
     "performNameLookup": false,
+    "inventoryType": "standard",
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router2.pipeline.adaptv",
@@ -17,7 +18,7 @@
     }
   },
   {
-    "exchangeType": "adaptvhv",
+    "exchangeType": "adaptv",
     "listenPort": 19976,
     "numThreads": 4,
     "realTimePolling": true,
@@ -25,6 +26,7 @@
     "auctionVerb": "POST",
     "auctionResource": "/",
     "performNameLookup": false,
+    "inventoryType": "highviewable",
     "pipeline": {
         "type": "geo",
         "serviceName": "useast1b.rtb1.router2.pipeline.adaptvhv",
@@ -32,7 +34,7 @@
         "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
     }
-//  },
+  },
 //  {
 //    "exchangeType": "brightroll",
 //    "listenPort": 19971,
@@ -49,7 +51,7 @@
 //        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
 //        "precision": 0.1
 //    }
-  },
+//  },
   {
     "exchangeType": "publisher",
     "listenPort": 19975,
