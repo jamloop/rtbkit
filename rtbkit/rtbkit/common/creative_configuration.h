@@ -202,7 +202,10 @@ public:
                     else {
                         return SP_long;
                     }
+                } else if (ctx.bidrequest.app) {
+                    return std::string("apps://") + ctx.bidrequest.app->name.rawString() + '/';
                 }
+
                 return ""; 
             } 
         },
@@ -314,6 +317,31 @@ public:
                     }
                 }
 
+                return "";
+            }
+        },
+        {
+            "bidrequest.app.bundle",
+            [](const Context& ctx) -> std::string {
+                if (ctx.bidrequest.app)
+                    return ctx.bidrequest.app->bundle.rawString();
+
+                return "";
+            }
+        },
+        {
+            "bidrequest.app.name",
+            [](const Context& ctx) -> std::string {
+                if (ctx.bidrequest.app)
+                    return ctx.bidrequest.app->name.rawString();
+                return "";
+            }
+        },
+        {
+            "bidrequest.app.storeurl",
+            [](const Context& ctx) -> std::string {
+                if (ctx.bidrequest.app)
+                    return ctx.bidrequest.app->storeurl.toString();
                 return "";
             }
         },
