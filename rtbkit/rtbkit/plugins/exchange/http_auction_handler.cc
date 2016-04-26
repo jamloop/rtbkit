@@ -576,7 +576,7 @@ dropAuction(const std::string & reason)
 {
     auto onSendFinished = [=] ()
         {
-            if (random() % 1000 == 0) {
+            if (false && random() % 1000 == 0) {
                 this->transport().closeWhenHandlerFinished();
             }
             else {
