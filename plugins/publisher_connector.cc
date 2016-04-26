@@ -369,24 +369,25 @@ namespace Jamloop {
             Datacratic::Optional<OpenRTB::Device> device;
             device.reset(new OpenRTB::Device());
 
-            Datacratic::Optional<OpenRTB::Site> site;
-            site.reset(new OpenRTB::Site());
-
-            Datacratic::Optional<OpenRTB::Content> content;
-            content.reset(new OpenRTB::Content());
-
             Datacratic::Optional<OpenRTB::User> user;
             user.reset(new OpenRTB::User());
-
-            Datacratic::Optional<OpenRTB::App> app;
-            app.reset(new OpenRTB::App());
 
             int width, height;
             double lat, lon;
             lat = lon = 0.0;
             VideoType videoType;
             DeviceId did;
-            std::string appName;
+            /* App fields */
+            Datacratic::UnicodeString appName;
+            Datacratic::Url appStoreUrl;
+            Datacratic::UnicodeString appBundle;
+
+            /* Site fields */
+            Datacratic::Url pageUrl;
+
+            /* Content fields */
+            std::string language;
+
             std::string partner;
 
             const auto& queryParams = header.queryParams;
@@ -395,12 +396,40 @@ namespace Jamloop {
             extractParam(queryParams, "ip", device->ip);
             extractParam(queryParams, "ua", device->ua);
             extractParam(queryParams, "devicetype", device->devicetype);
-            extractParam(queryParams, "lang", content->language);
-            extractParam(queryParams, "pageurl", site->page);
+            auto hasLang
+                = extractParam(queryParams, "lang", language);
             extractParam(queryParams, "partner", partner);
-            extractParam(queryParams, "app_storeurl", app->storeurl);
-            extractParam(queryParams, "app_bundle", app->bundle);
-            extractParam(queryParams, "appName", app->name);
+
+            auto hasPageUrl
+                = extractParam(queryParams, "pageurl", pageUrl);
+            auto hasAppStoreUrl
+                = extractParam(queryParams, "app_storeurl", appStoreUrl);
+            auto hasAppBundle
+                = extractParam(queryParams, "app_bundle", appBundle);
+            auto hasAppName
+                = extractParam(queryParams, "appName", appName);
+
+            if (hasPageUrl) {
+                br->site.reset(new OpenRTB::Site);
+                br->site->page = std::move(pageUrl);
+                if (hasLang) {
+                    br->site->content.reset(new OpenRTB::Content);
+                    br->site->content->language = language;
+                }
+                br->url = br->site->page;
+            }
+
+            const auto hasApp = hasAppStoreUrl || hasAppBundle || hasAppName;
+            if (hasApp) {
+                br->app.reset(new OpenRTB::App);
+                br->app->storeurl = std::move(appStoreUrl);
+                br->app->bundle = std::move(appBundle);
+                br->app->name = std::move(appName);
+                if (hasLang) {
+                    br->app->content.reset(new OpenRTB::Content);
+                    br->app->content->language = language;
+                }
+            }
 
             if (extractParam(queryParams, "videotype", videoType)) {
                 br->ext["videotype"] = videoTypeString(videoType);
@@ -418,11 +447,12 @@ namespace Jamloop {
 
             auto hasLat = extractParam(queryParams, "lat", lat, std::numeric_limits<double>::quiet_NaN());
             auto hasLon = extractParam(queryParams, "lon", lon, std::numeric_limits<double>::quiet_NaN());
+            const auto hasGeo = hasLat || hasLon;
 
             video->w = width;
             video->h = height;
 
-            if (hasLat || hasLon) {
+            if (hasGeo) {
                 user->geo.reset(new OpenRTB::Geo);
                 user->geo->lat = lat;
                 user->geo->lon = lon;
@@ -432,12 +462,8 @@ namespace Jamloop {
             extractParam(queryParams, "price", price);
             br->ext["price"] = price * 1000.0;
 
-            site->content = std::move(content);
             br->device = std::move(device);
-            br->site = std::move(site);
             br->user = std::move(user);
-            br->url = br->site->page;
-            br->app = std::move(app);
             br->userAgent = br->device->ua;
             spot.video = std::move(video);
             spot.formats.push_back(Format(width, height));
