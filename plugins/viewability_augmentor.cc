@@ -146,6 +146,8 @@ ViewabilityAugmentor::onRequest(
 
                 for (const auto& agent: request.agents) {
                     const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
+                    if (!configEntry.valid()) continue;
+
                     const AccountKey& account = configEntry.config->account;
 
                     result[account].tags.insert("pass-viewability");
@@ -222,6 +224,8 @@ ViewabilityAugmentor::handleHttpResponse(
     auto failure = ScopeFailure([&]() noexcept {
         for (const auto& agent: augRequest.agents) {
             const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
+            if (!configEntry.valid()) continue;
+
             const AccountKey& account = configEntry.config->account;
 
             result[account].tags.insert("pass-viewability");
@@ -260,6 +264,7 @@ ViewabilityAugmentor::handleHttpResponse(
 
         for (const auto& agent: augRequest.agents) {
             const AgentConfigEntry& configEntry = agentConfig->getAgentEntry(agent);
+            if (!configEntry.valid()) continue;
 
             const AgentConfig& config = *configEntry.config;
             const AccountKey& account = config.account;
