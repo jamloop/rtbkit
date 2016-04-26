@@ -5,9 +5,9 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04251874077522,
+        "id": 04261574077522,
         "type": "video",
-        "width": 1,
+        "width": -1,
         "height": 0,
         "duration": 30,
         "providerConfig": {
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0425740775",
+              "lid": "0426740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 042518740775223,
+        "id": 042615740775223,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -54,14 +54,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0425740775",
+              "lid": "0426740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 042518740775224,
+        "id": 042615740775224,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -82,7 +82,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0425740775",
+              "lid": "0426740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
