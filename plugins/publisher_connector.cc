@@ -86,6 +86,13 @@ namespace Jamloop {
         Optional
     };
 
+    enum class ParamResult {
+        Invalid,
+        NotFound,
+        Empty,
+        Ok
+    };
+
     namespace {
         Id generateUniqueId() {
             boost::uuids::random_generator gen;
@@ -100,30 +107,41 @@ namespace Jamloop {
         namespace detail {
             template<typename T> struct LexicalCast
             {
-                static T cast(const std::string& value) {
-                    return boost::lexical_cast<T>(value);
+                static std::pair<bool, T> cast(const std::string& value) {
+                    std::istringstream iss(value);
+                    T ret;
+                    if (!(iss >> ret)) {
+                        return std::make_pair(false, T());
+                    }
+
+                    return std::make_pair(true, ret);
                 }
             };
 
             template<> struct LexicalCast<Datacratic::UnicodeString>
             {
-                static Datacratic::UnicodeString cast(const std::string& value) {
-                    return Datacratic::UnicodeString(value);
+                static std::pair<bool, Datacratic::UnicodeString> cast(const std::string& value) {
+                    return std::make_pair(true, Datacratic::UnicodeString(value));
                 }
             };
 
             template<> struct LexicalCast<Datacratic::Url>
             {
-                static Datacratic::Url cast(const std::string& value) {
-                    return Datacratic::Url(urldecode(value));
+                static std::pair<bool, Datacratic::Url> cast(const std::string& value) {
+                    return std::make_pair(true, Datacratic::Url(urldecode(value)));
                 }
             };
 
             template<> struct LexicalCast<Datacratic::TaggedInt>
             {
-                static Datacratic::TaggedInt cast(const std::string& value) {
+                static std::pair<bool, Datacratic::TaggedInt> cast(const std::string& value) {
                     Datacratic::TaggedInt val;
-                    val.val = boost::lexical_cast<int>(value);
+                    auto ret = LexicalCast<int>::cast(value);
+                    if (!ret.first)
+                        return std::make_pair(false, val);
+
+                    val.val = ret.second;
+                    return std::make_pair(true, val);
                 }
             };
 
@@ -138,29 +156,29 @@ namespace Jamloop {
 
             template<> struct LexicalCast<VideoType>
             {
-                static VideoType cast(const std::string& value) {
+                static std::pair<bool, VideoType> cast(const std::string& value) {
                 #define VIDEO_TYPE(val, str) \
-                    if (value == str) return VideoType::val;
+                    if (value == str) return std::make_pair(true, VideoType::val);
                 VIDEO_TYPES
                 #undef VIDEO_TYPE
-                    throw ML::Exception("Unknown video type '%s'", value.c_str());
+                    return std::make_pair(false, VideoType());
                 }
             };
 
             template<> struct LexicalCast<DeviceId>
             {
-                static DeviceId cast(const std::string& value) {
+                static std::pair<bool, DeviceId> cast(const std::string& value) {
                 #define DEVICE_ID(val, str) \
-                    if (value == str) return DeviceId::val;
+                    if (value == str) return std::make_pair(true, DeviceId::val);
                     DEVICE_IDS
                 #undef DEVICE_ID
-                    throw ML::Exception("Unknown device type '%s'", value.c_str());
+                        return std::make_pair(false, DeviceId());
                 }
             };
 
             template<> struct LexicalCast<OpenRTB::DeviceType>
             {
-                static OpenRTB::DeviceType cast(const std::string& value) {
+                static std::pair<bool, OpenRTB::DeviceType> cast(const std::string& value) {
                     OpenRTB::DeviceType res;
                     if (value == "2" || value == "desktop") {
                         res.val = static_cast<int>(OpenRTB::DeviceType::Vals::PC);
@@ -175,35 +193,40 @@ namespace Jamloop {
                         res.val = static_cast<int>(OpenRTB::DeviceType::Vals::TABLET);
                     }
                     else {
-                        throw ML::Exception("Unknown devicetype '%s'", value.c_str());
+                        return std::make_pair(false, res);
                     }
-                    return res;
+
+                    return std::make_pair(true, res);
                 }
             };
         }
 
         template<typename Param>
-        Param param_cast(const std::string& value) {
+        std::pair<bool, Param> param_cast(const std::string& value) {
             return detail::LexicalCast<Param>::cast(value);
         } 
 
         template<typename Param>
-        bool extractParam(const RestParams& params, const char* name, Param& out, Param defaultValue = Param(), Flag flag = Flag::Optional) {
+        ParamResult extractParam(const RestParams& params, const char* name, Param& out, Param defaultValue = Param(), Flag flag = Flag::Optional) {
             if (!params.hasValue(name)) {
                 if (flag == Flag::Required) {
                     throw ML::Exception("Could not find required query param '%s'", name);
                 }
-                return false;
+                return ParamResult::NotFound;
             }
 
             auto value = params.getValue(name);
             if (value.empty()) {
                 out = defaultValue;
-                return false;
+                return ParamResult::Empty;
             }
 
-            out = param_cast<Param>(value);
-            return true;
+            auto ret = param_cast<Param>(value);
+            if (!ret.first)
+                return ParamResult::Invalid;
+
+            out = std::move(ret.second);
+            return ParamResult::Ok;
         }
     }
 
@@ -310,9 +333,28 @@ namespace Jamloop {
     {
         auto br = std::make_shared<BidRequest>();
 
-        try {
-            JML_TRACE_EXCEPTIONS(false);
-            Scope_Failure(br.reset());
+        {
+            auto failure = ScopeFailure([&]() noexcept { br.reset(); });
+
+#define TRY_EXTRACT(name, out)                                          \
+            [&]() {                                                     \
+                auto ret = extractParam(header.queryParams, name, out); \
+                if (ret == ParamResult::Invalid) {                      \
+                    fail(failure, [&]() {                               \
+                        recordHit("invalid.total");                     \
+                        recordHit("invalid.%s", name);                  \
+                    });                                                 \
+                    handler.dropAuction();                              \
+                    return false;                                       \
+                }                                                       \
+                else if (ret == ParamResult::Ok) {                      \
+                    return true;                                        \
+                }                                                       \
+                return false;                                           \
+            }();                                                        \
+            if (!failure.ok()) goto end;                                \
+            (void) 0
+
 
             br->auctionId = generateUniqueId();
             br->auctionType = AuctionType::SECOND_PRICE;
@@ -334,7 +376,7 @@ namespace Jamloop {
 
             int width, height;
             double lat, lon;
-            lat = lon = 0.0;
+            lat = lon = std::numeric_limits<double>::quiet_NaN();
             VideoType videoType;
             DeviceId did;
             /* App fields */
@@ -351,23 +393,21 @@ namespace Jamloop {
             std::string partner;
 
             const auto& queryParams = header.queryParams;
-            extractParam(queryParams, "width", width);
-            extractParam(queryParams, "height", height);
-            extractParam(queryParams, "ip", device->ip);
-            extractParam(queryParams, "ua", device->ua);
-            extractParam(queryParams, "devicetype", device->devicetype);
-            auto hasLang
-                = extractParam(queryParams, "lang", language);
-            extractParam(queryParams, "partner", partner);
+            TRY_EXTRACT("width", width);
+            TRY_EXTRACT("height", height);
+            TRY_EXTRACT("ip", device->ip);
+            TRY_EXTRACT("ua", device->ua);
+            TRY_EXTRACT("devicetype", device->devicetype);
 
-            auto hasPageUrl
-                = extractParam(queryParams, "pageurl", pageUrl);
-            auto hasAppStoreUrl
-                = extractParam(queryParams, "app_storeurl", appStoreUrl);
-            auto hasAppBundle
-                = extractParam(queryParams, "app_bundle", appBundle);
-            auto hasAppName
-                = extractParam(queryParams, "appName", appName);
+            auto hasLang = TRY_EXTRACT("lang", language);
+
+            TRY_EXTRACT("partner", partner);
+
+            auto hasPageUrl     = TRY_EXTRACT("pageurl", pageUrl);
+            auto hasAppStoreUrl = TRY_EXTRACT("app_storeurl", appStoreUrl);
+            auto hasAppBundle   = TRY_EXTRACT("app_bundle", appBundle);
+            auto hasAppName     = TRY_EXTRACT("appName", appName);
+
 
             if (hasPageUrl) {
                 br->site.reset(new OpenRTB::Site);
@@ -391,10 +431,13 @@ namespace Jamloop {
                 }
             }
 
-            if (extractParam(queryParams, "videotype", videoType)) {
+            auto hasVideoType = TRY_EXTRACT("videotype", videoType);
+            auto hasDeviceId  = TRY_EXTRACT("deviceid", did);
+
+            if (hasVideoType) {
                 br->ext["videotype"] = videoTypeString(videoType);
             }
-            if (extractParam(queryParams, "deviceid", did)) {
+            if (hasDeviceId) {
                 br->ext["deviceid"] = deviceIdString(did);
             }
 
@@ -405,8 +448,8 @@ namespace Jamloop {
                 user->id = Id(partner);
             }
 
-            auto hasLat = extractParam(queryParams, "lat", lat, std::numeric_limits<double>::quiet_NaN());
-            auto hasLon = extractParam(queryParams, "lon", lon, std::numeric_limits<double>::quiet_NaN());
+            auto hasLat = TRY_EXTRACT("lat", lat);
+            auto hasLon = TRY_EXTRACT("lon", lon);
             const auto hasGeo = hasLat || hasLon;
 
             video->w = width;
@@ -419,7 +462,7 @@ namespace Jamloop {
             }
 
             double price = 0.0;
-            extractParam(queryParams, "price", price);
+            TRY_EXTRACT("price", price);
             br->ext["price"] = price * 1000.0;
 
             br->device = std::move(device);
@@ -430,13 +473,10 @@ namespace Jamloop {
             br->imp.push_back(std::move(spot));
             br->exchange = "publisher";
 
-
-        } catch (const std::exception& e) {
-            //LOG(Logs::error) << "Error when processing request: " << e.what();
-            handler.dropAuction();
         }
 
-        return br;
+        end:
+            return br;
     }
 
     HttpResponse
