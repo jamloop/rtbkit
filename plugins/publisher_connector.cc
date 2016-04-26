@@ -375,6 +375,7 @@ namespace Jamloop {
             user.reset(new OpenRTB::User());
 
             int width, height;
+            width = height = -1;
             double lat, lon;
             lat = lon = std::numeric_limits<double>::quiet_NaN();
             VideoType videoType;
@@ -452,13 +453,13 @@ namespace Jamloop {
             auto hasLon = TRY_EXTRACT("lon", lon);
             const auto hasGeo = hasLat || hasLon;
 
-            video->w = width;
-            video->h = height;
+            video->w.val = width;
+            video->h.val = height;
 
             if (hasGeo) {
                 user->geo.reset(new OpenRTB::Geo);
-                user->geo->lat = lat;
-                user->geo->lon = lon;
+                user->geo->lat.val = lat;
+                user->geo->lon.val = lon;
             }
 
             double price = 0.0;
