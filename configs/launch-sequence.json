@@ -330,7 +330,7 @@
       ],
       "log": true
     },
- EastLaunchStart
+// EastLaunchStart
     {
       "name": "agent-HSB_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
