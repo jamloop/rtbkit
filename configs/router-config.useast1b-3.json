@@ -1,16 +1,18 @@
 [
 //  {
 //    "exchangeType": "adaptv",
-//    "listenPort": 29970,
-//    "numThreads": 3,
+//    "uniqueName": "adaptv",
+//    "listenPort": 19970,
+//    "numThreads": 1,
 //    "realTimePolling": true,
 //    "bindHost": "0.0.0.0",
 //    "auctionVerb": "POST",
 //    "auctionResource": "/",
 //    "performNameLookup": false,
+//    "inventoryType": "standard",
 //    "pipeline": {
 //        "type": "geo",
-//        "serviceName": "useast1b.rtb1.router-3.pipeline.adaptv",
+//        "serviceName": "useast1b.rtb1.router2.pipeline.adaptv",
 //        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
 //        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
 //        "precision": 0.1
@@ -19,8 +21,8 @@
   {
     "exchangeType": "adaptv",
     "uniqueName": "adaptvhv",
-    "listenPort": 29976,
-    "numThreads": 4,
+    "listenPort": 19976,
+    "numThreads": 2,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
@@ -29,7 +31,7 @@
     "inventoryType": "highviewable",
     "pipeline": {
         "type": "geo",
-        "serviceName": "useast1b.rtb1.router-3.pipeline.adaptvhv",
+        "serviceName": "useast1b.rtb1.router2.pipeline.adaptvhv",
         "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
         "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
@@ -37,7 +39,7 @@
   },
 //  {
 //    "exchangeType": "brightroll",
-//    "listenPort": 29971,
+//    "listenPort": 19971,
 //    "numThreads": 1,
 //    "realTimePolling": true,
 //    "bindHost": "0.0.0.0",
@@ -46,7 +48,7 @@
 //    "performNameLookup": false,
 //    "pipeline": {
 //        "type": "geo",
-//        "serviceName": "useast1b.rtb1.router-3.pipeline.brightroll",
+//        "serviceName": "useast1b.rtb1.router2.pipeline.brightroll",
 //        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
 //        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
 //        "precision": 0.1
@@ -54,7 +56,7 @@
 //  },
   {
     "exchangeType": "publisher",
-    "listenPort": 29975,
+    "listenPort": 9977,
     "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
@@ -64,7 +66,7 @@
     "genericVast": "<VAST xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"vast.xsd\" version=\"2.0\"/>",
     "pipeline": {
         "type": "geo",
-        "serviceName": "useast1b.rtb1.router-3.pipeline.publisher",
+        "serviceName": "useast1b.rtb1.router2.pipeline.publisher",
         "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
         "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
