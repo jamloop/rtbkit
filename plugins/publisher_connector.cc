@@ -230,6 +230,25 @@ namespace Jamloop {
         }
     }
 
+    struct LatencyRecorder {
+        LatencyRecorder(const EventRecorder* recorder, const char* name)
+            : recorder(recorder)
+            , name(name)
+            , start(Date::now())
+        {
+        }
+
+        ~LatencyRecorder() {
+            auto end = Date::now();
+            auto elapsed = end.secondsSince(start) * 1000;
+            recorder->recordOutcome(elapsed, name);
+        }
+
+        const EventRecorder* recorder;
+        const char* name;
+        Date start;
+    };
+
     PublisherConnector::PublisherConnector(ServiceBase& owner, std::string name)
         : HttpExchangeConnector(std::move(name), owner)
         , maxAuctionTime(Default::MaxAuctionTime)
@@ -331,6 +350,8 @@ namespace Jamloop {
             const HttpHeader& header,
             const std::string& payload)
     {
+        LatencyRecorder parsing(this, "timing.parseBidRequestMs");
+
         auto br = std::make_shared<BidRequest>();
 
         {
@@ -492,6 +513,9 @@ namespace Jamloop {
             const HttpAuctionHandler& connection,
             const Datacratic::HttpHeader& header,
             const RTBKIT::Auction& auction) const {
+
+        LatencyRecorder response(this, "timing.getResponseMs");
+
         const Auction::Data* current = auction.getCurrentData();
 
         if (current->hasError())
