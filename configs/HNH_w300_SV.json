@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04270164376615,
+        "id": 04280864376615,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0427643766",
+              "lid": "0428643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 042701643766153,
+        "id": 042808643766153,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -62,14 +62,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0427643766",
+              "lid": "0428643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 042701643766154,
+        "id": 042808643766154,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -94,7 +94,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0427643766",
+              "lid": "0428643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -105,7 +105,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 40,
+        "viewTreshold": 1,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -137,7 +137,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "34722USD/1M",
+        "pace": "138888USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }
