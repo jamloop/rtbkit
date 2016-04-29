@@ -128,7 +128,7 @@ namespace Jamloop {
             template<> struct LexicalCast<Datacratic::Url>
             {
                 static std::pair<bool, Datacratic::Url> cast(const std::string& value) {
-                    return std::make_pair(true, Datacratic::Url(urldecode(value)));
+                    return std::make_pair(true, Datacratic::Url(value));
                 }
             };
 
