@@ -2,7 +2,7 @@
   {
     "exchangeType": "adaptv",
     "uniqueName": "adaptv",
-    "listenPort": 9969,
+    "listenPort": 19970,
     "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
@@ -56,7 +56,7 @@
 //  },
 //  {
 //    "exchangeType": "publisher",
-//    "listenPort": 9974,
+//    "listenPort": 19976,
 //    "numThreads": 2,
 //    "realTimePolling": true,
 //    "bindHost": "0.0.0.0",
