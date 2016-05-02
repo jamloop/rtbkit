@@ -1,23 +1,23 @@
 [
-//  {
-//    "exchangeType": "adaptv",
-//    "uniqueName": "adaptv",
-//    "listenPort": 9970,
-//    "numThreads": 2,
-//    "realTimePolling": true,
-//    "bindHost": "0.0.0.0",
-//    "auctionVerb": "POST",
-//    "auctionResource": "/",
-//    "performNameLookup": false,
-//    "inventoryType": "standard",
-//    "pipeline": {
-//        "type": "geo",
-//        "serviceName": "useast1b.rtb1.router1.pipeline.adaptv",
-//        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
-//        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
-//        "precision": 0.1
-//    }
-//  },
+  {
+    "exchangeType": "adaptv",
+    "uniqueName": "adaptv",
+    "listenPort": 9970,
+    "numThreads": 4,
+    "realTimePolling": true,
+    "bindHost": "0.0.0.0",
+    "auctionVerb": "POST",
+    "auctionResource": "/",
+    "performNameLookup": false,
+    "inventoryType": "standard",
+    "pipeline": {
+        "type": "geo",
+        "serviceName": "useast1b.rtb1.router1.pipeline.adaptv",
+        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
+        "precision": 0.1
+    }
+  },
   {
     "exchangeType": "adaptv",
     "uniqueName": "adaptvhv",
