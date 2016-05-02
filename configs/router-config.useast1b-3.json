@@ -2,7 +2,7 @@
   {
     "exchangeType": "adaptv",
     "uniqueName": "adaptv",
-    "listenPort": 29970,
+    "listenPort": 9968,
     "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
