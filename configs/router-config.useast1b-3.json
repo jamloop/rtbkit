@@ -2,7 +2,7 @@
   {
     "exchangeType": "adaptv",
     "uniqueName": "adaptv",
-    "listenPort": 9977,
+    "listenPort": 29970,
     "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
@@ -71,5 +71,5 @@
 //        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
 //        "precision": 0.1
 //    }
-//  }
+  }
 ]
