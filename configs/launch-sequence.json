@@ -96,21 +96,21 @@
       ],
       "log": true
     },
-    {
-      "name": "router-3",
-      "root": ".", "path": "./bin/router_runner",
-      "arg": [
-        "--service-name", "useast1b.rtb1.router3",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.useast1b-3.json",
-        "--bidder", "configs/bidder-config.json",
-        "--use-http-banker",
-        "--banker-sync-rate", "5.0",
-        "--spend-rate", "500000USD/1M",
-        "--augmenter-timeout", "15"
-      ],
-      "log": true
-    },
+//    {
+//      "name": "router-3",
+//      "root": ".", "path": "./bin/router_runner",
+//      "arg": [
+//        "--service-name", "useast1b.rtb1.router3",
+//        "--bootstrap", "configs/bootstrap.useast1b.json",
+//        "--exchange-configuration", "configs/router-config.useast1b-3.json",
+//        "--bidder", "configs/bidder-config.json",
+//        "--use-http-banker",
+//        "--banker-sync-rate", "5.0",
+//        "--spend-rate", "500000USD/1M",
+//        "--augmenter-timeout", "15"
+//      ],
+//      "log": true
+//    },
     {
       "name": "viewability-service",
       "root": ".", "path": "/bin/bash",
@@ -745,21 +745,21 @@
       ],
       "log": true
     },
-    {
-      "name": "router-3",
-      "root": ".", "path": "./bin/router_runner",
-     "arg": [
-        "--service-name", "useast1b.rtb2.router3",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.useast1b-3.json",
-        "--bidder", "configs/bidder-config.json",
-        "--use-http-banker",
-        "--banker-sync-rate", "5.0",
-        "--spend-rate", "500000USD/1M",
-        "--augmenter-timeout", "15"
-      ],
-      "log": true
-    },
+//    {
+//      "name": "router-3",
+//      "root": ".", "path": "./bin/router_runner",
+//     "arg": [
+//        "--service-name", "useast1b.rtb2.router3",
+//        "--bootstrap", "configs/bootstrap.useast1b.json",
+//        "--exchange-configuration", "configs/router-config.useast1b-3.json",
+//        "--bidder", "configs/bidder-config.json",
+//        "--use-http-banker",
+//        "--banker-sync-rate", "5.0",
+//        "--spend-rate", "500000USD/1M",
+//        "--augmenter-timeout", "15"
+//      ],
+//      "log": true
+//    },
 // EastLaunchStart
     {
       "name": "agent-DAL_cTV", 
