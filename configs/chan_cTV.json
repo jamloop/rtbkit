@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 04301672982320,
+        "id": 05021072982321,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0430729823",
+              "lid": "0502729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 043016729823203,
+        "id": 050210729823213,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -62,14 +62,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0430729823",
+              "lid": "0502729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 043016729823204,
+        "id": 050210729823214,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -94,7 +94,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0430729823",
+              "lid": "0502729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
