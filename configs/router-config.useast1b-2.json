@@ -22,7 +22,7 @@
     "exchangeType": "adaptv",
     "uniqueName": "adaptvhv",
     "listenPort": 19976,
-    "numThreads": 4,
+    "numThreads": 3,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
