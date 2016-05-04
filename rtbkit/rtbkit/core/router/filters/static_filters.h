@@ -595,36 +595,6 @@ namespace JamLoop {
         }
     };
 
-    struct RegionFilter : public RTBKIT::FilterBaseT<RegionFilter>
-    {
-        static constexpr const char* name = "Region";
-
-        unsigned priority() const { return RTBKIT::Priority::JamLoop::Region; }
-
-
-        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
-        {
-            impl.setIncludeExclude(configIndex, value, config.regionFilter.ie());
-        }
-
-        void filter(RTBKIT::FilterState& state) const
-        {
-            state.narrowConfigs(impl.filter(extractRegion(state.request)));
-        }
-
-    private:
-        RTBKIT::IncludeExcludeFilter< RTBKIT::ListFilter<std::string> > impl;
-
-        std::string extractRegion(const RTBKIT::BidRequest& br) const
-        {
-            if (!br.user)
-                return "";
-            if (!br.user->geo)
-                return "";
-
-            return br.user->geo->region.;
-        }
-    };
 
 } // namespace JamLoop
 

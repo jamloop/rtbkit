@@ -36,21 +36,6 @@ namespace JamLoop {
         RTBKIT::IncludeExclude<std::string> ie_;
         void validate() const;
     };
-
-    struct RegionList {
-
-        enum Validation { Validate, DontValidate };
-
-        const RTBKIT::IncludeExclude<std::string>& ie() const;
-        bool empty() const;
-
-        void fromJson(const Json::Value& value, std::string name, Validation validation = Validate);
-        Json::Value toJson() const;
-
-    private:
-        RTBKIT::IncludeExclude<std::string> ie_;
-        void validate() const;
-    };
 }
 
 namespace RTBKIT {
@@ -355,7 +340,6 @@ struct AgentConfig {
     IncludeExclude<OpenRTB::DeviceType> deviceTypeFilter;
     JamLoop::WhiteBlackList whiteBlackList;
     JamLoop::DmaList dmaFilter;
-    JamLoop::RegionList regionFilter;
     LatLonRadList latLongDevFilter; // latitude and longitude device filter
 
     struct SegmentInfo {
