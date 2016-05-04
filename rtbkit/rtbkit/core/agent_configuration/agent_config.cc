@@ -82,109 +82,7 @@ namespace JamLoop {
                });
 
                if (it == std::end(validCodes)) {
-                   throw ML::Exception("Invalid DMA Code '%s' for '%s'", code.c_str(), name);
-               }
-           }
-        };
-
-        check(ie_.include, "include");
-        check(ie_.exclude, "exclude");
-
-    }
-	
-	    bool
-    RegionList::empty() const {
-        return ie_.empty();
-    }
-
-    const
-    RTBKIT::IncludeExclude<std::string>& RegionList::ie() const {
-        return ie_;
-    }
-
-    void
-    RegionList::fromJson(const Json::Value& value, std::string name, RegionList::Validation validation) {
-        ie_.fromJson(value, std::move(name));
-
-        if (validation == RegionList::Validate) validate();
-    }
-
-    Json::Value
-    RegionList::toJson() const {
-        return ie_.toJson();
-    }
-
-    void
-    RegionList::validate() const {
-        static constexpr const char* validCodes[] = {
-			"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16",
-			"17","18","19","20","21","22","23","24","25","26","27","28","29","30","31",
-			"32","33","34","35","36","37","38","39","40","41","42","43","44","45","46",
-			"47","48","49","50","51","52","53","54","55","56","57","58","59","60","61",
-			"62","63","64","65","66","67","68","69","70","71","72","73","74","75","76",
-			"77","78","79","80","81","82","83","84","85","86","87","88","89","90","91",
-			"92","93","94","95","96","97","98","99","100","101","102","103","104","105",
-			"106","107","108","109","110","111","112","113","114","116","117","118","119",
-			"120","122","123","124","125","126","127","128","129","130","131","132","133",
-			"134","136","137","138","139","140","141","142","144","146","147","148","150",
-			"151","152","153","155","156","157","159","160","162","164","166","167","169",
-			"171","172","173","174","175","178","179","181","183","185","186","188","190",
-			"193","195","198","199","200","201","202","203","205","206","207","208","209",
-			"210","215","A","AA","AB","ABS","AC","ACT","AD","AF","AG","AGU","AH","AI","AJ",
-			"AK","AKM","AKT","AL","ALA","ALM","ALT","ALX","AM","AMA","AMU","AN","ANC","ANT",
-			"AOU","AP","APU","AQ","AR","ARE","ARI","ARK","AS","ASN","AST","ASU","AT","ATL",
-			"ATY","AUK","AV","AYA","AZ","B","BA","BB","BC","BCN","BCS","BD","BE","BEL","BG",
-			"BGF","BGO","BGU","BH","BI","BIE","BIH","BK","BKO","BL","BM","BN","BNS","BO",
-			"BOL","BOP","BOY","BR","BRC","BRU","BRY","BS","BT","BU","BV","BW","BY","BZ",
-			"BZV","C","CA","CAB","CAJ","CAL","CAM","CAN","CAQ","CAS","CAU","CB","CCU","CE",
-			"CES","CH","CHA","CHE","CHH","CHP","CHU","CI","CIT","CJ","CL","CM","CN","CNN",
-			"CNO","CO","COA","COL","COR","CP","CPK","CPM","CQ","CR","CS","CT","CTT","CU",
-			"CUN","CUS","CV","CY","CZL","D","DA","DB","DC","DD","DE","DF","DGV","DI","DIF",
-			"DJ","DK","DL","DMN","DN","DO","DQ","DR","DS","DT","DU","DUR","E","EB","EBR",
-			"EC","ED","EHG","EK","EM","EN","ENG","EP","EPW","ER","ES","ESW","ETO","EX","F",
-			"FA","FC","FD","FE","FK","FL","FM","FP","FR","FS","FU","FUN","FYM","G","GA",
-			"GB","GC","GD","GE","GH","GI","GIS","GJ","GL","GO","GOY","GP","GPK","GR","GRO",
-			"GS","GU","GUA","GUV","GZ","H","HA","HB","HC","HCW","HD","HE","HEA","HER","HH",
-			"HI","HID","HKB","HL","HM","HO","HP","HR","HSO","HU","HUA","HUC","HUI","HUV",
-			"HWC","I","IA","IB","ICA","ID","IF","IL","IM","IMI","IN","IR","IRK","IS","IVA",
-			"IZ","J","JA","JAL","JB","JC","JEL","JG","JH","JI","JK","JL","JM","JN","JS","JT",
-			"JU","JUN","JUR","K","KA","KAB","KAM","KAN","KAR","KB","KC","KD","KDA","KE",
-			"KEM","KFS","KGD","KGN","KH","KHA","KHM","KI","KIR","KK","KKC","KKT","KL","KLU",
-			"KN","KO","KOS","KP","KR","KRS","KS","KSS","KT","KU","KUS","KW","KWT","KY","KYA",
-			"KYT","KZY","L","LA","LAG","LAL","LAM","LB","LD","LE","LEN","LG","LI","LIM","LIP",
-			"LL","LMA","LNO","LO","LOR","LP","LPX","LR","LS","LSU","LT","LU","LUA","LX","M",
-			"MA","MAG","MAJ","MAL","MAN","MB","MBA","MBH","MC","MD","ME","MET","MEX","MG",
-			"MH","MI","MIC","ML","MM","MN","MNF","MO","MOQ","MOR","MOS","MOW","MOX","MP",
-			"MPL","MPM","MR","MRL","MS","MT","MU","MUR","MV","MW","MWT","MZ","N","NA","NAM",
-			"NAR","NAY","NB","NC","NCD","ND","NE","NEN","NGR","NH","NI","NIK","NIR","NIZ","NJ",
-			"NK","NKC","NL","NLE","NM","NNO","NO","NP","NPP","NS","NSA","NSN","NST","NSW","NT",
-			"NTL","NU","NV","NVS","NW","NX","NY","NYL","O","OAX","OC","OD","OG","OH","OK","OL",
-			"OMS","ON","OP","OR","ORE","ORL","OS","OT","OTA","OU","OUD","OV","OW","OY","P","PA",
-			"PAM","PAS","PAV","PB","PD","PE","PED","PER","PG","PH","PI","PIU","PK","PL","PM","PN",
-			"PNI","PNZ","POS","PR","PRI","PRT","PSK","PTF","PTS","PUE","PUN","PUT","PV","PW","PY",
-			"Q","QA","QBA","QC","QE","QLD","QU","QUE","QUI","QUS","QZ","R","RA","RCM","RE","REZ",
-			"RG","RI","RIS","RIX","RJ","RK","RL","RM","RN","RO","ROO","ROS","RP","RR","RS","RV",
-			"RYA","S","SA","SAK","SAL","SAM","SAN","SAP","SAR","SB","SC","SCT","SD","SE","SEE",
-			"SEV","SFO","SG","SGE","SH","SHG","SHM","SHR","SI","SIN","SIP","SJ","SJL","SK","SL",
-			"SLP","SM","SMO","SN","SO","SON","SP","SPE","SR","SRP","SS","ST","STA","STL","SU",
-			"SUC","SUZ","SV","SVE","SW","SZ","T","TA","TAB","TAC","TAM","TAS","TB","TC","TE","TG",
-			"TH","TI","TK","TKI","TL","TLA","TM","TN","TO","TOL","TOM","TR","TRK","TS","TT","TU",
-			"TUL","TUP","TV","TVE","TX","TY","TYU","U","UCA","UD","UE","UIG","UL","ULY","UN","UP",
-			"UR","US","UT","UW","V","VA","VAC","VAI","VC","VD","VE","VEN","VER","VF","VGG","VI","VIC",
-			"VID","VL","VLA","VLG","VMR","VN","VO","VOR","VOS","VS","VT","VY","W","WA","WAD","WAL","WB",
-			"WBK","WC","WGN","WHM","WI","WKO","WLS","WN","WO","WP","WPD","WTC","WTO","WV","WY","X",
-			"XAC","Y","YAN","YAP","YAR","YEV","YO","YT","YUC","YUZ","Z","ZA","ZAB","ZAC","ZAP","ZE",
-			"ZG","ZH","ZHA","ZI","ZL","ZN","ZO","ZP","ZU"
-        };
-
-        auto check = [&](const std::vector<std::string>& list, const char* name) {
-           for (const auto& code: list) {
-               auto it = std::find_if(std::begin(validCodes), std::end(validCodes), [&](const char* c) {
-                   return code == c;
-               });
-
-               if (it == std::end(validCodes)) {
-                   throw ML::Exception("Invalid Region Code '%s' for '%s'", code.c_str(), name);
+                   throw ML::Exception("Invalid DMA Region Code '%s' for '%s'", code.c_str(), name);
                }
            }
         };
@@ -836,8 +734,6 @@ createFromJson(const Json::Value & json)
             newConfig.whiteBlackList.createFromJson(*it);
         else if (it.memberName() == "dmaFilter")
             newConfig.dmaFilter.fromJson(*it, "dmaFilter");
-        else if (it.memberName() == "regionFilter")
-            newConfig.regionFilter.fromJson(*it, "regionFilter");
         else if (it.memberName() == "segmentFilter") {
             for (auto jt = it->begin(), jend = it->end();
                  jt != jend;  ++jt) {
@@ -1015,8 +911,6 @@ toJson(bool includeCreatives) const
         result["whiteBlackList"] = whiteBlackList.toJson();
     if (!dmaFilter.empty())
         result["dmaFilter"] = dmaFilter.toJson();
-    if (!regionFilter.empty())
-        result["regionFilter"] = regionFilter.toJson();
     if (!requiredIds.empty()) {
         for (unsigned i = 0;  i < requiredIds.size();  ++i)
             result["requiredIds"][i] = requiredIds[i];
