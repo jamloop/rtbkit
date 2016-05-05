@@ -376,8 +376,10 @@ namespace Jamloop {
             if (!failure.ok()) goto end;                                \
             (void) 0
 
+            std::string brId;
+            TRY_EXTRACT("id", brId);
 
-            br->auctionId = generateUniqueId();
+            br->auctionId = Id(brId);
             br->auctionType = AuctionType::SECOND_PRICE;
             br->timeAvailableMs = maxAuctionTime;
             br->timestamp = Date::now();
