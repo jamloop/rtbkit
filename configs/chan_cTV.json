@@ -122,7 +122,7 @@
         "exclude": [ ]
     },
     "ext": {
-        "budget": "100000000000USD/1M",
+        "budget": "50000000000USD/1M",
         "pace": "6944444USD/1M",
         "price": "18100USD/1M",
         "priority": 1
