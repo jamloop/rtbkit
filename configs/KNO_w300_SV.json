@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 05052364376648,
+        "id": 05060064376648,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0505643766",
+              "lid": "0506643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 050523643766483,
+        "id": 050600643766483,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -62,14 +62,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0505643766",
+              "lid": "0506643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 050523643766484,
+        "id": 050600643766484,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -94,7 +94,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0505643766",
+              "lid": "0506643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -141,7 +141,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "500000USD/1M",
+        "pace": "2000000USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }
