@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 05061672982349,
+        "id": 05061872982349,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -37,7 +37,7 @@
         }
     },
     {
-        "id": 050616729823493,
+        "id": 050618729823493,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -69,7 +69,7 @@
         }
     },
     {
-        "id": 050616729823494,
+        "id": 050618729823494,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -127,7 +127,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "200000USD/1M",
+        "pace": "50000USD/1M",
         "price": "17100USD/1M",
         "priority": 11
     }
