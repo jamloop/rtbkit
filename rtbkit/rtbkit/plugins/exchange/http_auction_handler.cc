@@ -286,6 +286,8 @@ handleHttpPayload(const HttpHeader & header,
     //cerr << header << endl;
     //cerr << payload << endl;
     //cerr << endpoint->auctionVerb << " " << endpoint->auctionResource << endl;
+    //
+    doEvent("httpParseTimeMs", ET_OUTCOME, Date::now().secondsSince(firstData) * 1000);
 
     if (header.resource != endpoint->auctionResource
         || header.verb != endpoint->auctionVerb) {
