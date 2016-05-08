@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 05081274077546,
+        "id": 05081374077546,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 050812740775463,
+        "id": 050813740775463,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 050812740775464,
+        "id": 050813740775464,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -121,6 +121,9 @@
     "dmaFilter": {
         "include": [ "619" ],
         "exclude": [ ]
+    },
+    "hourOfWeekFilter": {
+        "hourlyBitmapSundayMidnightUtc": "111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111"
     },
     "whiteBlackList": {
       "whiteFile": "configs/people_12_24_i140.csv",
