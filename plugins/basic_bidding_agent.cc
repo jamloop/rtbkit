@@ -57,7 +57,7 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
                 pacing();
             });
         } 
-        else 
+        else
         {
             onWin = onLateWin =  [&] (const BidResult & bid_result) {
                 total_amount_spent_on_wins_since_last_topup += bid_result.secondPrice;
@@ -66,6 +66,10 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
                 winOrientedPacing();
             });
         }
+    }
+    else 
+    {
+        LOG(trace) << "Pacing set to zero"  << std::endl;
     }
 
     BiddingAgent::init();
