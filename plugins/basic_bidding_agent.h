@@ -59,6 +59,11 @@ private:
     Amount price;
     double priority;
 
+    // For pacing mechanism
+    int pacing_type;
+    Amount total_amount_spent_on_wins_since_last_topup;
+    void winOrientedPacing();
+
     // connection to the banker for pacing and budget
     std::shared_ptr<BudgetController> banker;
     bool ready;

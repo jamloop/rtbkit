@@ -49,10 +49,23 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
     onBidRequest = bind(&BasicBiddingAgent::bid, this, _1, _2, _3, _4, _5, _6, _7);
 
     // setup pacing
-    if (!pace.isZero()) {
-        addPeriodic("BasicBiddingAgent::pace", 60.0, [&](uint64_t) {
-            pacing();
-        });
+    if (!pace.isZero()) 
+    {
+        if (pacing_type == 0) 
+        {
+            addPeriodic("BasicBiddingAgent::pace", 60.0, [&](uint64_t) {
+                pacing();
+            });
+        } 
+        else 
+        {
+            onWin = onLateWin =  [&] (const BidResult & bid_result) {
+                total_amount_spent_on_wins_since_last_topup += bid_result.secondPrice;
+            };
+            addPeriodic("BasicBiddingAgent::winOrientedPace", 60.0, [&](uint64_t) {
+                winOrientedPacing();
+            });
+        }
     }
 
     BiddingAgent::init();
@@ -119,6 +132,11 @@ void BasicBiddingAgent::readConfig(std::string const & filename) {
     if(!item.isNull()) {
         priority = item.asDouble();
     }
+
+    item = ext.get("pacing_type", Json::Value());
+    if (!item.isNull()) {
+        pacing_type = 1;
+    }
 }
 
 void BasicBiddingAgent::sendConfig() {
@@ -141,6 +159,42 @@ void BasicBiddingAgent::pacing() {
         // transfer a bit of money to bidder's account
         LOG(trace) << "Transfering " << pace << std::endl;
         banker->topupTransferSync(config.account, pace);
+    } catch (const ML::Exception& e) {
+        LOG(error) << "Exception during pacing: " << e.what() << std::endl;
+    }
+}
+
+void BasicBiddingAgent::winOrientedPacing() {
+    try {
+        if(!ready) {
+            
+            // create the account
+            banker->addAccountSync(config.account);
+
+            // set budget
+            LOG(trace) << "Setting budget for campaign '" << config.account[0] << "' to " << budget << std::endl;
+            banker->setBudgetSync(config.account[0], budget);
+
+            Amount needed_by_pal = MicroUSD(100000);
+            Amount init_amount = pace + needed_by_pal;
+            LOG(trace) << "Transferring init amount " << init_amount.toString()
+                       << " to account " << config.account.toString() << std::endl;
+            banker->topupTransferSync(config.account,pace);
+
+            ready = true;
+
+        } else {
+            
+            // Compute the amount that will be transfered to the child account
+            Amount amount_to_transfer =
+                std::min(total_amount_spent_on_wins_since_last_topup,pace);
+            // Update the amount spent on wins since last topup
+            total_amount_spent_on_wins_since_last_topup -=
+                std::min(total_amount_spent_on_wins_since_last_topup,pace);
+
+            banker->topupTransferSync(config.account, amount_to_transfer);
+        
+        }
     } catch (const ML::Exception& e) {
         LOG(error) << "Exception during pacing: " << e.what() << std::endl;
     }
