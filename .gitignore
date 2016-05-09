@@ -1,3 +1,9 @@
+# Temporary files
+*~
+.*~
+*.swp
+.*.swp
+
 # Compiled Object files
 *.slo
 *.lo
