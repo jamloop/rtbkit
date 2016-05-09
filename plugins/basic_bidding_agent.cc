@@ -33,6 +33,7 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
                                      std::shared_ptr<BudgetController> banker) :
     BiddingAgent(proxies, name),
     banker(banker),
+    pacing_type(0),
     ready(false) {
 
     // put some default values before reading the configuration
@@ -53,12 +54,14 @@ BasicBiddingAgent::BasicBiddingAgent(std::shared_ptr<ServiceProxies> proxies,
     {
         if (pacing_type == 0) 
         {
+            LOG(trace) << "Pacing set to normal pace"  << std::endl;
             addPeriodic("BasicBiddingAgent::pace", 60.0, [&](uint64_t) {
                 pacing();
             });
         } 
         else
         {
+            LOG(trace) << "Pacing set to win oriented pace"  << std::endl;
             onWin = onLateWin =  [&] (const BidResult & bid_result) {
                 total_amount_spent_on_wins_since_last_topup += bid_result.secondPrice;
             };
