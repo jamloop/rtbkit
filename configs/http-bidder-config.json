@@ -1,0 +1,12 @@
+{
+    "type": "http",
+    "router": {
+        "host": "http://rtb2.useast1b.jamloop:9176",
+        "path": "/auctions"
+    },
+    "adserver": {
+          "host": "http://rtb2.useast1b.jamloop:10176",
+          "winPort": 18143,
+          "eventPort": 18144
+    }
+}
