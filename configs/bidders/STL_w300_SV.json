@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5121564376645,
+        "id": 5121764376645,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 51215643766453,
+        "id": 51217643766453,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 51215643766454,
+        "id": 51217643766454,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5121564376645,
+    "externalId": 5121764376645,
     "roundRobin": {
         "group": "jl:STL_w300_SV",
         "weight": 1
@@ -134,6 +134,10 @@
     },
     "hourOfWeekFilter": {
         "hourlyBitmapSundayMidnightUtc" : "111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111"
+    },
+    "locationFilter": {
+        "include" : "^US:([^]*):[^]*:(90210|90211)",
+        "exclude" : "{}"
     },
     "whiteBlackList": {
       "whiteFile": "configs/people_12_24_i140.csv",
