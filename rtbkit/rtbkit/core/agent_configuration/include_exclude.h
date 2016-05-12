@@ -10,6 +10,7 @@
 
 #include "jml/arch/exception.h"
 #include "jml/utils/lightweight_hash.h"
+#include "jml/utils/compact_vector.h"
 #include "soa/types/url.h"
 #include "soa/jsoncpp/value.h"
 #include <boost/regex.hpp>
@@ -315,6 +316,16 @@ inline bool matches(const DomainMatcher & rex, const Url & url)
 template<typename T, typename Fn>
 Json::Value
 collectionToJson(const std::vector<T> & vec, Fn fn)
+{
+    Json::Value result;
+    for (unsigned i = 0;  i < vec.size();  ++i)
+        result[i] = fn(vec[i]);
+    return result;
+}
+
+template<typename T, size_t N, typename Fn>
+Json::Value
+collectionToJson(const ML::compact_vector<T, N> & vec, Fn fn)
 {
     Json::Value result;
     for (unsigned i = 0;  i < vec.size();  ++i)

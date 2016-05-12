@@ -1262,4 +1262,30 @@ struct hash<OpenRTB::DeviceType>
     }
 };
 
+template<>
+struct hash<OpenRTB::VideoLinearity>
+{
+    size_t operator() (OpenRTB::VideoLinearity obj) const
+    {
+        return std::hash<int>()(static_cast<int>(obj.val));
+    }
+};
+
+template<>
+struct hash<OpenRTB::ApiFramework>
+{
+    size_t operator() (OpenRTB::ApiFramework obj) const {
+        return std::hash<int>()(static_cast<int>(obj.val));
+    }
+};
+
+template<>
+struct hash<OpenRTB::VideoPlaybackMethod>
+{
+    size_t operator() (OpenRTB::VideoPlaybackMethod obj) const {
+        return std::hash<int>()(static_cast<int>(obj.val));
+    }
+};
+
+
 } // namespace std

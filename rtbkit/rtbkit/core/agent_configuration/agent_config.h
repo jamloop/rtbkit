@@ -340,6 +340,15 @@ struct AgentConfig {
     IncludeExclude<OpenRTB::DeviceType> deviceTypeFilter;
     JamLoop::WhiteBlackList whiteBlackList;
     JamLoop::DmaList dmaFilter;
+    IncludeExclude<OpenRTB::VideoLinearity> videoLinearityFilter;
+    IncludeExclude<
+        OpenRTB::ApiFramework, Datacratic::List<OpenRTB::ApiFramework>
+    > videoApiFilter;
+    IncludeExclude<
+        OpenRTB::VideoPlaybackMethod, Datacratic::List<OpenRTB::VideoPlaybackMethod>
+    > videoPlaybackFilter;
+    IncludeExclude<CachedRegex<boost::regex, std::string> > refFilter;
+
     LatLonRadList latLongDevFilter; // latitude and longitude device filter
 
     struct SegmentInfo {

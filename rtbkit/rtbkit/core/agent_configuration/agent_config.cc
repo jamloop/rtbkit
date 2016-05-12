@@ -734,6 +734,15 @@ createFromJson(const Json::Value & json)
             newConfig.whiteBlackList.createFromJson(*it);
         else if (it.memberName() == "dmaFilter")
             newConfig.dmaFilter.fromJson(*it, "dmaFilter");
+        else if (it.memberName() == "videoLinearityFilter")
+            newConfig.videoLinearityFilter.fromJson(*it, "videoLinearityFilter");
+        else if (it.memberName() == "videoApiFilter")
+            newConfig.videoApiFilter.fromJson(*it, "videoApiFilter");
+        else if (it.memberName() == "videoPlaybackFilter")
+            newConfig.videoApiFilter.fromJson(*it, "videoPlaybackFilter");
+        else if (it.memberName() == "refFilter")
+            newConfig.refFilter.fromJson(*it, "refFilter");
+
         else if (it.memberName() == "segmentFilter") {
             for (auto jt = it->begin(), jend = it->end();
                  jt != jend;  ++jt) {
@@ -911,6 +920,10 @@ toJson(bool includeCreatives) const
         result["whiteBlackList"] = whiteBlackList.toJson();
     if (!dmaFilter.empty())
         result["dmaFilter"] = dmaFilter.toJson();
+    if (!videoLinearityFilter.empty())
+        result["videoLinearityFilter"] = videoLinearityFilter.toJson();
+    if (!videoApiFilter.empty())
+        result["videoApiFilter"] = videoApiFilter.toJson();
     if (!requiredIds.empty()) {
         for (unsigned i = 0;  i < requiredIds.size();  ++i)
             result["requiredIds"][i] = requiredIds[i];

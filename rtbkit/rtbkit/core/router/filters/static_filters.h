@@ -595,6 +595,94 @@ namespace JamLoop {
         }
     };
 
+    struct VideoLinearityFilter : public RTBKIT::FilterBaseT<VideoLinearityFilter>
+    {
+        static constexpr const char* name = "VideoLinearity";
+
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::VideoLinearity; }
+
+        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
+        {
+            impl.setIncludeExclude(configIndex, value, config.videoLinearityFilter);
+        }
+
+        void filter(RTBKIT::FilterState& state) const {
+            state.narrowConfigs(impl.filter(state.request.imp[0].video->linearity));
+        }
+
+    private:
+        RTBKIT::IncludeExcludeFilter<RTBKIT::ListFilter<OpenRTB::VideoLinearity>> impl;
+
+    };
+
+    struct VideoApiFilter : public RTBKIT::FilterBaseT<VideoApiFilter> {
+        static constexpr const char* name = "VideoApi";
+
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::VideoApi; }
+
+        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
+        {
+            impl.setIncludeExclude(configIndex, value, config.videoApiFilter);
+        }
+
+        void filter(RTBKIT::FilterState& state) const {
+            state.narrowConfigs(impl.filter(state.request.imp[0].video->api));
+        }
+
+    private:
+        RTBKIT::IncludeExcludeFilter<
+            RTBKIT::ListFilter<
+                OpenRTB::ApiFramework, Datacratic::List<OpenRTB::ApiFramework>
+            >
+        > impl;
+    };
+
+    struct VideoPlaybackFilter : public RTBKIT::FilterBaseT<VideoPlaybackFilter> {
+        static constexpr const char* name = "VideoPlayback";
+
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::VideoPlayback; }
+
+        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
+        {
+            impl.setIncludeExclude(configIndex, value, config.videoPlaybackFilter);
+        }
+
+        void filter(RTBKIT::FilterState& state) const {
+            state.narrowConfigs(impl.filter(state.request.imp[0].video->playbackmethod));
+        }
+    private:
+        RTBKIT::IncludeExcludeFilter<
+            RTBKIT::ListFilter<
+                OpenRTB::VideoPlaybackMethod, Datacratic::List<OpenRTB::VideoPlaybackMethod>
+            >
+        > impl;
+    };
+
+    struct RefFilter : public RTBKIT::FilterBaseT<RefFilter>
+    {
+        static constexpr const char* name = "Ref";
+        unsigned priority() const { return RTBKIT::Priority::JamLoop::Ref; }
+
+        void setConfig(unsigned configIndex, const RTBKIT::AgentConfig& config, bool value)
+        {
+            impl.setIncludeExclude(configIndex, value, config.refFilter);
+        }
+
+        void filter(RTBKIT::FilterState& state) const
+        {
+            state.narrowConfigs(impl.filter(extractRef(state.request)));
+        }
+
+    private:
+        std::string extractRef(const RTBKIT::BidRequest& br) const {
+            if (br.site)
+                return br.site->ref.toString();
+            return "";
+        }
+        typedef RTBKIT::RegexFilter<boost::regex, std::string> BaseFilter;
+        RTBKIT::IncludeExcludeFilter<BaseFilter> impl;
+    };
+
 
 } // namespace JamLoop
 
