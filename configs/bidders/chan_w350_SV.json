@@ -1,6 +1,6 @@
 {
     "account": [
-        "bidders\chan_w350_SV", "1"
+        "chan_w350_SV", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -71,7 +71,7 @@
     },
     "externalId": "5121264376621",
     "roundRobin": {
-        "group": "jl:bidders\chan_w350_SV",
+        "group": "jl:chan_w350_SV",
         "weight": 1
     },
     "providerConfig": {

@@ -1,6 +1,6 @@
 {
     "account": [
-        "bidders\SNT_w300_SV", "1"
+        "SNT_w300_SV", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -20,9 +20,9 @@
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DSP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3DSNT&eov=eov",
               "adomain": "mcdonalds.com",
-              "campaign_name": "bidders\SNT_w300_SV vpaid",
-              "line_item_name": "bidders\SNT_w300_SV",
-              "creative_name":  "bidders\SNT_w300_SV vpaid",
+              "campaign_name": "SNT_w300_SV vpaid",
+              "line_item_name": "SNT_w300_SV",
+              "creative_name":  "SNT_w300_SV vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -51,9 +51,9 @@
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DMP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3DSNT&eov=eov",
               "adomain": "mcdonalds.com",
-              "campaign_name": "bidders\SNT_w300_SV vpaid",
-              "line_item_name": "bidders\SNT_w300_SV",
-              "creative_name":  "bidders\SNT_w300_SV vpaid",
+              "campaign_name": "SNT_w300_SV vpaid",
+              "line_item_name": "SNT_w300_SV",
+              "creative_name":  "SNT_w300_SV vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -82,9 +82,9 @@
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVmmAj1Vxst9L0ZUCs61wiMAfLU4FmF6mE=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DLP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3DSNT&eov=eov",
               "adomain": "mcdonalds.com",
-              "campaign_name": "bidders\SNT_w300_SV vpaid",
-              "line_item_name": "bidders\SNT_w300_SV",
-              "creative_name":  "bidders\SNT_w300_SV vpaid",
+              "campaign_name": "SNT_w300_SV vpaid",
+              "line_item_name": "SNT_w300_SV",
+              "creative_name":  "SNT_w300_SV vpaid",
               "creative_duration": 30,
               "media_desc": {
                 "media_mime": "video/x-flv",
@@ -110,7 +110,7 @@
     },
     "externalId": "5121264376627",
     "roundRobin": {
-        "group": "jl:bidders\SNT_w300_SV",
+        "group": "jl:SNT_w300_SV",
         "weight": 1
     },
     "providerConfig": {
@@ -136,8 +136,7 @@
         "budget": "50000000000USD/1M",
         "pace": "25000USD/1M",
         "price": "17100USD/1M",
-        "priority": 12,
-        "pacing_type": "win_oriented"
+        "priority": 12
     }
 }
 

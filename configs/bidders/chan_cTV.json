@@ -1,6 +1,6 @@
 {
     "account": [
-        "bidders\chan_cTV", "1"
+        "chan_cTV", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -61,7 +61,7 @@
     ],
     "externalId": "5121272982318",
     "roundRobin": {
-        "group": "jl:bidders\chan_cTV",
+        "group": "jl:chan_cTV",
         "weight": 1
     },
     "providerConfig": {

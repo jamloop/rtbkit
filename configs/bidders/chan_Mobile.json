@@ -1,6 +1,6 @@
 {
     "account": [
-        "bidders\chan_Mobile", "1"
+        "chan_Mobile", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -61,7 +61,7 @@
     ],
     "externalId": "5121274077519",
     "roundRobin": {
-        "group": "jl:bidders\chan_Mobile",
+        "group": "jl:chan_Mobile",
         "weight": 1
     },
     "providerConfig": {
