@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": "5121372982325",
+    "externalId": 5121372982325,
     "roundRobin": {
         "group": "jl:SNT_cTV",
         "weight": 1

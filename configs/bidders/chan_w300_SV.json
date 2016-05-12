@@ -69,7 +69,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": "5121364376620",
+    "externalId": 5121364376620,
     "roundRobin": {
         "group": "jl:chan_w300_SV",
         "weight": 1

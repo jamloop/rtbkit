@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": "5121374077538",
+    "externalId": 5121374077538,
     "roundRobin": {
         "group": "jl:PAD_Mobile",
         "weight": 1

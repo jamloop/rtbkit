@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": "5121374077516",
+    "externalId": 5121374077516,
     "roundRobin": {
         "group": "jl:LUB_Mobile",
         "weight": 1

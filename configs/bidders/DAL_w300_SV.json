@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": "512136437664",
+    "externalId": 512136437664,
     "roundRobin": {
         "group": "jl:DAL_w300_SV",
         "weight": 1

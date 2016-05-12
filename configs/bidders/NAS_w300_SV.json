@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": "5121364376648",
+    "externalId": 5121364376648,
     "roundRobin": {
         "group": "jl:NAS_w300_SV",
         "weight": 1

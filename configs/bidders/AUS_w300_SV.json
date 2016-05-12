@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": "5121364376624",
+    "externalId": 5121364376624,
     "roundRobin": {
         "group": "jl:AUS_w300_SV",
         "weight": 1

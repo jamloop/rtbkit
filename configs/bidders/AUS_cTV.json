@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": "5121372982322",
+    "externalId": 5121372982322,
     "roundRobin": {
         "group": "jl:AUS_cTV",
         "weight": 1
