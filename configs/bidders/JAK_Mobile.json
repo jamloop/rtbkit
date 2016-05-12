@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5121274077512,
+        "id": 5121374077512,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0512740775",
+              "lid": "512740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51212740775123,
+        "id": 51213740775123,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0512740775",
+              "lid": "512740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51212740775124,
+        "id": 51213740775124,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,14 +91,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "0512740775",
+              "lid": "512740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": "5121274077512",
+    "externalId": "5121374077512",
     "roundRobin": {
         "group": "jl:JAK_Mobile",
         "weight": 1
