@@ -345,6 +345,48 @@ public:
                 return "";
             }
         },
+        {
+            "bidrequest.video.linearity",
+            [](const Context& ctx) -> std::string {
+                auto& spot = ctx.bidrequest.imp[ctx.spotNum];
+                return std::to_string(spot.video->linearity.val);
+            }
+        },
+        {
+            "bidrequest.video.playbackmethod",
+            [](const Context& ctx) -> std::string {
+                auto& spot = ctx.bidrequest.imp[ctx.spotNum];
+                std::ostringstream oss;
+                size_t i = 0;
+                for (; i < spot.video->playbackmethod.size() - 1; ++i) {
+                    oss << spot.video->playbackmethod[i].val << ",";
+                }
+                oss << spot.video->playbackmethod[i].val;
+                return oss.str();
+            }
+        },
+        {
+            "bidrequest.video.api",
+            [](const Context& ctx) -> std::string {
+                auto& spot = ctx.bidrequest.imp[ctx.spotNum];
+                std::ostringstream oss;
+                size_t i = 0;
+                for (; i < spot.video->api.size() - 1; ++i) {
+                    oss << spot.video->api[i].val << ",";
+                }
+                oss << spot.video->api[i].val;
+                return oss.str();
+            }
+        },
+        {
+            "bidrequest.site.ref",
+            [](const Context& ctx) -> std::string {
+                if (ctx.bidrequest.site) {
+                    return ctx.bidrequest.site->ref.toString();
+                }
+                return "";
+            }
+        },
 
         {
             "response.account",

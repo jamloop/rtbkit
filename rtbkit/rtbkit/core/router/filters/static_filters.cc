@@ -340,6 +340,10 @@ struct InitFilters
         RTBKIT::FilterRegistry::registerFilter<JamLoop::WhiteBlackListFilter>();
         RTBKIT::FilterRegistry::registerFilter<JamLoop::DeviceTypeFilter>();
         RTBKIT::FilterRegistry::registerFilter<JamLoop::DMAFilter>();
+        RTBKIT::FilterRegistry::registerFilter<JamLoop::VideoLinearityFilter>();
+        RTBKIT::FilterRegistry::registerFilter<JamLoop::VideoApiFilter>();
+        RTBKIT::FilterRegistry::registerFilter<JamLoop::VideoPlaybackFilter>();
+        RTBKIT::FilterRegistry::registerFilter<JamLoop::RefFilter>();
     }
 
 } initFilters;
