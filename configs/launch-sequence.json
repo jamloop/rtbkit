@@ -139,472 +139,472 @@
     },
 // WestLaunchStart
     {
-      "name": "agent-DAL_cTV", 
+      "name": "agent-bidders\DAL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\DAL_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_cTV.json"
+        "--agent-configuration", "configs/bidders/DAL_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_Mobile", 
+      "name": "agent-bidders\DAL_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\DAL_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_Mobile.json"
+        "--agent-configuration", "configs/bidders/DAL_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_w300_SV", 
+      "name": "agent-bidders\DAL_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_DAL_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\DAL_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/DAL_w300_SV.json"
+        "--agent-configuration", "configs/bidders/DAL_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_Mobile", 
+      "name": "agent-bidders\HSB_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HSB_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_Mobile.json"
+        "--agent-configuration", "configs/bidders/HSB_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w300_SV", 
+      "name": "agent-bidders\HSB_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HSB_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HSB_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HSB_w300_SV.json"
+        "--agent-configuration", "configs/bidders/HSB_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_Mobile", 
+      "name": "agent-bidders\HNH_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HNH_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_Mobile.json"
+        "--agent-configuration", "configs/bidders/HNH_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w300_SV", 
+      "name": "agent-bidders\HNH_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HNH_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HNH_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HNH_w300_SV.json"
+        "--agent-configuration", "configs/bidders/HNH_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HUN_cTV", 
+      "name": "agent-bidders\HUN_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HUN_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_cTV.json"
+        "--agent-configuration", "configs/bidders/HUN_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HUN_Mobile", 
+      "name": "agent-bidders\HUN_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HUN_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_Mobile.json"
+        "--agent-configuration", "configs/bidders/HUN_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-HUN_w300_SV", 
+      "name": "agent-bidders\HUN_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_HUN_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\HUN_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/HUN_w300_SV.json"
+        "--agent-configuration", "configs/bidders/HUN_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-JAK_Mobile", 
+      "name": "agent-bidders\JAK_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\JAK_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_Mobile.json"
+        "--agent-configuration", "configs/bidders/JAK_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-JAK_w300_SV", 
+      "name": "agent-bidders\JAK_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JAK_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\JAK_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JAK_w300_SV.json"
+        "--agent-configuration", "configs/bidders/JAK_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-LAF_Mobile", 
+      "name": "agent-bidders\LAF_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\LAF_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_Mobile.json"
+        "--agent-configuration", "configs/bidders/LAF_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-LAF_w300_SV", 
+      "name": "agent-bidders\LAF_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LAF_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\LAF_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LAF_w300_SV.json"
+        "--agent-configuration", "configs/bidders/LAF_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-LUB_Mobile", 
+      "name": "agent-bidders\LUB_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\LUB_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_Mobile.json"
+        "--agent-configuration", "configs/bidders/LUB_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-LUB_w300_SV", 
+      "name": "agent-bidders\LUB_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_LUB_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\LUB_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/LUB_w300_SV.json"
+        "--agent-configuration", "configs/bidders/LUB_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_cTV", 
+      "name": "agent-bidders\chan_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\chan_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_cTV.json"
+        "--agent-configuration", "configs/bidders/chan_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_Mobile", 
+      "name": "agent-bidders\chan_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\chan_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_Mobile.json"
+        "--agent-configuration", "configs/bidders/chan_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_w300_SV", 
+      "name": "agent-bidders\chan_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\chan_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_w300_SV.json"
+        "--agent-configuration", "configs/bidders/chan_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_w350_SV", 
+      "name": "agent-bidders\chan_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_chan_w350_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\chan_w350_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/chan_w350_SV.json"
+        "--agent-configuration", "configs/bidders/chan_w350_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_cTV", 
+      "name": "agent-bidders\AUS_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_AUS_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\AUS_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/AUS_cTV.json"
+        "--agent-configuration", "configs/bidders/AUS_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_Mobile", 
+      "name": "agent-bidders\AUS_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_AUS_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\AUS_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/AUS_Mobile.json"
+        "--agent-configuration", "configs/bidders/AUS_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_w300_SV", 
+      "name": "agent-bidders\AUS_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_AUS_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\AUS_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/AUS_w300_SV.json"
+        "--agent-configuration", "configs/bidders/AUS_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_cTV", 
+      "name": "agent-bidders\SNT_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\SNT_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_cTV.json"
+        "--agent-configuration", "configs/bidders/SNT_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_Mobile", 
+      "name": "agent-bidders\SNT_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\SNT_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_Mobile.json"
+        "--agent-configuration", "configs/bidders/SNT_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_w300_SV", 
+      "name": "agent-bidders\SNT_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SNT_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\SNT_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SNT_w300_SV.json"
+        "--agent-configuration", "configs/bidders/SNT_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_cTV", 
+      "name": "agent-bidders\COM_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_COM_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\COM_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/COM_cTV.json"
+        "--agent-configuration", "configs/bidders/COM_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_Mobile", 
+      "name": "agent-bidders\COM_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_COM_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\COM_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/COM_Mobile.json"
+        "--agent-configuration", "configs/bidders/COM_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w300_SV", 
+      "name": "agent-bidders\COM_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_COM_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\COM_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/COM_w300_SV.json"
+        "--agent-configuration", "configs/bidders/COM_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-JUN_cTV", 
+      "name": "agent-bidders\JUN_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JUN_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\JUN_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JUN_cTV.json"
+        "--agent-configuration", "configs/bidders/JUN_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-JUN_Mobile", 
+      "name": "agent-bidders\JUN_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JUN_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\JUN_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JUN_Mobile.json"
+        "--agent-configuration", "configs/bidders/JUN_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-JUN_w300_SV", 
+      "name": "agent-bidders\JUN_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_JUN_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\JUN_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/JUN_w300_SV.json"
+        "--agent-configuration", "configs/bidders/JUN_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_cTV", 
+      "name": "agent-bidders\KNO_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_KNO_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\KNO_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/KNO_cTV.json"
+        "--agent-configuration", "configs/bidders/KNO_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_Mobile", 
+      "name": "agent-bidders\KNO_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_KNO_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\KNO_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/KNO_Mobile.json"
+        "--agent-configuration", "configs/bidders/KNO_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_w300_SV", 
+      "name": "agent-bidders\KNO_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_KNO_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\KNO_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/KNO_w300_SV.json"
+        "--agent-configuration", "configs/bidders/KNO_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-PAD_cTV", 
+      "name": "agent-bidders\PAD_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_PAD_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\PAD_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/PAD_cTV.json"
+        "--agent-configuration", "configs/bidders/PAD_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-PAD_Mobile", 
+      "name": "agent-bidders\PAD_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_PAD_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\PAD_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/PAD_Mobile.json"
+        "--agent-configuration", "configs/bidders/PAD_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-PAD_w300_SV", 
+      "name": "agent-bidders\PAD_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_PAD_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\PAD_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/PAD_w300_SV.json"
+        "--agent-configuration", "configs/bidders/PAD_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_cTV", 
+      "name": "agent-bidders\SPM_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SPM_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\SPM_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SPM_cTV.json"
+        "--agent-configuration", "configs/bidders/SPM_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_Mobile", 
+      "name": "agent-bidders\SPM_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SPM_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\SPM_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SPM_Mobile.json"
+        "--agent-configuration", "configs/bidders/SPM_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w300_SV", 
+      "name": "agent-bidders\SPM_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_SPM_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\SPM_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/SPM_w300_SV.json"
+        "--agent-configuration", "configs/bidders/SPM_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_cTV", 
+      "name": "agent-bidders\STL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_STL_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\STL_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/STL_cTV.json"
+        "--agent-configuration", "configs/bidders/STL_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_Mobile", 
+      "name": "agent-bidders\STL_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_STL_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\STL_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/STL_Mobile.json"
+        "--agent-configuration", "configs/bidders/STL_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_w300_SV", 
+      "name": "agent-bidders\STL_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_STL_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\STL_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/STL_w300_SV.json"
+        "--agent-configuration", "configs/bidders/STL_w300_SV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-NAS_cTV", 
+      "name": "agent-bidders\NAS_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NAS_cTV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\NAS_cTV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NAS_cTV.json"
+        "--agent-configuration", "configs/bidders/NAS_cTV.json"
       ],
       "log": true
     },
     {
-      "name": "agent-NAS_Mobile", 
+      "name": "agent-bidders\NAS_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NAS_Mobile",
+        "--service-name", "uswest2a.rtb1.agent_bidders\NAS_Mobile",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NAS_Mobile.json"
+        "--agent-configuration", "configs/bidders/NAS_Mobile.json"
       ],
       "log": true
     },
     {
-      "name": "agent-NAS_w300_SV", 
+      "name": "agent-bidders\NAS_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "uswest2a.rtb1.agent_NAS_w300_SV",
+        "--service-name", "uswest2a.rtb1.agent_bidders\NAS_w300_SV",
         "--bootstrap", "configs/bootstrap.uswest2a.json",
-        "--agent-configuration", "configs/NAS_w300_SV.json"
+        "--agent-configuration", "configs/bidders/NAS_w300_SV.json"
       ],
       "log": true
     }
@@ -662,518 +662,518 @@
 //    },
 // EastLaunchStart
     {
-      "name": "agent-DAL_cTV", 
+      "name": "agent-bidders\DAL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\DAL_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_cTV.json",
+        "--agent-configuration", "configs/bidders/DAL_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_Mobile", 
+      "name": "agent-bidders\DAL_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\DAL_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_Mobile.json",
+        "--agent-configuration", "configs/bidders/DAL_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-DAL_w300_SV", 
+      "name": "agent-bidders\DAL_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_DAL_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\DAL_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/DAL_w300_SV.json",
+        "--agent-configuration", "configs/bidders/DAL_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_Mobile", 
+      "name": "agent-bidders\HSB_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\HSB_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_Mobile.json",
+        "--agent-configuration", "configs/bidders/HSB_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HSB_w300_SV", 
+      "name": "agent-bidders\HSB_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HSB_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\HSB_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HSB_w300_SV.json",
+        "--agent-configuration", "configs/bidders/HSB_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_Mobile", 
+      "name": "agent-bidders\HNH_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\HNH_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_Mobile.json",
+        "--agent-configuration", "configs/bidders/HNH_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HNH_w300_SV", 
+      "name": "agent-bidders\HNH_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HNH_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\HNH_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HNH_w300_SV.json",
+        "--agent-configuration", "configs/bidders/HNH_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HUN_cTV", 
+      "name": "agent-bidders\HUN_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\HUN_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_cTV.json",
+        "--agent-configuration", "configs/bidders/HUN_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HUN_Mobile", 
+      "name": "agent-bidders\HUN_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\HUN_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_Mobile.json",
+        "--agent-configuration", "configs/bidders/HUN_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-HUN_w300_SV", 
+      "name": "agent-bidders\HUN_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_HUN_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\HUN_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/HUN_w300_SV.json",
+        "--agent-configuration", "configs/bidders/HUN_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-JAK_Mobile", 
+      "name": "agent-bidders\JAK_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\JAK_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_Mobile.json",
+        "--agent-configuration", "configs/bidders/JAK_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-JAK_w300_SV", 
+      "name": "agent-bidders\JAK_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_JAK_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\JAK_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JAK_w300_SV.json",
+        "--agent-configuration", "configs/bidders/JAK_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-LAF_Mobile", 
+      "name": "agent-bidders\LAF_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\LAF_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_Mobile.json",
+        "--agent-configuration", "configs/bidders/LAF_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-LAF_w300_SV", 
+      "name": "agent-bidders\LAF_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_LAF_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\LAF_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LAF_w300_SV.json",
+        "--agent-configuration", "configs/bidders/LAF_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-LUB_Mobile", 
+      "name": "agent-bidders\LUB_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\LUB_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_Mobile.json",
+        "--agent-configuration", "configs/bidders/LUB_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-LUB_w300_SV", 
+      "name": "agent-bidders\LUB_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\LUB_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/LUB_w300_SV.json",
+        "--agent-configuration", "configs/bidders/LUB_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_cTV", 
+      "name": "agent-bidders\chan_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\chan_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_cTV.json",
+        "--agent-configuration", "configs/bidders/chan_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_Mobile", 
+      "name": "agent-bidders\chan_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\chan_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_Mobile.json",
+        "--agent-configuration", "configs/bidders/chan_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_w300_SV", 
+      "name": "agent-bidders\chan_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\chan_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_w300_SV.json",
+        "--agent-configuration", "configs/bidders/chan_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-chan_w350_SV", 
+      "name": "agent-bidders\chan_w350_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_chan_w350_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\chan_w350_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/chan_w350_SV.json",
+        "--agent-configuration", "configs/bidders/chan_w350_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_cTV", 
+      "name": "agent-bidders\AUS_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_AUS_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\AUS_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/AUS_cTV.json",
+        "--agent-configuration", "configs/bidders/AUS_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_Mobile", 
+      "name": "agent-bidders\AUS_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_AUS_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\AUS_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/AUS_Mobile.json",
+        "--agent-configuration", "configs/bidders/AUS_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-AUS_w300_SV", 
+      "name": "agent-bidders\AUS_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_AUS_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\AUS_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/AUS_w300_SV.json",
+        "--agent-configuration", "configs/bidders/AUS_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_cTV", 
+      "name": "agent-bidders\SNT_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\SNT_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_cTV.json",
+        "--agent-configuration", "configs/bidders/SNT_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_Mobile", 
+      "name": "agent-bidders\SNT_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\SNT_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_Mobile.json",
+        "--agent-configuration", "configs/bidders/SNT_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SNT_w300_SV", 
+      "name": "agent-bidders\SNT_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SNT_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\SNT_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SNT_w300_SV.json",
+        "--agent-configuration", "configs/bidders/SNT_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_cTV", 
+      "name": "agent-bidders\COM_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\COM_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_cTV.json",
+        "--agent-configuration", "configs/bidders/COM_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_Mobile", 
+      "name": "agent-bidders\COM_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\COM_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_Mobile.json",
+        "--agent-configuration", "configs/bidders/COM_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-COM_w300_SV", 
+      "name": "agent-bidders\COM_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_COM_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\COM_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/COM_w300_SV.json",
+        "--agent-configuration", "configs/bidders/COM_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-JUN_cTV", 
+      "name": "agent-bidders\JUN_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_JUN_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\JUN_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JUN_cTV.json",
+        "--agent-configuration", "configs/bidders/JUN_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-JUN_Mobile", 
+      "name": "agent-bidders\JUN_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_JUN_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\JUN_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JUN_Mobile.json",
+        "--agent-configuration", "configs/bidders/JUN_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-JUN_w300_SV", 
+      "name": "agent-bidders\JUN_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_JUN_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\JUN_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/JUN_w300_SV.json",
+        "--agent-configuration", "configs/bidders/JUN_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_cTV", 
+      "name": "agent-bidders\KNO_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\KNO_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_cTV.json",
+        "--agent-configuration", "configs/bidders/KNO_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_Mobile", 
+      "name": "agent-bidders\KNO_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\KNO_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_Mobile.json",
+        "--agent-configuration", "configs/bidders/KNO_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-KNO_w300_SV", 
+      "name": "agent-bidders\KNO_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_KNO_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\KNO_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/KNO_w300_SV.json",
+        "--agent-configuration", "configs/bidders/KNO_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-PAD_cTV", 
+      "name": "agent-bidders\PAD_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_PAD_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\PAD_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/PAD_cTV.json",
+        "--agent-configuration", "configs/bidders/PAD_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-PAD_Mobile", 
+      "name": "agent-bidders\PAD_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_PAD_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\PAD_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/PAD_Mobile.json",
+        "--agent-configuration", "configs/bidders/PAD_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-PAD_w300_SV", 
+      "name": "agent-bidders\PAD_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_PAD_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\PAD_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/PAD_w300_SV.json",
+        "--agent-configuration", "configs/bidders/PAD_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_cTV", 
+      "name": "agent-bidders\SPM_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\SPM_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_cTV.json",
+        "--agent-configuration", "configs/bidders/SPM_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_Mobile", 
+      "name": "agent-bidders\SPM_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\SPM_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_Mobile.json",
+        "--agent-configuration", "configs/bidders/SPM_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-SPM_w300_SV", 
+      "name": "agent-bidders\SPM_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_SPM_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\SPM_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/SPM_w300_SV.json",
+        "--agent-configuration", "configs/bidders/SPM_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_cTV", 
+      "name": "agent-bidders\STL_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\STL_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_cTV.json",
+        "--agent-configuration", "configs/bidders/STL_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_Mobile", 
+      "name": "agent-bidders\STL_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\STL_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_Mobile.json",
+        "--agent-configuration", "configs/bidders/STL_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-STL_w300_SV", 
+      "name": "agent-bidders\STL_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_STL_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\STL_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/STL_w300_SV.json",
+        "--agent-configuration", "configs/bidders/STL_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-NAS_cTV", 
+      "name": "agent-bidders\NAS_cTV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_NAS_cTV",
+        "--service-name", "useast1b.rtb1.agent_bidders\NAS_cTV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/NAS_cTV.json",
+        "--agent-configuration", "configs/bidders/NAS_cTV.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-NAS_Mobile", 
+      "name": "agent-bidders\NAS_Mobile", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_NAS_Mobile",
+        "--service-name", "useast1b.rtb1.agent_bidders\NAS_Mobile",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/NAS_Mobile.json",
+        "--agent-configuration", "configs/bidders/NAS_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
     },
     {
-      "name": "agent-NAS_w300_SV", 
+      "name": "agent-bidders\NAS_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
-        "--service-name", "useast1b.rtb1.agent_NAS_w300_SV",
+        "--service-name", "useast1b.rtb1.agent_bidders\NAS_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/NAS_w300_SV.json",
+        "--agent-configuration", "configs/bidders/NAS_w300_SV.json",
         "--use-http-banker"
       ],
       "log": true
