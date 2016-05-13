@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5121764376645,
+        "id": 5130064376645,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512643766",
+              "lid": "513643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51217643766453,
+        "id": 51300643766453,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512643766",
+              "lid": "513643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51217643766454,
+        "id": 51300643766454,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,7 +91,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512643766",
+              "lid": "513643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5121764376645,
+    "externalId": 5130064376645,
     "roundRobin": {
         "group": "jl:STL_w300_SV",
         "weight": 1
@@ -136,7 +136,7 @@
         "hourlyBitmapSundayMidnightUtc" : "111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111"
     },
     "locationFilter": {
-        "include" : "^US:([^]*):[^]*:(90210|90211)",
+        "include" : "^(US):(MO)",
         "exclude" : "{}"
     },
     "whiteBlackList": {
@@ -145,7 +145,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "41666USD/1M",
+        "pace": "166666USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }

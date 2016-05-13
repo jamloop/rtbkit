@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5121764376617,
+        "id": 5130064376617,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512643766",
+              "lid": "513643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51217643766173,
+        "id": 51300643766173,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512643766",
+              "lid": "513643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51217643766174,
+        "id": 51300643766174,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,7 +91,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512643766",
+              "lid": "513643766",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5121764376617,
+    "externalId": 5130064376617,
     "roundRobin": {
         "group": "jl:LUB_w300_SV",
         "weight": 1
@@ -132,9 +132,13 @@
         "include": [ "529" ],
         "exclude": [ ]
     },
+    "locationFilter": {
+        "include" : "^(US):([^]*):([^]*):(42127|42141|40143|40165|40229|40047|40150|41008|47111|47130|47172|47143|47150|47119|47122|42754|42743|40160|42701|42724|42740|47112|42749|42765|40055|40019|40258|40299|40207|40213|40222|40202|40241|40206|40209|40215|40216|40208|40291|40220|40218|40214|40272|40219|40204|40203|40228|40243|40211|40205|40223|47250|47243|42748|47466|40033|40108|40004|40031|40014|40059|47469|47170|40065|40166|40076|40071|42718|47167|40069)",
+        "exclude" : "{}"
+    },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "69444USD/1M",
+        "pace": "277777USD/1M",
         "price": "15100USD/1M",
         "priority": 12
     }

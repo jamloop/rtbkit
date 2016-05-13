@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 512177298239,
+        "id": 513007298239,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512729823",
+              "lid": "513729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 5121772982393,
+        "id": 5130072982393,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512729823",
+              "lid": "513729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 5121772982394,
+        "id": 5130072982394,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,14 +91,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512729823",
+              "lid": "513729823",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 512177298239,
+    "externalId": 513007298239,
     "roundRobin": {
         "group": "jl:HUN_cTV",
         "weight": 1
@@ -124,7 +124,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "20833USD/1M",
+        "pace": "83333USD/1M",
         "price": "17100USD/1M",
         "priority": 11
     }

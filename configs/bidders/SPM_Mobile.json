@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5121774077541,
+        "id": 5130074077541,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512740775",
+              "lid": "513740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51217740775413,
+        "id": 51300740775413,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512740775",
+              "lid": "513740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51217740775414,
+        "id": 51300740775414,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,14 +91,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "512740775",
+              "lid": "513740775",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5121774077541,
+    "externalId": 5130074077541,
     "roundRobin": {
         "group": "jl:SPM_Mobile",
         "weight": 1
@@ -125,13 +125,17 @@
     "hourOfWeekFilter": {
         "hourlyBitmapSundayMidnightUtc" : "111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111"
     },
+    "locationFilter": {
+        "include" : "^(US):(MO)",
+        "exclude" : "{}"
+    },
     "whiteBlackList": {
       "whiteFile": "configs/people_12_24_i140.csv",
       "blackFile": "configs/blank"
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "13888USD/1M",
+        "pace": "55555USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }
