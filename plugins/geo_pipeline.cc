@@ -537,6 +537,12 @@ GeoPipeline::postBidRequest(
         br->user->geo->country = std::move(result.countryCode);
         br->user->geo->region = std::move(result.region);
         br->user->geo->zip = Datacratic::UnicodeString(std::move(result.zipCode));
+
+        br->location.countryCode = br->user->geo->country;
+        br->location.regionCode = br->user->geo->region;
+        br->location.dma = std::stoi(br->user->geo->metro);
+        br->location.postalCode = br->user->geo->zip;
+
     }
 
     return PipelineStatus::Continue;
