@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5131164376645,
+        "id": 5131145,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "513643766",
+              "lid": "51311",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51311643766453,
+        "id": 51311453,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "513643766",
+              "lid": "51311",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51311643766454,
+        "id": 51311454,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,7 +91,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "513643766",
+              "lid": "51311",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5131164376645,
+    "externalId": 5131145,
     "roundRobin": {
         "group": "jl:STL_w300_SV",
         "weight": 1
