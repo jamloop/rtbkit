@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5131514,
+        "id": 5131614,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51315",
+              "lid": "51316",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51315143,
+        "id": 51316143,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51315",
+              "lid": "51316",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51315144,
+        "id": 51316144,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,14 +91,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51315",
+              "lid": "51316",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5131514,
+    "externalId": 5131614,
     "roundRobin": {
         "group": "jl:LAF_Mobile",
         "weight": 1
@@ -121,10 +121,6 @@
     "dmaFilter": {
         "include": [ "582" ],
         "exclude": [ ]
-    },
-    "locationFilter": {
-        "include": [ "47901","47902","47903","47904","47905","47906","47907","47909","47920","47924","47930","47941","47962","47981","47983","47992","47996" ],
-        "exclude": [ ] 
     },
     "ext": {
         "budget": "50000000000USD/1M",
