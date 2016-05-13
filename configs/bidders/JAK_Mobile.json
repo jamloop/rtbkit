@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5130074077512,
+        "id": 5130174077512,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 51300740775123,
+        "id": 51301740775123,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 51300740775124,
+        "id": 51301740775124,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": 5130074077512,
+    "externalId": 5130174077512,
     "roundRobin": {
         "group": "jl:JAK_Mobile",
         "weight": 1
@@ -128,7 +128,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "111111USD/1M",
+        "pace": "27777USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

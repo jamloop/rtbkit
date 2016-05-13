@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5130064376627,
+        "id": 5130164376627,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 51300643766273,
+        "id": 51301643766273,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 51300643766274,
+        "id": 51301643766274,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5130064376627,
+    "externalId": 5130164376627,
     "roundRobin": {
         "group": "jl:SNT_w300_SV",
         "weight": 1
@@ -134,7 +134,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "100000USD/1M",
+        "pace": "25000USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }
