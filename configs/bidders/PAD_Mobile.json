@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5130174077538,
+        "id": 5131074077538,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 51301740775383,
+        "id": 51310740775383,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 51301740775384,
+        "id": 51310740775384,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": 5130174077538,
+    "externalId": 5131074077538,
     "roundRobin": {
         "group": "jl:PAD_Mobile",
         "weight": 1
@@ -127,7 +127,7 @@
     },
     "locationFilter": {
         "include": [ "^(US):(MO)" ],
-        "exclude": [ "" ] 
+        "exclude": [ ] 
     },
     "whiteBlackList": {
       "whiteFile": "configs/people_12_24_i140.csv",

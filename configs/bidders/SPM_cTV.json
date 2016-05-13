@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5130172982340,
+        "id": 5131072982340,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 51301729823403,
+        "id": 51310729823403,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 51301729823404,
+        "id": 51310729823404,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -98,7 +98,7 @@
         }
     }
     ],
-    "externalId": 5130172982340,
+    "externalId": 5131072982340,
     "roundRobin": {
         "group": "jl:SPM_cTV",
         "weight": 1
@@ -127,7 +127,7 @@
     },
     "locationFilter": {
         "include": [ "^(US):(MO)" ],
-        "exclude": [ "" ] 
+        "exclude": [ ] 
     },
     "ext": {
         "budget": "50000000000USD/1M",

@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5130164376615,
+        "id": 5131064376615,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 51301643766153,
+        "id": 51310643766153,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -67,7 +67,7 @@
         }
     },
     {
-        "id": 51301643766154,
+        "id": 51310643766154,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5130164376615,
+    "externalId": 5131064376615,
     "roundRobin": {
         "group": "jl:LAF_w300_SV",
         "weight": 1
@@ -134,7 +134,7 @@
     },
     "locationFilter": {
         "include": [ "^(US):([^]*):([^]*):(47901|47902|47903|47904|47905|47906|47907|47909|47920|47924|47930|47941|47962|47981|47983|47992|47996)" ],
-        "exclude": [ "" ] 
+        "exclude": [ ] 
     },
     "ext": {
         "budget": "50000000000USD/1M",
