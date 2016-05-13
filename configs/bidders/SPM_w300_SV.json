@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5131142,
+        "id": 5131542,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51311",
+              "lid": "51315",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51311423,
+        "id": 51315423,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -60,14 +60,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51311",
+              "lid": "51315",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     },
     {
-        "id": 51311424,
+        "id": 51315424,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -91,7 +91,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51311",
+              "lid": "51315",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -108,7 +108,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5131142,
+    "externalId": 5131542,
     "roundRobin": {
         "group": "jl:SPM_w300_SV",
         "weight": 1
@@ -134,6 +134,10 @@
     },
     "hourOfWeekFilter": {
         "hourlyBitmapSundayMidnightUtc" : "111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111111111000000000111111111"
+    },
+    "locationFilter": {
+        "include": [ "^(US):(MO)" ],
+        "exclude": [ ] 
     },
     "whiteBlackList": {
       "whiteFile": "configs/people_12_24_i140.csv",
