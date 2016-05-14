@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5140720,
+        "id": 5141320,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -23,7 +23,7 @@
         }
     },
     {
-        "id": 51407203,
+        "id": 51413203,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -41,7 +41,7 @@
         }
     },
     {
-        "id": 51407204,
+        "id": 51413204,
         "type": "video",
         "width": 480,
         "height": 0,
@@ -69,7 +69,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5140720,
+    "externalId": 5141320,
     "roundRobin": {
         "group": "jl:chan_w300_SV",
         "weight": 1
