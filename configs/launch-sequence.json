@@ -282,16 +282,6 @@
       "log": true
     },
     {
-      "name": "agent-LUB_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb1.agent_LUB_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/bidders/LUB_Mobile.json"
-      ],
-      "log": true
-    },
-    {
       "name": "agent-LUB_w300_SV", 
       "root": ".", "path": "./bin/basic_bidding_agent",
       "arg": [
@@ -787,17 +777,6 @@
         "--service-name", "useast1b.rtb2.agent_LAF_w300_SV",
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--agent-configuration", "configs/bidders/LAF_w300_SV.json",
-        "--use-http-banker"
-      ],
-      "log": true
-    },
-    {
-      "name": "agent-LUB_Mobile", 
-      "root": ".", "path": "./bin/basic_bidding_agent",
-      "arg": [
-        "--service-name", "useast1b.rtb2.agent_LUB_Mobile",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--agent-configuration", "configs/bidders/LUB_Mobile.json",
         "--use-http-banker"
       ],
       "log": true
