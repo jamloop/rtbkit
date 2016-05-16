@@ -5,6 +5,11 @@
     "root": "/home/rtbkit/prod/rtb/",
     "tasks": [
     {
+      "name": "rtbd",
+      "root": ".", "path": "./bin/rtbd",
+      "log": true
+    },
+    {
       "name": "configs",
       "root": ".", "path": "./bin/agent_configuration_service_runner",
       "arg": [
@@ -113,6 +118,11 @@
     "name": "useast1b.rtb2",
     "root": "/home/rtbkit/prod/rtb/",
     "tasks": [
+    {
+      "name": "rtbd",
+      "root": ".", "path": "./bin/rtbd",
+      "log": true
+    },
     {
       "name": "router-1",
       "root": ".", "path": "./bin/router_runner",
