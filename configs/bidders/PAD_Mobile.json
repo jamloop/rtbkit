@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5162238,
+        "id": 5170938,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51622",
+              "lid": "51709",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5162238,
+    "externalId": 5170938,
     "roundRobin": {
         "group": "jl:PAD_Mobile",
         "weight": 1
@@ -66,10 +66,6 @@
     "locationFilter": {
         "include": [ "^(US):(MO)" ],
         "exclude": [ ] 
-    },
-    "whiteBlackList": {
-      "whiteFile": "configs/people_12_24_i140.csv",
-      "blackFile": "configs/blank"
     },
     "ext": {
         "budget": "50000000000USD/1M",
