@@ -341,6 +341,14 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
                                      oss << "]";
                                      LOG(error) << "Existing external-ids are: " << oss.str() << std::endl;
 
+                                     oss.str("");
+                                     oss << "[ ";
+                                     for (const auto& bidder: bidders) {
+                                         oss << bidder.second.agentConfig->externalId << " ";
+                                     }
+                                     oss << "]";
+                                     LOG(error) << "Potential bidders external-ids are:  " << oss.str() << std::endl;
+
                                      recordError("unknown");
                                      return;
                                  }
