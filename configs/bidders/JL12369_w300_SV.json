@@ -71,7 +71,7 @@
         "exclude": [ ]
     },
     "whiteBlackList": {
-      "whiteFile": "configs/health_family.csv",
+      "whiteFile": "configs/../health_family.csv",
       "blackFile": "configs/blank"
     },
     "ext": {
