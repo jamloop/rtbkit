@@ -166,6 +166,9 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
                 [&](const pair<string, BidInfo> &bidder)
         {
             std::string agent = bidder.first;
+            auto entry = router->getAgentEntry(agent);
+            return entry.valid() && entry.config->externalId == externalId;
+#if 0
             /* Since it is possible to delete a configuration from the REST interface of
              * the agent configuration service, the user might delete the configuration
              * while some requests for this configuration are already in flight. When
@@ -188,6 +191,7 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
             const auto &info = agentIt->second;
             ExcAssert(info.config);
             return info.config->externalId == externalId;
+#endif
         });
 
         if (it == end(bidders)) {
