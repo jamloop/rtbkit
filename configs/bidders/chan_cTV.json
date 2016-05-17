@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5171418,
+        "id": 5171518,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -23,7 +23,7 @@
         }
     }
     ],
-    "externalId": 5171418,
+    "externalId": 5171518,
     "roundRobin": {
         "group": "jl:chan_cTV",
         "weight": 1

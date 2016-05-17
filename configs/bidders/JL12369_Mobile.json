@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5171459,
+        "id": 5171559,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51714",
+              "lid": "51715",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5171459,
+    "externalId": 5171559,
     "roundRobin": {
         "group": "jl:JL12369_Mobile",
         "weight": 1
@@ -61,7 +61,7 @@
         "exclude": [ ]
     },
     "whiteBlackList": {
-      "whiteFile": "configs/../health_family.csv",
+      "whiteFile": "configs/health_family.csv",
       "blackFile": "configs/blank"
     },
     "ext": {
