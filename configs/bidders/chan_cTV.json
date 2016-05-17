@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5171318,
+        "id": 5171418,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -23,7 +23,7 @@
         }
     }
     ],
-    "externalId": 5171318,
+    "externalId": 5171418,
     "roundRobin": {
         "group": "jl:chan_cTV",
         "weight": 1
@@ -41,7 +41,7 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "27777777USD/1M",
+        "pace": "277777777USD/1M",
         "price": "18100USD/1M",
         "priority": 1
     }
