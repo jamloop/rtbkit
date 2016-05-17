@@ -167,7 +167,11 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
         {
             std::string agent = bidder.first;
             auto entry = router->getAgentEntry(agent);
-            return entry.valid() && entry.config->externalId == externalId;
+            if (!entry.valid()) {
+                LOG(trace) << "Invalid agent entry for '" << agent << "'" << std::endl;
+                return false;
+            }
+            return entry.config->externalId == externalId;
 #if 0
             /* Since it is possible to delete a configuration from the REST interface of
              * the agent configuration service, the user might delete the configuration
@@ -326,6 +330,17 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
                                  tie(agent, config) = findAgent(externalId);
                                  if (config == nullptr) {
                                      LOG(error) << "Couldn't find config for externalId: " << externalId << std::endl;
+                                     std::vector<int> externalIds;
+                                     router->forEachAgent([&](const AgentInfoEntry& entry) {
+                                         externalIds.push_back(entry.config->externalId);
+                                     });
+
+                                     std::ostringstream oss;
+                                     oss << "[ ";
+                                     for (auto id: externalIds) oss << id << " ";
+                                     oss << "]";
+                                     LOG(error) << "Existing external-ids are: " << oss.str() << std::endl;
+
                                      recordError("unknown");
                                      return;
                                  }
