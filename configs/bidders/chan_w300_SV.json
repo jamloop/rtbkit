@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5171520,
+        "id": 5172120,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -33,7 +33,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5171520,
+    "externalId": 5172120,
     "roundRobin": {
         "group": "jl:chan_w300_SV",
         "weight": 1
@@ -51,7 +51,7 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "277777777USD/1M",
+        "pace": "69444444USD/1M",
         "price": "10100USD/1M",
         "priority": 2
     }
