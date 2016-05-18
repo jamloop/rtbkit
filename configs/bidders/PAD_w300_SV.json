@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5172139,
+        "id": 5172142,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -46,7 +46,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5172139,
+    "externalId": 5172142,
     "roundRobin": {
         "group": "jl:PAD_w300_SV",
         "weight": 1
@@ -76,7 +76,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "555555USD/1M",
+        "pace": "18849USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }
