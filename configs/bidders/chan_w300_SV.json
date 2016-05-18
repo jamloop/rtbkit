@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5172120,
+        "id": 5172220,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -33,7 +33,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5172120,
+    "externalId": 5172220,
     "roundRobin": {
         "group": "jl:chan_w300_SV",
         "weight": 1
