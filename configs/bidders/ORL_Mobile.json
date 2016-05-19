@@ -56,7 +56,10 @@
         "include": [ 1, 4, 5 ],
         "exclude": [ ]
     },
-    "dmaFilter": {
+    "locationFilter": {
+        "include": [ "MO" ],
+        "exclude": [ ] 
+    },    "dmaFilter": {
         "include": [ "534" ],
         "exclude": [ ]
     },
