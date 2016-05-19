@@ -56,10 +56,6 @@
         "include": [ 1, 4, 5 ],
         "exclude": [ ]
     },
-    "locationFilter": {
-        "include": [ "FL" ],
-        "exclude": [ ] 
-    },
     "dmaFilter": {
         "include": [ "534" ],
         "exclude": [ ]
