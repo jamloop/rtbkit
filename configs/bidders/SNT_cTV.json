@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5190926,
+        "id": 5191427,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51909",
+              "lid": "51914",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5190926,
+    "externalId": 5191427,
     "roundRobin": {
         "group": "jl:SNT_cTV",
         "weight": 1
