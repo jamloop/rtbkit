@@ -2,7 +2,7 @@
     "account": [
         "PAD_Mobile", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190942,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "8906547USD/1M",
+        "pace": "89065USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

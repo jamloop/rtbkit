@@ -2,7 +2,7 @@
     "account": [
         "SNT_cTV", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190926,
@@ -62,7 +62,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "2500000USD/1M",
+        "pace": "25000USD/1M",
         "price": "17100USD/1M",
         "priority": 11
     }

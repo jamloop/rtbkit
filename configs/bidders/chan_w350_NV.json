@@ -2,7 +2,7 @@
     "account": [
         "chan_w350_NV", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190922,
@@ -63,7 +63,7 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "6944444444USD/1M",
+        "pace": "69444444USD/1M",
         "price": "15100USD/1M",
         "priority": 1
     }

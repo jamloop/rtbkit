@@ -2,7 +2,7 @@
     "account": [
         "HUN_Mobile", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190910,
@@ -62,7 +62,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "520833USD/1M",
+        "pace": "5208USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

@@ -2,7 +2,7 @@
     "account": [
         "QUI_Mobile", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190945,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "5937646USD/1M",
+        "pace": "59376USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

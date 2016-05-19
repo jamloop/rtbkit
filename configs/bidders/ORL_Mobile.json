@@ -2,7 +2,7 @@
     "account": [
         "ORL_Mobile", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190960,
@@ -62,7 +62,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "15625000USD/1M",
+        "pace": "156250USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

@@ -2,7 +2,7 @@
     "account": [
         "COM_w300_SV", "1"
     ],
-    "bidProbability": 0.01,
+    "bidProbability": 1,
     "creatives": [
     {
         "id": 5190931,
@@ -79,7 +79,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "4712131USD/1M",
+        "pace": "47121USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }
