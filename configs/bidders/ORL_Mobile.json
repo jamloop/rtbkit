@@ -59,7 +59,8 @@
     "locationFilter": {
         "include": [ "MO" ],
         "exclude": [ ] 
-    },    "dmaFilter": {
+    },
+    "dmaFilter": {
         "include": [ "534" ],
         "exclude": [ ]
     },
