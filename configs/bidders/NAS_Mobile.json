@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5190857,
+        "id": 5190957,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "51908",
+              "lid": "51909",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5190857,
+    "externalId": 5190957,
     "roundRobin": {
         "group": "jl:NAS_Mobile",
         "weight": 1
