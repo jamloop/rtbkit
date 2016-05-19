@@ -2,7 +2,7 @@
     "account": [
         "HUN_w300_SV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190911,
@@ -72,7 +72,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "20833USD/1M",
+        "pace": "2083333USD/1M",
         "price": "17100USD/1M",
         "priority": 12
     }

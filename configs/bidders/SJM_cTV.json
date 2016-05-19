@@ -2,7 +2,7 @@
     "account": [
         "SJM_cTV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190947,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "9895USD/1M",
+        "pace": "989583USD/1M",
         "price": "17100USD/1M",
         "priority": 11
     }

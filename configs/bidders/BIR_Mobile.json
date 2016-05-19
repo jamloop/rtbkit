@@ -2,7 +2,7 @@
     "account": [
         "BIR_Mobile", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190966,
@@ -62,7 +62,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "65972USD/1M",
+        "pace": "6597222USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

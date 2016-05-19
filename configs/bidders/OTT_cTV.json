@@ -2,7 +2,7 @@
     "account": [
         "OTT_cTV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190938,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "7727USD/1M",
+        "pace": "772798USD/1M",
         "price": "17100USD/1M",
         "priority": 11
     }

@@ -2,7 +2,7 @@
     "account": [
         "chan_cTV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190918,
@@ -49,7 +49,7 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "69444444USD/1M",
+        "pace": "6944444444USD/1M",
         "price": "18100USD/1M",
         "priority": 1
     }

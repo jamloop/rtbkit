@@ -2,7 +2,7 @@
     "account": [
         "JUN_Mobile", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190933,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "33399USD/1M",
+        "pace": "3339935USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

@@ -2,7 +2,7 @@
     "account": [
         "JL12369_Mobile", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190969,
@@ -66,7 +66,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "52083USD/1M",
+        "pace": "5208333USD/1M",
         "price": "10100USD/1M",
         "priority": 50
     }

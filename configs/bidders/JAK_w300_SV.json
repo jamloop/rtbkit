@@ -2,7 +2,7 @@
     "account": [
         "JAK_w300_SV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190913,
@@ -76,7 +76,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "83333USD/1M",
+        "pace": "8333333USD/1M",
         "price": "15100USD/1M",
         "priority": 12
     }

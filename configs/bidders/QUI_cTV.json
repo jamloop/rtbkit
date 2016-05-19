@@ -2,7 +2,7 @@
     "account": [
         "QUI_cTV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190944,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "50264USD/1M",
+        "pace": "5026423USD/1M",
         "price": "17100USD/1M",
         "priority": 11
     }

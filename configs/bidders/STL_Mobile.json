@@ -2,7 +2,7 @@
     "account": [
         "STL_Mobile", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190954,
@@ -69,7 +69,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "300038USD/1M",
+        "pace": "30003858USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

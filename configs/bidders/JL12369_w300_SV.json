@@ -2,7 +2,7 @@
     "account": [
         "JL12369_w300_SV", "1"
     ],
-    "bidProbability": 1,
+    "bidProbability": 0.01,
     "creatives": [
     {
         "id": 5190970,
@@ -76,7 +76,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "104166USD/1M",
+        "pace": "10416666USD/1M",
         "price": "17100USD/1M",
         "priority": 50
     }
