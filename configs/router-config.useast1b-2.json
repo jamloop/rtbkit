@@ -56,7 +56,7 @@
   },
   {
     "exchangeType": "publisher",
-    "listenPort": 19976,
+    "listenPort": 19975,
     "numThreads": 2,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
