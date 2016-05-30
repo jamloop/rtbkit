@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5271628,
+        "id": 5301328,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "52716",
+              "lid": "53013",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5271628,
+    "externalId": 5301328,
     "roundRobin": {
         "group": "jl:COM_Mobile",
         "weight": 1
@@ -60,13 +60,16 @@
         "include": [ "604" ],
         "exclude": [ ]
     },
+    "hourOfWeekFilter": {
+        "hourlyBitmapSundayMidnightUtc" : "111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111"
+    },
     "locationFilter": {
         "include": [ "^(US):(MO)" ],
         "exclude": [ ] 
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "13915USD/1M",
+        "pace": "27831USD/1M",
         "price": "10100USD/1M",
         "priority": 11
     }

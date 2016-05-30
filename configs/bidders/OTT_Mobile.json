@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5271637,
+        "id": 5301337,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "52716",
+              "lid": "53013",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 5271637,
+    "externalId": 5301337,
     "roundRobin": {
         "group": "jl:OTT_Mobile",
         "weight": 1
@@ -61,7 +61,7 @@
         "exclude": [ ]
     },
     "hourOfWeekFilter": {
-        "hourlyBitmapSundayMidnightUtc" : "100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100"
+        "hourlyBitmapSundayMidnightUtc" : "111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111111110000000001111111111"
     },
     "locationFilter": {
         "include": [ "^(US):(MO)" ],
