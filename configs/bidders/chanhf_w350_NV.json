@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 5310623,
+        "id": 5310823,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -21,13 +21,13 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 40,
+        "viewTreshold": 60,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 5310623,
+    "externalId": 5310823,
     "roundRobin": {
         "group": "jl:chanhf_w350_NV",
         "weight": 1
