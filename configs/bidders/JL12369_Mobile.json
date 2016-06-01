@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6011169,
+        "id": 6011669,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,14 +29,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "60111",
+              "lid": "60116",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 6011169,
+    "externalId": 6011669,
     "roundRobin": {
         "group": "jl:JL12369_Mobile",
         "weight": 1
