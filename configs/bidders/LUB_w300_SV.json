@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6061517,
+        "id": 6061577,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -46,7 +46,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 6061517,
+    "externalId": 6061577,
     "roundRobin": {
         "group": "jl:LUB_w300_SV",
         "weight": 1
@@ -70,12 +70,9 @@
         "include": [ "529" ],
         "exclude": [ ]
     },
-    "hourOfWeekFilter": {
-        "hourlyBitmapSundayMidnightUtc" : "100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100"
-    },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "13285USD/1M",
+        "pace": "144749USD/1M",
         "price": "9100USD/1M",
         "priority": 12
     }
