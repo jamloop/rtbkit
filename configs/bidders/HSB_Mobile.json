@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 605225,
+        "id": 606155,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -29,7 +29,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "60522",
+              "lid": "60615",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -45,7 +45,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 605225,
+    "externalId": 606155,
     "roundRobin": {
         "group": "jl:HSB_Mobile",
         "weight": 1
