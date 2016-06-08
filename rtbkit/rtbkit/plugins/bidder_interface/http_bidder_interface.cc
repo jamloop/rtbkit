@@ -59,6 +59,8 @@ HttpBidderInterface::HttpBidderInterface(std::string serviceName,
     int routerHttpActiveConnections = 0;
     int adserverHttpActiveConnections = 0;
 
+    int threads = 0;
+
     try {
         const auto& router = json["router"];
         const auto& adserver = json["adserver"];
@@ -67,6 +69,8 @@ HttpBidderInterface::HttpBidderInterface(std::string serviceName,
         routerPath = router["path"].asString();
         routerFormat = readFormat(router.get("format", "standard").asString());
         routerHttpActiveConnections = router.get("httpActiveConnections", 1024).asInt();
+
+        threads = router.get("threads", 1).asInt();
 
         adserverHost = adserver["host"].asString();
 
@@ -110,6 +114,11 @@ HttpBidderInterface::HttpBidderInterface(std::string serviceName,
                    << "\t}" << std::endl << "}";
     }
 
+    loops.init(
+        threads,
+        routerHost,
+        routerHttpActiveConnections);
+
     httpClientRouter.reset(new HttpClient(routerHost, routerHttpActiveConnections));
     /* We do not want curl to add an extra "Expect: 100-continue" HTTP header
      * and then pay the cost of an extra HTTP roundtrip. Thus we remove this
@@ -146,12 +155,56 @@ HttpBidderInterface::~HttpBidderInterface()
 
 void HttpBidderInterface::start() {
     loop.start();
+    loops.start();
 }
 
 void HttpBidderInterface::shutdown() {
     loop.shutdown();
+    loops.shutdown();
 }
 
+void
+HttpBidderInterface::Loops::init(
+        size_t threads,
+        std::string routerHost,
+        int routerHttpActiveConnections)
+{
+    for (size_t i = 0; i < threads; ++i) {
+        entries.emplace_back(routerHost, routerHttpActiveConnections / threads);
+    }
+
+    index = 0;
+}
+
+void
+HttpBidderInterface::Loops::start() {
+    for (auto& entry: entries) {
+        entry.loop->start();
+    }
+}
+
+void
+HttpBidderInterface::Loops::shutdown() {
+    for (auto& entry: entries) {
+        entry.loop->shutdown();
+    }
+}
+
+std::shared_ptr<HttpClient>
+HttpBidderInterface::Loops::client() const {
+    index = (index + 1) % entries.size();
+    return entries[index].client;
+}
+
+void
+HttpBidderInterface::Loops::registerLoopMonitor(
+        LoopMonitor* monitor, const std::string& prefix) const {
+    for (size_t i = 0; i < entries.size(); ++i) {
+        auto& entry = entries[i];
+        monitor->addMessageLoop(prefix + std::to_string(i), entry.loop.get());
+    }
+
+}
 
 void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & auction,
                                              double timeLeftMs,
@@ -400,8 +453,10 @@ void HttpBidderInterface::sendAuctionMessage(std::shared_ptr<Auction> const & au
     RestParams headers { { "x-openrtb-version", openRtbVersion } };
    // std::cerr << "Sending HTTP POST to: " << routerHost << " " << routerPath << std::endl;
    // std::cerr << "Content " << reqContent.str << std::endl;
+   //
+    auto client = loops.client();
 
-    httpClientRouter->post(routerPath, callbacks, reqContent,
+    client->post(routerPath, callbacks, reqContent,
                      { } /* queryParams */, headers);
 }
 
@@ -655,6 +710,8 @@ void HttpBidderInterface::sendPingMessage(
 
 void HttpBidderInterface::registerLoopMonitor(LoopMonitor *monitor) const {
     monitor->addMessageLoop(serviceName(), &loop);
+
+    loops.registerLoopMonitor(monitor, "bidder.thread");
 }
 
 bool HttpBidderInterface::prepareRequest(OpenRTB::BidRequest &request,
