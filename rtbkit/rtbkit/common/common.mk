@@ -10,6 +10,12 @@ LIBBIDREQUEST_SOURCES := \
 LIBBIDREQUEST_LINK := \
 	types boost_regex db openrtb value_description
 
+LIBRTB_CONFIGURATION := \
+	static_configuration.cc
+
+LIBRTB_CONFIGURATION_LINK := \
+	arch utils jsoncpp
+
 $(eval $(call library,bid_request,$(LIBBIDREQUEST_SOURCES),$(LIBBIDREQUEST_LINK)))
 
 LIBRTB_SOURCES := \
@@ -29,6 +35,7 @@ LIBRTB_LINK := \
 	ACE arch utils jsoncpp boost_thread endpoint boost_regex zmq opstats bid_request
 
 $(eval $(call library,rtb,$(LIBRTB_SOURCES),$(LIBRTB_LINK)))
+$(eval $(call library,rtb_configuration,$(LIBRTB_CONFIGURATION),$(LIBRTB_LINK)))
 
 $(eval $(call library,filter_registry,filter.cc,arch utils rtb))
 
