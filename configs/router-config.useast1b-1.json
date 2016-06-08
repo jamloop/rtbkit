@@ -4,7 +4,7 @@
     "uniqueName": "bidswitch",
     "listenPort": 9977,
     "numThreads": 1,
-    "realTimePolling": true,
+    "realTimePolling": false,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
     "auctionResource": "/",
