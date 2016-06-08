@@ -93,6 +93,34 @@ private:
 
     typedef std::map<std::string, AgentBidsInfo> AgentBids;
 
+    struct Loops {
+    public:
+        void init(size_t threads, std::string routerHost, int routerHttpActiveConnections);
+        std::shared_ptr<HttpClient> client() const;
+
+        void registerLoopMonitor(LoopMonitor* monitor, const std::string& prefix) const;
+
+        void start();
+        void shutdown();
+    private:
+        struct Entry {
+            Entry(const std::string& routerHost, int routerHttpActiveConnections)
+                : client(std::make_shared<HttpClient>(routerHost, routerHttpActiveConnections, 0, 2))
+                , loop(std::make_shared<MessageLoop>())
+            {
+                loop->addSource("httpClient", client);
+            }
+
+            std::shared_ptr<HttpClient> client;
+            std::shared_ptr<MessageLoop> loop;
+        };
+
+        std::vector<Entry> entries;
+        mutable size_t index;
+    };
+
+    Loops loops;
+
     MessageLoop loop;
     std::shared_ptr<HttpClient> httpClientRouter;
     std::shared_ptr<HttpClient> httpClientAdserverWins;
