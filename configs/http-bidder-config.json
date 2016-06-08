@@ -2,7 +2,8 @@
     "type": "http",
     "router": {
         "host": "http://rtb2.useast1b.jamloop:9176",
-        "path": "/auctions"
+        "path": "/auctions",
+        "threads": 4
     },
     "adserver": {
           "host": "http://rtb2.useast1b.jamloop:10176",
