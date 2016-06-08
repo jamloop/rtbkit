@@ -11,7 +11,6 @@
 
 #include "standard_adserver_connector.h"
 
-
 using namespace std;
 
 using namespace boost::program_options;
@@ -105,7 +104,7 @@ start()
 {
     bindTcp();
 
-    publisher_.bindTcp(getServices()->ports->getRange("adServer.logger"));
+    publisher_.bindTcp(getServices()->ports->getRange("logs"));
     publisher_.start();
     analytics_.start();
     HttpAdServerConnector::start();
