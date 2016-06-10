@@ -5,19 +5,19 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6091622,
+        "id": 6101322,
         "type": "video",
         "width": -1,
         "height": 0,
         "duration": 30,
         "providerConfig": {
             "adaptv": {
-              "adm": "<VAST version=\"2.0\"><Ad id=\"preroll\"><Wrapper><VASTAdTagURI><![CDATA[http://ads.adaptv.advertising.com/a/h/DzznCMUCMlVQHMAv3MSN3RsptxNwd1cGqizbr2z0W5U=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DLP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D${AUCTION_PRICE}%2CrtbCmp%3Dchanhf&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+              "adm": "<VAST version=\"2.0\"><Ad id=\"preroll\"><Wrapper><VASTAdTagURI><![CDATA[https://ads.adaptv.advertising.com/a/h/DzznCMUCMlVQHMAv3MSN3RsptxNwd1cGqizbr2z0W5U=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DLP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D${AUCTION_PRICE}%2CrtbCmp%3Dchanhf&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
           }
         }
     }
     ],
-    "externalId": 6091622,
+    "externalId": 6101322,
     "roundRobin": {
         "group": "jl:chanhf_Mobile",
         "weight": 1
