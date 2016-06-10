@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 610137,
+        "id": 610167,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -13,6 +13,7 @@
         "providerConfig": {
             "adaptv": {
               "adm": "<VAST version=\"2.0\"><Ad id=\"preroll\"><Wrapper><VASTAdTagURI><![CDATA[https://ads.adaptv.advertising.com/a/h/DzznCMUCMlVQHMAv3MSN3RsptxNwd1cGqizbr2z0W5U=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DLP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D${AUCTION_PRICE}%2CrtbCmp%3DHNH&eov=eov]]></VASTAdTagURI></Wrapper></Ad></VAST>"
+              "nurl": "https://ad.jamloop.com/cgi-bin/z.pl?br.tp=%{bidrequest.timestamp}&br.ext.deviceid=%{bidrequest.ext.deviceid}&br.device.ip=%{bidrequest.device.ip}&br.ua=%{bidrequest.ua#urlencode}&br.app.bundle=%{bidrequest.app.bundle#urlencode}&br.app.storeurl=%{bidrequest.app.storeurl#urlencode}&br.site.page=%{bidrequest.site.page#urlencode}&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&br.video.width=%{bidrequest.video.width}&br.video.height=%{bidrequest.video.height}&br.ext.devicetype=%{bidrequest.device.type}&br.ext.videotype=%{bidrequest.ext.videotype}&rtb.view=HV&rtb.player=LP&br.user.id=%{bidrequest.user.id}&br.publisher.id=%{bidrequest.publisher.id}&br.language=%{bidrequest.language}&br.geo.country=%{bidrequest.geo.country}&br.geo.zip=%{bidrequest.geo.zip}&br.geo.region=%{bidrequest.geo.region}&br.geo.metro=%{bidrequest.geo.metro}&WIN_RATIO=${AUCTION_PRICE}&DOMAIN=eov&rtbCmp=HNH"
             },
             "publisher": {
               "vast": "<VAST version=\"2.0\"><Ad id=\"VPAID\"><Wrapper><VASTAdTagURI><![CDATA[https://ads.adaptv.advertising.com/a/h/DzznCMUCMlVQHMAv3MSN3RsptxNwd1cGqizbr2z0W5U=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DLP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D%{tag.price}%2CrtbCmp%3DHNH&eov=eov]]></VASTAdTagURI><Impression><![CDATA[https://ad.jamloop.com/cgi-bin/z.pl?br.tp=%{bidrequest.timestamp}&br.ext.deviceid=%{bidrequest.ext.deviceid}&br.device.ip=%{bidrequest.device.ip}&br.ua=%{bidrequest.ua#urlencode}&br.app.bundle=%{bidrequest.app.bundle#urlencode}&br.app.storeurl=%{bidrequest.app.storeurl#urlencode}&br.site.page=%{bidrequest.site.page#urlencode}&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&br.video.width=%{bidrequest.video.width}&br.video.height=%{bidrequest.video.height}&br.ext.devicetype=%{bidrequest.device.type}&br.ext.videotype=%{bidrequest.ext.videotype}&rtb.view=HV&rtb.player=LP&br.user.id=%{bidrequest.user.id}&br.publisher.id=%{bidrequest.publisher.id}&br.language=%{bidrequest.language}&br.geo.country=%{bidrequest.geo.country}&br.geo.zip=%{bidrequest.geo.zip}&br.geo.region=%{bidrequest.geo.region}&br.geo.metro=%{bidrequest.geo.metro}&WIN_RATIO=%{tag.price}&DOMAIN=eov&rtbCmp=HNH]]></Impression></Wrapper></Ad></VAST>"
@@ -29,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "61013",
+              "lid": "61016",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -45,7 +46,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 610137,
+    "externalId": 610167,
     "roundRobin": {
         "group": "jl:HNH_Mobile",
         "weight": 1
