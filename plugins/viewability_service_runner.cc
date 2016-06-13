@@ -2,6 +2,7 @@
 #include "soa/service/process_stats.h"
 #include "soa/service/service_utils.h"
 #include "jml/arch/format.h"
+#include "rtbkit/common/args.h"
 
 #include <boost/program_options/cmdline.hpp>
 #include <boost/program_options/options_description.hpp>
@@ -17,7 +18,7 @@ using namespace JamLoop;
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    ServiceProxyArguments serviceArgs;
+    RTBKIT::ProxyArguments serviceArgs;
     ViewabilityService::Config config;
 
     using namespace boost::program_options;
@@ -38,8 +39,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    auto proxies = serviceArgs.makeServiceProxies();
     auto serviceName = serviceArgs.serviceName("viewabilityService");
+    auto proxies = serviceArgs.makeServiceProxies(serviceName);
 
     ViewabilityService service(proxies, serviceName);
     service.setConfig(config);

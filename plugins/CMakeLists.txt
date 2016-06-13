@@ -44,7 +44,7 @@ add_library(liverail_exchange SHARED liverail_exchange_connector.cc)
 target_link_libraries(liverail_exchange rtb openrtb_exchange bid_request services arch utils jsoncpp types value_description jamloop_utils boost_system boost_thread boost_program_options tcmalloc)
 
 set(VIEWABILITY_SERVICE_SRC viewability_augmentor.cc viewability_service.cc file_watcher.cc)
-set(AUGMENTOR_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request gc boost_program_options agent_configuration tcmalloc)
+set(AUGMENTOR_LINK arch utils services types augmentor_base redis zmq jsoncpp value_description rtb bid_request rtb_configuration gc boost_program_options agent_configuration tcmalloc)
 
 add_library(viewability_service SHARED ${VIEWABILITY_SERVICE_SRC})
 target_link_libraries(viewability_service ${AUGMENTOR_LINK})

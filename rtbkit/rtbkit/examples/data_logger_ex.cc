@@ -11,6 +11,7 @@
 #include "soa/logger/file_output.h"
 #include "soa/logger/multi_output.h"
 #include "soa/service/service_utils.h"
+#include "rtbkit/common/args.h"
 
 #include <boost/program_options/cmdline.hpp>
 #include <boost/program_options/options_description.hpp>
@@ -91,7 +92,7 @@ setupOutputs(
 
 int main (int argc, char** argv)
 {
-    ServiceProxyArguments serviceArgs;
+    RTBKIT::ProxyArguments serviceArgs;
     string logDir = "data_logger";
     string rotationInterval = "1h";
 
@@ -117,7 +118,8 @@ int main (int argc, char** argv)
         exit(0);
     }
 
-    auto serviceProxies = serviceArgs.makeServiceProxies();
+    auto serviceName = serviceArgs.serviceName("data_logger");
+    auto serviceProxies = serviceArgs.makeServiceProxies(serviceName);
 
     // Initialize the logger and it's outputs.
     DataLogger logger("data_logger", serviceProxies);

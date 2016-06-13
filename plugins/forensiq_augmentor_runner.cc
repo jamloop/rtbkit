@@ -1,5 +1,6 @@
 #include "forensiq_augmentor.h"
 #include "soa/service/service_utils.h"
+#include "rtbkit/common/args.h"
 
 #include <boost/program_options/cmdline.hpp>
 #include <boost/program_options/options_description.hpp>
@@ -15,7 +16,7 @@ using namespace JamLoop;
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    ServiceProxyArguments serviceArgs;
+    RTBKIT::ProxyArguments serviceArgs;
 
     using namespace boost::program_options;
 
@@ -39,8 +40,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    auto proxies = serviceArgs.makeServiceProxies();
     auto serviceName = serviceArgs.serviceName("forensiq");
+    auto proxies = serviceArgs.makeServiceProxies(serviceName);
 
     ForensiqAugmentor augmentor(proxies, serviceName);
     augmentor.init(threads, apiKey);
