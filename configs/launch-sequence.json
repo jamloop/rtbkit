@@ -14,7 +14,8 @@
       "root": ".", "path": "./bin/agent_configuration_service_runner",
       "arg": [
         "--service-name", "useast1b.rtb1.acs",
-        "--bootstrap", "configs/bootstrap.useast1b.json"
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
@@ -24,7 +25,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.events",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--adserver-configuration", "configs/events-config.json"
+        "--adserver-configuration", "configs/events-config.json",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
@@ -34,7 +36,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.logger",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--log-dir", "./logs/data/"
+        "--log-dir", "./logs/data/",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
@@ -43,7 +46,8 @@
       "root": ".", "path": "./bin/monitor_service_runner",
       "arg": [
         "--service-name", "useast1b.rtb1.monitor",
-        "--bootstrap", "configs/bootstrap.useast1b.json"
+        "--bootstrap", "configs/bootstrap.useast1b.json",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
@@ -56,7 +60,8 @@
         "--bidder", "configs/bidder-config.json",
         "--win-seconds", "3600.0",
         "--auction-seconds", "900.0",
-        "--banker-choice", "null"
+        "--banker-choice", "null",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
@@ -69,7 +74,8 @@
         "--exchange-configuration", "configs/router-config.useast1b-1.json",
         "--bidder", "configs/http-bidder-config.json",
         "--banker-choice", "null",
-        "--augmenter-timeout", "15"
+        "--augmenter-timeout", "15",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
@@ -90,7 +96,7 @@
       "name": "viewability-service",
       "root": ".", "path": "/bin/bash",
       "arg": [
-        "-c", "ulimit -c unlimited && ./bin/viewability_service_runner --service-name useast1b.rtb1.viewability --bootstrap configs/bootstrap.useast1b.json --goview-url http://127.0.0.1:9200"
+        "-c", "ulimit -c unlimited && ./bin/viewability_service_runner --service-name useast1b.rtb1.viewability --bootstrap configs/bootstrap.useast1b.json --goview-url http://127.0.0.1:9200 --static-discovery configs/services.json"
       ],
       "log": true
     },
@@ -100,7 +106,8 @@
       "arg": [
         "--service-name", "useast1b.rtb1.forensiq",
         "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--api-key", "On7GnjI4WfbtLf1WDp3X"
+        "--api-key", "On7GnjI4WfbtLf1WDp3X",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
     },
