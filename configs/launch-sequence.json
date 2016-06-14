@@ -139,7 +139,8 @@
         "--exchange-configuration", "configs/router-config.useast1b-1.json",
         "--bidder", "configs/http-bidder-config.json",
         "--banker-choice", "null",
-        "--augmenter-timeout", "15"
+        "--augmenter-timeout", "15",
+        "--static-discovery", "configs/services.json"
       ],
       "log": true
 //    },
