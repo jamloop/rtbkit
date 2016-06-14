@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6111522,
+        "id": 6132222,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -18,7 +18,7 @@
         }
     }
     ],
-    "externalId": 6111522,
+    "externalId": 6132222,
     "roundRobin": {
         "group": "jl:chanhf_Mobile",
         "weight": 1
