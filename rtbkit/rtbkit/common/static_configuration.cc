@@ -442,13 +442,15 @@ StaticDiscovery::parseFromJson(const Json::Value& value) {
             if (!bindArr.isArray())
                 throw ML::Exception("bind for '%s': expected array", serviceName.c_str());
 
+            auto shardIndex = value.get("shard", -1).asInt();
+
             std::vector<Binding> bindings;
             for (const auto& bind: bindArr) {
                 auto binding = Binding::fromExpression(bind, Binding::context(endpoints, serviceName));
                 bindings.push_back(std::move(binding));
             }
 
-            service.addNode(Service::Node(std::move(serviceName), std::move(hostName), std::move(bindings)));
+            service.addNode(Service::Node(std::move(serviceName), std::move(hostName), std::move(bindings), shardIndex));
 
         });
 
@@ -482,6 +484,7 @@ StaticConfigurationService::getJson(
         res["serviceLocation"] = currentLocation;
         res["serviceName"] = node.serviceName;
         res["servicePath"] = node.serviceName;
+        res["shardIndex"] = node.shardIndex;
     }
     else {
         auto ep = keyParts[1];

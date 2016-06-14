@@ -100,7 +100,8 @@
     "rtbPostAuctionService": {
        "useast1b.rtb1.pal": {
             "hostname": "ec2-52-6-205-74.compute-1.amazonaws.com",
-            "bind": [ "logger:$+1", "pal.agents", "pal.events" ]
+            "bind": [ "logger:$+1", "pal.agents", "pal.events" ],
+            "shard": 0
         }
     },
     "adServer": {

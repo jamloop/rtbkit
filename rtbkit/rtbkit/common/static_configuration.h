@@ -186,11 +186,17 @@ namespace Discovery {
      */
     struct Service {
         struct Node {
-            Node(std::string serviceName, std::string hostName, const std::vector<Binding>& bindings)
+            Node(
+                std::string serviceName,
+                std::string hostName,
+                const std::vector<Binding>& bindings,
+                ssize_t shardIndex = -1)
                 : serviceName(std::move(serviceName))
                 , hostName(std::move(hostName))
                 , bindings(bindings)
-            { }
+            {
+                this->shardIndex = shardIndex;
+            }
 
             bool hasBinding(const std::string& name) const;
             Binding binding(const std::string& name) const;
@@ -201,11 +207,13 @@ namespace Discovery {
 
             std::string serviceName;
             std::string hostName;
+            ssize_t shardIndex;
 
         private:
             std::vector<Binding> bindings;
             std::pair<bool, std::vector<Binding>::const_iterator>
             hasBindingImpl(const std::string& name) const;
+
         };
 
         Service(std::string className)
