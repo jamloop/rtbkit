@@ -73,19 +73,19 @@
       ],
       "log": true
     },
-    {
-      "name": "router-2",
-      "root": ".", "path": "./bin/router_runner",
-      "arg": [
-        "--service-name", "useast1b.rtb1.router2",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--exchange-configuration", "configs/router-config.useast1b-2.json",
-        "--bidder", "configs/http-bidder-config.json",
-        "--banker-choice", "null",
-        "--augmenter-timeout", "15"
-      ],
-      "log": true
-    },
+//    {
+//      "name": "router-2",
+//      "root": ".", "path": "./bin/router_runner",
+//      "arg": [
+//        "--service-name", "useast1b.rtb1.router2",
+//        "--bootstrap", "configs/bootstrap.useast1b.json",
+//        "--exchange-configuration", "configs/router-config.useast1b-2.json",
+//        "--bidder", "configs/http-bidder-config.json",
+//        "--banker-choice", "null",
+//        "--augmenter-timeout", "15"
+//      ],
+//      "log": true
+//    },
     {
       "name": "viewability-service",
       "root": ".", "path": "/bin/bash",
