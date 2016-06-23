@@ -54,6 +54,7 @@
         "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
         "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
         "precision": 0.1
+    }
   },
   {
     "exchangeType": "brightroll",
