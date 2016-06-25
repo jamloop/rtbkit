@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6241156,
+        "id": 6251456,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "62411",
+              "lid": "62514",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 6241156,
+    "externalId": 6251456,
     "roundRobin": {
         "group": "jl:NAS_w350_SV",
         "weight": 1
@@ -73,8 +73,8 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "508928USD/1M",
-        "price": "17100USD/1M",
+        "pace": "719047USD/1M",
+        "price": "15100USD/1M",
         "priority": 12
     }
 }
