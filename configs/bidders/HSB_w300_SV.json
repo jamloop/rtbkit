@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 627006,
+        "id": 627016,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "62700",
+              "lid": "62701",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 627006,
+    "externalId": 627016,
     "roundRobin": {
         "group": "jl:HSB_w300_SV",
         "weight": 1
@@ -70,9 +70,6 @@
     "dmaFilter": {
         "include": [ "566" ],
         "exclude": [ ]
-    },
-    "hourOfWeekFilter": {
-        "hourlyBitmapSundayMidnightUtc" : "101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010"
     },
     "ext": {
         "budget": "50000000000USD/1M",
