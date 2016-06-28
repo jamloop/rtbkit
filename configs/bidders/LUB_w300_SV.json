@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6271877,
+        "id": 6281177,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "62718",
+              "lid": "62811",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 6271877,
+    "externalId": 6281177,
     "roundRobin": {
         "group": "jl:LUB_w300_SV",
         "weight": 1
