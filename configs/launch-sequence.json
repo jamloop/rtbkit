@@ -19,16 +19,6 @@
       "log": true
     },
     {
-      "name": "events",
-      "root": ".", "path": "./bin/adserver_runner",
-      "arg": [
-        "--service-name", "useast1b.rtb1.events",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--adserver-configuration", "configs/events-config.json"
-      ],
-      "log": true
-    },
-    {
       "name": "logger",
       "root": ".", "path": "./bin/data_logger_ex",
       "arg": [
@@ -48,19 +38,6 @@
       "log": true
     },
     {
-      "name": "pal",
-      "root": ".", "path": "./bin/post_auction_runner",
-      "arg": [
-        "--service-name", "useast1b.rtb1.pal",
-        "--bootstrap", "configs/bootstrap.useast1b.json",
-        "--bidder", "configs/bidder-config.json",
-        "--win-seconds", "3600.0",
-        "--auction-seconds", "900.0",
-        "--banker-choice", "null"
-      ],
-      "log": true
-    },
-    {
       "name": "router-1",
       "root": ".", "path": "./bin/router_runner",
       "arg": [
@@ -69,6 +46,7 @@
         "--exchange-configuration", "configs/router-config.useast1b-1.json",
         "--bidder", "configs/http-bidder-config.json",
         "--banker-choice", "null",
+        "--no-post-auction-loop",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -82,6 +60,7 @@
         "--exchange-configuration", "configs/router-config.useast1b-2.json",
         "--bidder", "configs/http-bidder-config.json",
         "--banker-choice", "null",
+        "--no-post-auction-loop",
         "--augmenter-timeout", "15"
       ],
       "log": true
@@ -131,6 +110,7 @@
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--exchange-configuration", "configs/router-config.useast1b-1.json",
         "--bidder", "configs/http-bidder-config.json",
+        "--no-post-auction-loop",
         "--banker-choice", "null",
         "--augmenter-timeout", "15"
       ],
@@ -144,6 +124,7 @@
         "--bootstrap", "configs/bootstrap.useast1b.json",
         "--exchange-configuration", "configs/router-config.useast1b-2.json",
         "--bidder", "configs/http-bidder-config.json",
+        "--no-post-auction-loop",
         "--banker-choice", "null",
         "--augmenter-timeout", "15"
       ],
