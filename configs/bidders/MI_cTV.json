@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 6301980,
+        "id": 7011680,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -21,7 +21,7 @@
         }
     }
     ],
-    "externalId": 6301980,
+    "externalId": 7011680,
     "roundRobin": {
         "group": "jl:MI_cTV",
         "weight": 1
