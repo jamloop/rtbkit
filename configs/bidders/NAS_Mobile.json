@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7071055,
+        "id": 7081155,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "70710",
+              "lid": "70811",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 7071055,
+    "externalId": 7081155,
     "roundRobin": {
         "group": "jl:NAS_Mobile",
         "weight": 1
