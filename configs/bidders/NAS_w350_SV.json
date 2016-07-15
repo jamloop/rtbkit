@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7151756,
+        "id": 7151714,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7151756,
+    "externalId": 7151714,
     "roundRobin": {
         "group": "jl:NAS_w350_SV",
         "weight": 1

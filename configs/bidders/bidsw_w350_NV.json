@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7151775,
+        "id": 7151716,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -35,7 +35,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7151775,
+    "externalId": 7151716,
     "roundRobin": {
         "group": "jl:bidsw_w350_NV",
         "weight": 1

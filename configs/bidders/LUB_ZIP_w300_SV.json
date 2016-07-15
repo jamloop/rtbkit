@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7151717,
+        "id": 715177,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7151717,
+    "externalId": 715177,
     "roundRobin": {
         "group": "jl:LUB_ZIP_w300_SV",
         "weight": 1

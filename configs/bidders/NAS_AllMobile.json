@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7151755,
+        "id": 7151713,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -37,7 +37,7 @@
         }
     }
     ],
-    "externalId": 7151755,
+    "externalId": 7151713,
     "roundRobin": {
         "group": "jl:NAS_AllMobile",
         "weight": 1

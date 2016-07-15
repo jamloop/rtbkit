@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7151715,
+        "id": 715175,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7151715,
+    "externalId": 715175,
     "roundRobin": {
         "group": "jl:LAF_w300_SV",
         "weight": 1
