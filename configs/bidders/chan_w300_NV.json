@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7211110,
+        "id": 7211212,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "72111",
+              "lid": "72112",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 7211110,
+    "externalId": 7211212,
     "roundRobin": {
         "group": "jl:chan_w300_NV",
         "weight": 1
@@ -49,7 +49,7 @@
     },
     "ext": {
         "budget": "1000000000000USD/1M",
-        "pace": "694444444USD/1M",
+        "pace": "6944444USD/1M",
         "price": "10100USD/1M",
         "priority": 1
     }
