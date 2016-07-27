@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7271314,
+        "id": 7271714,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "72713",
+              "lid": "72717",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 7271314,
+    "externalId": 7271714,
     "roundRobin": {
         "group": "jl:NAS_AllcTV",
         "weight": 1
