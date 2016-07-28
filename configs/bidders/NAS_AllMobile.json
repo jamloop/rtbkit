@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7281415,
+        "id": 7281715,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "72814",
+              "lid": "72817",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 7281415,
+    "externalId": 7281715,
     "roundRobin": {
         "group": "jl:NAS_AllMobile",
         "weight": 1
@@ -53,7 +53,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "12445USD/1M",
+        "pace": "8089USD/1M",
         "price": "6100USD/1M",
         "priority": 11
     }
