@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7281835,
+        "id": 7291635,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "72818",
+              "lid": "72916",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -41,13 +41,13 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 50,
+        "viewTreshold": 40,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7281835,
+    "externalId": 7291635,
     "roundRobin": {
         "group": "jl:RON_w350_SV",
         "weight": 1
