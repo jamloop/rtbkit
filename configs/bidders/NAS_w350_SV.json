@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7311016,
+        "id": 7311416,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "73110",
+              "lid": "73114",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7311016,
+    "externalId": 7311416,
     "roundRobin": {
         "group": "jl:NAS_w350_SV",
         "weight": 1
