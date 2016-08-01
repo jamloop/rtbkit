@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7311426,
+        "id": 8011126,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "73114",
+              "lid": "80111",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 7311426,
+    "externalId": 8011126,
     "roundRobin": {
         "group": "jl:TUL_AllMobile",
         "weight": 1

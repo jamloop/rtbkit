@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 7311435,
+        "id": 8011135,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "73114",
+              "lid": "80111",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 7311435,
+    "externalId": 8011135,
     "roundRobin": {
         "group": "jl:RON_w350_SV",
         "weight": 1
@@ -73,7 +73,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "33157USD/1M",
+        "pace": "66315USD/1M",
         "price": "15100USD/1M",
         "priority": 12
     }
