@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8052334,
+        "id": 8061034,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "80523",
+              "lid": "80610",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 8052334,
+    "externalId": 8061034,
     "roundRobin": {
         "group": "jl:ROM_AllcTV",
         "weight": 1
