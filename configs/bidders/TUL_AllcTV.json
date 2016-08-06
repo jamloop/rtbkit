@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8051726,
+        "id": 8052026,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "80517",
+              "lid": "80520",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 8051726,
+    "externalId": 8052026,
     "roundRobin": {
         "group": "jl:TUL_AllcTV",
         "weight": 1
@@ -63,7 +63,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "39008USD/1M",
+        "pace": "78017USD/1M",
         "price": "18100USD/1M",
         "priority": 11
     }
