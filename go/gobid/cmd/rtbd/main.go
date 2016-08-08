@@ -1,0 +1,91 @@
+package main
+
+import (
+	"flag"
+	"log"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+
+	_ "expvar"
+	_ "net/http/pprof"
+
+	"github.com/datacratic/gobid/defaults"
+	"github.com/datacratic/gobid/rtb"
+	"github.com/datacratic/gobid/rtb/ext/forensiq"
+	"github.com/datacratic/gometrics/trace"
+)
+
+func main() {
+	log.SetFlags(log.Lshortfile)
+
+	name := flag.String("name", defaults.Name(), "server name; will use fqdn (reversed) by default")
+	private := flag.String("private", ":6060", "server address of the private/debug endpoint")
+
+	flag.Parse()
+
+	t := trace.New()
+
+	bidders := &Bidders{
+		Pattern: "/home/rtbkit/prod/rtb/configs/bidders/*.json",
+		Tracer:  t,
+		Name:    *name + ".Bidders",
+	}
+
+	f := forensiq.Client{
+		ClientKey: "On7GnjI4WfbtLf1WDp3X",
+		Fields: map[string][]string{
+			"ip":     []string{"device", "ip"},
+			"ua":     []string{"device", "ua"},
+			"seller": []string{"ext", "exchange"},
+		},
+	}
+
+	f.Start()
+
+	s := rtb.Services{
+		&rtb.Server{
+			Server: http.Server{Addr: ":9175"},
+			Handler: &NoExchange{
+				URL: "http://127.0.0.1:9975,http://127.0.0.1:19975",
+			},
+			Name:   *name + ".9175",
+			Tracer: t,
+		},
+		&rtb.Server{
+			Server: http.Server{Addr: ":9176"},
+			Handler: &Exchange{
+				Bidders: bidders,
+				Client:  &f,
+			},
+			Name:   *name + ".9176",
+			Tracer: t,
+		},
+		bidders,
+	}
+
+	log.Println("starting", *name)
+
+	if err := s.Start(); err != nil {
+		log.Fatal(err)
+	}
+
+	// default HTTP server is private
+	go func() {
+		log.Fatal(http.ListenAndServe(*private, nil))
+	}()
+
+	// wait on signal handler for graceful shutdown
+	signals := make(chan os.Signal, 1)
+	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
+	<-signals
+
+	log.Println("closing...")
+
+	if err := s.Close(); err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("done.")
+}
