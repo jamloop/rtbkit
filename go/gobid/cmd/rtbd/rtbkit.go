@@ -16,9 +16,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/datacratic/gobid/rtb"
 	"github.com/datacratic/gometrics/trace"
 	"golang.org/x/net/context"
+
+	"../../rtb"
 )
 
 type Agent struct {
