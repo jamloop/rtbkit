@@ -1,4 +1,4 @@
-all: rtbkit plugins
+all: rtbkit plugins golang
 
 plugins:
 	@(cd plugins && cmake -G "Unix Makefiles" && make)

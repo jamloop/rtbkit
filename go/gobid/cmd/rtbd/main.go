@@ -11,10 +11,11 @@ import (
 	_ "expvar"
 	_ "net/http/pprof"
 
-	"github.com/datacratic/gobid/defaults"
-	"github.com/datacratic/gobid/rtb"
-	"github.com/datacratic/gobid/rtb/ext/forensiq"
 	"github.com/datacratic/gometrics/trace"
+
+	"../../gobid/defaults"
+	"../../gobid/rtb"
+	"../../gobid/rtb/ext/forensiq"
 )
 
 func main() {
