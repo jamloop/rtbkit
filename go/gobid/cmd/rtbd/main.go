@@ -13,9 +13,9 @@ import (
 
 	"github.com/datacratic/gometrics/trace"
 
-	"../../gobid/defaults"
-	"../../gobid/rtb"
-	"../../gobid/rtb/ext/forensiq"
+	"../../defaults"
+	"../../rtb"
+	"../../rtb/ext/forensiq"
 )
 
 func main() {
