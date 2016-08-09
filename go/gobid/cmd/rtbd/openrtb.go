@@ -151,24 +151,16 @@ func (e *Exchange) ServeHTTP(ctx context.Context, w http.ResponseWriter, r *http
 
 	cid := ids[best]
 
-	if e.Client != nil {
-		found := false
-
-		test := []string{"623175", "623176", "623177", "623178"}
-		for i := range test {
-			if test[i] == cid {
-				found = true
-				break
-			}
-		}
-
-		if found {
+	augmenters := bidders[best].Augmenters
+	if augmenters != nil {
+		if f := augmenters.Forensiq; e.Client != nil && f != nil {
 			r := &rtb.Components{}
 			r.Attach("fields", value)
 
 			score := e.forensiqRiskScore(ctx, r)
 			trace.Record(ctx, "Score", score)
-			if score > 0.64 {
+
+			if score > f.Configuration.RiskScore {
 				trace.Leave(ctx, "ForensiqRiskScore")
 				w.WriteHeader(http.StatusNoContent)
 				return
