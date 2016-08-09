@@ -5,11 +5,12 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/datacratic/gobid/rtb"
 	"github.com/datacratic/gojq"
 	"github.com/datacratic/gometrics/defaults"
 	"github.com/datacratic/gometrics/trace"
 	"golang.org/x/net/context"
+
+	"../../../rtb"
 )
 
 type request struct {
