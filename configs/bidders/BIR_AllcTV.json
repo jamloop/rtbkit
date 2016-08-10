@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8101445,
+        "id": 8101545,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,23 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81014",
+              "lid": "81015",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 8101445,
+   "augmentations": {
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
+    "externalId": 8101545,
     "roundRobin": {
         "group": "jl:BIR_AllcTV",
         "weight": 1
