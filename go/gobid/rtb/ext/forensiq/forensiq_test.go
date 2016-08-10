@@ -6,9 +6,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/datacratic/gobid/rtb"
 	"github.com/datacratic/gojq"
 	"golang.org/x/net/context"
+
+	"../../../rtb"
 )
 
 func TestReady(t *testing.T) {
