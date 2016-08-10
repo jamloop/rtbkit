@@ -139,7 +139,18 @@ ForensiqAugmentor::onRequest(
 
 
     recordHit("http.request");
-    httpClient->get("/check", onResponse, queryParams, { }, 1);
+    //httpClient->get("/check", onResponse, queryParams, { }, 1);
+
+    AugmentationList result;
+    for(auto const & agent : request.agents) {
+        auto const & entry = agentConfig->getAgentEntry(agent);
+        if(!entry.valid()) continue;
+
+        auto const & account = entry.config->account;
+        result[account].tags.insert("pass-forensiq");
+    }
+
+    sendResponse(result);
 }
 
 AugmentationList
