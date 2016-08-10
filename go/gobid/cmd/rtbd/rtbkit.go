@@ -233,7 +233,8 @@ type WhiteBlackListsFilter struct {
 }
 
 type Augmenters struct {
-	Viewability ViewabilityAugmenter `json:"viewability"`
+	Viewability *ViewabilityAugmenter `json:"viewability"`
+	Forensiq    *ForensiqAugmenter    `json:"forensiq"`
 }
 
 type Augmenter struct {
@@ -249,6 +250,13 @@ type ViewabilityAugmenter struct {
 	Configuration struct {
 		Threshold int    `json:"viewTreshold"`
 		Strategy  string `json:"unknownStrategy"`
+	} `json:"config"`
+}
+
+type ForensiqAugmenter struct {
+	Augmenter
+	Configuration struct {
+		RiskScore float64 `json:"riskScoreThreshold"`
 	} `json:"config"`
 }
 
