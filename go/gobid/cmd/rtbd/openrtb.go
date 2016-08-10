@@ -8,11 +8,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/datacratic/gobid/rtb"
-	"github.com/datacratic/gobid/rtb/ext/forensiq"
 	"github.com/datacratic/gojq"
 	"github.com/datacratic/gometrics/trace"
 	"golang.org/x/net/context"
+
+	"../../rtb"
+	"../../rtb/ext/forensiq"
 )
 
 type Exchange struct {
