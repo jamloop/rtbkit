@@ -37,6 +37,7 @@ func main() {
 	f := forensiq.Client{
 		ClientKey: "On7GnjI4WfbtLf1WDp3X",
 		Fields: map[string][]string{
+			"url":    []string{"site", "page"},
 			"ip":     []string{"device", "ip"},
 			"ua":     []string{"device", "ua"},
 			"seller": []string{"ext", "exchange"},
