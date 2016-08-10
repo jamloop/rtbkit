@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
+	"sync"
 
 	"github.com/datacratic/gojq"
 	"github.com/datacratic/gometrics/defaults"
@@ -55,6 +56,11 @@ type Client struct {
 	Target string
 	// HTTP contains details about the HTTP client.
 	HTTP rtb.Client
+	// Caching indicates if caching is enabled.
+	Caching bool
+
+	mu    sync.RWMutex
+	cache map[string]*jq.Value
 }
 
 // Start installs the health monitor of the Forensiq API.
@@ -110,20 +116,20 @@ func (c *Client) Process(ctx context.Context, r rtb.Request) (err error) {
 		}
 	}
 
-	// perform the request
-	url := defaults.String(c.URL, "http://api.forensiq.com") + "/check?" + args.Encode()
-	resp, err := c.HTTP.Get(ctx, url)
-	if err != nil {
-		trace.Error(ctx, "Errors.Request", err)
-		return
-	}
+	qs := args.Encode()
 
-	// and parse the response back
-	value := new(jq.Value)
-	err = value.UnmarshalFrom(resp.Body)
-	if err != nil {
-		trace.Error(ctx, "Errors.Parsing", err)
-		return
+	// look into the memory cache or perform the query
+	value := c.fromCache(qs)
+	if value != nil {
+		trace.Count(ctx, "CacheHit", 1)
+	} else {
+		value, err = c.query(ctx, qs)
+		if err != nil {
+			trace.Error(ctx, "Errors.Request", err)
+			return
+		}
+
+		c.intoCache(qs, value)
 	}
 
 	// hold the result
@@ -131,6 +137,48 @@ func (c *Client) Process(ctx context.Context, r rtb.Request) (err error) {
 
 	trace.Leave(ctx, "Check")
 	return
+}
+
+func (c *Client) query(ctx context.Context, qs string) (value *jq.Value, err error) {
+	url := defaults.String(c.URL, "http://api.forensiq.com") + "/check?" + qs
+
+	// perform the request
+	resp, err := c.HTTP.Get(ctx, url)
+	if err != nil {
+		return
+	}
+
+	// and parse the response back
+	value = new(jq.Value)
+	err = value.UnmarshalFrom(resp.Body)
+	return
+}
+
+func (c *Client) fromCache(qs string) (value *jq.Value) {
+	if !c.Caching {
+		return
+	}
+
+	c.mu.RLock()
+	value = c.cache[qs]
+	c.mu.RUnlock()
+
+	return
+}
+
+func (c *Client) intoCache(qs string, value *jq.Value) {
+	if !c.Caching {
+		return
+	}
+
+	c.mu.Lock()
+
+	if c.cache == nil {
+		c.cache = make(map[string]*jq.Value)
+	}
+
+	c.cache[qs] = value
+	c.mu.Unlock()
 }
 
 func (c *Client) prepare(r rtb.Request) (result url.Values, err error) {
