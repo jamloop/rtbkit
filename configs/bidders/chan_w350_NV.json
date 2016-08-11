@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8101614,
+        "id": 8111014,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81016",
+              "lid": "81110",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
         }
     }
     ],
-    "externalId": 8101614,
+    "externalId": 8111014,
     "roundRobin": {
         "group": "jl:chan_w350_NV",
         "weight": 1
