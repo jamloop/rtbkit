@@ -54,9 +54,11 @@
     },
     "providerConfig": {
         "adaptv": {
+            "adomain": "mcdonalds.com",
             "seat": "1234"
         },
         "adaptvhv": {
+            "adomain": "mcdonalds.com",
             "seat": "1234"
         },
       "brightroll": {

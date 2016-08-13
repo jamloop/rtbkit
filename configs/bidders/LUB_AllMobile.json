@@ -54,9 +54,11 @@
     },
     "providerConfig": {
         "adaptv": {
+            "adomain": "rbt.com",
             "seat": "1234"
         },
         "adaptvhv": {
+            "adomain": "rbt.com",
             "seat": "1234"
         },
       "brightroll": {

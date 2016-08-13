@@ -54,9 +54,11 @@
     },
     "providerConfig": {
         "adaptv": {
+            "adomain": "rochesterregional.org",
             "seat": "1234"
         },
         "adaptvhv": {
+            "adomain": "rochesterregional.org",
             "seat": "1234"
         },
       "brightroll": {
