@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 812158,
+        "id": 813148,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -16,7 +16,7 @@
             },
           "brightroll": {
               "nurl": "http://ads.adaptv.advertising.com/a/h/DzznCMUCMlWgi_vZbF8lnBHwiRcH3XrJoOt0lqLFswM=?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DLP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbAppStoreURL%3D%{bidrequest.app.storeurl#urlencode}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D##BRX_CLEARING_PRICE##%2CrtbCmp%3Dchan&eov=eov",
-              "adomain": "mcdonalds.com",
+              "adomain": "jamloop.com",
               "campaign_name": "chan_AllcTV vpaid",
               "line_item_name": "chan_AllcTV",
               "creative_name":  "chan_AllcTV vpaid",
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81215",
-              "landingpage_url": "http://mcdonalds.com",
-              "advertiser_name": "mcdonalds.com"
+              "lid": "81314",
+              "landingpage_url": "http://jamloop.com",
+              "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 812158,
+    "externalId": 813148,
     "roundRobin": {
         "group": "jl:chan_AllcTV",
         "weight": 1
