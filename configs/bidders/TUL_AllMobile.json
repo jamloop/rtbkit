@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8131427,
+        "id": 8141027,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81314",
+              "lid": "81410",
               "landingpage_url": "http://okstate.edu",
               "advertiser_name": "okstate.edu"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 8131427,
+    "externalId": 8141027,
     "roundRobin": {
         "group": "jl:TUL_AllMobile",
         "weight": 1

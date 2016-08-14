@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8131429,
+        "id": 8141029,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81314",
+              "lid": "81410",
               "landingpage_url": "http://rochesterregional.org",
               "advertiser_name": "rochesterregional.org"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 8131429,
+    "externalId": 8141029,
     "roundRobin": {
         "group": "jl:ROM_AllcTV",
         "weight": 1
