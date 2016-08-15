@@ -106,28 +106,16 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
                 return true;
         }).snippet().required();
 
-        creativeConfig.addField(
-            "adomain",
-            [](const Json::Value& value, CreativeInfo& info) {
-                std::string adomain;
-                Datacratic::jsonDecode(value, adomain);
+    creativeConfig.addField(
+        "adomain",
+        [](const Json::Value& value, CreativeInfo& info) {
+            Datacratic::jsonDecode(value, info.adomain);
+            if (info.adomain.empty()) {
+                throw std::invalid_argument("adomain is required");
+            }
 
-                if (adomain.empty()) {
-                    throw std::invalid_argument("adomain is required");
-                }
-
-                static constexpr const char* Http = "http://";
-                static constexpr size_t HttpSize = str_size(Http);
-
-                // Remove http:// from the string
-                if (!adomain.compare(0, HttpSize, Http)) {
-                    adomain = adomain.substr(HttpSize);
-                }
-
-                info.adomain = std::move(adomain);
-
-                return true;
-        }).required();
+            return true;
+    }).required();
     }
 
     void
