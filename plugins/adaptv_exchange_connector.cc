@@ -14,34 +14,6 @@ using namespace Datacratic;
 
 namespace JamLoop {
 
-    namespace {
-        #define GCC_VERSION (__GNUC__ * 10000 \
-                               + __GNUC_MINOR__ * 100 \
-                               + __GNUC_PATCHLEVEL__)
-
-        /* gcc implements make_unique in 4.9 */
-        #if GCC_VERSION < 40900
-            template<typename T, typename... Args>
-            std::unique_ptr<T> make_unique(Args&& ...args) {
-                return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-            }
-        #else
-            using std::make_unique;
-        #endif
-
-        template<typename T, size_t N>
-        constexpr size_t array_size(T (&arr)[N]) { return N; }
-
-        constexpr size_t str_size_tail_rec(const char* str, size_t acc) {
-            return *str == 0 ? acc : str_size_tail_rec(str + 1, acc + 1);
-        }
-
-        constexpr size_t str_size(const char* str) {
-            return str_size_tail_rec(str, 0);
-        }
-
-    }
-
     namespace Default {
         // Our platform waits for 150ms for a Bid Response;
         // responses received after this are ignored.
@@ -105,17 +77,6 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
 
                 return true;
         }).snippet().required();
-
-    creativeConfig.addField(
-        "adomain",
-        [](const Json::Value& value, CreativeInfo& info) {
-            Datacratic::jsonDecode(value, info.adomain);
-            if (info.adomain.empty()) {
-                throw std::invalid_argument("adomain is required");
-            }
-
-            return true;
-    }).required();
     }
 
     void
@@ -278,7 +239,6 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
 
         bid.cid = Id(resp.agent);
         bid.crid = Id(resp.creativeId);
-        bid.adomain=creativeInfo->adomain;
         bid.impid = auction.request->imp[spotNum].id;
         bid.id = Id(auction.id, auction.request->imp[0].id);
         bid.price.val = USD_CPM(resp.price.maxPrice);
@@ -302,4 +262,3 @@ struct Init {
 } init;
 
 }
-
