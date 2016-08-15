@@ -77,6 +77,29 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
 
                 return true;
         }).snippet().required();
+
+        creativeConfig.addField(
+            "adomain",
+            [](const Json::Value& value, CreativeInfo& info) {
+                std::string adomain;
+                Datacratic::jsonDecode(value, adomain);
+
+                if (adomain.empty()) {
+                    throw std::invalid_argument("adomain is required");
+                }
+
+                static constexpr const char* Http = "http://";
+                static constexpr size_t HttpSize = str_size(Http);
+
+                // Remove http:// from the string
+                if (!adomain.compare(0, HttpSize, Http)) {
+                    adomain = adomain.substr(HttpSize);
+                }
+
+                info.adomain = std::move(adomain);
+
+                return true;
+        }).required();
     }
 
     void
@@ -239,6 +262,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
 
         bid.cid = Id(resp.agent);
         bid.crid = Id(resp.creativeId);
+        bid.add_adomain(creativeInfo->adomain);
         bid.impid = auction.request->imp[spotNum].id;
         bid.id = Id(auction.id, auction.request->imp[0].id);
         bid.price.val = USD_CPM(resp.price.maxPrice);
