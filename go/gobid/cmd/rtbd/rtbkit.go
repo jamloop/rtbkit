@@ -167,9 +167,10 @@ type Creative struct {
 
 type Providers struct {
 	AdapTV *struct {
-		Seat     string `json:"seat"`
-		AdMarkup string `json:"adm"`
-		URL      string `json:"nurl"`
+		Seat     string   `json:"seat"`
+		AdMarkup string   `json:"adm"`
+		AdDomain []string `json:"adomain"`
+		URL      string   `json:"nurl"`
 	} `json:"adaptv"`
 
 	BidSwitch *struct {
