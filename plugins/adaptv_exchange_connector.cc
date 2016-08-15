@@ -60,6 +60,17 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
         }).optional();
 
         creativeConfig.addField(
+            "adomain",
+            [](const Json::Value& value, CreativeInfo& info) {
+                Datacratic::jsonDecode(value, info.adomain);
+                if (info.adomain.empty()) {
+                    throw std::invalid_argument("adomain is required");
+                }
+
+                return true;
+        }).required();
+
+        creativeConfig.addField(
             "nurl",
             [](const Json::Value& value, CreativeInfo& info) {
                 Datacratic::jsonDecode(value, info.nurl);
@@ -243,6 +254,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
         bid.id = Id(auction.id, auction.request->imp[0].id);
         bid.price.val = USD_CPM(resp.price.maxPrice);
         bid.adm = creativeConfig.expand(creativeInfo->adm, context);
+        bid.adomain = creativeInfo->adomain;
         if (!creativeInfo->nurl.empty())
             bid.nurl = creativeConfig.expand(creativeInfo->nurl, context);
         if (!creativeInfo->adid.empty())
