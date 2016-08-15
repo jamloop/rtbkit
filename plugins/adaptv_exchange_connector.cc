@@ -290,7 +290,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
 
         bid.cid = Id(resp.agent);
         bid.crid = Id(resp.creativeId);
-        bid.add_adomain(creativeInfo->adomain);
+        bid.adomain=creativeInfo->adomain;
         bid.impid = auction.request->imp[spotNum].id;
         bid.id = Id(auction.id, auction.request->imp[0].id);
         bid.price.val = USD_CPM(resp.price.maxPrice);
