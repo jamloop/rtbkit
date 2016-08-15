@@ -14,6 +14,34 @@ using namespace Datacratic;
 
 namespace JamLoop {
 
+    namespace {
+        #define GCC_VERSION (__GNUC__ * 10000 \
+                               + __GNUC_MINOR__ * 100 \
+                               + __GNUC_PATCHLEVEL__)
+
+        /* gcc implements make_unique in 4.9 */
+        #if GCC_VERSION < 40900
+            template<typename T, typename... Args>
+            std::unique_ptr<T> make_unique(Args&& ...args) {
+                return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+            }
+        #else
+            using std::make_unique;
+        #endif
+
+        template<typename T, size_t N>
+        constexpr size_t array_size(T (&arr)[N]) { return N; }
+
+        constexpr size_t str_size_tail_rec(const char* str, size_t acc) {
+            return *str == 0 ? acc : str_size_tail_rec(str + 1, acc + 1);
+        }
+
+        constexpr size_t str_size(const char* str) {
+            return str_size_tail_rec(str, 0);
+        }
+
+    }
+
     namespace Default {
         // Our platform waits for 150ms for a Bid Response;
         // responses received after this are ignored.
