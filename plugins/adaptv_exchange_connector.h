@@ -58,7 +58,6 @@ public:
         std::string adid; //< ID that references the ad to be served if the bid wins
         std::string nurl; //< Win notice URL called if the bid wins
         std::string adm; //< VAST XML ad markup for the Video Object
-        std::vector<std::string> adomain;
     };
 
     typedef RTBKIT::CreativeConfiguration<CreativeInfo> AdaptvCreativeConfiguration;
@@ -82,4 +81,3 @@ private:
 };
 
 } // namespace JamLoop
-
