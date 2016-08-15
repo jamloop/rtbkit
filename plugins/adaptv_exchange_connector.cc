@@ -253,7 +253,7 @@ Logging::Category AdaptvExchangeConnector::Logs::error(
         bid.impid = auction.request->imp[spotNum].id;
         bid.id = Id(auction.id, auction.request->imp[0].id);
         bid.price.val = USD_CPM(resp.price.maxPrice);
-        bid.adomain = creativeInfo->adomain;
+        bid.adomain = creativeConfig.expand(creativeInfo->adm, context);
         bid.adm = creativeConfig.expand(creativeInfo->adm, context);
         if (!creativeInfo->nurl.empty())
             bid.nurl = creativeConfig.expand(creativeInfo->nurl, context);
