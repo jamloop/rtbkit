@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8141028,
+        "id": 8142228,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81410",
+              "lid": "81422",
               "landingpage_url": "http://okstate.edu",
               "advertiser_name": "okstate.edu"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 8141028,
+    "externalId": 8142228,
     "roundRobin": {
         "group": "jl:TUL_w350_SV",
         "weight": 1
@@ -83,7 +83,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "755000USD/1M",
+        "pace": "1510000USD/1M",
         "price": "15100USD/1M",
         "priority": 112
     }
