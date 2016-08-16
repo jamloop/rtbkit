@@ -294,8 +294,8 @@ func (b *Bidders) Start() (err error) {
 
 		agents, err := Import(b.Pattern)
 		if err != nil {
-			trace.Error(ctx, "Errors.Import", err)
-			return
+			log.Println(err)
+			err = nil
 		}
 
 		if len(agents) == 0 {
@@ -382,13 +382,10 @@ func Import(pattern string) (result []*Agent, err error) {
 	}
 
 	for _, filename := range matches {
-		var item *Agent
-		item, err = parse(filename)
-		if err != nil {
-			return
+		item, err := parse(filename)
+		if err == nil {
+			result = append(result, item)
 		}
-
-		result = append(result, item)
 	}
 
 	return
