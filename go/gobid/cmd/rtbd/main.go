@@ -70,7 +70,7 @@ func main() {
 	log.Println("starting", *name)
 
 	if err := s.Start(); err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	// default HTTP server is private
