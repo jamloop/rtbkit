@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8171146,
+        "id": 8171246,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81711",
+              "lid": "81712",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 8171146,
+    "externalId": 8171246,
     "roundRobin": {
         "group": "jl:chan_ym_w350_NV",
         "weight": 1
@@ -65,7 +65,7 @@
     "ext": {
         "budget": "1000000000000USD/1M",
         "pace": "1388888USD/1M",
-        "price": "10100USD/1M",
+        "price": "6600USD/1M",
         "priority": 1
     }
 }
