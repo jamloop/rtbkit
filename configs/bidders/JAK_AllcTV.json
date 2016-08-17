@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8171334,
+        "id": 8171434,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81713",
+              "lid": "81714",
               "landingpage_url": "http://marathonpetroleum.com",
               "advertiser_name": "marathonpetroleum.com"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 8171334,
+    "externalId": 8171434,
     "roundRobin": {
         "group": "jl:JAK_AllcTV",
         "weight": 1
