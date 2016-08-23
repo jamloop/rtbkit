@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 817143,
+        "id": 823143,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "81714",
+              "lid": "82314",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 817143,
+    "externalId": 823143,
     "roundRobin": {
         "group": "jl:JAKzip_w300_SV",
         "weight": 1
