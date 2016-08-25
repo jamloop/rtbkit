@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8231420,
+        "id": 8250920,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "82314",
+              "lid": "82509",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 8231420,
+    "externalId": 8250920,
     "roundRobin": {
         "group": "jl:LIT_AllcTV",
         "weight": 1
@@ -53,7 +53,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "33176USD/1M",
+        "pace": "66352USD/1M",
         "price": "15100USD/1M",
         "priority": 111
     }
