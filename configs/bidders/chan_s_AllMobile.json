@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8250912,
+        "id": 8291512,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "82509",
+              "lid": "82915",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 8250912,
+    "externalId": 8291512,
     "roundRobin": {
         "group": "jl:chan_s_AllMobile",
         "weight": 1
