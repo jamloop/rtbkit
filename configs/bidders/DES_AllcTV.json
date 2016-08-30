@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8291522,
+        "id": 8301022,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "82915",
+              "lid": "83010",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 8291522,
+    "externalId": 8301022,
     "roundRobin": {
         "group": "jl:DES_AllcTV",
         "weight": 1

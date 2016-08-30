@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8291533,
+        "id": 8301033,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "82915",
+              "lid": "83010",
               "landingpage_url": "http://rbt.com",
               "advertiser_name": "rbt.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 8291533,
+    "externalId": 8301033,
     "roundRobin": {
         "group": "jl:LUB_w350_SV",
         "weight": 1
