@@ -56,23 +56,23 @@
         "precision": 0.1
     }
   },
-  {
-    "exchangeType": "brightroll",
-    "listenPort": 19971,
-    "numThreads": 4,
-    "realTimePolling": true,
-    "bindHost": "0.0.0.0",
-    "auctionVerb": "POST",
-    "auctionResource": "/",
-    "performNameLookup": false,
-    "pipeline": {
-        "type": "geo",
-        "serviceName": "useast1b.rtb1.router2.pipeline.brightroll",
-        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
-        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
-        "precision": 0.1
-    }
-  },
+//  {
+//    "exchangeType": "brightroll",
+//    "listenPort": 19971,
+//    "numThreads": 4,
+//    "realTimePolling": true,
+//    "bindHost": "0.0.0.0",
+//    "auctionVerb": "POST",
+//    "auctionResource": "/",
+//    "performNameLookup": false,
+//    "pipeline": {
+//       "type": "geo",
+//        "serviceName": "useast1b.rtb1.router2.pipeline.brightroll",
+//        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
+//        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
+//        "precision": 0.1
+//    }
+//  },
   {
     "exchangeType": "publisher",
     "listenPort": 19975,
