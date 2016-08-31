@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 8301745,
+        "id": 8311345,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "83017",
+              "lid": "83113",
               "landingpage_url": "http://marathonpetroleum.com",
               "advertiser_name": "marathonpetroleum.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 8301745,
+    "externalId": 8311345,
     "roundRobin": {
         "group": "jl:CLE_w350_SV",
         "weight": 1
@@ -81,7 +81,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "62916USD/1M",
+        "pace": "31458USD/1M",
         "price": "15100USD/1M",
         "priority": 112
     }
