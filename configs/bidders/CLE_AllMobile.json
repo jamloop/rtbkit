@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9021444,
+        "id": 9031044,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "90214",
+              "lid": "90310",
               "landingpage_url": "http://marathonpetroleum.com",
               "advertiser_name": "marathonpetroleum.com"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9021444,
+    "externalId": 9031044,
     "roundRobin": {
         "group": "jl:CLE_AllMobile",
         "weight": 1
@@ -71,12 +71,9 @@
         "include": [ "510" ],
         "exclude": [ ]
     },
-    "hourOfWeekFilter": {
-        "hourlyBitmapSundayMidnightUtc" : "100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100"
-    },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "12708USD/1M",
+        "pace": "25416USD/1M",
         "price": "6100USD/1M",
         "priority": 111
     }
