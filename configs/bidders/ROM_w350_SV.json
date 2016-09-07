@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9050931,
+        "id": 9070831,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "90509",
+              "lid": "90708",
               "landingpage_url": "http://rochesterregional.org",
               "advertiser_name": "rochesterregional.org"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9050931,
+    "externalId": 9070831,
     "roundRobin": {
         "group": "jl:ROM_w350_SV",
         "weight": 1
@@ -81,7 +81,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "277498USD/1M",
+        "pace": "594639USD/1M",
         "price": "15100USD/1M",
         "priority": 112
     }

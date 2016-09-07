@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9050911,
+        "id": 9070811,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "90509",
+              "lid": "90708",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 9050911,
+    "externalId": 9070811,
     "roundRobin": {
         "group": "jl:chan_s_w350_NV",
         "weight": 1
