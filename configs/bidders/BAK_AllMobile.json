@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9141548,
+        "id": 9141648,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "91415",
+              "lid": "91416",
               "landingpage_url": "http://castlecooke.com",
               "advertiser_name": "castlecooke.com"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9141548,
+    "externalId": 9141648,
     "roundRobin": {
         "group": "jl:BAK_AllMobile",
         "weight": 1
@@ -71,9 +71,13 @@
         "include": [ "800" ],
         "exclude": [ ]
     },
+    "locationFilter": {
+        "include": [ "(93311|93312|93314|93309)" ],
+        "exclude": [ ] 
+    },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "4236USD/1M",
+        "pace": "18356USD/1M",
         "price": "6100USD/1M",
         "priority": 111
     }
