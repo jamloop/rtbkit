@@ -7,11 +7,14 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"math"
 	"net/http"
 	"net/url"
+	"os"
 	"os/exec"
+	"path"
 	"runtime"
 	"strconv"
 	"strings"
@@ -238,6 +241,16 @@ func main() {
 			return
 		}
 
+		body := r.Body.(io.Reader)
+
+		file, err := ioutil.TempFile(path.Join(path.Dir(os.Args[0])), "csv-")
+		if err != nil {
+			log.Println("can't create temporary file")
+		} else {
+			body = io.TeeReader(r.Body, file)
+			defer file.Close()
+		}
+
 		router.mutex.RLock()
 		defer router.mutex.RUnlock()
 		defer r.Body.Close()
@@ -248,7 +261,7 @@ func main() {
 		line := 0
 		cols := make([]int, 6)
 
-		reader := csv.NewReader(r.Body)
+		reader := csv.NewReader(body)
 		for {
 			list, err := reader.Read()
 			if err == io.EOF {
