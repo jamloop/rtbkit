@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9141631,
+        "id": 9151631,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "91416",
+              "lid": "91516",
               "landingpage_url": "http://rochesterregional.org",
               "advertiser_name": "rochesterregional.org"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9141631,
+    "externalId": 9151631,
     "roundRobin": {
         "group": "jl:ROM_w350_SV",
         "weight": 1
