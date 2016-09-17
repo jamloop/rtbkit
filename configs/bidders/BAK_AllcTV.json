@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9151647,
+        "id": 9171947,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "91516",
+              "lid": "91719",
               "landingpage_url": "http://castlecooke.com",
               "advertiser_name": "castlecooke.com"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9151647,
+    "externalId": 9171947,
     "roundRobin": {
         "group": "jl:BAK_AllcTV",
         "weight": 1
