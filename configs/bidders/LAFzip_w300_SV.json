@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 918185,
+        "id": 919155,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "91818",
+              "lid": "91915",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 918185,
+    "externalId": 919155,
     "roundRobin": {
         "group": "jl:LAFzip_w300_SV",
         "weight": 1
@@ -80,7 +80,7 @@
         "exclude": [ ]
     },
     "hourOfWeekFilter": {
-        "hourlyBitmapSundayMidnightUtc" : "100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100"
+        "hourlyBitmapSundayMidnightUtc" : "101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010"
     },
     "locationFilter": {
         "include": [ "(47901|47902|47903|47904|47905|47906|47907|47909|47920|47924|47930|47941|47962|47981|47983|47992|47996)" ],
@@ -88,8 +88,8 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "32357USD/1M",
-        "price": "15100USD/1M",
+        "pace": "36642USD/1M",
+        "price": "17100USD/1M",
         "priority": 112
     }
 }
