@@ -44,6 +44,14 @@ type Router struct {
 	write unsafe.Pointer
 }
 
+type Metrics struct {
+	ViewableRate      float64 `json:"vr"`
+	MeasuredRate      float64 `json:"mr"`
+	CompletedViewRate float64 `json:"cvr"`
+	ClickThroughRate  float64 `json:"ctr"`
+	VCVRate           float64 `json:"vcvr"`
+}
+
 func main() {
 	address := flag.String("address", ":9200", "address of the API server")
 	black := flag.String("black", "", "address of a REDIS cluster")
@@ -259,7 +267,24 @@ func main() {
 		d := (*Database)(p)
 
 		line := 0
-		cols := make([]int, 6)
+
+		// named index of fields in 'cols'
+		const (
+			source    = 0
+			width     = 1
+			exchange  = 2
+			publisher = 3
+			position  = 4
+			metrics   = 5 // placeholder for list of metrics
+			vr        = 5
+			mr        = 6
+			cvr       = 7
+			ctr       = 8
+			vcvr      = 9
+			total     = 10
+		)
+
+		cols := make([]int, total)
 
 		reader := csv.NewReader(body)
 		for {
@@ -280,18 +305,23 @@ func main() {
 					tags[title] = i
 				}
 
+				// must match the named index of fields above
 				names := []string{
-					"IAB Viewable Rate",
-					"Player width",
 					"Embedding Page URL",
+					"Player width",
 					"rtbExch",
 					"rtb_Publisher_Site",
 					"rtbPos",
+					"IAB Viewable Rate",
+					"IAB Measured Rate",
+					"100% Completed View Rate",
+					"Click through Rate",
+					"VCV Rate",
 				}
 
 				for i, name := range names {
 					k, ok := tags[name]
-					if !ok && i == 2 {
+					if !ok && i == source {
 						k, ok = tags["Media"]
 					}
 
@@ -302,12 +332,7 @@ func main() {
 					cols[i] = k
 				}
 
-				if cols[0] == -1 {
-					http.Error(w, "400 bad request\nMissing viewability column\n", http.StatusBadRequest)
-					return
-				}
-
-				if cols[2] == -1 {
+				if cols[source] == -1 {
 					http.Error(w, "400 bad request\nMissing domain or page URL\n", http.StatusBadRequest)
 					return
 				}
@@ -315,13 +340,37 @@ func main() {
 				continue
 			}
 
-			x, err := strconv.ParseFloat(list[cols[0]], 64)
+			values := make([]float64, 5)
+			for i := range values {
+				k := cols[metrics+i]
+				if k == -1 {
+					continue
+				}
+
+				x, err := strconv.ParseFloat(list[k], 64)
+				if err != nil {
+					http.Error(w, "400 bad request\n"+err.Error(), http.StatusBadRequest)
+					return
+				}
+
+				values[i] = math.Floor(x * 100)
+			}
+
+			m := Metrics{
+				ViewableRate:      values[0],
+				MeasuredRate:      values[1],
+				CompletedViewRate: values[2],
+				ClickThroughRate:  values[3],
+				VCVRate:           values[4],
+			}
+
+			payload, err := json.Marshal(&m)
 			if err != nil {
 				http.Error(w, "400 bad request\n"+err.Error(), http.StatusBadRequest)
 				return
 			}
 
-			text := list[cols[2]]
+			text := list[cols[source]]
 			if !strings.HasPrefix(text, "http://") {
 				text = "http://" + text
 			}
@@ -344,9 +393,17 @@ func main() {
 				continue
 			}
 
-			key := fmt.Sprintf("{%s}%s:%s:%s:%s:%s", u.Host, u.Path, get(1), get(3), get(4), get(5))
-			viewability := math.Floor(x * 100)
-			_, err = d.Client.Do("SET", key, fmt.Sprintf("%f", viewability))
+			ext := []string{
+				u.Path,
+				get(width),
+				get(exchange),
+				get(publisher),
+				get(position),
+			}
+
+			key := fmt.Sprintf("{%s}%s", u.Host, strings.Join(ext, ":"))
+
+			_, err = d.Client.Do("SET", key, payload)
 			if err != nil {
 				http.Error(w, "503 service not available\n"+err.Error(), http.StatusServiceUnavailable)
 				return
@@ -451,14 +508,24 @@ func main() {
 
 		body := bytes.Buffer{}
 
-		score := items[0].([]byte)
+		value := items[0].([]byte)
 		stage := items[1].([]byte)
 
+		m := Metrics{}
+		if err := json.Unmarshal(value, &m); err != nil {
+			log.Println("ERROR", "JSON", err.Error())
+			http.Error(w, "503 service not available\n"+err.Error(), http.StatusServiceUnavailable)
+		}
+
+		score := fmt.Sprintf("%f", m.ViewableRate)
+
 		body.WriteString(`{"score":`)
-		body.Write(score)
+		body.WriteString(score)
 		body.WriteString(`,"stage":"`)
 		body.Write(stage)
-		body.WriteString(`"}`)
+		body.WriteString(`","metrics":`)
+		body.Write(value)
+		body.WriteString(`}`)
 
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Content-Length", fmt.Sprintf("%d", body.Len()))
