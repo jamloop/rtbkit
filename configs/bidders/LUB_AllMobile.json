@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9261432,
+        "id": 9261423,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9261432,
+    "externalId": 9261423,
     "roundRobin": {
         "group": "jl:LUB_AllMobile",
         "weight": 1
@@ -73,8 +73,8 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "145833USD/1M",
-        "price": "9100USD/1M",
+        "pace": "97756USD/1M",
+        "price": "6100USD/1M",
         "priority": 111
     }
 }

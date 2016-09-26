@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9261433,
+        "id": 9261424,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9261433,
+    "externalId": 9261424,
     "roundRobin": {
         "group": "jl:LUB_w350_SV",
         "weight": 1
@@ -81,7 +81,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "274038USD/1M",
+        "pace": "548076USD/1M",
         "price": "17100USD/1M",
         "priority": 112
     }
