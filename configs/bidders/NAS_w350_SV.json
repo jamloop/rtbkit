@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9252317,
+        "id": 9260017,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "92523",
+              "lid": "92600",
               "landingpage_url": "http://rockylawfirm.com",
               "advertiser_name": "rockylawfirm.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9252317,
+    "externalId": 9260017,
     "roundRobin": {
         "group": "jl:NAS_w350_SV",
         "weight": 1
