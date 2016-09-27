@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 9261423,
+        "id": 9270923,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "92614",
+              "lid": "92709",
               "landingpage_url": "http://rbt.com",
               "advertiser_name": "rbt.com"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 9261423,
+    "externalId": 9270923,
     "roundRobin": {
         "group": "jl:LUB_AllMobile",
         "weight": 1
@@ -73,7 +73,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "97756USD/1M",
+        "pace": "488782USD/1M",
         "price": "6100USD/1M",
         "priority": 111
     }
