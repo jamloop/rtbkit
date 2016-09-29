@@ -247,7 +247,11 @@ ViewabilityAugmentor::handleHttpResponse(
         }
 
         std::string lookupStage;
-        double viewabilityPrct = 0.0;
+        double viewableRate = 0.0;
+        double measuredRate = 0.0;
+        double completedViewRate = 0.0;
+        double clickThroughRate = 0.0;
+        double viewableCompletedViewRate = 0.0;
 
         if (statusCode == 200) {
             if (body.empty()) {
@@ -258,7 +262,12 @@ ViewabilityAugmentor::handleHttpResponse(
             }
 
             Json::Value response = Json::parse(body);
-            viewabilityPrct = response["score"].asDouble();
+            Json::Value metrics = response["metrics"];
+            viewableRate = metrics["vr"].asDouble();
+            measuredRate = metrics["mr"].asDouble();
+            completedViewRate = metrics["cvr"].asDouble();
+            clickThroughRate = metrics["ctr"].asDouble();
+            viewableCompletedViewRate = metrics["vcvr"].asDouble();
             lookupStage = response.get("stage", "").asString();
         }
 
@@ -272,18 +281,26 @@ ViewabilityAugmentor::handleHttpResponse(
             for (const auto& agentAugConfig: configEntry.config->augmentations) {
                 if (agentAugConfig.name != augRequest.augmentor) continue;
 
-                if (!agentAugConfig.config.isMember("viewTreshold")) {
-                    recordResult(account, "invalidConfig");
-                    continue;
-                }
+                auto getThreshold = [&](std::string const & name) {
+                    int result = 0;
+                    if (agentAugConfig.config.isMember(name)) {
+                        auto threshold = agentAugConfig.config[name];
+                        result = threshold.asInt();
+                    }
 
-                auto threshold = agentAugConfig.config["viewTreshold"];
-                if (!threshold.isInt()) {
-                    recordResult(account, "invalidThreshold");
-                    continue;
-                }
+                    return result;
+                };
 
-                auto thresh = threshold.asInt();
+                double legacyViewThreshold = getThreshold("viewThreshold");
+                double viewableRateThreshold = getThreshold("vrThreshold");
+                double measuredRateThreshold = getThreshold("mrThreshold");
+                double completedViewRateThreshold = getThreshold("cvrThreshold");
+                double clickThroughRateThreshold = getThreshold("ctrThreshold");
+                double viewableCompletedViewRateThreshold = getThreshold("vcvrThreshold");
+
+                if (legacyViewThreshold != 0 && viewableRateThreshold == 0) {
+                    viewableRateThreshold = legacyViewThreshold;
+                }
 
                 if (statusCode == 204) {
                     recordHit("accounts.%s.lookup.NoHit", account.toString());
@@ -294,7 +311,7 @@ ViewabilityAugmentor::handleHttpResponse(
                         recordHit("accounts.%s.result.%s.%s", account.toString(), br->exchange, result);
                     };
 
-                    auto ev = getExchangeViewability(br, thresh);
+                    auto ev = getExchangeViewability(br, viewableRateThreshold);
                     if (ev == ExchangeViewability::Viewable) {
                         result[account].tags.insert("pass-viewability");
 
@@ -322,16 +339,66 @@ ViewabilityAugmentor::handleHttpResponse(
                     }
 
                 } else {
-                    recordOutcome(viewabilityPrct, "accounts.%s.score", account.toString());
-                    if (viewabilityPrct >= thresh) {
-                        result[account].tags.insert("pass-viewability");
-                        recordResult(account, "passed");
-                        if (!lookupStage.empty()) {
-                            recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage);
-                        }
-                        continue;
+                    if (!lookupStage.empty()) {
+                        recordHit("accounts.%s.lookup.%s", account.toString(), lookupStage);
                     }
+
+                    bool passed = true;
+
+                    recordOutcome(viewableRate, "accounts.%s.vr", account.toString());
+                    if (viewableRate > 0) {
+                        if (viewableRate >= viewableRateThreshold) {
+                            result[account].tags.insert("pass-vr");
+                            result[account].tags.insert("pass-viewability");
+                            recordResult(account, "passed-vr");
+                        } else {
+                            passed = false;
+                        }
+                    }
+
+                    recordOutcome(measuredRate, "accounts.%s.mr", account.toString());
+                    if (measuredRate > 0) {
+                        if (measuredRate >= measuredRateThreshold) {
+                            result[account].tags.insert("pass-mr");
+                            recordResult(account, "passed-mr");
+                        } else {
+                            passed = false;
+                        }
+                    }
+
+                    recordOutcome(completedViewRate, "accounts.%s.cvr", account.toString());
+                    if (completedViewRate > 0) {
+                        if (completedViewRate >= completedViewRateThreshold) {
+                            result[account].tags.insert("pass-cvr");
+                            recordResult(account, "passed-cvr");
+                        } else {
+                            passed = false;
+                        }
+                    }
+
+                    recordOutcome(clickThroughRate, "accounts.%s.ctr", account.toString());
+                    if (clickThroughRate > 0) {
+                        if (clickThroughRate >= clickThroughRateThreshold) {
+                            result[account].tags.insert("pass-ctr");
+                            recordResult(account, "passed-ctr");
+                        } else {
+                            passed = false;
+                        }
+                    }
+
+                    recordOutcome(viewableCompletedViewRate, "accounts.%s.vcvr", account.toString());
+                    if (viewableCompletedViewRate > 0) {
+                        if (viewableCompletedViewRate >= viewableCompletedViewRateThreshold) {
+                            result[account].tags.insert("pass-vcvr");
+                            recordResult(account, "passed-vcvr");
+                        } else {
+                            passed = false;
+                        }
+                    }
+
+                    if (passed) continue;
                 }
+
                 recordResult(account, "filtered");
             }
         }
