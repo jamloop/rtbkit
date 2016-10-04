@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10021421,
+        "id": 10040821,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "100214",
+              "lid": "100408",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 10021421,
+    "externalId": 10040821,
     "roundRobin": {
         "group": "jl:OMA_AllcTV",
         "weight": 1

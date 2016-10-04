@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10021424,
+        "id": 10040824,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "100214",
+              "lid": "100408",
               "landingpage_url": "http://rbt.com",
               "advertiser_name": "rbt.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 10021424,
+    "externalId": 10040824,
     "roundRobin": {
         "group": "jl:LUB_w350_SV",
         "weight": 1
@@ -79,9 +79,12 @@
         "include": [ "529" ],
         "exclude": [ ]
     },
+    "hourOfWeekFilter": {
+        "hourlyBitmapSundayMidnightUtc" : "100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000"
+    },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "137019USD/1M",
+        "pace": "41105USD/1M",
         "price": "17100USD/1M",
         "priority": 112
     }
