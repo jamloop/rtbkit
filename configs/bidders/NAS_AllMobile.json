@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10091916,
+        "id": 10101716,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "100919",
+              "lid": "101017",
               "landingpage_url": "http://rockylawfirm.com",
               "advertiser_name": "rockylawfirm.com"
           }
@@ -47,7 +47,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 10091916,
+    "externalId": 10101716,
     "roundRobin": {
         "group": "jl:NAS_AllMobile",
         "weight": 1
