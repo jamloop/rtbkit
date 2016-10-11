@@ -44,7 +44,7 @@
         }
     },
     "deviceTypeFilter": {
-        "include": [ 3, 6, 7 ],
+        "include": [ 3, 7 ],
         "exclude": [ ]
     },
     "ext": {
