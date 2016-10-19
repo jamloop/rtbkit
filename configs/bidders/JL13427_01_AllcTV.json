@@ -5,9 +5,9 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10191426,
+        "id": 10191526,
         "type": "video",
-        "width": 9999,
+        "width": 2000,
         "height": 0,
         "duration": 30,
         "providerConfig": {
@@ -17,7 +17,7 @@
         }
     }
     ],
-    "externalId": 10191426,
+    "externalId": 10191526,
     "roundRobin": {
         "group": "jl:JL13427_01_AllcTV",
         "weight": 1
