@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10121225,
+        "id": 10191425,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "101212",
+              "lid": "101914",
               "landingpage_url": "http://remingtonpark.com",
               "advertiser_name": "remingtonpark.com"
           }
         }
     }
     ],
-    "externalId": 10121225,
+    "externalId": 10191425,
     "roundRobin": {
         "group": "jl:OAK_ZIP_AllcTV",
         "weight": 1
@@ -65,7 +65,7 @@
     "ext": {
         "budget": "10000000000000USD/1M",
         "pace": "694444444USD/1M",
-        "price": "18100USD/1M",
+        "price": "22100USD/1M",
         "priority": 101
     }
 }
