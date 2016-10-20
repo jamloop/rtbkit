@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10191525,
+        "id": 10201025,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "101915",
+              "lid": "102010",
               "landingpage_url": "http://remingtonpark.com",
               "advertiser_name": "remingtonpark.com"
           }
         }
     }
     ],
-    "externalId": 10191525,
+    "externalId": 10201025,
     "roundRobin": {
         "group": "jl:OAK_ZIP_AllcTV",
         "weight": 1
