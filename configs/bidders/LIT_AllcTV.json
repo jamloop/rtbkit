@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10201720,
+        "id": 10222120,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "102017",
+              "lid": "102221",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 10201720,
+    "externalId": 10222120,
     "roundRobin": {
         "group": "jl:LIT_AllcTV",
         "weight": 1
@@ -44,7 +44,7 @@
         }
     },
     "deviceTypeFilter": {
-        "include": [ 3, 7 ],
+        "include": [ 3, 6,7 ],
         "exclude": [ ]
     },
     "dmaFilter": {
