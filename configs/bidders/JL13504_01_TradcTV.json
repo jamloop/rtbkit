@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10231031,
+        "id": 10241331,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "102310",
+              "lid": "102413",
               "landingpage_url": "http://bancfirst.com",
               "advertiser_name": "bancfirst.com"
           }
         }
     }
     ],
-    "externalId": 10231031,
+    "externalId": 10241331,
     "roundRobin": {
         "group": "jl:JL13504_01_TradcTV",
         "weight": 1
