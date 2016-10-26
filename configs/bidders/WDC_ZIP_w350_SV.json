@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 10251530,
+        "id": 10261230,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -31,7 +31,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "102515",
+              "lid": "102612",
               "landingpage_url": "http://tcbc.com",
               "advertiser_name": "tcbc.com"
           }
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 10251530,
+    "externalId": 10261230,
     "roundRobin": {
         "group": "jl:WDC_ZIP_w350_SV",
         "weight": 1
