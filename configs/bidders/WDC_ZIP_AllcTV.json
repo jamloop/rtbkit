@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11030028,
+        "id": 11030928,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110300",
+              "lid": "110309",
               "landingpage_url": "http://tcbc.com",
               "advertiser_name": "tcbc.com"
           }
         }
     }
     ],
-    "externalId": 11030028,
+    "externalId": 11030928,
     "roundRobin": {
         "group": "jl:WDC_ZIP_AllcTV",
         "weight": 1
