@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11050848,
+        "id": 11050948,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110508",
+              "lid": "110509",
               "landingpage_url": "http://nra.org",
               "advertiser_name": "nra.org"
           }
         }
     }
     ],
-    "externalId": 11050848,
+    "externalId": 11050948,
     "roundRobin": {
         "group": "jl:CIN_AllcTV",
         "weight": 1
