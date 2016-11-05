@@ -61,10 +61,6 @@
         "include": [ "574" ],
         "exclude": [ ]
     },
-    "whiteBlackList": {
-      "whiteFile": "configs/jl_tier1_wl.csv",
-      "blackFile": "configs/blank"
-    },
     "ext": {
         "budget": "50000000000USD/1M",
         "pace": "741597USD/1M",
