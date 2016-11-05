@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11041163,
+        "id": 11050863,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110411",
+              "lid": "110508",
               "landingpage_url": "http://nra.org",
               "advertiser_name": "nra.org"
           }
         }
     }
     ],
-    "externalId": 11041163,
+    "externalId": 11050863,
     "roundRobin": {
         "group": "jl:DAY_AllcTV",
         "weight": 1
@@ -68,7 +68,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "744811USD/1M",
+        "pace": "124135USD/1M",
         "price": "18100USD/1M",
         "priority": 111
     }
