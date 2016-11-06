@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11060846,
+        "id": 11060946,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110608",
+              "lid": "110609",
               "landingpage_url": "http://nra.org",
               "advertiser_name": "nra.org"
           }
         }
     }
     ],
-    "externalId": 11060846,
+    "externalId": 11060946,
     "roundRobin": {
         "group": "jl:COO_AllMobile",
         "weight": 1
