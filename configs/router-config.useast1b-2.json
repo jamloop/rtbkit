@@ -41,7 +41,7 @@
     "exchangeType": "adaptv",
     "uniqueName": "adaptvhv",
     "listenPort": 19976,
-    "numThreads": 6,
+    "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
@@ -76,7 +76,7 @@
   {
     "exchangeType": "publisher",
     "listenPort": 19975,
-    "numThreads": 6,
+    "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "GET",
