@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11061441,
+        "id": 11070141,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110614",
+              "lid": "110701",
               "landingpage_url": "http://nra.org",
               "advertiser_name": "nra.org"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 11061441,
+    "externalId": 11070141,
     "roundRobin": {
         "group": "jl:ORL_w350_SV",
         "weight": 1
