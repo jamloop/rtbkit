@@ -5,9 +5,9 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11070129,
+        "id": 11070229,
         "type": "video",
-        "width": 300,
+        "width": -1,
         "height": 0,
         "duration": 30,
         "providerConfig": {
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110701",
+              "lid": "110702",
               "landingpage_url": "http://tcbc.com",
               "advertiser_name": "tcbc.com"
           }
@@ -46,7 +46,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 11070129,
+    "externalId": 11070229,
     "roundRobin": {
         "group": "jl:WDC_ZIP_AllMobile",
         "weight": 1
@@ -76,8 +76,8 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "103040USD/1M",
-        "price": "6100USD/1M",
+        "pace": "614864USD/1M",
+        "price": "9100USD/1M",
         "priority": 101
     }
 }
