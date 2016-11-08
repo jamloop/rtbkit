@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11071935,
+        "id": 11072035,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110719",
+              "lid": "110720",
               "landingpage_url": "http://nra.org",
               "advertiser_name": "nra.org"
           }
@@ -47,7 +47,7 @@
       "filters": { "include": ["pass-viewability"], "exclude": [] }
       }
     },
-    "externalId": 11071935,
+    "externalId": 11072035,
     "roundRobin": {
         "group": "jl:TAM_w350_SV",
         "weight": 1
@@ -77,7 +77,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "1666826USD/1M",
+        "pace": "3333652USD/1M",
         "price": "15100USD/1M",
         "priority": 112
     }
