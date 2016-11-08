@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11072227,
+        "id": 11072327,
         "type": "video",
         "width": 2000,
         "height": 0,
@@ -23,7 +23,7 @@
         }
     }
     ],
-    "externalId": 11072227,
+    "externalId": 11072327,
     "roundRobin": {
         "group": "jl:JL13427_01_AllcTV",
         "weight": 1
