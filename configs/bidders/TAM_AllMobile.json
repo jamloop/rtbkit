@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11071134,
+        "id": 11071934,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "110711",
+              "lid": "110719",
               "landingpage_url": "http://nra.org",
               "advertiser_name": "nra.org"
           }
         }
     }
     ],
-    "externalId": 11071134,
+    "externalId": 11071934,
     "roundRobin": {
         "group": "jl:TAM_AllMobile",
         "weight": 1
@@ -63,7 +63,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "753383USD/1M",
+        "pace": "1506766USD/1M",
         "price": "9100USD/1M",
         "priority": 111
     }
