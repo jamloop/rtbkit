@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11102328,
+        "id": 11111428,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111023",
+              "lid": "111114",
               "landingpage_url": "http://tcbc.com",
               "advertiser_name": "tcbc.com"
           }
         }
     }
     ],
-    "externalId": 11102328,
+    "externalId": 11111428,
     "roundRobin": {
         "group": "jl:WDC_ZIP_AllcTV",
         "weight": 1
@@ -63,7 +63,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "305743USD/1M",
+        "pace": "407657USD/1M",
         "price": "18100USD/1M",
         "priority": 101
     }
