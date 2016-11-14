@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11111433,
+        "id": 11140733,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111114",
+              "lid": "111407",
               "landingpage_url": "http://chihealth.com",
               "advertiser_name": "chihealth.com"
           }
         }
     }
     ],
-    "externalId": 11111433,
+    "externalId": 11140733,
     "roundRobin": {
         "group": "jl:JL13502_AllcTV",
         "weight": 1
@@ -63,7 +63,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "196104USD/1M",
+        "pace": "261472USD/1M",
         "price": "15100USD/1M",
         "priority": 111
     }

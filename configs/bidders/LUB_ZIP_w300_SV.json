@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1111147,
+        "id": 1114077,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111114",
+              "lid": "111407",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -54,7 +54,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 1111147,
+    "externalId": 1114077,
     "roundRobin": {
         "group": "jl:LUB_ZIP_w300_SV",
         "weight": 1
@@ -84,7 +84,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "141244USD/1M",
+        "pace": "423733USD/1M",
         "price": "17100USD/1M",
         "priority": 112
     }
