@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11161333,
+        "id": 11161433,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111613",
+              "lid": "111614",
               "landingpage_url": "http://bancfirst.com",
               "advertiser_name": "bancfirst.com"
           }
@@ -46,7 +46,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 11161333,
+    "externalId": 11161433,
     "roundRobin": {
         "group": "jl:JL13504_01_w350_NV",
         "weight": 1
@@ -69,6 +69,10 @@
     "locationFilter": {
         "include": [ "^(US):(OK)" ],
         "exclude": [ ] 
+    },
+    "whiteBlackList": {
+      "whiteFile": "configs/filmon.csv",
+      "blackFile": "configs/blank"
     },
     "ext": {
         "budget": "10000000000000USD/1M",
