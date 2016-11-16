@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11161433,
+        "id": 11161533,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111614",
+              "lid": "111615",
               "landingpage_url": "http://bancfirst.com",
               "advertiser_name": "bancfirst.com"
           }
@@ -46,7 +46,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 11161433,
+    "externalId": 11161533,
     "roundRobin": {
         "group": "jl:JL13504_01_w300_NV",
         "weight": 1
