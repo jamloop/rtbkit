@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11152015,
+        "id": 11161315,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111520",
+              "lid": "111613",
               "landingpage_url": "http://rockylawfirm.com",
               "advertiser_name": "rockylawfirm.com"
           }
@@ -46,7 +46,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 11152015,
+    "externalId": 11161315,
     "roundRobin": {
         "group": "jl:NAS_AllcTV",
         "weight": 1
