@@ -48,6 +48,15 @@
         }
     }
     ],
+   "augmentations": {
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
     "externalId": 11171539,
     "roundRobin": {
         "group": "jl:LAK_AllMobile",
