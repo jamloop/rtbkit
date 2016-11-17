@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11171115,
+        "id": 11171215,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,23 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111711",
+              "lid": "111712",
               "landingpage_url": "http://rockylawfirm.com",
               "advertiser_name": "rockylawfirm.com"
           }
         }
     }
     ],
-   "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 65
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-      }
-    },
-    "externalId": 11171115,
+    "externalId": 11171215,
     "roundRobin": {
         "group": "jl:NAS_AllcTV",
         "weight": 1

@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11171131,
+        "id": 11171231,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111711",
+              "lid": "111712",
               "landingpage_url": "http://tcbc.com",
               "advertiser_name": "tcbc.com"
           }
@@ -45,16 +45,9 @@
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
-      },
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 65
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 11171131,
+    "externalId": 11171231,
     "roundRobin": {
         "group": "jl:WDC_ZIP_w350_SV",
         "weight": 1

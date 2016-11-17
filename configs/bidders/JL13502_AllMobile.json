@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11171136,
+        "id": 11171236,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,23 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111711",
+              "lid": "111712",
               "landingpage_url": "http://chihealth.com",
               "advertiser_name": "chihealth.com"
           }
         }
     }
     ],
-   "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 65
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-      }
-    },
-    "externalId": 11171136,
+    "externalId": 11171236,
     "roundRobin": {
         "group": "jl:JL13502_AllMobile",
         "weight": 1

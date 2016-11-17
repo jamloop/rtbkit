@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1117113,
+        "id": 1117123,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,7 +30,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111711",
+              "lid": "111712",
               "landingpage_url": "http://mcdonalds.com",
               "advertiser_name": "mcdonalds.com"
           }
@@ -45,16 +45,9 @@
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
-      },
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 65
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 1117113,
+    "externalId": 1117123,
     "roundRobin": {
         "group": "jl:JAKzip_w300_SV",
         "weight": 1
