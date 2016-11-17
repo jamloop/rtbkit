@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11161710,
+        "id": 11171110,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -26,14 +26,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111617",
+              "lid": "111711",
               "landingpage_url": "http://jamloop.com",
               "advertiser_name": "jamloop.com"
           }
         }
     }
     ],
-    "externalId": 11161710,
+    "externalId": 11171110,
     "roundRobin": {
         "group": "jl:chan_s_w300_NV",
         "weight": 1
