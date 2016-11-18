@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11171538,
+        "id": 11181438,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111715",
+              "lid": "111814",
               "landingpage_url": "http://arbys.com",
               "advertiser_name": "arbys.com"
           }
         }
     }
     ],
-    "externalId": 11171538,
+    "externalId": 11181438,
     "roundRobin": {
         "group": "jl:LAK_TradcTV",
         "weight": 1
