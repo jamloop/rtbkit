@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11182036,
+        "id": 11191336,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111820",
+              "lid": "111913",
               "landingpage_url": "http://chihealth.com",
               "advertiser_name": "chihealth.com"
           }
         }
     }
     ],
-    "externalId": 11182036,
+    "externalId": 11191336,
     "roundRobin": {
         "group": "jl:JL13502_AllMobile",
         "weight": 1
