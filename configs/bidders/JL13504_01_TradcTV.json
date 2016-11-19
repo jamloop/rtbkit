@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11191332,
+        "id": 11191632,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111913",
+              "lid": "111916",
               "landingpage_url": "http://bancfirst.com",
               "advertiser_name": "bancfirst.com"
           }
         }
     }
     ],
-    "externalId": 11191332,
+    "externalId": 11191632,
     "roundRobin": {
         "group": "jl:JL13504_01_TradcTV",
         "weight": 1
@@ -64,7 +64,7 @@
     },
     "ext": {
         "budget": "10000000000000USD/1M",
-        "pace": "770187USD/1M",
+        "pace": "1540374USD/1M",
         "price": "24100USD/1M",
         "priority": 101
     }

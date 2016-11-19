@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11191338,
+        "id": 11191638,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -31,14 +31,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111913",
+              "lid": "111916",
               "landingpage_url": "http://arbys.com",
               "advertiser_name": "arbys.com"
           }
         }
     }
     ],
-    "externalId": 11191338,
+    "externalId": 11191638,
     "roundRobin": {
         "group": "jl:LAK_TradcTV",
         "weight": 1
@@ -64,7 +64,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "57130USD/1M",
+        "pace": "114260USD/1M",
         "price": "14030USD/1M",
         "priority": 111
     }

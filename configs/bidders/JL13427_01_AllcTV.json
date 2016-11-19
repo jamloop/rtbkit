@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11191328,
+        "id": 11191628,
         "type": "video",
         "width": 2000,
         "height": 0,
@@ -23,7 +23,7 @@
         }
     }
     ],
-    "externalId": 11191328,
+    "externalId": 11191628,
     "roundRobin": {
         "group": "jl:JL13427_01_AllcTV",
         "weight": 1
@@ -41,7 +41,7 @@
     },
     "ext": {
         "budget": "10000000000000USD/1M",
-        "pace": "40819783USD/1M",
+        "pace": "81639566USD/1M",
         "price": "24100USD/1M",
         "priority": 299
     }
