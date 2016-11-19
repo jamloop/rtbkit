@@ -41,10 +41,17 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 40,
+        "viewTreshold": 30,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
+      },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
     "externalId": 1118197,
@@ -77,7 +84,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "1129956USD/1M",
+        "pace": "1694934USD/1M",
         "price": "17100USD/1M",
         "priority": 111
     }

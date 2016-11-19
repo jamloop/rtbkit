@@ -45,6 +45,13 @@
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
+      },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
     "externalId": 1118193,
@@ -77,7 +84,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "1432947USD/1M",
+        "pace": "2149421USD/1M",
         "price": "17100USD/1M",
         "priority": 111
     }
