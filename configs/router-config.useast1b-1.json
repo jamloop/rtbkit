@@ -3,7 +3,7 @@
     "exchangeType": "bidswitch",
     "uniqueName": "bidswitch",
     "listenPort": 9977,
-    "numThreads": 1,
+    "numThreads": 2,
     "realTimePolling": false,
     "bindHost": "0.0.0.0",
     "auctionVerb": "POST",
