@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11192127,
+        "id": 11192227,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -30,14 +30,14 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "111921",
+              "lid": "111922",
               "landingpage_url": "http://remingtonpark.com",
               "advertiser_name": "remingtonpark.com"
           }
         }
     }
     ],
-    "externalId": 11192127,
+    "externalId": 11192227,
     "roundRobin": {
         "group": "jl:JL13427_01_w300_SV",
         "weight": 1
