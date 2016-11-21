@@ -48,6 +48,15 @@
         }
     }
     ],
+   "augmentations": {
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
     "externalId": 11210016,
     "roundRobin": {
         "group": "jl:NAS_AllMobile",
