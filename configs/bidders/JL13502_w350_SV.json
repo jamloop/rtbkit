@@ -52,7 +52,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 40,
+        "viewTreshold": 50,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
@@ -93,7 +93,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "1307361USD/1M",
+        "pace": "13073615USD/1M",
         "price": "15100USD/1M",
         "priority": 102
     }
