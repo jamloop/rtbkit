@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 11291034,
+        "id": 11291134,
         "type": "video",
         "width": 1900,
         "height": 0,
@@ -24,7 +24,15 @@
     }
     ],
    "augmentations": {
-    "externalId": 11291034,
+    "viewability": {
+      "required": true,
+      "config": {
+        "cvrThreshold": 60,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-cvr"], "exclude": [] }
+      }
+    "externalId": 11291134,
     "roundRobin": {
         "group": "jl:JL13504_01_AllcTV",
         "weight": 1
