@@ -49,6 +49,16 @@
         }
     }
     ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 70,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      }
+    },
     "externalId": 11301647,
     "roundRobin": {
         "group": "jl:ATL_w350_NV",
