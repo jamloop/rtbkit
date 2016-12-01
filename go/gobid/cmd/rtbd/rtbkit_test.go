@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestRTBkit(t *testing.T) {
-	agents, err := Import("configs/*.json")
+	agents, err := Import("../../../../configs/bidders/*.json")
 	if err != nil {
 		t.Fatal(err)
 	}

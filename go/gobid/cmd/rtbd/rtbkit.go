@@ -378,6 +378,34 @@ func Import(pattern string) (result []*Agent, err error) {
 			err = fmt.Errorf("failed to parse: %s (%s)", filename, err.Error())
 		}
 
+		// incredible hack to get rid of the forensiq augmenter
+		buf := new(bytes.Buffer)
+		json.Compact(buf, content)
+		old := buf.Bytes()
+
+		s := []string{
+			"{\"forensiq\":{",
+			"},\"forensiq\":{",
+		}
+
+		for _, p := range s {
+			if i := bytes.Index(old, []byte(p)); i > 0 {
+				j := i + 1
+				for n := 0; n < 2; n++ {
+					k := bytes.Index(old[j:], []byte("}"))
+					j += k + 1
+				}
+
+				b := new(bytes.Buffer)
+				b.Write(old[0 : i+1])
+				b.Write(old[j+1:])
+				z := new(bytes.Buffer)
+				json.Indent(z, b.Bytes(), "", "    ")
+				agent.content = z.Bytes()
+				return
+			}
+		}
+
 		return
 	}
 
