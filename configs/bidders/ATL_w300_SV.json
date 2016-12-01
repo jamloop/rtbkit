@@ -50,6 +50,14 @@
     }
     ],
    "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "viewTreshold": 80,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      },
     "forensiq": {
         "required": true,
          "config": {

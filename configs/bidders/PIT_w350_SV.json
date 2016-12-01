@@ -53,7 +53,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 70,
+        "viewTreshold": 80,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-viewability"], "exclude": [] }
