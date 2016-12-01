@@ -328,7 +328,7 @@ func (b *Bidders) Start() (err error) {
 		log.Println(err)
 	}
 
-	b.tick = rtb.PeriodicFunc(rtb.Every(time.Minute), func() {
+	b.tick = rtb.PeriodicFunc(rtb.Every(5*time.Minute), func() {
 		err := update()
 		if err != nil {
 			log.Println(err)
