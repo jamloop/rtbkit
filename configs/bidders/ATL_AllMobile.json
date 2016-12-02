@@ -53,7 +53,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "cvrThreshold": 60,
+        "cvrThreshold": 90,
         "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-cvr"], "exclude": [] }
