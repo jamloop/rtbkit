@@ -49,7 +49,7 @@
         }
     }
     ],
-//   "augmentations": {
+   "augmentations": {
 //    "viewability": {
 //      "required": true,
 //      "config": {
@@ -58,14 +58,14 @@
 //      },
 //      "filters": { "include": ["pass-cvr"], "exclude": [] }
 //      }
-//    "forensiq": {
-//        "required": true,
-//         "config": {
-//            "riskScoreThreshold": 65
-//         },
-//        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-//      }
-//    },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+      }
+    },
     "externalId": 1202123,
     "roundRobin": {
         "group": "jl:ATL_AllMobile",
