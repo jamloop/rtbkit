@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 12021211,
+        "id": 12021611,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -23,7 +23,7 @@
         }
     }
     ],
-    "externalId": 12021211,
+    "externalId": 12021611,
     "roundRobin": {
         "group": "jl:chan_s_w350_NV",
         "weight": 1
