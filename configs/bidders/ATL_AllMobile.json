@@ -53,11 +53,19 @@
     "viewability": {
       "required": true,
       "config": {
-        "cvrThreshold": 90,
-        "unknownStrategy": "nobid"
+        "cvrThreshold": 60,
+        "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-cvr"], "exclude": [] }
+      },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
+    },
     "externalId": 1202113,
     "roundRobin": {
         "group": "jl:ATL_AllMobile",

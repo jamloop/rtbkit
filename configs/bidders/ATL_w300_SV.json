@@ -54,10 +54,17 @@
       "required": true,
       "config": {
         "vrThreshold": 80,
-        "cvrThreshold": 60,
+        "cvrThreshold": 40,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-vr", "pass-cvr"], "exclude": [] }
+      },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
     "externalId": 1202115,
