@@ -50,14 +50,14 @@
     }
     ],
    "augmentations": {
-    "viewability": {
-      "required": true,
-      "config": {
-        "cvrThreshold": 40,
-        "unknownStrategy": "nobid"
-      },
-      "filters": { "include": ["pass-cvr"], "exclude": [] }
-      },
+//    "viewability": {
+//      "required": true,
+//      "config": {
+//        "cvrThreshold": 40,
+//        "unknownStrategy": "nobid"
+//      },
+//      "filters": { "include": ["pass-cvr"], "exclude": [] }
+//      },
     "forensiq": {
         "required": true,
          "config": {
