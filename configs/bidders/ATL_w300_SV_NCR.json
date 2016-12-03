@@ -53,7 +53,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "vrThreshold": 0.70,
+        "vrThreshold": 70,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-vr"], "exclude": [] }
