@@ -1,6 +1,6 @@
 {
     "account": [
-        "ATL_AllMobile3", "1"
+        "ATL_AllMobile1", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -50,12 +50,13 @@
     }
     ],
    "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 65
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
+    "viewability": {
+      "required": true,
+      "config": {
+        "cvrThreshold": 1,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-cvr"], "exclude": [] }
       }
     },
     "externalId": 1202123,
@@ -95,7 +96,7 @@
         "budget": "50000000000USD/1M",
         "pace": "21778USD/1M",
         "price": "9100USD/1M",
-        "priority": 111
+        "priority": 500
     }
 }
 

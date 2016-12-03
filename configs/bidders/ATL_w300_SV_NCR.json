@@ -1,6 +1,6 @@
 {
     "account": [
-        "ATL_w300_SV", "1"
+        "ATL_w300_SV_NCR", "1"
     ],
     "bidProbability": 1,
     "creatives": [
@@ -54,10 +54,9 @@
       "required": true,
       "config": {
         "vrThreshold": 70,
-        "cvrThreshold": 60,
         "unknownStrategy": "bid"
       },
-      "filters": { "include": ["pass-vr", "pass-cvr"], "exclude": [] }
+      "filters": { "include": ["pass-vr"], "exclude": [] }
       }
     },
     "externalId": 1202185,
