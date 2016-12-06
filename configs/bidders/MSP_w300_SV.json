@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 120612121,
+        "id": 120614121,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -21,8 +21,8 @@
             },
           "bidswitch": {
               "nurl": "http://ad.jamloop.com/z.gif?br.ext.deviceid=%{bidrequest.ext.deviceid}&br.device.ip=%{bidrequest.device.ip}&br.app.bundle=%{bidrequest.app.bundle#urlencode}&br.app.storeurl=%{bidrequest.app.storeurl#urlencode}&br.site.page=%{bidrequest.site.page#urlencode}&Exch=%{exchange}&BID_PRICE=%{bid.price}&BID_REQ_ID=%{bidrequest.id}&IMP_ID=%{imp.id}&br.video.width=%{bidrequest.video.width}&br.video.height=%{bidrequest.video.height}&br.ext.devicetype=%{bidrequest.device.type}&br.ext.videotype=%{bidrequest.ext.videotype}&rtb.view=HV&rtb.player=SP&br.user.id=%{bidrequest.user.id}&br.publisher.id=%{bidrequest.publisher.id}&br.language=%{bidrequest.language}&br.geo.country=%{bidrequest.geo.country}&br.geo.zip=%{bidrequest.geo.zip}&br.geo.region=%{bidrequest.geo.region}&br.geo.metro=%{bidrequest.geo.metro}&WIN_RATIO=${AUCTION_PRICE}&DOMAIN=eov&rtbCmp=MSP",
-              "adid": "120612",
-              "cid": "120612",
+              "adid": "120614",
+              "cid": "120614",
               "adomain": ["arbys.com"],
               "vast_url": "https://ads.adaptv.advertising.com/a/h/MCrcouyRgRJBTEVQrY7DbqDrdJaixbMD?cb=%{bidrequest.timestamp}&a.aid=%{bidrequest.ext.deviceid}&a.idfa=%{bidrequest.ext.deviceid}&a.ip=%{bidrequest.device.ip}&a.ua=%{bidrequest.ua#urlencode}&app_bundle=%{bidrequest.app.bundle#urlencode}&app_storeurl=%{bidrequest.app.storeurl#urlencode}&pageUrl=%{bidrequest.site.page#urlencode}&context=rtbExch%3D%{exchange}%2CrtbBidPrice%3D%{bid.price}%2CLRAdID%3D%{bidrequest.id}%2CrtbImpID%3D%{imp.id}%2Cwidth%3D%{bidrequest.video.width}%2Cheight%3D%{bidrequest.video.height}%2CrtbPos%3D%{bidrequest.device.type}%2CrtbVideoType%3D%{bidrequest.ext.videotype}%2CrtbViewFlag%3DHV%2CrtbPlayer%3DSP%2CrtbUserID%3D%{bidrequest.user.id}%2CrtbSite%3D%{bidrequest.publisher.id}%2CrtbAppStoreURL%3D%{bidrequest.app.storeurl#urlencode}%2CrtbLanguage%3D%{bidrequest.language}%2CrtbReqURL%3D%{bidrequest.site.page#urlencode}%2CrtbCn%3D%{bidrequest.geo.country}%2CrtbZip%3D%{bidrequest.geo.zip}%2CrtbSt%3D%{bidrequest.geo.region}%2CrtbDMA%3D%{bidrequest.geo.metro}%2CrtbWinRatio%3D${AUCTION_PRICE}%2CrtbCmp%3DMSP&eov=eov",
               "ext": {
@@ -42,7 +42,7 @@
                 "media_bitrate": 800
               },
               "api": 1,
-              "lid": "120612",
+              "lid": "120614",
               "landingpage_url": "http://arbys.com",
               "advertiser_name": "arbys.com"
           }
@@ -66,7 +66,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 120612121,
+    "externalId": 120614121,
     "roundRobin": {
         "group": "jl:MSP_w300_SV",
         "weight": 1
