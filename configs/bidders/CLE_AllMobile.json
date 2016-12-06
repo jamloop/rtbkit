@@ -80,6 +80,10 @@
         "include": [ "510" ],
         "exclude": [ ]
     },
+    "whiteBlackList": {
+      "whiteFile": "configs/jamloop.csv",
+      "blackFile": "configs/blank"
+    },
     "ext": {
         "budget": "50000000000USD/1M",
         "pace": "459715USD/1M",
