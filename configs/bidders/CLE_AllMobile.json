@@ -44,15 +44,6 @@
         }
     }
     ],
-   "augmentations": {
-    "forensiq": {
-        "required": true,
-         "config": {
-            "riskScoreThreshold": 65
-         },
-        "filters": { "include": ["pass-forensiq"], "exclude": [] }
-      }
-    },
     "externalId": 12061955,
     "roundRobin": {
         "group": "jl:CLE_AllMobile",
