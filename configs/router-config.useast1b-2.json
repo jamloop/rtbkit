@@ -66,7 +66,7 @@
 //    "auctionResource": "/",
 //    "performNameLookup": false,
 //    "pipeline": {
-//       "type": "geo",
+//        "type": "geo",
 //        "serviceName": "useast1b.rtb1.router2.pipeline.brightroll",
 //        "ipFile": "configs/GeoIP2-City-Blocks-IPv4.csv.gz",
 //        "locationFile": "configs/GeoIP2-City-Locations-en.csv.gz",
@@ -76,7 +76,7 @@
   {
     "exchangeType": "publisher",
     "listenPort": 19975,
-    "numThreads": 4,
+    "numThreads": 3,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "GET",
