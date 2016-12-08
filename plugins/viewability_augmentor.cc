@@ -151,6 +151,7 @@ ViewabilityAugmentor::onRequest(
                     const AccountKey& account = configEntry.config->account;
 
                     result[account].tags.insert("pass-viewability");
+                    result[account].tags.insert("pass-vr");
                     recordHit("accounts.%s.adapviewable", account.toString());
                     recordHit("accounts.%s.passed", account.toString());
                 }
@@ -229,6 +230,7 @@ ViewabilityAugmentor::handleHttpResponse(
             const AccountKey& account = configEntry.config->account;
 
             result[account].tags.insert("pass-viewability");
+            result[account].tags.insert("pass-vr");
         }
     });
 
@@ -314,6 +316,7 @@ ViewabilityAugmentor::handleHttpResponse(
                     auto ev = getExchangeViewability(br, viewableRateThreshold);
                     if (ev == ExchangeViewability::Viewable) {
                         result[account].tags.insert("pass-viewability");
+                        result[account].tags.insert("pass-vr");
 
                         recordExchangeResult("viewable");
                         recordResult(account, "passed");
@@ -333,6 +336,7 @@ ViewabilityAugmentor::handleHttpResponse(
                         }
                         if (strategy == "bid") {
                             result[account].tags.insert("pass-viewability");
+                            result[account].tags.insert("pass-vr");
                             recordResult(account, "passed");
                             continue;
                         }
@@ -348,8 +352,8 @@ ViewabilityAugmentor::handleHttpResponse(
                     recordOutcome(viewableRate, "accounts.%s.vr", account.toString());
                     if (viewableRate > 0) {
                         if (viewableRate >= viewableRateThreshold) {
-                            result[account].tags.insert("pass-vr");
                             result[account].tags.insert("pass-viewability");
+			    result[account].tags.insert("pass-vr");
                             recordResult(account, "passed-vr");
                         } else {
                             passed = false;
