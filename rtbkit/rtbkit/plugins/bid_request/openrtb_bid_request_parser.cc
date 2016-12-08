@@ -391,9 +391,7 @@ onApp(OpenRTB::App & app) {
     this->onContext(app);
     
     // Try to define url since we use it in RTBKIT::BidRequest
-    if(!app.name.empty())
-        ctx.br->url = Url(app.name);
-    else if(!app.bundle.empty())
+    if(!app.bundle.empty())
         ctx.br->url = Url(app.bundle);
     else if (app.id)
         ctx.br->url = Url("http://" + app.id.toString() + ".appid/");
