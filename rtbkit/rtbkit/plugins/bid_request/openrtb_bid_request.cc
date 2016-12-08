@@ -217,7 +217,9 @@ fromOpenRtb(OpenRTB::BidRequest && req,
     else if (req.app) {
         result->app.reset(req.app.release());
 
-        if (!result->app->bundle.empty())
+        if (!result->app->name.empty())
+            result->url = Url(result->app->name);
+        else if (!result->app->bundle.empty())
             result->url = Url(result->app->bundle);
         else if (result->app->id)
             result->url = Url("http://" + result->app->id.toString() + ".appid/");
