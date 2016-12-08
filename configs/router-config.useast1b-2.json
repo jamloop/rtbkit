@@ -76,7 +76,7 @@
   {
     "exchangeType": "publisher",
     "listenPort": 19975,
-    "numThreads": 3,
+    "numThreads": 4,
     "realTimePolling": true,
     "bindHost": "0.0.0.0",
     "auctionVerb": "GET",
