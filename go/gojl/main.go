@@ -23,7 +23,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/datacratic/goredis/redis"
+	"gitlab.com/ericrobert/goredis/redis"
 )
 
 type Database struct {
@@ -371,14 +371,24 @@ func main() {
 			}
 
 			text := list[cols[source]]
+
 			if !strings.HasPrefix(text, "http://") {
-				text = "http://" + text
+				text = strings.TrimPrefix(text, "http://")
 			}
 
-			u, err := url.Parse(text)
+			if !strings.HasPrefix(text, "https://") {
+				text = strings.TrimPrefix(text, "https://")
+			}
+
+			if !strings.HasPrefix(text, "apps://") {
+				text = strings.TrimPrefix(text, "apps://")
+			}
+
+			text = strings.TrimSuffix(text, "/")
+
+			u, err := url.Parse("http://" + text)
 			if err != nil {
-				http.Error(w, fmt.Sprintf("line %d: %s", line, err), http.StatusBadRequest)
-				continue
+				u = &url.URL{Host: text}
 			}
 
 			get := func(i int) string {
@@ -471,15 +481,24 @@ func main() {
 		}
 
 		text := q.PageURL
+
 		if !strings.HasPrefix(text, "http://") {
-			text = "http://" + text
+			text = strings.TrimPrefix(text, "http://")
 		}
 
-		u, err := url.Parse(text)
+		if !strings.HasPrefix(text, "https://") {
+			text = strings.TrimPrefix(text, "https://")
+		}
+
+		if !strings.HasPrefix(text, "apps://") {
+			text = strings.TrimPrefix(text, "apps://")
+		}
+
+		text = strings.TrimSuffix(text, "/")
+
+		u, err := url.Parse("http://" + text)
 		if err != nil {
-			log.Println("ERROR", "URL", err.Error())
-			http.Error(w, "400 bad request\n"+err.Error(), http.StatusBadRequest)
-			return
+			u = &url.URL{Host: text}
 		}
 
 		x := ""
