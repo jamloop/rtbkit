@@ -10,6 +10,7 @@ import (
 
 	"github.com/datacratic/gojq"
 	"github.com/datacratic/gometrics/trace"
+	"github.com/datacratic/goredis/redis"
 	"golang.org/x/net/context"
 
 	"../../rtb"
@@ -19,6 +20,7 @@ import (
 type Exchange struct {
 	Bidders *Bidders
 	Client  *forensiq.Client
+	UserIDs *redis.Client
 }
 
 /*
@@ -94,6 +96,7 @@ func (e *Exchange) ServeHTTP(ctx context.Context, w http.ResponseWriter, r *http
 	}
 
 	bidders := e.Bidders.Bidders(ids)
+	bidders = e.Filter(ctx, value, bidders)
 
 	bestPrice := ""
 	bestPriority := ""
