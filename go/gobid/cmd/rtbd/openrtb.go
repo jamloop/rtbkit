@@ -231,3 +231,54 @@ func (e *Exchange) forensiqRiskScore(ctx context.Context, r rtb.Request) (value 
 	trace.Leave(ctx, "Requested")
 	return
 }
+
+func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent) (result []*Agent) {
+	ctx = trace.Enter(ctx, "Filter")
+
+	result = bidders
+
+	p := value.NewQuery()
+	exchange, err := p.String("ext", "exchange")
+	if err != nil {
+		trace.Leave(ctx, "NoExchange")
+		return
+	}
+
+	text := ""
+	switch exchange {
+	case "adaptv":
+		text = "ap"
+	default:
+		trace.Leave(ctx, "NoIDDB")
+		return
+	}
+
+	q := value.NewQuery()
+	id, err := q.String("user", "id")
+	if err != nil {
+		trace.Leave(ctx, "NoUserID")
+		return
+	}
+
+	id = text + ":" + id
+
+	r, err := e.UserIDs.Do("GET", id)
+	if err != nil {
+		trace.Error(ctx, "NoREDIS", err)
+		return
+	}
+
+	if r == nil {
+		trace.Leave(ctx, "NoID")
+		return
+	}
+
+	_, ok := r.([]byte)
+	if !ok {
+		trace.Leave(ctx, "NoStringID")
+		return
+	}
+
+	trace.Leave(ctx, "Found")
+	return
+}

@@ -23,7 +23,7 @@ import (
 	"time"
 	"unsafe"
 
-	"gitlab.com/ericrobert/goredis/redis"
+	"github.com/datacratic/goredis/redis"
 )
 
 type Database struct {
