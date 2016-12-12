@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 12132,
+        "id": 12128,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -66,7 +66,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 12132,
+    "externalId": 12128,
     "roundRobin": {
         "group": "jl:PIT_w350_HV",
         "weight": 1
@@ -101,7 +101,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "1238859USD/1M",
+        "pace": "176979USD/1M",
         "price": "17100USD/1M",
         "priority": 113
     }

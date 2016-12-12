@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 12121,
+        "id": 12117,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -66,7 +66,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 12121,
+    "externalId": 12117,
     "roundRobin": {
         "group": "jl:MSP_w300_HV",
         "weight": 1
@@ -101,7 +101,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "199740USD/1M",
+        "pace": "28534USD/1M",
         "price": "12100USD/1M",
         "priority": 113
     }

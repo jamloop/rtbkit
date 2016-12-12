@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 1297,
+        "id": 1293,
         "type": "video",
         "width": 300,
         "height": 0,
@@ -66,7 +66,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 1297,
+    "externalId": 1293,
     "roundRobin": {
         "group": "jl:HAR_w300_HV",
         "weight": 1
@@ -101,7 +101,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "136306USD/1M",
+        "pace": "19472USD/1M",
         "price": "12100USD/1M",
         "priority": 113
     }

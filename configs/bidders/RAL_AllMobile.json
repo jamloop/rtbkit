@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 12135,
+        "id": 12131,
         "type": "video",
         "width": -1,
         "height": 0,
@@ -55,7 +55,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 12135,
+    "externalId": 12131,
     "roundRobin": {
         "group": "jl:RAL_AllMobile",
         "weight": 1
@@ -90,7 +90,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "874964USD/1M",
+        "pace": "124994USD/1M",
         "price": "9100USD/1M",
         "priority": 111
     }
