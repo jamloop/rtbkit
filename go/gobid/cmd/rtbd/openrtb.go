@@ -21,6 +21,7 @@ type Exchange struct {
 	Bidders *Bidders
 	Client  *forensiq.Client
 	UserIDs *redis.Client
+	Exelate *Exelate
 }
 
 /*
@@ -276,10 +277,16 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return
 	}
 
-	_, ok := r.([]byte)
+	s, ok := r.([]byte)
 	if !ok {
 		trace.Leave(ctx, "NoStringID")
 		return
+	}
+
+	uid := string(s)
+
+	if e.Exelate != nil {
+		result = e.Exelate.Filter(ctx, uid, bidders)
 	}
 
 	trace.Leave(ctx, "Found")

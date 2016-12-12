@@ -60,6 +60,9 @@ func main() {
 			Handler: &Exchange{
 				Bidders: bidders,
 				Client:  &f,
+				Exelate: &Exelate{
+					Days: 14,
+				},
 			},
 			Name:   *name + ".9176",
 			Tracer: t,

@@ -266,6 +266,11 @@ type BasicBiddingAgent struct {
 	Pace     string `json:"pace"`
 	Price    string `json:"price"`
 	Priority int    `json:"priority"`
+
+	Exelate struct {
+		Required bool  `json:"required"`
+		Segments []int `json:"segments"`
+	} `json:"exelate"`
 }
 
 type Bidders struct {
