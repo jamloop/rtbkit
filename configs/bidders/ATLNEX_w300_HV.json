@@ -37,10 +37,10 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 60,
+        "vrThreshold": 60,
         "unknownStrategy": "nobid"
       },
-      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      "filters": { "include": ["pass-vr"], "exclude": [] }
       },
     "forensiq": {
         "required": true,
