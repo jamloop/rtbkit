@@ -58,6 +58,7 @@
       },
       "filters": { "include": ["pass-cvr"], "exclude": [] }
       }
+	 }
     "externalId": 1212162,
     "roundRobin": {
         "group": "jl:ATLACVRTEST_AllMobile",
