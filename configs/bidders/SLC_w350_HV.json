@@ -5,7 +5,7 @@
     "bidProbability": 1,
     "creatives": [
     {
-        "id": 12164,
+        "id": 12168,
         "type": "video",
         "width": 350,
         "height": 0,
@@ -66,7 +66,7 @@
         "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
     },
-    "externalId": 12164,
+    "externalId": 12168,
     "roundRobin": {
         "group": "jl:SLC_w350_HV",
         "weight": 1
@@ -101,7 +101,7 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "191128USD/1M",
+        "pace": "602255USD/1M",
         "price": "17100USD/1M",
         "priority": 113
     }
