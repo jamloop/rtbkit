@@ -97,7 +97,7 @@ func (e *Exchange) ServeHTTP(ctx context.Context, w http.ResponseWriter, r *http
 	}
 
 	bidders := e.Bidders.Bidders(ids)
-	bidders = e.Filter(ctx, value, bidders)
+	//bidders = e.Filter(ctx, value, bidders)
 
 	bestPrice := ""
 	bestPriority := ""
