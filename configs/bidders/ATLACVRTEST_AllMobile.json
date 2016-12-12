@@ -57,8 +57,15 @@
         "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-cvr"], "exclude": [] }
+      },
+    "forensiq": {
+        "required": true,
+         "config": {
+            "riskScoreThreshold": 65
+         },
+        "filters": { "include": ["pass-forensiq"], "exclude": [] }
       }
-	 }
+    },
     "externalId": 1212162,
     "roundRobin": {
         "group": "jl:ATLACVRTEST_AllMobile",
