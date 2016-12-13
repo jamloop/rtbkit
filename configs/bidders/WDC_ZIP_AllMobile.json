@@ -49,6 +49,16 @@
         }
     }
     ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "cvrThreshold": 60,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-cvr"], "exclude": [] }
+      }
+    },
     "externalId": 1230,
     "roundRobin": {
         "group": "jl:WDC_ZIP_AllMobile",

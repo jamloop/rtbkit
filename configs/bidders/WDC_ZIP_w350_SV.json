@@ -53,10 +53,11 @@
     "viewability": {
       "required": true,
       "config": {
-        "viewTreshold": 60,
+        "vrThreshold": 60,
+        "cvrThreshold": 60,
         "unknownStrategy": "bid"
       },
-      "filters": { "include": ["pass-viewability"], "exclude": [] }
+      "filters": { "include": ["pass-vr", "pass-cvr"], "exclude": [] }
       }
     },
     "externalId": 1231,

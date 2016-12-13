@@ -49,6 +49,16 @@
         }
     }
     ],
+   "augmentations": {
+    "viewability": {
+      "required": true,
+      "config": {
+        "cvrThreshold": 60,
+        "unknownStrategy": "bid"
+      },
+      "filters": { "include": ["pass-cvr"], "exclude": [] }
+      }
+    },
     "externalId": 12146,
     "roundRobin": {
         "group": "jl:TOL_TradcTV",
