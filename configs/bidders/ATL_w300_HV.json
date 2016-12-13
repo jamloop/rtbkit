@@ -43,10 +43,9 @@
       "required": true,
       "config": {
         "vrThreshold": 70,
-        "cvrThreshold": 70,
         "unknownStrategy": "nobid"
       },
-      "filters": { "include": ["pass-vr", "pass-cvr"], "exclude": [] }
+      "filters": { "include": ["pass-vr"], "exclude": [] }
       },
     "forensiq": {
         "required": true,
