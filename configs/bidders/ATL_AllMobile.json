@@ -51,7 +51,7 @@
       "required": true,
       "config": {
         "cvrThreshold": 60,
-        "unknownStrategy": "bid"
+        "unknownStrategy": "nobid"
       },
       "filters": { "include": ["pass-cvr"], "exclude": [] }
       },
