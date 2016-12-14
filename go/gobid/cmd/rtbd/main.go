@@ -8,6 +8,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	"gitlab.com/ericrobert/goredis/redis"
+
 	_ "expvar"
 	_ "net/http/pprof"
 
@@ -60,6 +62,9 @@ func main() {
 			Handler: &Exchange{
 				Bidders: bidders,
 				Client:  &f,
+				UserIDs: &redis.Client{
+					Address: []string{"tcp://172.31.8.117:6479"},
+				},
 				Exelate: &Exelate{
 					Days: 14,
 				},

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/binary"
 	"fmt"
 	"hash/fnv"
 	"io"
@@ -12,7 +13,7 @@ import (
 
 	"github.com/datacratic/gojq"
 	"github.com/datacratic/gometrics/trace"
-	"github.com/datacratic/goredis/redis"
+	"gitlab.com/ericrobert/goredis/redis"
 	"golang.org/x/net/context"
 
 	"../../rtb"
@@ -291,9 +292,9 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return
 	}
 
-	_, err = strconv.ParseInt(string(s), 10, 64)
-	if err != nil {
-		trace.Error(ctx, "BadInt64", err)
+	uid := binary.BigEndian.Uint64(s)
+	if uid == 0 {
+		log.Println("debug", uid)
 	}
 
 	//if e.Exelate != nil {
