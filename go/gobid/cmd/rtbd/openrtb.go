@@ -291,7 +291,7 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return
 	}
 
-	uid, err = strconv.ParseInt(string(s), 10, 64)
+	_, err = strconv.ParseInt(string(s), 10, 64)
 	if err != nil {
 		trace.Error(ctx, "BadInt64")
 	}
