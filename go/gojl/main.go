@@ -372,18 +372,9 @@ func main() {
 
 			text := list[cols[source]]
 
-			if !strings.HasPrefix(text, "http://") {
-				text = strings.TrimPrefix(text, "http://")
-			}
-
-			if !strings.HasPrefix(text, "https://") {
-				text = strings.TrimPrefix(text, "https://")
-			}
-
-			if !strings.HasPrefix(text, "apps://") {
-				text = strings.TrimPrefix(text, "apps://")
-			}
-
+			text = strings.TrimPrefix(text, "http://")
+			text = strings.TrimPrefix(text, "https://")
+			text = strings.TrimPrefix(text, "apps://")
 			text = strings.TrimSuffix(text, "/")
 
 			u, err := url.Parse("http://" + text)
@@ -482,18 +473,9 @@ func main() {
 
 		text := q.PageURL
 
-		if !strings.HasPrefix(text, "http://") {
-			text = strings.TrimPrefix(text, "http://")
-		}
-
-		if !strings.HasPrefix(text, "https://") {
-			text = strings.TrimPrefix(text, "https://")
-		}
-
-		if !strings.HasPrefix(text, "apps://") {
-			text = strings.TrimPrefix(text, "apps://")
-		}
-
+		text = strings.TrimPrefix(text, "http://")
+		text = strings.TrimPrefix(text, "https://")
+		text = strings.TrimPrefix(text, "apps://")
 		text = strings.TrimSuffix(text, "/")
 
 		u, err := url.Parse("http://" + text)
