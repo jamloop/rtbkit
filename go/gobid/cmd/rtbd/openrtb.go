@@ -297,9 +297,9 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		log.Println("debug", uid)
 	}
 
-	//if e.Exelate != nil {
-	//result = e.Exelate.Filter(ctx, uid, bidders)
-	//}
+	if e.Exelate != nil {
+		result = e.Exelate.Filter(ctx, uid, bidders)
+	}
 
 	trace.Leave(ctx, "Found")
 	return

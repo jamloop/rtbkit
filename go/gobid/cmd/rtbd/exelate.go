@@ -4,7 +4,9 @@ import (
 	"bufio"
 	"bytes"
 	"compress/gzip"
+	"encoding/binary"
 	"fmt"
+	"hash/fnv"
 	"io"
 	"io/ioutil"
 	"log"
@@ -31,7 +33,7 @@ type Exelate struct {
 	mu   sync.Mutex
 }
 
-func (e *Exelate) Segments(uid string, list []int) (result map[int]struct{}) {
+func (e *Exelate) Segments(uid uint64, list []int) (result map[int]struct{}) {
 	v := e.data.Load()
 	if v == nil {
 		e.request(list)
@@ -129,7 +131,7 @@ func (e *Exelate) load(list []int) {
 }
 
 type segments struct {
-	users map[string]map[int]struct{}
+	users map[uint64]map[int]struct{}
 	list  map[int]struct{}
 }
 
@@ -146,21 +148,26 @@ func (s *segments) has(list []int) bool {
 
 func (s *segments) add(k int, r io.Reader) {
 	if s.users == nil {
-		s.users = make(map[string]map[int]struct{})
+		s.users = make(map[uint64]map[int]struct{})
+	}
+
+	hash := func(s string) []byte {
+		h := fnv.New64()
+		io.WriteString(h, s)
+		return h.Sum([]byte{})
 	}
 
 	sr := bufio.NewScanner(r)
 	for sr.Scan() {
-		id := sr.Text()
-		if id != "" {
-			m, ok := s.users[id]
-			if !ok {
-				m = make(map[int]struct{})
-				s.users[id] = m
-			}
+		id := binary.BigEndian.Uint64(hash(sr.Text()))
 
-			m[k] = struct{}{}
+		m, ok := s.users[id]
+		if !ok {
+			m = make(map[int]struct{})
+			s.users[id] = m
 		}
+
+		m[k] = struct{}{}
 	}
 }
 
@@ -213,7 +220,7 @@ func (e *Exelate) read(file string) (body []byte) {
 	return
 }
 
-func (e *Exelate) Filter(ctx context.Context, uid string, bidders []*Agent) (result []*Agent) {
+func (e *Exelate) Filter(ctx context.Context, uid uint64, bidders []*Agent) (result []*Agent) {
 	ctx = trace.Enter(ctx, "Exelate")
 
 	list := make([]int, 0)
