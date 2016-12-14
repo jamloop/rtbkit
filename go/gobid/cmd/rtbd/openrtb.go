@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"hash/fnv"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -97,7 +99,7 @@ func (e *Exchange) ServeHTTP(ctx context.Context, w http.ResponseWriter, r *http
 	}
 
 	bidders := e.Bidders.Bidders(ids)
-	//bidders = e.Filter(ctx, value, bidders)
+	bidders = e.Filter(ctx, value, bidders)
 
 	bestPrice := ""
 	bestPriority := ""
@@ -264,9 +266,15 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return
 	}
 
+	hash := func(s string) []byte {
+		h := fnv.New64()
+		io.WriteString(h, s)
+		return h.Sum([]byte{})
+	}
+
 	id = text + ":" + id
 
-	r, err := e.UserIDs.Do("GET", id)
+	r, err := e.UserIDs.Do("GET", hash(id))
 	if err != nil {
 		trace.Error(ctx, "NoREDIS", err)
 		return
@@ -283,11 +291,14 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return
 	}
 
-	uid := string(s)
-
-	if e.Exelate != nil {
-		result = e.Exelate.Filter(ctx, uid, bidders)
+	uid, err = strconv.ParseInt(string(s), 10, 64)
+	if err != nil {
+		trace.Error(ctx, "BadInt64")
 	}
+
+	//if e.Exelate != nil {
+	//result = e.Exelate.Filter(ctx, uid, bidders)
+	//}
 
 	trace.Leave(ctx, "Found")
 	return
