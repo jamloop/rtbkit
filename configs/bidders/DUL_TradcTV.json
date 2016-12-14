@@ -53,7 +53,7 @@
     "viewability": {
       "required": true,
       "config": {
-        "cvrThreshold": 70,
+        "cvrThreshold": 65,
         "unknownStrategy": "bid"
       },
       "filters": { "include": ["pass-cvr"], "exclude": [] }
@@ -94,8 +94,8 @@
     },
     "ext": {
         "budget": "50000000000USD/1M",
-        "pace": "28597USD/1M",
-        "price": "17100USD/1M",
+        "pace": "30269USD/1M",
+        "price": "18100USD/1M",
         "priority": 111
     }
 }
