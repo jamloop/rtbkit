@@ -299,6 +299,11 @@ ViewabilityAugmentor::handleHttpResponse(
                 double completedViewRateThreshold = getThreshold("cvrThreshold");
                 double clickThroughRateThreshold = getThreshold("ctrThreshold");
                 double viewableCompletedViewRateThreshold = getThreshold("vcvrThreshold");
+                bool exchangeFallback = true;
+                if (agentAugConfig.config.isMember("exchangeFallback")) {
+                    auto fallback = agentAugConfig.config["exchangeFallback"];
+                    exchangeFallback = fallback.asBool();
+                }
 
                 if (legacyViewThreshold != 0 && viewableRateThreshold == 0) {
                     viewableRateThreshold = legacyViewThreshold;
@@ -313,33 +318,35 @@ ViewabilityAugmentor::handleHttpResponse(
                         recordHit("accounts.%s.result.%s.%s", account.toString(), br->exchange, result);
                     };
 
-                    auto ev = getExchangeViewability(br, viewableRateThreshold);
-                    if (ev == ExchangeViewability::Viewable) {
-                        result[account].tags.insert("pass-viewability");
-                        result[account].tags.insert("pass-vr");
-
-                        recordExchangeResult("viewable");
-                        recordResult(account, "passed");
-                        continue;
-
-                    } else if (ev == ExchangeViewability::NonViewable) {
-                        recordExchangeResult("nonviewable");
-                        recordResult(account, "filtered");
-                        continue;
-                    } else {
-                        recordExchangeResult("unknown");
-
-                        auto strategy = agentAugConfig.config.get("unknownStrategy", "nobid").asString();
-                        if (strategy != "nobid" && strategy != "bid") {
-                            recordResult(account, "invalidStrategy");
-                            continue;
-                        }
-                        if (strategy == "bid") {
+		    if (exchangeFallback) {
+                        auto ev = getExchangeViewability(br, viewableRateThreshold);
+                        if (ev == ExchangeViewability::Viewable) {
                             result[account].tags.insert("pass-viewability");
                             result[account].tags.insert("pass-vr");
+
+                            recordExchangeResult("viewable");
                             recordResult(account, "passed");
                             continue;
+                        } else if (ev == ExchangeViewability::NonViewable) {
+                            recordExchangeResult("nonviewable");
+                            recordResult(account, "filtered");
+                            continue;
                         }
+		    }
+
+                    recordExchangeResult("unknown");
+
+                    auto strategy = agentAugConfig.config.get("unknownStrategy", "nobid").asString();
+                    if (strategy != "nobid" && strategy != "bid") {
+                        recordResult(account, "invalidStrategy");
+                        continue;
+                    }
+		    
+		    if (strategy == "bid") {
+                        result[account].tags.insert("pass-viewability");
+                        result[account].tags.insert("pass-vr");
+                        recordResult(account, "passed");
+                        continue;
                     }
 
                 } else {
