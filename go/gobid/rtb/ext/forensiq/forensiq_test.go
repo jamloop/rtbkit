@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/datacratic/gojq"
+	"gitlab.com/ericrobert/gojq"
 	"golang.org/x/net/context"
 
 	"../../../rtb"

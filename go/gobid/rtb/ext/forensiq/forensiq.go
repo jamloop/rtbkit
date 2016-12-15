@@ -6,9 +6,9 @@ import (
 	"net/url"
 	"sync"
 
-	"github.com/datacratic/gojq"
 	"github.com/datacratic/gometrics/defaults"
 	"github.com/datacratic/gometrics/trace"
+	"gitlab.com/ericrobert/gojq"
 	"golang.org/x/net/context"
 
 	"../../../rtb"
