@@ -82,12 +82,13 @@ func (e *Exelate) refresh() {
 
 		e.mu.Unlock()
 
+		log.Println("loading exelate data", list)
 		e.load(list)
 	}
 
 	work()
 
-	tick := time.Tick(15 * time.Minute)
+	tick := time.Tick(5 * time.Minute)
 	for _ = range tick {
 		work()
 	}

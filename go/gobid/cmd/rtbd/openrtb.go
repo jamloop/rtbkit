@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/datacratic/gojq"
+	"github.com/EricRobert/gojq"
 	"github.com/datacratic/gometrics/trace"
 	"gitlab.com/ericrobert/goredis/redis"
 	"golang.org/x/net/context"
@@ -260,9 +260,28 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return
 	}
 
-	q := value.NewQuery()
-	id, err := q.String("user", "id")
-	if err != nil {
+	ids := make([]struct {
+		name string
+		keys []string
+		id   string
+		r    interface{}
+		err  error
+	}, 2)
+
+	ids[0].name = "UID"
+	ids[0].keys = []string{"user", "id"}
+	ids[1].name = "IFA"
+	ids[1].keys = []string{"device", "ifa"}
+
+	found := false
+	for i := range ids {
+		ids[i].id = value.String(ids[i].keys...)
+		if ids[i].id != "" {
+			found = true
+		}
+	}
+
+	if !found {
 		trace.Leave(ctx, "NoUserID")
 		return
 	}
@@ -273,32 +292,43 @@ func (e *Exchange) Filter(ctx context.Context, value *jq.Value, bidders []*Agent
 		return h.Sum([]byte{})
 	}
 
-	id = text + ":" + id
+	done := make(chan int, len(ids))
 
-	r, err := e.UserIDs.Do("GET", hash(id))
-	if err != nil {
-		trace.Error(ctx, "NoREDIS", err)
-		return
+	for i := range ids {
+		i := i
+
+		go func() {
+			s := text + ":" + ids[i].id
+			ids[i].r, ids[i].err = e.UserIDs.Do("GET", hash(s))
+			done <- i
+		}()
 	}
 
-	if r == nil {
-		trace.Leave(ctx, "NoID")
-		return
-	}
+	for _ = range ids {
+		i := <-done
 
-	s, ok := r.([]byte)
-	if !ok {
-		trace.Leave(ctx, "NoStringID")
-		return
-	}
+		if ids[i].err != nil {
+			trace.Error(ctx, "NoREDIS", err)
+			return
+		}
 
-	uid := binary.BigEndian.Uint64(s)
-	if uid == 0 {
-		log.Println("debug", uid)
-	}
+		name := ids[i].name
 
-	if e.Exelate != nil {
-		result = e.Exelate.Filter(ctx, uid, bidders)
+		if ids[i].r == nil {
+			trace.Leave(ctx, name+".NoID")
+			return
+		}
+
+		s, ok := ids[i].r.([]byte)
+		if !ok {
+			trace.Leave(ctx, name+".NoStringID")
+			return
+		}
+
+		uid := binary.BigEndian.Uint64(s)
+		if e.Exelate != nil {
+			result = e.Exelate.Filter(ctx, uid, result)
+		}
 	}
 
 	trace.Leave(ctx, "Found")
