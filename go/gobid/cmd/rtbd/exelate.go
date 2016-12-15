@@ -88,7 +88,7 @@ func (e *Exelate) refresh() {
 
 	work()
 
-	tick := time.Tick(5 * time.Minute)
+	tick := time.Tick(15 * time.Minute)
 	for _ = range tick {
 		work()
 	}

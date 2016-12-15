@@ -418,6 +418,8 @@ func Import(pattern string) (result []*Agent, err error) {
 		item, err := parse(filename)
 		if err == nil {
 			result = append(result, item)
+		} else {
+			log.Println(filename, err)
 		}
 	}
 
