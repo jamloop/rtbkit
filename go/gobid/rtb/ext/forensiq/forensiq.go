@@ -195,8 +195,9 @@ func (c *Client) prepare(r rtb.Request) (result url.Values, err error) {
 	}
 
 	extract := func(key string, value []string) {
-		item := extractor.Extract(value...)
-		if item == nil {
+		var item interface{}
+		err := extractor.Extract(&item, value...)
+		if err != nil {
 			return
 		}
 

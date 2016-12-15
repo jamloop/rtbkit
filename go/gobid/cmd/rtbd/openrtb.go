@@ -223,15 +223,8 @@ func (e *Exchange) forensiqRiskScore(ctx context.Context, r rtb.Request) (value 
 		return
 	}
 
-	score := extractor.Extract("riskScore")
-	if score == nil {
+	if err = extractor.Extract(&value, "riskScore"); err != nil {
 		trace.Leave(ctx, "Error.NoRiskScore")
-		return
-	}
-
-	value, ok = score.(float64)
-	if !ok {
-		trace.Leave(ctx, "Error.NoRiskScoreValue")
 		return
 	}
 

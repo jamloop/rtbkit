@@ -14,7 +14,7 @@ type Processor interface {
 }
 
 type Extractor interface {
-	Extract(name ...string) interface{}
+	Extract(p interface{}, name ...string) error
 }
 
 type Components struct {
