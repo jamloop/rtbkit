@@ -98,7 +98,7 @@ func (e *Exelate) load(list []int) {
 
 	days := e.Days
 	if 0 == days {
-		days = 60
+		days = 30
 	}
 
 	now := time.Now().UTC()
@@ -115,6 +115,7 @@ func (e *Exelate) load(list []int) {
 					continue
 				}
 
+				log.Println("using exelate:", name)
 				s.add(j, z)
 			}
 		}
@@ -233,6 +234,11 @@ func (e *Exelate) Filter(ctx context.Context, uid uint64, bidders []*Agent) (res
 	}
 
 	m := e.Segments(uid, list)
+	if m == nil {
+		result = bidders
+		trace.Leave(ctx, "NotFound")
+		return
+	}
 
 	for _, b := range bidders {
 		s := b.Parameters.Exelate.Segments
@@ -241,20 +247,13 @@ func (e *Exelate) Filter(ctx context.Context, uid uint64, bidders []*Agent) (res
 			continue
 		}
 
-		if m == nil {
-			if !b.Parameters.Exelate.Required {
-				result = append(result, b)
-			}
-
-			continue
-		}
-
-		trace.Count(ctx, b.Account[0]+".Test", 1)
+		metric := "Bidders." + b.Account[0]
+		trace.Count(ctx, metric+".Test", 1)
 
 		for _, k := range s {
 			if _, ok := m[k]; ok {
 				result = append(result, b)
-				trace.Count(ctx, b.Account[0]+".Pass", 1)
+				trace.Count(ctx, metric+".Pass", 1)
 				break
 			}
 		}

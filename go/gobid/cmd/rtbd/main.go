@@ -66,7 +66,7 @@ func main() {
 					Address: []string{"tcp://172.31.8.117:6479"},
 				},
 				Exelate: &Exelate{
-					Days: 14,
+					Days: 30,
 				},
 			},
 			Name:   *name + ".9176",
