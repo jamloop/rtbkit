@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EricRobert/gojq"
 	"github.com/datacratic/gometrics/trace"
+	"gitlab.com/ericrobert/gojq"
 	"gitlab.com/ericrobert/goredis/redis"
 	"golang.org/x/net/context"
 
