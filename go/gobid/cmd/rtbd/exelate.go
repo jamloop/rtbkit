@@ -228,10 +228,20 @@ func (e *Exelate) Filter(ctx context.Context, uid uint64, bidders []*Agent) (res
 	list := make([]int, 0)
 
 	for _, b := range bidders {
+		if b == nil {
+			continue
+		}
+
 		s := b.Parameters.Exelate.Segments
 		if len(s) != 0 {
 			list = append(list, s...)
 		}
+	}
+
+	if len(list) == 0 {
+		result = bidders
+		trace.Leave(ctx, "NoExelate")
+		return
 	}
 
 	m := e.Segments(uid, list)
